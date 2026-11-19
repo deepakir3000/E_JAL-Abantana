@@ -1,0 +1,345 @@
+.login-container {
+    background-color: #0e0e0e;
+    background-image: url("../../../assets/images/WaterLogin/login\ screen\ bg.jpg");
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Poppins";
+    .inner-container {
+        width: 100%;
+        height: 100%;
+        // background-color: #ffff;
+        background-position-y: 5rem;
+        background-position-x: center, 49vw;
+        animation: change-background 12s infinite;
+        .user-apply{
+            h2{
+                color: aliceblue;
+            }
+            p{
+                a{
+                    // color: aliceblue;
+                    cursor: pointer;
+                }
+                a:hover {
+                    background-color: blueviolet;
+                    color: #fff;
+                  }
+                // color: aliceblue;
+            }
+        }
+        .form-container {
+            position: absolute;
+            // height: 70vh;
+            // width: 50vw;
+            background-color: #fff;
+            top: 15vh;
+            margin-left: 12%;
+            border-radius: 23px;
+            box-shadow: -1px 5px 17px black;
+
+            .login-left {
+                background-image: url("./../../../assets//images//WaterLogin/login\ design\ bg.png");
+                background-repeat: no-repeat;
+                background-position-y: center;
+                border-top-left-radius: 23px;
+                border-bottom-left-radius: 23px;
+                .e-jala img {
+                    width: 192px;
+                    margin-left: 42px;
+                    margin-top: 28px;
+                }
+                .odisha-logo img {
+                    height: 100px;
+                    width: 100px;
+                    margin-top: 25px;
+                    margin-left: 84px;
+                }
+                .water-head {
+                    text-align: center;
+                    .dept {
+                        font-family: Poppins;
+                        font-size: 18px;
+                        margin-left: 17px;
+                        color: #3565ad;
+                    }
+                    .wtr {
+                        font-family: Poppins;
+                        font-size: 20px;
+                        font-weight: 600;
+                        margin-left: 17px;
+                        color: #29569a;
+                    }
+                }
+                .wh-ap {
+                    font-family: poppins;
+                    cursor: pointer;
+                    color: white;
+                    margin-top: 80px;
+                    margin-left: 65px;
+                    text-shadow: 1px 1px 1px black;
+                }
+            }
+            .login-right {
+                padding-top: 6vh;
+                padding-bottom: 1vh;
+                .fa {
+                    font-size: 35px;
+                    color: #908f8f;
+                }
+                .captch-style {
+                    font-size: 26px;
+                    cursor: pointer;
+                    padding-top: 18px;
+                    margin-left: -16px;
+                    color: green;
+                }
+                .form-group {
+                    border-bottom: 1px solid #717171;
+                }
+                .form-control {
+                    border: none;
+                    box-shadow: none;
+                    letter-spacing: 0.1rem;
+                }
+                .custom-check {
+                    color: #3565ad;
+                    font-size: 26px;
+                }
+                .custom-label {
+                    font-size: 15px;
+                    color: #908f8f;
+                    font-family: poppins;
+                }
+                .custom-btn {
+                    background-color: #061a4c;
+                    height: 41px;
+                    width: 157px;
+                    border: none;
+                    border-radius: 22px;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-left: 53px;
+                }
+            }
+            .register-right {
+                padding-top: 6vh;
+                .fa {
+                    font-size: 27px;
+                    color: #908f8f;
+                }
+                .form-group {
+                    border-bottom: 1px solid #717171;
+                }
+                .captch-style {
+                    font-size: 26px;
+                    cursor: pointer;
+                    padding-top: 18px;
+                    margin-left: -16px;
+                    color: green;
+                }
+                .form-control {
+                    border: none;
+                    box-shadow: none;
+                    letter-spacing: 0.1rem;
+                }
+                .custom-check {
+                    color: #3565ad;
+                    font-size: 26px;
+                }
+                .custom-label {
+                    font-size: 15px;
+                    color: #908f8f;
+                    font-family: poppins;
+                }
+                .custom-btn {
+                    background-color: #061a4c;
+                    height: 41px;
+                    width: 157px;
+                    border: none;
+                    border-radius: 22px;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: 600;
+                    margin-left: 53px;
+                }
+            }
+        }
+        .quote{
+            position: fixed;
+            bottom: 20px;
+            color: white;
+            width: 100vw;
+            font-size: 18px;
+            // font-style: italic;
+        } 
+    }
+}
+
+.top-label {
+    font-size: 27px;
+    color: #447cd2;
+    text-shadow: 0px 0px 1px #010b10;
+    background-color: #cbf3fd;
+    margin-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 14px;
+    box-shadow: 0px 1px 7px grey;
+}
+.footer {
+    width: 100%;
+    img{
+        width: 367px;
+        height: 50px;
+        margin-left: -12px;
+        margin-top: 15px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .form-container {
+        position: relative !important;
+        top: 1vh !important;
+        margin-left: 0 !important;
+    }
+    .login-container {
+        overflow-y: auto;
+    }
+    .login-left {
+        background-size: cover !important;
+        background-position: 50% 61% !important;
+        border-radius: 23px !important;
+        height: 254px !important;
+    }
+    .odisha-logo img {
+        margin-top: 3px !important;
+        margin-left: 113px !important;
+    }
+    .login-right {
+        padding-top: 4vh !important;
+    }
+    .register-right {
+        padding-top: 4vh !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .login-container {
+        overflow-y: auto;
+    }
+    .odisha-logo img {
+        margin-top: 3px !important;
+        margin-left: 87px !important;
+    }
+    .custom-btn {
+        margin-left: 38px !important;
+    }
+    .login-left {
+        height: 238px !important;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .form-container {
+        position: relative !important;
+        top: 1vh !important;
+        margin-left: 0 !important;
+    }
+    .login-container {
+        overflow-y: auto;
+    }
+    .login-left {
+        background-size: cover !important;
+        background-position: 50% 61% !important;
+        border-radius: 23px !important;
+        height: 254px !important;
+    }
+    .odisha-logo img {
+        margin-top: 3px !important;
+        margin-left: 113px !important;
+    }
+    .login-right {
+        padding-top: 4vh !important;
+    }
+    .register-right {
+        padding-top: 4vh !important;
+    }
+    .custom-btn {
+        margin-left: 76px !important;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .form-container {
+        position: relative;
+        margin-left: 0;
+        top: 22vh;
+    }
+    .login-right {
+        padding-top: 15vh;
+    }
+    .register-right {
+        padding-top: 8vh;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .form-container {
+        top: 22vh;
+        margin-left: 14vh;
+    }
+    .login-right {
+        padding-top: 13vh;
+    }
+    .register-right {
+        padding-top: 7vh;
+    }
+}
+
+::ng-deep .modal-dialog {
+    width: 80vw;
+    margin: 1rem 5rem;
+    
+}
+::ng-deep .modal-content{
+    width: 80vw;
+}
+
+.pdf-c{
+    font-weight: bolder !important;
+    color: #212529 !important;
+}
+
+// .modal-content ::ng-deep .custom-modal{
+//     width: 50vw;
+// }
+
+
+.date {
+    position: fixed; 
+    bottom: 2%; 
+    right: 5%; 
+    color: aliceblue;
+}
+
+.fs-14{
+    font-size: 14px !important;
+}
+
+.form-label {
+    align-self: center;
+    margin-right: 5px;
+    font-size: 12px; 
+    font-weight: 600;
+}
+.form-select{
+    border-radius: 5px !important;
+}
+
+.text-black{
+    color: #000000;
+}

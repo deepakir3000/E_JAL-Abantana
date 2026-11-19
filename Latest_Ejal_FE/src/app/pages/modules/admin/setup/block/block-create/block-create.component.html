@@ -1,0 +1,89 @@
+<!-- circle card details -->
+<div class="card">
+    <!-- card title -->
+    <div class="card-header">
+        <div class="card-title">{{blockModType}} Block/ULB Details
+            <!-- <div class="float-right">
+                <button class="btn btn-primary" (click)="backButton()"><i class="fa fa-arrow-left"></i> Back</button>
+            </div> -->
+            <span class="back-button" title="Go Back" (click)=" backButton()">
+                    <i class="fa fa-reply "></i>
+                    <span>Back</span>
+            </span>
+        </div>
+
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <form [formGroup]="blockForm" (ngSubmit)="submitBlockDetails(blockForm.value)">
+            <div class="row">
+                <div class="col-xl-6">
+                    <!-- Division Name -->
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">State Name </label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="stateId" formControlName="stateId">
+                                <!-- (change)="getDistrict()" -->
+                                <option value="">Select Any One</option>
+                                <option *ngFor="let option of state" [value]="option.id">{{option.state_name}}</option>
+                                <!-- <option *ngFor="let option of distDtl" [value]="option.id">{{option.district_name}}</option> -->
+                            </select>
+                            <small class="text-error" *ngIf="blockForm.controls.stateId.touched && blockForm.controls.stateId.invalid">
+                                <span *ngIf="blockForm.controls.stateId.errors?.required">not a valid state name</span>
+                                <span *ngIf="blockForm.controls.stateId.errors?.invalidField">not a valid state</span>
+                        </small>
+
+                        </div>
+                    </div>
+                    <div class="form-group row required">
+                        <label for="districtId" class="col-sm-4 col-form-label">District Name </label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="districtId" formControlName="districtId">
+                                <option value="">Select Any One</option>
+                                <option *ngFor="let option of district" [value]="option.id">{{option.district_name}}</option>
+                                <!-- <option *ngFor="let option of distDtl" [value]="option.id">{{option.district_name}}</option> -->
+
+                            </select>
+                            <small class="text-error" *ngIf="blockForm.controls.districtId.touched && blockForm.controls.districtId.invalid">
+                                <span *ngIf="blockForm.controls.districtId.errors?.required">not a valid district name</span>
+                                <span *ngIf="blockForm.controls.districtId.errors?.invalidField">not a valid district</span>
+                        </small>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xl-6">
+                    <div class="form-group row required">
+                        <label for="blockName" class="col-sm-4 col-form-label">Block Name </label>
+                        <div class="col-sm-8">
+                            <input type="text" autocomplete="off" aria-autocomplete="none" formControlName="blockName" class="form-control" id="Block Name" placeholder="Block Name">
+                            <small class="text-error" *ngIf="blockForm.controls.blockName.touched && blockForm.controls.blockName.invalid">
+                                    <span *ngIf="blockForm.controls.blockName.errors?.required">*Required</span>
+                                    <span *ngIf="blockForm.controls.blockName.errors?.invalidName">Invalid Block name</span>
+                                </small>
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row" *ngIf="blockModType === 'Edit'">
+                        <label for="statusId" class="col-sm-4 col-form-label">Status: </label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="statusId" formControlName="statusId">
+                                <option value="">Select Any One</option>
+                                <option *ngFor="let option of status" [value]="option.statusId">{{option.status}}</option>
+                            </select>
+                            <small class="text-error" *ngIf="blockForm.controls.statusId.touched && blockForm.controls.statusId.invalid">
+                                <span *ngIf="blockForm.controls.statusId.errors?.required">required</span>
+                                <span *ngIf="blockForm.controls.statusId.errors?.invalidField">not a valid status</span>
+                        </small>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <!-- form submit button -->
+            <div align="center">
+                <button type="button" class="btn btn-warning" (click)="resetButton()">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]='blockForm.invalid'>Submit</button>
+                <button type="button" class="btn btn-md btn-info" (click)="enableEdit()">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+.vertical {
+    font-family: $font1;
+    position: $ver-menu-position;
+    top: $ver-menu-loc-fr-top;
+    left: $ver-menu-loc-fr-left;
+    width: 0;
+    height: $ver-menu-height;
+    background-color: $ver-menu-bg-color;
+    color: $ver-menu-txt-color;
+    visibility: collapse;
+    opacity: 0;
+    white-space: nowrap;
+    overflow-x: hidden;
+    @include transition(all, 0.5s, linear);
+
+    &.extend {
+        width: $ver-menu-width;
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .vNav {
+        @include ver-ul-nav($ver-menu-pl);
+        margin-top: $head-height;
+
+        .menu-link {
+            @include ver-link($ver-menu-link-color, $ver-menu-link-bg-color, $ver-menu-pad-layout);
+
+            .menu-icon {
+                @include ver-link-icon($ver-menu-icon-pad, $ver-menu-icon-wt-ht-sz);
+            }
+
+            .menu-txt {
+                @include ver-link-txt(0.25rem, $ver-menu-link-font-size, $ver-menu-link-font-wt);
+            }
+        }
+        .menu-link:hover {
+            background-color: rgb(54, 105, 216);
+        }
+        .menu-item {
+            &.active-link {
+                background-color: rgb(34, 90, 212);
+                .menu-link {
+                    font-weight: 900;
+                }
+            }
+        }
+
+        .sub-menu-item {
+            .sub-menu-link {
+                @include ver-link($ver-menu-link-color, $ver-menu-link-bg-color, $ver-menu-pad-layout);
+
+                // @include transition(all, 0.3s, ease-in-out);
+                .menu-icon {
+                    @include ver-link-icon($ver-menu-icon-pad, $ver-menu-icon-wt-ht-sz);
+                }
+
+                .menu-txt {
+                    @include ver-link-txt(0.25rem, $ver-menu-link-font-size, $ver-menu-link-font-wt);
+                }
+
+                &::after {
+                    content: '\25B8';
+                    position: absolute;
+                    right: 0;
+                    @include transition(all, 0.25s, ease-in-out);
+                }
+
+                &.active-link {
+                    background-color: rgb(34, 90, 212);
+                    &::after {
+                        @include rotate(90deg);
+                    }
+                }
+                &:hover {
+                    background-color: rgb(34, 90, 212);
+                }
+            }
+
+            .sub-menu-item-container {
+                @include ver-ul-nav($ver-submenu-pl);
+                visibility: collapse;
+                opacity: 0;
+                max-height: 0;
+                background-color: $ver-submenu-cont-bg-color;
+                overflow-x: hidden;
+                @include transition(all, 0.5s, linear);
+
+                .menu-txt {
+                    @include ver-link-txt(0.25rem, $ver-submenu-link-font-size, $ver-submenu-link-font-wt);
+                }
+
+                &.show {
+                    opacity: 1;
+                    visibility: visible;
+                    max-height: $ver-submenu-container-max-height;
+                }
+            }
+        }
+    }
+}

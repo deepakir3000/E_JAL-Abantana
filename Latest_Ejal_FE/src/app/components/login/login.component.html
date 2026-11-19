@@ -1,0 +1,781 @@
+<div class="container-fluid login-container">
+    <!-- <div class="text-center">
+        <label class="top-label">Online Water Allocation System</label>
+    </div> -->
+
+    <div class="inner-container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row form-container">
+                    <div class="col-sm-5 login-left">
+                        <div class="row e-jala">
+                            <img src="assets/images/WaterLogin/E jala abantana.png">
+                        </div>
+                        <div class="row odisha-logo">
+                            <img src="assets/icon/odisha_logo_blue.png">
+                        </div>
+                        <div class="row water-head mt-lg-2">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="dept">Department of</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <label class="wtr">Water Resources</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <label class="wh-ap" (click)=" openFeedBackModal(apModal)">Who Can Apply?</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 login-right" [hidden]="!isLogin">
+                        <form [formGroup]="loginForm" (ngSubmit)="getLoginData(loginForm.value)">
+                            <div class="row mt-6">
+                                <div class="col-12">
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="text" class="form-control" autocomplete="off"
+                                                formControlName="userName" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-lock"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="password" onselectstart="return false" onpaste="return false;"
+                                                onCopy="return false" onCut="return false" onDrag="return false"
+                                                onDrop="return false" class="form-control" autocomplete="off"
+                                                formControlName="password" placeholder="Password">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-6 px-0">
+                                            <div class="" #captcha></div>
+                                        </div>
+                                        <div class="col-1 px-0">
+                                            <i class="fa fa-refresh captch-style" aria-hidden="true"
+                                                (click)="getCaptcha()"></i>
+                                        </div>
+                                        <div class="col-5 px-0">
+                                            <input type="text" class="form-control" (keyup)="getCaptchaValue($event)"
+                                                placeholder="Enter Captcha">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-2">
+                                    <i *ngIf="isChecked" class="fa fa-check-square custom-check pull-right"
+                                        (click)="tooggle()"></i>
+                                    <i *ngIf="!isChecked" class="fa fa-square custom-check pull-right"
+                                        (click)="tooggle()"></i>
+                                </div>
+                                <div class="col-9 pl-0">
+                                    <label class="custom-label pull-left">Remember me?</label>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-12">
+                                    <button type="submit" class="custom-btn">Log in</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-1">
+                            <div class="col-12 pl-5 ml-5">
+                                <label class="custom-label"><a href="#" (click)="openForgotPasswordForm()">Forgot
+                                        Password</a></label>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-12 pl-4 ml-2">
+                                <label class="custom-label">Don't have an account?<a href="#"
+                                        (click)="openRegistrationForm()">REGISTER</a></label>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <img src="assets/images/WaterLogin/Publication2.jpg">
+                        </div>
+                    </div>
+                    <div class="col-sm-7 register-right" [hidden]="!isRegister">
+                        <form [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm.value)">
+                            <div class="row mt-6">
+                                <div class="col-12">
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-user-circle"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="text" class="form-control" autocomplete="off"
+                                                formControlName="firstName" placeholder="Firstname">
+                                        </div>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="registerForm.controls.firstName.touched && registerForm.controls.firstName.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.firstName.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.firstName.errors?.invalidField">Invalid
+                                            Name</span>
+                                    </small>
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-user"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="text" class="form-control" autocomplete="off"
+                                                formControlName="lastName" placeholder="Lastname">
+                                        </div>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="registerForm.controls.lastName.touched && registerForm.controls.lastName.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.lastName.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.lastName.errors?.invalidField">Invalid Last
+                                            Name</span>
+                                    </small>
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-at"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="email" class="form-control" formControlName="email"
+                                                placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="registerForm.controls.email.touched && registerForm.controls.email.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.email.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.email.errors?.invalidEmail">Invalid
+                                            E-mail</span>
+                                    </small>
+                                    <div class="form-group row">
+                                        <div class="col-2 px-0">
+                                            <i class="fa fa-phone-square"></i>
+                                        </div>
+                                        <div class="col-10 px-0">
+                                            <input type="text" class="form-control" autocomplete="off"
+                                                formControlName="phone" placeholder="Phone No">
+                                        </div>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="registerForm.controls.phone.touched && registerForm.controls.phone.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.phone.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="registerForm.controls.phone.errors?.pattern">Invalid
+                                            Phone Number</span>
+                                    </small>
+                                    <div class="form-group row">
+                                        <div class="col-6 px-0">
+                                            <div class="" #regCaptcha></div>
+                                        </div>
+                                        <div class="col-1 px-0">
+                                            <i class="fa fa-refresh captch-style" aria-hidden="true"
+                                                (click)="getCaptcha()"></i>
+                                        </div>
+                                        <div class="col-5 px-0">
+                                            <input type="text" class="form-control" (keyup)="getCaptchaValue($event)"
+                                                placeholder="Enter Captcha">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 pr-2">
+                                    <i *ngIf="isChecked" class="fa fa-check-square custom-check pull-right"
+                                        (click)="tooggle()"></i>
+                                    <i *ngIf="!isChecked" class="fa fa-square custom-check pull-right"
+                                        (click)="tooggle()"></i>
+                                </div>
+                                <div class="col-9 pl-0">
+                                    <label class="custom-label pull-left">Remember me?</label>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-12">
+                                    <button type="submit" class="custom-btn">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-4">
+                            <div class="col-12 pl-4 ml-2">
+                                <label class="custom-label">Already have an account?<a href="#"
+                                        (click)="openLoginForm()">Login</a></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 register-right" [hidden]="!isForgotPass">
+                        <form [formGroup]="forgotPassForm" (ngSubmit)="submitForgotPassForm(forgotPassForm.value)">
+                            <div class="row mt-6" >
+                                <div class="col-12">
+                                    <div class="" [hidden]="!bVerify">
+                                        <div class="form-group row">
+                                            <div class="col-2 px-0">
+                                                <i class="fa fa-user-circle"></i>
+                                            </div>
+                                            <div class="col-10 px-0">
+                                                <input type="text" class="form-control" autocomplete="off"
+                                                    formControlName="userName" placeholder="User Name"
+                                                    [ngClass]="{'readonly-1': disableSendReq}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div class="col-2 px-0">
+                                                <i class="fa fa-user-circle"></i>
+                                            </div>
+                                            <div class="col-10 px-0">
+                                                <input type="text" class="form-control" autocomplete="off"
+                                                    formControlName="mobileNo" placeholder="Mobile No"
+                                                    [ngClass]="{'readonly-1': disableSendReq}">
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <!-- <small class="text-error ml-3" *ngIf="forgotPassForm.controls.phone.touched && forgotPassForm.controls.phone.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="forgotPassForm.controls.phone.errors?.required">Required</span>
+                                        <span class="text-danger" *ngIf="forgotPassForm.controls.phone.errors?.pattern">Invalid
+                                            Phone Number</span>
+                                    </small> -->
+                                    <div class="" [hidden]="!bVerify">
+                                        <div class="form-group row">
+                                            <div class="col-6 px-0">
+                                                <div class="" #otpCaptcha [innerHtml]="captchaSvg"></div>
+                                            </div>
+                                            <div class="col-1 px-0">
+                                                <i class="fa fa-refresh captch-style" style="cursor: pointer;" aria-hidden="true"
+                                                    (click)="getCaptchaApp()"></i>
+                                            </div>
+                                            <div class="col-5 px-0">
+                                                <input type="text" class="form-control" placeholder="Enter Captcha" (keyup)="otpverifyCaptcha($event)">
+                                            </div>
+                                            <!-- <div class="mt-3">
+                                                <button type="button" class="btn btn-outline-primary"
+                                                    (click)="getApplicationStatus()">Submit</button>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-10 px-0 text-center">
+                                            <button *ngIf="disableReSendReq" type="button"
+                                                class="btn btn-primary  pt-1 pb-1"
+                                                [disabled]="disableSendReq? disableSendReq : forgotPassForm.controls.userName.invalid"
+                                                (click)="sendOtp(forgotPassForm.value)">Send otp</button>
+                                            <button *ngIf="!disableReSendReq" type="button"
+                                                class="btn btn-primary  pt-1 pb-1"
+                                                [disabled]="disableReSendReq? disableReSendReq : forgotPassForm.controls.userName.invalid"
+                                                (click)="reSendOtp(forgotPassForm.value)">Resend otp</button>
+                                        </div>
+                                    </div>
+                                    <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.firstName.touched && citizenForm.controls.firstName.invalid">
+                                            <span class="text-danger" *ngIf="citizenForm.controls.firstName.errors?.required">Required</span>
+                                            <span class="text-danger" *ngIf="citizenForm.controls.firstName.errors?.invalidField">Invalid Name</span>
+                                        </small> -->
+                                        <div class="" [hidden]="!isVerify">
+                                            <div class="form-group row">
+                                                <div class="col-2 px-0">
+                                                    <i class="fa fa-key"></i>
+                                                </div>
+                                                <div class="col-10 px-0 d-flex">
+                                                    <input type="text" class="form-control" formControlName="otp"
+                                                    placeholder="otp" maxlength="4" pattern="\d*">
+                                                        <button type="button" class="btn btn-primary" (click)="verifyOtp()"> Verify</button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-2 px-0">
+                                                    <i class="fa fa-lock"></i>
+                                                </div>
+                                                <div class="col-10 px-0">
+                                                    <input type="password" class="form-control" formControlName="password"
+                                                        placeholder="Password">
+                                                </div>
+                                            </div>
+                                            <small class="text-error ml-3"
+                                                *ngIf="forgotPassForm.controls.password.touched && forgotPassForm.controls.password.invalid">
+                                                <span class="text-danger"
+                                                    *ngIf="forgotPassForm.controls.password.errors?.required">Required</span>
+                                                <span class="text-danger"
+                                                    *ngIf="forgotPassForm.controls.password.errors?.pattern">Password is
+                                                    weak</span>
+                                                <span *ngIf="forgotPassForm.controls.password.errors?.pattern"><i
+                                                        style="font-size: 20px; margin-left: 10px; cursor: pointer;"
+                                                        class="fa fa-info-circle" title="Password must contains one digit from 0-9, one lowercase characters, 
+                                                    one uppercase characters, one special symbols from (@#$%) 
+                                                    and the length should be at least 6 characters."></i></span>
+                                            </small>
+                                            <div class="form-group row">
+                                                <div class="col-2 px-0">
+                                                    <i class="fa fa-lock"></i>
+                                                </div>
+                                                <div class="col-10 px-0">
+                                                    <input type="password" class="form-control" formControlName="cnfPass"
+                                                        placeholder="Confirm Password">
+                                                    <small class="text-error" *ngIf="forgotPassForm.controls.cnfPass.touched">
+                                                        <span
+                                                            *ngIf="forgotPassForm.controls.cnfPass.errors?.required">required</span>
+                                                    </small>
+                                                </div>
+                                                <!-- <small class="form-text text-danger text-muted">Confirm Password should be same as Password.</small> -->
+                                            </div>
+                                        </div>
+                                    <!-- <div class="form-group row">
+                                        <div class="col-6 px-0">
+                                            <div class="" #frgtCaptcha></div>
+                                        </div>
+                                        <div class="col-1 px-0">
+                                            <i class="fa fa-refresh captch-style" aria-hidden="true" (click)="getCaptcha()"></i>
+                                        </div>
+                                        <div class="col-5 px-0">
+                                            <input type="text" class="form-control" formControlName="captcha" placeholder="Enter Captcha">
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <!--         <div class="row">
+                                    <div class="col-3 pr-2">
+                                        <i *ngIf="isChecked" class="fa fa-check-square custom-check pull-right" (click)="tooggle()"></i>
+                                        <i *ngIf="!isChecked" class="fa fa-square custom-check pull-right" (click)="tooggle()"></i>
+                                    </div>
+                                    <div class="col-9 pl-0">
+                                        <label class="custom-label pull-left">Remember me?</label>
+                                    </div>
+                                </div> -->
+                            <div class="row" [hidden]="!isVerify">
+                                <div class="col-12">
+                                    <button type="submit" [disabled]="forgotPassForm.invalid"
+                                        style="margin-top:10px !important;" class="custom-btn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row mt-4">
+                            <div class="col-12 pl-4 ml-2">
+                                <label class="custom-label">Click for go to login Page<a href="#"
+                                        (click)="openLoginForm()">Login</a></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="" style="background-color: beige;">
+                    <div class="form-container user-apply mt-2 p-3" style=" color: black;">
+                        <h2 style="color: black;"> <u> User Know How </u></h2>
+                        <p>1. <a (click)=" openFeedBackModal(apModal)">WHO CAN APPLY?</a></p>
+                        <p>2. <a (click)=" openFeedBackModal(informationModal)">INFORMATION WIZARD</a></p>
+                        <p>3. <a (click)=" openFeedBackModal(thirdPartyVerify)">THIRD PARTY VERIFICATION</a></p>
+                        <p>4. <a (click)="openFeedBackModal(serviceDashboard)"> SERVICE DASHBOARD</a></p>
+                        <p>5. <a href="#myModal" class="text-uppercase text-decoration-none text-black"
+                                data-toggle="modal">Stage wise timeline</a></p>
+                                <p>6. <a routerLink="/appeal-login">E-Appeal</a></p>
+                        <!-- <p>5. <a (click)="openFeedBackModal(stageWise)"> Stage wise timeline</a></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center quote">
+            <marquee direction="left" width="95%" height="40px">
+                "Every drop of water is precious. Use optimally by adopting recycle, reuse and zero discharge
+                technology".
+            </marquee>
+        </div>
+    </div>
+</div>
+<ng-template #apModal>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">Who Can Apply For Connection?</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ">
+        <div class="row">
+            <ol>
+                <li>Diary Farm</li>
+                <li>Paultry Farm</li>
+                <li>Hatchery</li>
+                <li>Country Liquor</li>
+                <li>Construction Of Road</li>
+                <li>Construction Of Building</li>
+                <li>Fishery</li>
+                <li>Port</li>
+                <li>Railway</li>
+                <li>Airport</li>
+                <li>Hospital</li>
+                <li>Garage</li>
+                <li>Institutions (IIT, NIGER, Engineering College, University etc.)</li>
+                <li>Offices (Government, Private)</li>
+                <li>PHD</li>
+                <li>RWS&S</li>
+                <li>IDCO (SPV)</li>
+                <li>Marketing Mall</li>
+                <li>Show Room</li>
+            </ol>
+        </div>
+    </div>
+</ng-template>
+<ng-template #informationModal>
+    <div class="">
+        <div class="modal-header custom_header">
+            <h4 class="modal-title pull-left"> INFORMATION WIZARD</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body ">
+            <div class="card container" style="height: 80vh; overflow-y: scroll; ">
+                <div class="card-body" style="font-size: 14px !important;">
+                    <h5>General Instruction</h5>
+                    <p class="text-justify">Applicants seeking to establish an industrial, commercial and other units
+                        and in possession/allotted at least 25% of the requisite land can apply for Obtaining Water
+                        Connection for construction/operation/ miscellaneous purposes from the Department of Water
+                        Resources,
+                        Govt. of Odisha. The Department shall, after examining the requirements and comparing it with
+                        available benchmarks, recommend for issuing the connection.</p>
+                    <p class="text-justify">Prior to applying to this service, if the applicant has applied for PEAL,
+                        the first section of the Approval of plan and permission to construct/extend/or take into use
+                        any building as a factory under the Factories Act, 1948 will get auto-populated
+                        from the PEAL form. Applicant who did not fill the PEAL form, will have to fill all the fields.
+                    </p>
+                    <p class="text-justify">Fields marked with ‘*’ are mandatory and should be filled in before
+                        submitting the form on the single window portal. Leaving fields blank in the Form is not
+                        allowed. In case applicants wish not to enter data in a field, they can put “NA” if it
+                        is a text/description field or a “0”, if it is a numeric field. In case of errors, the form will
+                        show an error message. The applicant may correct the data and save the form again.
+                    </p>
+                    <p class="text-justify">Some of the fields can accept multiple values. If the applicant wishes to
+                        furnish more than one item, he may use the “+” button to add more rows. Similarly, if he wishes
+                        to remove a row, he may use “x” button.</p>
+                    <p class="text-justify">Applicants can attach documents in digital format as documentary evidences
+                        which the department will use for verification. Clicking on the choose button will let them
+                        select the document to be uploaded. Before submitting the document, they needs
+                        to ensure that all the information furnished by them is satisfactory and correct to the best of
+                        their knowledge and understanding. After checking that the information furnished in all the
+                        fields are in order, they can submit the application
+                        by clicking on the ‘Submit’ button.</p>
+                    <p class="text-justify">After the form is successfully submitted, applicants can pay the required
+                        fees either online or offline. The fees required to be paid is as follows:</p>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm  table-bordered text-center w-50">
+                            <thead>
+                                <tr>
+                                    <th>Sl.No.</th>
+                                    <th>Fee Details</th>
+                                    <th>Amount to be Paid</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td>Security Money</td>
+                                    <td>INR 1,50,000/- per cusec</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td>Processing Fees</td>
+                                    <td>INR 1,000/-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-justify">If the applicant wishes to pay offline, he may choose the ‘Over the Counter’
+                        option on the Cyber Treasury payment gateway. A challan with the account details of the
+                        department will then be generated. The applicant will take the hard copy of the
+                        challan to the nearest branch of the bank selected and deposit the amount either by Cash, or by
+                        means of Demand Draft. Once the fee is processed by the bank, the bank will send a transaction
+                        ID via SMS, which then will have to be entered on
+                        the Cyber Treasury portal to complete the application process.</p>
+                    <p class="text-justify">Upon payment the applicant will receive an SMS & Email notification with the
+                        application number from the single window portal.</p>
+                    <h5>Checklist of Documents</h5>
+                    <p class="text-justify">The applicant will need to attach the following documents with the
+                        application:</p>
+                    <ol class="ml-4">
+                        <li class="mb-1">Detailed Map/Drawing of Intake Location</li>
+                        <li class="mb-1">Detailed Map/Drawing of Industry Location</li>
+                        <li class="mb-1">Proof of MOU map-signed with the Government / Single window approval</li>
+                        <li class="mb-1">Recommendation Letter from the Govt./Single Window Committee</li>
+                        <li class="mb-1">Certificate from Competent Authority/Concerned Department of Govt. for
+                            Requisition of Water</li>
+                        <li class="mb-1">Note on calculation of quantity of water required from Competent
+                            Authority/Concerned Department of Govt.</li>
+                        <li class="mb-1">Layout of water drawal mechanism</li>
+                        <li class="mb-1">Details of proposed water recycling systems (if applicable)</li>
+                        <li class="mb-1">Details of waste water generated at site (if applicable)</li>
+                        <li class="mb-1">Details about Quantity of effluent/method of disposal (if applicable)</li>
+                        <li class="mb-1">Scheme of drawal of water</li>
+                        <li class="mb-1">Lean period Water Management plan</li>
+                        <li>NOC from Central Ground Water Authority (CGWA)</li>
+                    </ol>
+                    <h5>Timeline</h5>
+                    <p class="text-justify">Water Connection application is processed and disposed within <b>90 working
+                            days for Operational Water and 30 working days for Constructional Water</b> from the date of
+                        receipt of application. The department can however, raise queries on the application within 7
+                        working days of receipt of application. <a class="pdf-c" href="../../../assets/pdf/24144_17082024_Inclusion_of_3_new_services_of_WaterResources.pdf" target="_blank">ORTPS Notification of the service.</a></p>
+                    <h5>Field Instructions</h5>
+                    <div class="d-flex justify-content-center">
+                        <table class="table table-sm table-bordered text-center w-75">
+                            <thead>
+                                <tr>
+                                    <th>Sl.No.</th>
+                                    <th>Field Name</th>
+                                    <th>Instruction</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>1</th>
+                                    <td class="text-nowrap">Type</td>
+                                    <td class="text-left">Select if water is required from IDCO supply or Department of
+                                        Water Resources.</td>
+                                </tr>
+                                <tr>
+                                    <th>2</th>
+                                    <td class="text-nowrap">Name of the Applicant</td>
+                                    <td class="text-left">Enter the name of the Applicant. The connection, if approved,
+                                        will be issued in the name of the Applicant.</td>
+                                </tr>
+                                <tr>
+                                    <th>3</th>
+                                    <td class="text-nowrap">Purpose</td>
+                                    <td class="text-left">Select the purpose of which the water will be used for from
+                                        the available options: Industrial/Commercial/Domestic/ Others. In case of
+                                        Others, specify the purpose.</td>
+                                </tr>
+                                <tr>
+                                    <th>4</th>
+                                    <td class="text-nowrap">Capacity</td>
+                                    <td class="text-left">Enter the present and proposed production capacity.</td>
+                                </tr>
+                                <tr>
+                                    <th>5</th>
+                                    <td class="text-nowrap">Industry Details</td>
+                                    <td class="text-left">All fields will get auto-filled from the PEAL form.</td>
+                                </tr>
+                                <tr>
+                                    <th>6</th>
+                                    <td class="text-nowrap">Source of water for Operation</td>
+                                    <td class="text-left">Select the source of water to be used for Operating the
+                                        industrial unit.<br /><br /> Please note, Ground water will only be provided for
+                                        operation if recommended by the Govt. of Odisha/Central Ground Water Authority
+                                        (CGWA).
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>7</th>
+                                    <td class="text-nowrap">Phase wise requirement of water</td>
+                                    <td class="text-left">Enter the details of water required during the
+                                        Pre-establishment, Construction, Operation, etc. phases.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-template>
+<ng-template #thirdPartyVerify>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left"> Third Party Verification</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ">
+        <div class="mb-3">
+            <label class="form-label" for=""> Application Number: </label>
+            <input class="form-control" type="text" name="" id="" placeholder="Enter Application Number"
+                [(ngModel)]="appNum">
+        </div>
+        <div class="">
+            <div class="form-group row">
+                <div class="col-6 px-0">
+                    <div class="" #phCaptcha [innerHtml]="captchaSvg"></div>
+                </div>
+                <div class="col-1 px-0">
+                    <i class="fa fa-refresh captch-style" style="cursor: pointer;" aria-hidden="true"
+                        (click)="getCaptchaApp()"></i>
+                </div>
+                <div class="col-5 px-0">
+                    <input type="text" class="form-control" placeholder="Enter Captcha" (keyup)="verifyCaptcha($event)">
+                </div>
+                <div class="mt-3">
+                    <button type="button" class="btn btn-outline-primary"
+                        (click)="getApplicationStatus()">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="">
+            <p>Status of the Application: <span>{{appStatus}}</span></p>
+        </div>
+    </div>
+</ng-template>
+<ng-template #serviceDashboard>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">Service Dashboard</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="">
+            <p><b>Department -</b>Department of Water Resources</p>
+            <div class="row d-flex" style="margin-bottom: 12px;">
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> Start Date: </label>
+                    <input class="form-control" type="date" name="" id="" [(ngModel)]="startDate"
+                        style="flex: 1;border-radius: 5px !important;">
+                </div>
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> End Date: </label>
+                    <input class="form-control" type="date" name="" id="" [(ngModel)]="endDate"
+                        style="flex: 1;border-radius: 5px !important;">
+                </div>
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> Type of Investment: </label>
+                    <select class="form-select form-control  form-select-sm" [(ngModel)]="investmentType">
+                        <option value="" selected>Select Investment Type</option>
+                        <option value="Domestic">Domestic</option>
+                        <option value="Foreign" disabled>Foreign</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> District: </label>
+                    <select class="form-select form-control form-select-sm" [(ngModel)]="district">
+                        <option value="" disabled selected="selected">Select District</option>
+                        <option *ngFor="let item of districtList" [ngValue]="item">{{ item.district_name }}</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> Risk Category: </label>
+                    <select class="form-select form-control form-select-sm" [(ngModel)]="riskCategory">
+                        <!-- <option selected>Open this</option> -->
+                        <option value="" selected>No Risk Category Defined</option>
+                    </select>
+                </div>
+                <div class="col-md-3 d-flex pl-0">
+                    <label class="form-label" for=""> Size of Firm : </label>
+                    <select class="form-select form-control form-select-sm" [(ngModel)]="riskCategory">
+                        <!-- <option selected>Open this</option> -->
+                        <option value="" selected>No category defined</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-outline-primary" (click)="submitDetails()"
+                        style="padding: 0.3rem 0.75rem;">Submit</button>
+                </div>
+            </div>
+            <!-- <p><b>From Date -</b>01-Mar-2023</p>
+             <p><b>To Date -</b>{{ currentDate | date: 'dd-MM-yyyy' }}</p> -->
+        </div>
+        <div class="row" *ngIf="showDetails">
+            <div class="col-md-3"><b>From:</b> {{this.startDate | date: 'dd-MM-yyyy'}}</div>
+            <div class="col-md-3"><b>To:</b> {{this.endDate | date: 'dd-MM-yyyy'}}</div>
+            <div class="col-md-3"><b>Type of Investment:</b> {{this.investmentType}}</div>
+            <div class="col-md-3"><b>District:</b> {{district?.district_name}}</div>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-bordered table-stripped fs-14">
+                <thead style="background-color: #dee2e6;">
+                    <tr>
+                        <th>Sl No.</th>
+                        <th>Service</th>
+                        <th>Total Application Recieved</th>
+                        <th>Approved</th>
+                        <th>Rejected</th>
+                        <th>Total Application Pending</th>
+                        <th>Application Exceeds ORTPSA Timeline</th>
+                        <th>Mean</th>
+                        <th>Median</th>
+                        <th>ORTPSA Timeline</th>
+                        <th>Minimum Days Taken for Approval</th>
+                        <th>Maximum Days Taken for Approval</th>
+                        <th>Processing Fee (Average)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let data of dashBoardData ; let i = index">
+                        <td>{{i+1}}</td>
+                        <td>Permission to draw water</td>
+                        <td>{{ (data.TotalApplication - data.Draft) || 0 }}</td>
+                        <td (click)="openNewTab()" style="cursor: pointer;">{{ data.Completed || 0 }}</td>
+                        <td>{{ data.Rejected || 0 }}</td>
+                        <td>{{ data.Pending || 0 }}</td>
+                        <td>{{ data.count_gr_180 || 0 }}</td>
+                        <td>{{ data.mean || 0 }}</td>
+                        <td>{{ data.median || 0 }}</td>
+                        <td>180</td>
+                        <td>{{ data.min_duration || 0 }}</td>
+                        <td>{{ data.max_duration || 0 }}</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr *ngFor="let data of dashBoardData">
+                        <td></td>
+                        <td><b>Total</b></td>
+                        <td>{{ (data.TotalApplication - data.Draft) || 0 }}</td>
+                        <td (click)="openNewTab()" style="cursor: pointer;">{{ data.Completed || 0 }}</td>
+                        <td>{{ data.Rejected || 0 }}</td>
+                        <td>{{ data.Pending || 0 }}</td>
+                        <td>{{ data.count_gr_180 || 0 }}</td>
+                        <td>{{ data.mean || 0 }}</td>
+                        <td>{{ data.median || 0 }}</td>
+                        <td>180</td>
+                        <td>{{ data.min_duration || 0 }}</td>
+                        <td>{{ data.max_duration || 0 }}</td>
+                        <td>{{ ((data.TotalApplication || 0) - (data.Draft || 0)) * 1000 }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-template>
+<ng-template #stageWise>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">Flow Chart</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="">
+            <p><a href="../../../assets/pdf/Flowchart-Process-OW.pdf">Flow Chart of Operational Water</a></p>
+            <p><a href="../../../assets/pdf/Flowchart-Process-CW.pdf">Flow Chart of Constructional Water</a></p>
+        </div>
+    </div>
+</ng-template>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 50vw !important;margin-right: auto; margin-left: 25%;">
+        <div class="modal-content" style="width: 50vw !important;">
+            <div class="modal-header custom_header">
+                <h4 class="modal-title">Flow Charts</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+            </div>
+            <div class="modal-body">
+                <p><a href="../../../assets/pdf/Flowchart-Process-OW.pdf" target="_blank">Flow Chart of Operational Water</a></p>
+                <p><a href="../../../assets/pdf/Flowchart-Process-CW.pdf" target="_blank">Flow Chart of Constructional Water</a></p>
+            </div>
+            <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="date">
+    <label for="">Last updated on: {{ currentDate | date: 'dd/MM/yyyy' }}</label>
+</div>

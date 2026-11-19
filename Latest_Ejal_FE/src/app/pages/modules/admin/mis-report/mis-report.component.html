@@ -1,0 +1,114 @@
+<div class="container-fluid title-hd px-0">
+    <div class="row head-lebel">
+        <div class="col-12 px-0">
+            <!-- <label style="font-size: 21px;">MIS(Report)</label> -->
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h5>Report Details</h5>
+                        </div>
+                        <div class="col-sm-2">
+                            <button type="button" class="btn ctm-btn pull-right" (click)="downloadReportFile()">Download&nbsp;<i class="fa fa-file"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label>Filter By Status</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control" (change)="getFilterData($event, 'status')">
+                                        <!-- <option value="">--Select Any One--</option> -->
+                                        <option value="">--Select Any One--</option>
+                                        <option value="3">Pending</option>
+                                        <option value="4">Draft</option>
+                                        <option value="5">Completed</option>
+                                        <option value="6">Rejected</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label>Filter By Year</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control" (change)="getFilterData($event, 'year')">
+                                        <option value="">--Select Any One--</option>
+                                        <option *ngFor="let item of year" [value]="item.date">{{item.date}}</option>
+                                        <!-- <option value="2">2020</option>  -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label>Filter By Type</label>
+                                </div>
+                                <div class="col-sm-8">
+                                    <select class="form-control" (change)="getFilterData($event, 'type')">
+                                        <option value="">--Select Any One--</option>
+                                        <option value="New">New</option>
+                                        <option value="Ext">Existing</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped table-bordered custom-th">
+                        <thead>
+                            <tr>
+                                <th>Sl.No.</th>
+                                <th>Application No.</th>
+                                <th>Name of Industries/Enterprises</th>
+                                <th>Application Type</th>
+                                <th>Service Name</th>
+                                <th>Requested On</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of reportDetails | paginate: {id:'totalReportList', itemsPerPage: misPageSize, currentPage: misPageNo, totalItems: misTotalElements}; let i = index">
+                                <td> {{((misPageNo -1) * misPageSize) + i+1}}</td>
+                                <td>{{item.id}}</td>
+                                <td>{{item.ce_name}}</td>
+                                <td>{{item.type}}</td>
+                                <td>{{item.app_for}}</td>
+                                <td>{{transformDate(item.updated_on)}}</td>
+                                <td>{{item.status_name}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 px-2">
+        <div class="col-6">
+            <div class="bg-white text-left">
+                <span>
+                    Total Records:
+                    <b>{{misTotalElements}}</b>
+                </span>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="bg-white text-right">
+                <pagination-controls id="totalReportList" autoHide="true" (pageChange)="misPageNo = $event" maxSize="3">
+                </pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+$font1: 'Philosopher',
+sans-serif;
+$font2: 'Lato',
+sans-serif;
+$head-position: fixed;
+$head-width: 100%;
+$head-height: 4.25rem;
+$head-bg-color: #FFF; // #FF7F50;
+$head-txt-color: #4A4A4A;
+
+$hor-nav-position: absolute;
+$hor-nav-bg-color: #FFF;
+$hor-menu-position: relative;
+$hor-post-fr-left: 30vw;
+$hor-submenu-position: absolute;
+$hor-menu-width: 840px;
+$hor-menu-link-width: 80px;
+$hor-submenu-container-width: 140px;
+$hor-menu-link-ht: 4rem;
+$hor-submenu-link-ht: 2rem;
+
+$hor-menu-link-pad: 0.25rem 0.25rem;
+$hor-submenu-link-pad:0.125rem 0.25rem;
+$hor-menu-link-display-type-1: block;
+$hor-menu-link-display-type-2: inline-block;
+
+$hor-menu-link-color: #4A4A4A;
+$hor-menu-link-bg-color: transparent;
+$hor-menu-link-active-color: #FFF;
+$hor-menu-link-active-bg-color: transparent;
+$hor-submenu-cont-bg-color: #FFF;
+
+$hor-submenu-position-1: auto;
+$hor-submenu-position-2: 100%;
+$hor-submenu-position-3: -$hor-submenu-container-width;
+
+$ver-menu-position: fixed;
+$ver-menu-loc-fr-top: 0;
+$ver-menu-loc-fr-left: 0;
+$ver-menu-width: 15rem;
+$ver-menu-height: 100%;
+$ver-menu-bg-color: #041425;
+$ver-menu-txt-color: #FFF;
+
+$ver-menu-pl:0;
+$ver-submenu-pl:0.125rem;
+$ver-menu-link-color:#FFF;
+$ver-menu-link-bg-color:transparent;
+$ver-menu-pad-layout:0.5rem 0.25rem 0.5rem 1rem;
+
+$ver-menu-icon-pad: 0.35rem;
+$ver-menu-icon-wt-ht-sz: 20px;
+
+$ver-menu-link-font-size: 14px;
+$ver-menu-link-font-wt: 500;
+
+$ver-submenu-link-font-size: 12px;
+$ver-submenu-link-font-wt: 500;
+
+$ver-submenu-container-max-height: 37.5rem;
+$ver-submenu-cont-bg-color: transparent;
+
+$body-margin-layout: 15rem;
+$body-padding-layout: $head-height+1.5rem 1rem 0.5rem 1rem;
+
+$foot-font-size: 16px;
+$foot-ht:40px;
+$foot-wt:100%;
+$foot-min-wt:82.15%;
+$foot-bg:#000;
+$foot-color:#FFF;
+$foot-top-mar: 0.5rem;
+$foot-layout-pad: 0.5rem 1rem;

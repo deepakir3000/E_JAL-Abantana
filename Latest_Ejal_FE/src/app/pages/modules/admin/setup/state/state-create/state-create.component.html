@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">Create State Details
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                        <i class="fa fa-reply "></i>
+                        <span>Back</span>
+            </span>
+        </div>
+
+    </div>
+    <div class="card-body">
+        <form [formGroup]="stateForm" (ngSubmit)="createState(stateForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Country Name </label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                        <option >India</option>
+                    </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">State Name </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="stateName">
+                            <small class="text-error ml-3" *ngIf="stateForm.controls.stateName.touched && stateForm.controls.stateName.invalid">
+                                <span class="text-danger"
+                                    *ngIf="stateForm.controls.stateName.errors?.required">Required</span>
+                                <!-- <span class="text-danger"
+                                    *ngIf="citizenForm.controls.industryLatitude.errors?.invalidNumber">This
+                                    field
+                                    requires number</span> -->
+                                    <span class="text-danger" *ngIf="stateForm.controls.stateName.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning" (click)="roleFormReset()">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="stateForm.invalid || stateForm.pristine">Submit</button>
+                <button type="button" *ngIf="pathType === 'edit'" class="btn btn-md btn-info" (click)="enableEdit()">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

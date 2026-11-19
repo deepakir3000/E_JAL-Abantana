@@ -1,0 +1,182 @@
+<div class="citizen-status-container">
+    <div class="card content-card">
+        <div *ngFor="let applicationData of applicationData | paginate: {id:'totalApplicationList', itemsPerPage: applicationPageSize, currentPage: applicationPageNo, totalItems: applicationTotalElements}"
+            class="row mrgn-btm">
+            <div class="col-10 pr-0">
+                <div class="card status-card"
+                    [ngClass]="{'success': applicationData.status_name === 'COMPLETED','rejected': applicationData.status_name === 'REJECTED'}">
+                    <div class="row">
+                        <!-- <img src="assets/icon/infrastructure.svg" class="col-2 status-img px-0"> -->
+                        <div class="col-10">
+                            <div class="row d-flex">
+                                <h5 class="col-4 status-text">Application Details</h5>
+                                <div class="col-8 rule-h">
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 status-content">
+                                    <h6 class="status-data">Application No : {{applicationData.id}}</h6>
+                                    <h6 class="status-data mt-3">Industry Type : {{applicationData.app_type}}</h6>
+                                    <h6 class="status-data mt-3">Name of Establishment/Enterprise :
+                                        {{applicationData.ce_name}}</h6>
+                                    <!-- <h6 class="status-data mt-3">Plan : {{applicationData.plan}}</h6> -->
+                                </div>
+                                <div class="col-6">
+                                    <h6 class="status-data mt-1">Purpose : {{applicationData.purpose_name}}</h6>
+                                    <h6 class="status-data mt-3">Application Type : {{applicationData.application_type}}
+                                    </h6>
+
+                                    <h6 class="status-data mt-3  text-success"
+                                        *ngIf="applicationData.status_name === 'COMPLETED'">Application Status :
+                                        {{applicationData.status_name}}</h6>
+                                    <h6 class="status-data mt-3 text-danger"
+                                        *ngIf="applicationData.status_name === 'REJECTED'">Application Status :
+                                        {{applicationData.status_name}}</h6>
+                                    <h6 class="status-data mt-3 text-primary"
+                                        *ngIf="applicationData.status_name === 'PENDING'">Application Status :
+                                        {{applicationData.status_name}}</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2 pl-0">
+                <div class="status-btn-group">
+                    <div class="row basic-info d-flex">
+                        <img src="assets/icon/eye.png" class="status-btn-icon col-4" alt="">
+                        <!-- <i class="fa fa-eye"></i> -->
+                        <button class="col-8 text-left btn b-info-btn px-0"
+                            (click)="goToPage('View', applicationData.id)">
+                            <p class="status-btn-text">View</p>
+                        </button>
+                    </div>
+                    <div class="row mgmt-info">
+                        <img src="assets/icon/edit.png" class="status-btn-icon col-4" alt="">
+                        <!-- <i class="fa fa-pencil"></i> -->
+                        <button [disabled]="!applicationData.isAction" class="col-8 text-left btn mgmt-info-btn px-0"
+                            (click)="goToPage('Edit', applicationData.id)">
+                            <p class=" status-btn-text ">Edit</p>
+                        </button>
+                    </div>
+                    <div class="row more-info ">
+                        <!-- (click)="openMoreMenu() " -->
+                        <img src="assets/icon/dashboard.png " class="status-btn-icon col-4 " alt=" ">
+                        <button class="col-8 text-left btn more-info-btn px-0 "
+                            (click)="openStatusModal(statusModal, applicationData.id)">
+                            <p class="status-btn-text ">Status</p>
+                        </button>
+                    </div>
+
+                    <!-- <div class="row more-info " *ngIf="applicationData.status_id === 3">
+                      <img src="assets/icon/dashboard.png " class="status-btn-icon col-4 " alt=" ">
+                        <button class="col-8 text-left btn more-info-btn px-0 "
+                            (click)="goToPage('Acknowledgement', applicationData.id)">
+                            <p class="status-btn-text ">Acknowledgement</p>
+                        </button>
+                    </div> -->
+                    <!-- <div class="more-info-teal" *ngIf="applicationData.status_id === 3 || applicationData.acknowledge_date"
+                        (click)="goToPage('Acknowledgement', applicationData.id)" >
+
+                       <svg class="status-btn-icon col-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="#ffffff">
+    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+</svg>
+
+                        <span class="status-btn-text">Acknowledgement</span>
+
+                    </div> -->
+
+                   <div class="more-info-teal"
+     *ngIf="applicationData.status_id === 3 && applicationData.acknowledge_date"
+     (click)="goToPage('Acknowledgement', applicationData.id)">
+
+    <svg class="status-btn-icon col-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="#ffffff">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+    </svg>
+
+    <span class="status-btn-text">Acknowledgement</span>
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-12">
+            <div class="bg-white text-right">
+                <pagination-controls class="custom-pagination" id="totalApplicationList" autoHide="true"
+                    (pageChange)="setPageDetails(applicationPageNo, $event, null)" maxSize="3"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #statusModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Application Status</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <tabset>
+                <tab *ngFor="let item of statusDetails; let i = index" id="tab1" [active]="item.currentStatus">
+                    <ng-template tabHeading>
+                        <span class="badge">{{item.roleName}}
+                            <i *ngIf="item.workFlowStepName === 'REJECT'" style="font-size: 19px; color: red;"
+                                class="fa fa-times-circle ml-2">
+                            </i>
+                            <i *ngIf="item.workFlowStepName !== 'REJECT'" style="font-size: 19px; color: green;"
+                                class="fa fa-check-circle"></i>
+                        </span>
+                    </ng-template>
+                    <!-- <div class="card">
+                        <div class="card-body"> -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered st-tbl">
+                            <thead>
+                                <tr>
+                                    <th>Application No</th>
+                                    <th>Current Status</th>
+                                    <th>Date of action</th>
+                                    <th>Sent From</th>
+                                    <th>Sent To</th>
+                                    <th *ngIf="item.type !== 'NA'">WAC Date</th>
+                                    <th>Remarks</th>
+                                    <th>Download</th>
+                                </tr>
+                                <tr>
+                                    <td>{{item.obj_id}}</td>
+                                    <td
+                                        *ngIf="item.workFlowStepName !== 'RAISE_QUERY' && item.workFlowStepName !== 'FORWARD_TO_DIRECTOR' && item.workFlowStepName !== 'APPROVE'">
+                                        {{item.workFlowStepName}}</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'RAISE_QUERY'">
+                                        {{getQueryData(i)}}</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'FORWARD_TO_DIRECTOR'">
+                                        Forwarded to director</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'APPROVE'">Approved</td>
+                                    <td>{{item.created_on | date: 'dd-MMM-yyy, hh:mm aaa'}}</td>
+                                    <td>{{item.roleName}}</td>
+                                    <td>{{item.roleToName}}</td>
+                                    <td *ngIf="item.type !== 'NA'">{{item.wac_date}}</td>
+                                    <td>
+                                        <p style="width: 263px; word-wrap: break-word;">{{item.remarks}}</p>
+                                    </td>
+                                    <td>
+                                        <a [href]="downloadFile(item.id)" target="_ "><img
+                                                style="height: 30px; fill: white;"
+                                                src="./../../../../../assets/icon/file-pdf-solid.svg"></a>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <!-- </div>
+                    </div> -->
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</ng-template>

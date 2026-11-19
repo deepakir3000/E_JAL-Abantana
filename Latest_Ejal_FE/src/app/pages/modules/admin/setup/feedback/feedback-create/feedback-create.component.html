@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+      <div class="card-title">{{operationModType}} Feedback
+          <span class="back-button" title="Go Back" (click)="backButton()">
+            <i class="fa fa-reply "></i>
+            <span>Back</span>
+          </span>
+      </div>
+  </div>
+  <div class="card-body">
+      <form [formGroup]="feedbackForm" (ngSubmit)="submitOperationDetails(feedbackForm.value)">
+          <div class="row">
+              <div class="col-sm-6 offset-sm-3">
+                  <div class="form-group row required">
+                      <label class="col-form-label">Feedback Question</label>
+                      <!-- <div class="col-sm-8"> -->
+                          <textarea id="" cols="30" rows="10" class="form-control" formControlName="feedbackQuestion"></textarea>
+                      <!-- </div> -->
+                      <small class="text-error ml-3" *ngIf="feedbackForm.controls.feedbackQuestion.touched && feedbackForm.controls.feedbackQuestion.invalid">
+                        <span class="text-danger"
+                            *ngIf="feedbackForm.controls.feedbackQuestion.errors?.required">Required</span>
+                            <span class="text-danger" *ngIf="feedbackForm.controls.feedbackQuestion.errors?.pattern">not
+                                a valid entry </span>
+                    </small>
+                  </div>
+              </div>
+          </div>
+          <div align="center">
+              <button type="button" class="btn btn-warning" (click)="resetButton()">Reset</button>
+              <button type="submit" class="btn btn-primary"[disabled]="feedbackForm.invalid || feedbackForm.pristine">Submit</button>
+          </div>
+      </form>
+  </div>
+</div>

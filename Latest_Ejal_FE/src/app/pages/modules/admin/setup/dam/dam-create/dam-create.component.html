@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{operationModType}} Dam
+            <span class="back-button" title="Go Back" (click)="backButton()">
+            <i class="fa fa-reply "></i>
+            <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="damForm" (ngSubmit)="submitOperationDetails(damForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Dam Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="damName">
+                            <small class="text-error ml-3" *ngIf="damForm.controls.damName.touched && damForm.controls.damName.invalid">
+                                <span class="text-danger"
+                                    *ngIf="damForm.controls.damName.errors?.required">Required</span>
+                                    <span class="text-danger" *ngIf="damForm.controls.damName.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Select Basin</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" formControlName="basinId">
+                            <option value="">Select Any One</option>
+                            <option *ngFor="let data of basinList" [value]="data.id">{{data.basin_name}}</option>
+                        </select>
+                        <small class="text-error ml-3" *ngIf="damForm.controls.basinId.touched && damForm.controls.basinId.invalid">
+                            <span class="text-danger"
+                                *ngIf="damForm.controls.basinId.errors?.required">Required</span>
+                        </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="damForm.invalid || damForm.pristine">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

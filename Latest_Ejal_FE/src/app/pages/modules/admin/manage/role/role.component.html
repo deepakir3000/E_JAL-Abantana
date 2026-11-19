@@ -1,0 +1,107 @@
+<div class="row justify-content-center">
+    <!-- <div class="btn-group">
+        <button type="button" class="btn btn-outline-primary" (click)="redirectPage('tab1')">Role Details</button>
+        <button type="button" class="btn btn-outline-primary" (click)="redirectPage('tab2')">Map Role With Resource Group</button>
+
+    </div> -->
+    <!-- <div class="btn-group nav-tab">
+        <button type="button" class="btn btn-outline-primary" routerLinkActive="active">Role Details</button>
+        <button type="button" class="btn btn-outline-primary" routerLinkActive="active">Map Role With Resource Group</button>
+    </div> -->
+</div>
+<div class="card mt-2">
+    <div class="card-header">
+        <div class="card-title"> Role Details</div>
+    </div>
+    <!-- <div class="card-body"> -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search Role">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row justify-content-end ml-0 mr-0">
+                    <div class="btn-group btn-controls">
+                        <button type="button" class="btn btn-primary" (click)="goToPage()">
+                            <i class="fa fa-plus"></i> Create
+                        </button>
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()">
+                            <i class="fa fa-edit"></i> Edit
+                        </button>
+                        <button type="button" class="btn btn-danger" (click)="goToMap()">
+                                                <i class="fa fa-map"></i> Map
+                                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row pl-3">
+            <div class="col-xl-6">
+                <div class="form-group row pl-3">
+                    Show
+                    <div class="col-sm-3">
+                        <select class="form-control" id="dh">
+                            <option *ngFor="let option of paginationLength" [value]="option">{{option}}
+                            </option>
+                        </select> 
+                    </div>
+                    entries
+                </div>
+            </div> 
+        </div>-->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Role Id</th>
+                        <th>Role Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let data of roleDetails; let i = index" [ngClass]="{'selected': data.role_name === selectedName}" (click)="selectTableData(data)">
+                        <td>{{(i+1)}}</td>
+                        <td>{{data.id}}</td>
+                        <td>{{data.role_name}}</td>
+                        <td>Active</td>
+                        <td *ngIf="!data.status === 1">Inactive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- pagination controls -->
+        <div class="row">
+            <!-- <div class="col-12">
+                    <div class="bg-white text-center">
+                        <pagination-controls id="totalRoleList" autoHide="true"
+                            (pageChange)="setPageDetails(pageNo, $event, searchRoleText)" maxSize="3"></pagination-controls>
+                    </div>
+                </div> -->
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+                        Total Records: <b>{{roleTotalElements}}</b>
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <!-- <pagination-controls id="totalRoleList" autoHide="true"
+                        (pageChange)="setPageDetails(pageNo, $event, searchRoleText)" maxSize="3"></pagination-controls> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- </div> -->

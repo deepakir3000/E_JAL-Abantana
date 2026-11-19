@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{industryModType}} Purpose
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="purposeForm" (ngSubmit)="submitpurposeDetails(purposeForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Purpose Name </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="purposeName">
+                            <small class="text-error ml-3" *ngIf="purposeForm.controls.purposeName.touched && purposeForm.controls.purposeName.invalid">
+                                <span class="text-danger"
+                                    *ngIf="purposeForm.controls.purposeName.errors?.required">Required</span>
+                                    <span class="text-danger" *ngIf="purposeForm.controls.purposeName.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Select Any One</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="purposeForm.invalid || purposeForm.pristine">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

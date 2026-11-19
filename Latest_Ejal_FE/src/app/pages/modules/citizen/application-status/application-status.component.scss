@@ -1,0 +1,25 @@
+.pg-info-container {
+    .step-sticky-header {
+        .head {
+            font-size: 17px;
+            font-family: poppins;
+            font-weight: 500;
+        }
+    }
+    .custom-table-content {
+        thead {
+            padding: 50x;
+        }
+    }
+    .ml-big {
+        margin-left: 44%;
+        margin-bottom: 0.12rem;
+    }
+    a {
+        text-decoration: none;
+        &.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    }
+}

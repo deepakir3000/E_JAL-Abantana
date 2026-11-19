@@ -1,0 +1,84 @@
+<div class="card mt-2">
+    <div class="card-header">
+        <div class="card-title">Map Role With Resource
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                  <i class="fa fa-reply "></i>
+                  <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <!-- <div class="card-body"> -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6" style="margin-left:25%;">
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <label class="col-form-label pull-right">Select Role</label>
+                    </div>
+                    <div class="col-sm-8">
+                        <select class="form-control" (change)="getRoleId($event)">
+                           <option value="">Select One</option>
+                            <option value="{{item.id}}" *ngFor="let item of roleDetails">{{item.role_name}}</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table  table-bordered table-hover">
+                        <!-- table headers -->
+                        <thead>
+                            <tr>
+                                <th>Sl.No</th>
+                                <th>Check To Map</th>
+                                <th>Name</th>
+                                <!-- <th>Resource Type</th> -->
+                                <th>Path</th>
+                                <th>ID</th>
+                                <!-- <th>Status</th> -->
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor="let data of resourceList | paginate: {id:'totalRoleList', itemsPerPage: roleMappingPageSize, currentPage: roleMappingPageNo, totalItems: roleTotalElements }; let i = index">
+                                <td>{{((roleMappingPageNo - 1) * roleMappingPageSize) + i+1}}</td>
+                                <td>
+                                    <input class="custom-check" type="checkbox" [checked]="data.isMapped" (change)="pushData(data.id, data.status, $event)">
+                                </td>
+                                <td>{{data.resource_name}}</td>
+                                <!-- <td>{{data.type}}</td> -->
+                                <td>{{data.link_text}}</td>
+                                <td>{{data.id}}</td>
+                                <!-- <td>Active</td>
+                                <td *ngIf="data.status !== 1">Inactive</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+            Total Records:
+            <b>{{roleTotalElements}}</b>
+          </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalRoleList" autoHide="true" (pageChange)="setPageDetails(roleMappingPageNo, $event)" maxSize="3">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <button type="button" class="custom-btn" type="button" (click)="mapRoleAndResource()">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

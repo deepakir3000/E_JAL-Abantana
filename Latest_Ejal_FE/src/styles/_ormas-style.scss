@@ -1,0 +1,31 @@
+@import './authentication';
+@import './_variables';
+@import './mixins';
+@import './header';
+@import './_horizontal-menu';
+@import './vertical-menu';
+@import './body';
+@import './footer';
+@import './components';
+@import './user-profile';
+@import './products';
+@import './pg-info';
+@import './activity-lookup';
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.wrapper-container {
+    position: $container-position;
+    background-color: $container-bg-color;
+    color: $container-txt-color;
+    min-height: 100vh;
+    &.sticky {
+        // background-image: linear-gradient(#051322, #15457c);
+        background-image: url("./assets/images/bg.jpg");
+        background-size: 100% 30rem;
+        background-repeat: no-repeat;
+    }
+}

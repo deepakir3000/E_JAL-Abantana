@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{applicationModType}} Application For
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="applicationForm" (ngSubmit)="submitApplicationDetails(applicationForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Application For </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="applicationType">
+                            <small class="text-error ml-3" *ngIf="applicationForm.controls.applicationType.touched && applicationForm.controls.applicationType.invalid">
+                                <span class="text-danger"
+                                    *ngIf="applicationForm.controls.applicationType.errors?.required">Required</span>
+                                <!-- <span class="text-danger"
+                                    *ngIf="citizenForm.controls.industryLatitude.errors?.invalidNumber">This
+                                    field
+                                    requires number</span> -->
+                                    <span class="text-danger" *ngIf="applicationForm.controls.applicationType.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Select Any One</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="applicationForm.invalid || applicationForm.pristine">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

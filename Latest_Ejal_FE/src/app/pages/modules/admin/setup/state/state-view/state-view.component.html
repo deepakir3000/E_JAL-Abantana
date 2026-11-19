@@ -1,0 +1,153 @@
+<!-- state view details -->
+<div class="card">
+    <!-- card details -->
+    <div class="card-header">
+        <div class="card-title">State Details
+            <span *ngIf="isLookUpBackAllowed" class="back-button" title="Go Back" (click)="goBackToPage()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search state by state name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row justify-content-end mr-0 mr-0">
+                    <!-- state details modification controls -->
+                    <div class="btn-group btn-controls">
+                        <!-- add state details -->
+                        <button type="button" class="btn btn-primary" (click)="goToPage()">
+                            <i class="fa fa-plus"></i>Create</button>
+                        <!-- edit state details -->
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()">
+                            <i class="fa fa-edit"></i>Edit</button>
+                        <!-- delete state details -->
+                        <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash" ></i>Delete</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Used to add State -->
+        <!-- <div *ngIf="isCreate || isUpdate" class="row">
+            <div class="col-sm-12">
+                <form [formGroup]="stateForm" (ngSubmit)="submitStateDetails(stateForm.value)">
+                    <div class="form-group row">
+                        <div class="col-sm-3 ">
+                            <div class="row col-sm-12">
+                                <font style="color: red">*</font>
+                                <input type="text" autocomplete="off" aria-autocomplete="none" formControlName="stateName" class="form-control col-sm-11" id="stateName" placeholder="State Name">
+                            </div>
+                            <small class="text-error" *ngIf="stateForm.controls.stateName.touched && stateForm.controls.stateName.invalid">
+                                <span *ngIf="stateForm.controls.stateName.errors?.required">*Required</span>
+                                <span *ngIf="stateForm.controls.stateName.errors?.invalidName">Not a valid name</span>
+                            </small>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="row col-sm-12">
+                                <font style="color: red">*</font>
+                                <select class="form-control col-sm-11" id="countryId" formControlName="countryId">
+                                    <option value="">Select Country</option>
+                                    <option *ngFor="let option of country" [value]="option.id">{{option.name}}</option>
+                                </select>
+                            </div>
+                            <small class="text-error" *ngIf="stateForm.controls.countryId.touched && stateForm.controls.countryId.invalid">
+                                <span *ngIf="stateForm.controls.countryId.errors?.required">*Required</span> -->
+        <!-- <span *ngIf="stateForm.controls.countryId.errors?.invalidField">not a valid country</span> -->
+        <!-- </small>
+                        </div> -->
+        <!-- form submit button -->
+        <!-- <div align="center">
+                            <button type="button" class="btn btn-warning" (click)="resetData()">Reset</button>
+                            <button type="submit" [disabled]='stateForm.invalid' class="btn btn-primary">{{pathType}}
+                                State</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div> -->
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="form-group row pl-3">
+                    Show
+                    <div class="col-sm-3">
+                        <select class="form-control" id="dh" [(ngModel)]="selectedPageSize" (change)="changePageSize()">
+                            <option *ngFor="let option of pageSize" [value]="option">{{option}}</option>
+                        </select>
+                    </div>
+                    entries
+                </div>
+            </div>
+        </div>
+        <!-- state details list -->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th class="text-center">Sl.No</th>
+                        <th class="text-center">Country</th>
+                        <th class="text-center">State</th>
+
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody>
+                    <!-- <tr *ngFor="let data of state | paginate: {id:'totalStateList', itemsPerPage: statePageSize, currentPage: statePageNo, totalItems: stateTotalElements }; let i = index"
+                        [ngClass]="{'selected': data.checked}" (click)="selectStateDetails(data)"> -->
+                    <!-- <tr *ngFor="let data of state"
+                        [ngClass]="{'selected': data.checked}" (click)="selectStateDetails(data)">
+
+                        <td class="text-center">{{((statePageNo -1) * statePageSize) + i+1}}</td>
+                        <td class="text-center">
+                            {{data.countryName}}
+                        </td>
+                        <td class="text-center">
+                            {{data.stateName}}
+                        </td>
+
+                    </tr> -->
+                    <tr *ngFor="let item of state; let i =index" [ngClass]="{'selected': item.state_name === selectedName}" (click)="selectTableData(item)">
+                        <td class="text-center">{{i+1}}</td>
+                        <td class="text-center">
+                            India
+                        </td>
+                        <td class="text-center">
+                            {{item.state_name}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+                        Total Records:
+                        <b>{{stateTotalElements}}</b>
+                    </span>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalStateList" autoHide="true"
+                        (pageChange)="setPageDetails(statePageNo, $event, searchStateText)" maxSize="3">
+                    </pagination-controls>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,179 @@
+.citizen-status-container {
+    padding: 0 7% 0 7%;
+    // margin-top: -30px;
+    .top-search-card {
+        box-shadow: 0 1px 5px 2px #ccc;
+        .custom-search-icon {
+            background: linear-gradient(#6794e6, #0c2ae8);
+            width: 50px;
+            padding: 10px 0 0 15px;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+        }
+        .top-filter-container {
+            div:not(:last-child) {
+                border-right: 1px solid #ccc;
+            }
+            .search-head {
+                font-size: 18px;
+                color: #2651c7;
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+        }
+    }
+    .content-card {
+        margin-top: 10px;
+        padding: 35px 15px 5px 15px;
+        box-shadow: 0 1px 5px 2px #ccc;
+        background-color: #e9f8fd;
+        // height: 500px;
+        // .create-btn {
+        //     background: linear-gradient(to bottom, #38b9bd, #29a7ac);
+        //     letter-spacing: 1px;
+        //     border: none;
+        //     .plus-icon {
+        //         background-color: transparent;
+        //     }
+        // }
+        .content-top {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+        .status-card {
+            margin: 0 0 10px 0;
+            height: 156px;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 7px solid #2552c7;
+            box-shadow: 1px 1px 5px 1px #ccd6da;
+            &.success {
+                border-left-color: green;
+            }
+            &.rejected {
+                border-left-color: #CC0000;
+            }
+            .status-img {
+                height: 140px;
+            }
+            .status-text {
+                font-size: 16px;
+                letter-spacing: 1px;
+                font-weight: 600;
+                color: #2e56c8;
+            }
+            .rule-h {
+                padding: 0;
+                hr {
+                    background-color: #34afff;
+                }
+            }
+            .status-content {
+                margin-top: 5px;
+                border-right: 1px solid #ccc;
+                .status-data {
+                    font-size: 14px;
+                }
+            }
+            .area {
+                padding: 0;
+                .area-head {
+                    padding: 0 0 5px 5px;
+                    font-weight: 600;
+                    font-size: 16px;
+                    border-bottom: 1px solid #ccc;
+                    letter-spacing: 1px;
+                }
+                .area-data {
+                    font-size: 14px;
+                    margin-bottom: 7px;
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        .status-btn-group {
+            padding: 0 10px 0 10px;
+            .status-btn-icon {
+                height: 26px;
+                width: 26px;
+                color: #fff;
+                margin: auto 0;
+                padding: 0 10px 0 10px;
+            }
+            .status-btn-text {
+                font-size: 14px;
+                line-height: 14px;
+                margin: auto 0;
+            }
+            .basic-info {
+                box-shadow: 1px 1px 5px 1px #ccd6da;
+                background: linear-gradient(#6879e2, #7450a8);
+                height: 48px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                .b-info-btn {
+                    background-color: transparent;
+                    color: #fff;
+                }
+            }
+            .mgmt-info {
+                box-shadow: 1px 1px 5px 1px #ccd6da;
+                background: linear-gradient(45deg, #ee719d, #ec8870);
+                height: 48px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                .mgmt-info-btn {
+                    background-color: transparent;
+                    color: #fff;
+                }
+            }
+            .more-info {
+                box-shadow: 1px 1px 5px 1px #ccd6da;
+                background: linear-gradient(45deg, #f9cb6b, #fbaf7d);
+                height: 48px;
+                margin-bottom: 5px;
+                border-radius: 5px;
+                .more-info-btn {
+                    background-color: transparent;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.readonly {
+    border-width: 0px;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #EBEEF1;
+}
+
+.mrgn-btm {
+    margin-bottom: 12px;
+}
+
+.more-info-teal {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    border-radius: 10px;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(17, 153, 142, 0.3);
+}
+
+.status-btn-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.status-btn-text {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 500;
+}

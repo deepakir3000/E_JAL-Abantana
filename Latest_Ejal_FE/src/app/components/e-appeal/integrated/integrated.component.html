@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom shadow">
+  <div class="container-fluid header-text">
+
+    <a class="navbar-brand fw-bold"
+    [routerLink]="role_id === '4' ? '/e-appeal-admin' : '/e-appeal/dashboard'">
+      Auto Appeal / e-Appeal System
+      <br>
+      <small class="odia-text">ଇ-ଜଳ ଆବଣ୍ଟନ</small>
+    </a>
+
+    <span>Welcome {{rolename}}</span>
+
+    <ul class="navbar-nav ms-auto">
+      <!-- <li class="nav-item">
+        <a class="nav-link active" routerLink="/dashboard">Dashboard</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/reports">Reports</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/e-appeal/appeal-profile">Profile</a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" style="color: white; cursor: pointer;" (click)="appealLogout()">Logout</a>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,162 @@
+<div class="pg-info-container">
+    <div class="card pt-4 pb-2 py-2 top-search-card">
+        <div class="row">
+            <div class="col-6 form-group d-flex">
+                <input type="text" class="form-control" placeholder="Search...."> <i class="fa fa-search custom-search-icon" aria-hidden="true"></i>
+            </div>
+            <div class="col-6">
+                <div class="row top-filter-container">
+                    <div class="col-4">
+                        <!-- (click)="toggleIndustry()" -->
+                        <h4 class="mb-0 search-head">Industry Type</h4>
+                        <div class="row change-font" *ngIf="!isSocietyClicked">{{selectedSocietyText}}<i class="fa fa-chevron-down pl-2"></i></div>
+                        <div class="row change-font" *ngIf="isSocietyClicked" class="filter-value-container">
+                            <ul>
+                                <li class="text-capitalize" *ngFor="let item of industryList; let i=index;" (click)="changeIndustry(i)">
+                                    {{item.type}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-4 ">
+                        <!--  (click)="toggleDivision()" -->
+                        <h4 class="mb-0 search-head">District</h4>
+                        <div class="row change-font" *ngIf="!isDivisionClicked">{{selectedDistrictText}}<i class="fa fa-chevron-down pl-2"></i></div>
+                        <div class="row change-font" *ngIf="isDivisionClicked" class="filter-value-container">
+                            <ul>
+                                <li class="text-capitalize" *ngFor="let option of divisionList; let i=index;" (click)="changeDivision(i)">
+                                    {{option.divisionName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <!-- (click)="toggleCircle()" -->
+                        <h4 class="mb-0 search-head">Block</h4>
+                        <div class="row change-font" *ngIf="!isCircleClicked">{{selectedBlockText}}<i class="fa fa-chevron-down pl-2"></i></div>
+                        <div class="row change-font" *ngIf="isCircleClicked" class="filter-value-container">
+                            <ul>
+                                <li class="text-capitalize" *ngFor="let option of blockList; let i=index;" (click)="changeCircle(i)">
+                                    {{option.blockName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card content-card">
+        <div class="row content-top">
+            <div class="col-8 py-2">
+                <div class="row justify-content-left pl-3">
+                    <div class="btn-group nav-tab">
+                        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': type === 'Pending' }" (click)="openTab('Pending')">Pending </button>
+                        <button type="button" class="btn btn-outline-primary" [ngClass]="{'active': type === 'Active' }" (click)="openTab('Active')">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 py-2">
+                <div class="row text-right form-group mb-0">
+                    <label class="col-4 mt-2">Sort by</label>
+                    <div class="col-8">
+                        <select class="form-control">
+                <option>Select Any One <i class="fa fa-chevron-down" aria-hidden="true"></i></option>
+            </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="type === 'Pending'" class="row">
+            <div class="row mt-4 pb-1 col-6">
+                <div class="col-md-5">
+                    Select Executive Engineer
+                </div>
+                <div class="col-md-7">
+                    <select class="form-control" [(ngModel)]="actionValue" name="appSts2RejSts" id="appSts2RejSts" (change)="actionChange()">
+              <option value="0">-- Select any one reason--</option>
+              <option *ngFor="let data of actionDt" [value]="data.id">{{data.user_name}}</option>
+          </select>
+                </div>
+            </div>
+            <div class="col-12 table-responsive">
+                <table class="table table-sm table-striped table-bordered custom-th">
+                    <thead>
+                        <tr>
+                            <th>Map</th>
+                            <th>Sl.No.</th>
+                            <th>Industry Name</th>
+                            <th>Industry Code</th>
+                            <th>Division</th>
+                            <th>Address</th>
+                            <th>Pin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of industryData | paginate: {id:'totalIndustryList', itemsPerPage: industryPageSize, currentPage: industryPageNo, totalItems: industryTotalElements}; let i=index">
+                            <td><input type="radio" id='{{item.serial_no}}' name="check" value="{{item.serial_no}}" (click)="selectedData(item)" checked></td>
+                            <td>{{i+1}}</td>
+                            <td class="text-capitalize text-wrap">{{item.industry_name}}</td>
+                            <td class="text-uppercase">{{item.industry_code}}</td>
+                            <td>{{item.division}}
+                            </td>
+                            <td>{{item.address}}</td>
+                            <td>{{item.pin}}</td>
+                            <!-- <td></td> -->
+                        </tr>
+                        <tr *ngIf="industryData.length === 0">
+                            <td colspan="7">Data Not Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-12 py-2">
+                <div class="row justify-content-center pl-3">
+                    <div class="btn-group">
+                        <button type="button" [disabled]="!isSubmit" (click)="mapEEToIndustry()" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+            <!-- <button (click)="mapEEToIndustry()">Map</button> -->
+        </div>
+        <div *ngIf="type === 'Active'" class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-sm table-striped table-bordered custom-th">
+                    <thead>
+                        <tr>
+                            <!-- <th>Map</th> -->
+                            <th>Sl.No.</th>
+                            <th>Industry Name</th>
+                            <th>Industry Code</th>
+                            <th>Division</th>
+                            <th>Address</th>
+                            <th>Pin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center" *ngFor="let item of industryData | paginate: {id:'totalIndustryList', itemsPerPage: industryPageSize, currentPage: industryPageNo, totalItems: industryTotalElements}; let i=index">
+                            <!-- <td><input type="radio" name="check" (click)="selectedData(item)"></td> -->
+                            <td>{{((industryPageNo -1) * industryPageSize) + i+1}}</td>
+                            <td class="text-capitalize text-wrap">{{item.industry_name}}</td>
+                            <td class="text-uppercase">{{item.industry_code}}</td>
+                            <td>{{item.division}}
+                            </td>
+                            <td>{{item.address}}</td>
+                            <td>{{item.pin}}</td>
+                            <!-- <td></td> -->
+                        </tr>
+                        <tr *ngIf="industryData.length === 0">
+                            <td colspan="7">Data Not Available</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="bg-white text-right">
+                    <pagination-controls class="custom-pagination" id="totalIndustryList" autoHide="true" (pageChange)="setPageDetails(industryPageNo, $event)" maxSize="3"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

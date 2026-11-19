@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{operationModType}} River
+            <span class="back-button" title="Go Back" (click)="backButton()">
+              <i class="fa fa-reply "></i>
+              <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="riverForm" (ngSubmit)="submitOperationDetails(riverForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">River Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="riverName">
+                            <small class="text-error ml-3" *ngIf="riverForm.controls.riverName.touched && riverForm.controls.riverName.invalid">
+                                <span class="text-danger"
+                                    *ngIf="riverForm.controls.riverName.errors?.required">Required</span>
+                                    <span class="text-danger" *ngIf="riverForm.controls.riverName.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Select Basin</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" formControlName="basinId">
+                              <option value="">Select Any One</option>
+                              <option *ngFor="let data of basinList" [value]="data.id">{{data.basin_name}}</option>
+                          </select>
+                          <small class="text-error ml-3" *ngIf="riverForm.controls.basinId.touched && riverForm.controls.basinId.invalid">
+                            <span class="text-danger"
+                                *ngIf="riverForm.controls.basinId.errors?.required">Required</span>
+                                
+                        </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="riverForm.invalid || riverForm.pristine">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

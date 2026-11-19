@@ -1,0 +1,30 @@
+select{
+        border: 1px solid #d1d1d1;
+    /* border-radius: 5px; */
+    height: 2.1rem;
+    width: 100%;
+}
+
+.dash{
+    padding: 0rem 3rem 0rem 3rem;
+}
+.odia-text {
+    font-family: 'Noto Sans Oriya', sans-serif;
+}
+
+.navbar-custom {
+    background: linear-gradient(135deg, #003366, #00509d);
+}
+
+.header-text{
+    color: white;
+    span{
+            font-size: 1.5rem;
+    color: white;
+    }
+}
+
+:host {
+    display: block;
+    background: #f4f7fc;
+}

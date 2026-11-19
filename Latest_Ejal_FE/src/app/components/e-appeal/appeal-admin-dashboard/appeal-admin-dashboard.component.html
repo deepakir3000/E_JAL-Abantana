@@ -1,0 +1,270 @@
+<div class="admin-dashboard-wrapper">
+
+  <!-- ===================== Header ===================== -->
+  <div class="dashboard-header">
+    <div class="header-content">
+      <div>
+        <h4 class="mb-1"><i class="fa fa-users-cog mr-2"></i>Appeal System – User Administration</h4>
+        <p class="mb-0 header-subtitle">Active users and onboarding status</p>
+      </div>
+      <div class="header-stats">
+        <div class="stat-box">
+          <div class="stat-number">{{ users.length }}</div>
+          <div class="stat-label">Active Users</div>
+        </div>
+        <div class="stat-box stat-box-warning">
+          <div class="stat-number">{{ newUserCount }}</div>
+          <div class="stat-label">Pending Setup</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Alerts ===================== -->
+  <div class="alert alert-success alert-dismissible fade show mt-3" role="alert" *ngIf="successMsg">
+    <i class="fa fa-check-circle mr-2"></i>{{ successMsg }}
+  </div>
+  <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert" *ngIf="errorMsg">
+    <i class="fa fa-exclamation-triangle mr-2"></i>{{ errorMsg }}
+  </div>
+
+  <!-- ===================== Toolbar ===================== -->
+  <div class="toolbar-card">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-2 mb-md-0">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-white border-right-0"><i class="fa fa-search text-muted"></i></span>
+          </div>
+          <input
+            type="text"
+            class="form-control border-left-0"
+            placeholder="Search by name, username, email, HRMS ID..."
+            [(ngModel)]="searchTerm"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <select class="form-control" [(ngModel)]="roleFilter">
+          <option value="all">All Roles</option>
+          <option *ngFor="let r of roleOptions" [value]="r.role_name">{{ r.label }}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== Users Table ===================== -->
+  <div class="table-card">
+    <div class="table-responsive">
+      <table class="table table-hover align-middle mb-0">
+        <thead>
+          <tr>
+            <th>User</th>
+            <th class="sortable" (click)="sortBy('user_name')">
+              Username
+              <i class="fa" [ngClass]="sortColumn === 'user_name' ? (sortDirection === 'asc' ? 'fa-sort-up' : 'fa-sort-down') : 'fa-sort text-muted'"></i>
+            </th>
+            <th class="sortable" (click)="sortBy('role_name')">
+              Role
+              <i class="fa" [ngClass]="sortColumn === 'role_name' ? (sortDirection === 'asc' ? 'fa-sort-up' : 'fa-sort-down') : 'fa-sort text-muted'"></i>
+            </th>
+            <th>HRMS ID</th>
+            <th>Contact</th>
+            <th class="text-center">Onboarding Status</th>
+            <!-- <th class="text-center">Audit</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="loading">
+            <td colspan="7" class="text-center py-4">
+              <span class="spinner-border spinner-border-sm mr-2"></span> Loading users...
+            </td>
+          </tr>
+
+          <tr *ngIf="!loading && filteredUsers.length === 0">
+            <td colspan="7" class="text-center py-4 text-muted">
+              <i class="fa fa-inbox fa-lg mb-2 d-block"></i>
+              No users match your filters.
+            </td>
+          </tr>
+
+          <tr *ngFor="let user of filteredUsers">
+            <td>
+              <div class="user-cell">
+                <div class="avatar-circle">{{ getInitials(user.name) }}</div>
+                <div>
+                  <div class="user-name">{{ user.name }}</div>
+                  <div class="user-email text-muted">{{ user.email || '—' }}</div>
+                </div>
+              </div>
+            </td>
+            <td>{{ user.user_name }}</td>
+            <td>
+              <span class="badge role-badge" [ngClass]="roleBadgeClass(user.role_name)">
+                {{ user.role_name }}
+              </span>
+            </td>
+            <td>{{ user.hrms_id || '—' }}</td>
+            <td>{{ user.mobile || '—' }}</td>
+            <td class="text-center">
+              <div class="onboarding-cell">
+                <span class="badge mb-1 d-block" [ngClass]="user.is_new_user ? 'badge-pending' : 'badge-complete'">
+                  {{ user.is_new_user ? 'Pending Setup' : 'Set Up' }}
+                </span>
+                <button
+                  *ngIf="!user.is_new_user"
+                  class="btn btn-sm btn-outline-warning"
+                  (click)="markAsNewUser(user)"
+                >
+                  Mark as New User
+                </button>
+                <button
+                  *ngIf="user.is_new_user"
+                  class="btn btn-sm btn-outline-secondary"
+                  (click)="clearNewUserFlag(user)"
+                >
+                  Clear Flag
+                </button>
+              </div>
+            </td>
+            <!-- <td class="text-center">
+              <button
+                class="btn btn-sm btn-outline-primary"
+                data-toggle="modal"
+                data-target="#auditHistoryModal"
+                (click)="loadAuditHistory(user)"
+              >
+                <i class="fa fa-history"></i>
+              </button>
+            </td> -->
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===================== Audit History Modal ===================== -->
+<div class="modal fade" id="auditHistoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
+    <div class="modal-content">
+      <div class="modal-header audit-modal-header">
+        <h5 class="modal-title">
+          <i class="fa fa-history mr-2"></i>
+          Audit History <span *ngIf="selectedUser">– {{ selectedUser.name }}</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="text-center py-4" *ngIf="auditLoading">
+          <span class="spinner-border spinner-border-sm mr-2"></span> Loading history...
+        </div>
+
+        <div class="text-center py-4 text-muted" *ngIf="!auditLoading && auditHistory.length === 0">
+          No audit entries found for this user yet.
+        </div>
+
+        <!-- <ul class="timeline" *ngIf="!auditLoading && auditHistory.length > 0">
+          <li class="timeline-item" *ngFor="let entry of auditHistory">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <div class="d-flex justify-content-between">
+                <strong>{{ entry.action }}</strong>
+                <small class="text-muted">{{ entry.performed_on | date: 'dd-MMM-yyyy, h:mm a' }}</small>
+              </div>
+              <div class="text-muted small">By {{ entry.performed_by }}</div>
+              <div class="mt-1" *ngIf="entry.details">{{ entry.details }}</div>
+            </div>
+          </li>
+        </ul> -->
+
+
+<div class="table-responsive" *ngIf="!auditLoading && auditHistory.length > 0">
+
+  <table class="table table-bordered table-sm">
+
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Action</th>
+        <th>Performed By</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <ng-container *ngFor="let entry of auditHistory">
+
+        <tr>
+          <td>
+            {{ entry.performed_on | date:'dd-MMM-yyyy, h:mm a' }}
+          </td>
+
+          <td>
+            {{ entry.action }}
+          </td>
+
+          <td>
+            {{ entry.performed_by_name || 'System' }}
+          </td>
+
+          <td>
+            {{ entry.details || '-' }}
+          </td>
+        </tr>
+
+        <tr *ngIf="entry.action === 'PROFILE_UPDATED'">
+
+          <td colspan="4" class="bg-light">
+
+            <table class="table table-sm table-bordered mb-0">
+
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Old Value</th>
+                  <th>New Value</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr *ngFor="let change of getFieldChanges(entry)">
+
+                  <td>{{ change.field }}</td>
+
+                  <td>{{ change.oldValue || '-' }}</td>
+
+                  <td>{{ change.newValue || '-' }}</td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </td>
+
+        </tr>
+
+      </ng-container>
+
+    </tbody>
+
+  </table>
+
+</div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

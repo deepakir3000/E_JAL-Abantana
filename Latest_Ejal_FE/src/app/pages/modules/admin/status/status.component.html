@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="modal-title pull-left">Application Status</h4>
+        </div>
+        <div class="card-body">
+            <tabset>
+                <tab *ngFor="let item of statusDetails; let i = index" id="tab1" [active]="item.currentStatus">
+                    <ng-template tabHeading>
+                        <span class="badge">{{item.roleName}}&nbsp;
+                    <i *ngIf="item.workFlowStepName === 'REJECT'" style="font-size: 19px; color: red;"
+                        class="fa fa-times-circle ml-2">
+                    </i>
+                    <i *ngIf="item.workFlowStepName !== 'REJECT'" style="font-size: 19px; color: green;"
+                        class="fa fa-check-circle"></i>
+                </span>
+                    </ng-template>
+                    <!-- <div class="card">
+                <div class="card-body"> -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered st-tbl">
+                            <thead>
+                                <tr>
+                                    <th>Application No</th>
+                                    <th>Action Taken</th>
+                                    <th>Date of action</th>
+                                    <th>Sent From</th>
+                                    <th>Sent To</th>
+                                    <th *ngIf="item.type !== 'NA'"> WAC Date</th>
+                                    <th>Remarks</th>
+                                    <th>Download</th>
+                                </tr>
+                                <tr>
+                                    <td>{{item.obj_id}}</td>
+                                    <td *ngIf="item.workFlowStepName !== 'RAISE_QUERY' && item.workFlowStepName !== 'FORWARD_TO_DIRECTOR' && item.workFlowStepName !== 'APPROVE'">
+                                        {{item.workFlowStepName}}<span></span></td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'RAISE_QUERY'">
+                                        {{getQueryData(i)}}</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'FORWARD_TO_DIRECTOR'">
+                                        Forwarded to director</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'APPROVE'">Approved</td>
+                                    <!-- <td *ngIf="count === 2">2ND QUERY RAISED</td> -->
+                                    <td>{{item.created_on | date: 'dd-MMM-yyy, hh:mm aaa'}}</td>
+                                    <td>{{item.roleName}}</td>
+                                    <td>{{item.roleToName}}</td>
+                                    <td *ngIf="item.type !== 'NA'">{{item.wac_date}}</td>
+                                    <td>
+                                        <p style="width: 263px; word-wrap: break-word;">{{item.remarks}}</p>
+                                    </td>
+                                    <td>
+                                        <!-- <a [href]="downloadFile(item.id)" target="_blank"><img style="height: 30px; fill: white;" src="./../../../../../assets/icon/file-pdf-solid.svg"></a> -->
+                                        <img style="height: 30px; fill: white; cursor: pointer;" src="./../../../../../assets/icon/file-pdf-solid.svg" (click)="downloadFile(item.id)">
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</div>

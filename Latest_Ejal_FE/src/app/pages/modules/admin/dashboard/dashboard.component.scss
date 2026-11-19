@@ -1,0 +1,111 @@
+.title-head {
+    background-color: #e4f7fd;
+    text-align: center;
+    font-family: Oswald;
+    color: #3159c8;
+    font-size: 18px;
+    .head-lebel {
+        margin-top: -27px;
+        color: white;
+        background: linear-gradient(to bottom, #1049bc 60%, #308dda 100%);
+        box-shadow: 0px 6px 5px #d6d6d6;
+        height: 65px;
+        label {
+            margin-top: 11px;
+        }
+    }
+    .card-containerX {
+        margin-top: 40px;
+        height: 566px;
+        .cust-card {
+            box-shadow: 0px 2px 10px #ccc;
+            margin-bottom: 42px;
+            .bdy {
+                height: 250px;
+            }
+        }
+        label {
+            font-size: 18px;
+        }
+        .padding-r-l {
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+        }
+        .m-l {
+            margin-left: -22px !important;
+        }
+        .info-label {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2dfdf;
+            font-family: poppins;
+            color: black;
+            .info-lbl {
+                font-size: 16px;
+                color: #4e4d4d;
+            }
+        }
+        .bdr-right {
+            border-right: 1px solid #bfc1c0;
+        }
+        .curved-bdr-1 {
+            text-align: center;
+            background: linear-gradient(to bottom, #1049bc 60%, #308dda 100%);
+            color: white;
+            border-top-left-radius: 10px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .curved-bdr-2 {
+            text-align: center;
+            background: linear-gradient(to bottom, #1049bc 60%, #308dda 100%);
+            color: white;
+            border-top-right-radius: 10px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .bdr-1 {
+            text-align: center;
+            background: linear-gradient(to bottom, #1049bc 60%, #308dda 100%);
+            color: white;
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        .app-status-box {
+            background-color: white;
+            box-shadow: 0px 4px 8px #a2a1a1;
+            border-radius: 10px;
+            .data-lbl {
+                font-size: 17px;
+                color: #111111;
+                font-family: poppins;
+            }
+            .bdr {
+                border-right: 1px solid #c5c5c5;
+            }
+            .padng-row {
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+        }
+    }
+}
+
+.mod-head {
+    color: white;
+    background: linear-gradient(to bottom, #1049bc 49%, #308dda 93%);
+    text-align: center;
+    font-family: Oswald;
+}
+
+.info-box {
+    position: absolute;
+    height: 120px;
+    width: 301px;
+    border: 2px solid #d0cdcd;
+    border-radius: 13px;
+}
+
+area {
+    cursor: pointer;
+}

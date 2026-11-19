@@ -1,0 +1,23 @@
+.title-hd {
+    background-color: #ffffff;
+    text-align: center;
+    // font-family: Oswald;
+    color: #3159c8;
+    font-size: 18px;
+    .head-lebel {
+        margin-top: -27px;
+        color: white;
+        // background: linear-gradient(to bottom, #1049bc 60%, #308dda 100%);
+        box-shadow: 0px 6px 5px #d6d6d6;
+        height: 15px;
+        // label {
+        //     margin-top: 11px;
+        // }
+    }
+    .ctm-btn {
+        color: white;
+        font-size: 15px;
+        font-weight: 600;
+        border: 1px solid white;
+    }
+}

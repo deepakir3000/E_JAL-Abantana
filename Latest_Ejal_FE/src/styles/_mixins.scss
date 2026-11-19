@@ -1,0 +1,25 @@
+@import './mixins/_layout';
+
+@mixin rotate($deg) {
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin  transition($trans-type, $trans-delay, $trans-prop) {
+    -webkit-transition: $trans-type $trans-delay $trans-prop;
+    -moz-transition: $trans-type $trans-delay $trans-prop;
+    -ms-transition: $trans-type $trans-delay $trans-prop;
+    -o-transition: $trans-type $trans-delay $trans-prop;
+    transition: $trans-type $trans-delay $trans-prop;
+}
+
+@mixin  scale($dim) {
+    -webkit-transform: scale($dim);
+    -moz-transform: scale($dim);
+    -ms-transform: scale($dim);
+    -o-transform: scale($dim);
+    transform: scale($dim);
+}

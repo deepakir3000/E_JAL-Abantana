@@ -1,0 +1,273 @@
+.admin-dashboard-wrapper {
+  padding: 20px;
+}
+
+// ===================== Header =====================
+.dashboard-header {
+  background: linear-gradient(135deg, #0d3b66 0%, #1a6fb5 100%);
+  border-radius: 10px;
+  padding: 24px 28px;
+  color: #fff;
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .header-subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.85rem;
+  }
+
+  .header-stats {
+    display: flex;
+    gap: 14px;
+  }
+
+  .stat-box {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-align: center;
+    min-width: 100px;
+
+    &.stat-box-warning {
+      background: rgba(255, 193, 7, 0.25);
+    }
+
+    .stat-number {
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+  }
+}
+
+// ===================== Toolbar =====================
+.toolbar-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 16px 20px;
+  margin-top: 18px;
+
+  .btn-block-mobile {
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    .btn-block-mobile {
+      width: auto;
+    }
+  }
+}
+
+// ===================== Table =====================
+.table-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  margin-top: 18px;
+  overflow: hidden;
+
+  table {
+    margin-bottom: 0;
+  }
+
+  thead th {
+    background: #f4f7fb;
+    border-bottom: 2px solid #e3ebf5;
+    color: #33445c;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+
+  .sortable {
+    cursor: pointer;
+    user-select: none;
+
+    i {
+      margin-left: 4px;
+      font-size: 0.75rem;
+    }
+
+    &:hover {
+      color: #1a6fb5;
+    }
+  }
+
+  td {
+    vertical-align: middle;
+    font-size: 0.88rem;
+  }
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a6fb5, #0d3b66);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-weight: 600;
+  color: #23324a;
+}
+
+.user-email {
+  font-size: 0.75rem;
+}
+
+.role-badge {
+  font-size: 0.72rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.badge-role-nodal {
+  background: #e3f2fd;
+  color: #0d47a1;
+}
+
+.badge-role-appellate {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.badge-role-revisional {
+  background: #ede7f6;
+  color: #4527a0;
+}
+
+.badge-role-default {
+  background: #eceff1;
+  color: #37474f;
+}
+
+.badge-pending {
+  background: #fff1c2;
+  color: #8a6d00;
+  font-size: 0.68rem;
+}
+
+.badge-complete {
+  background: #d9f7e6;
+  color: #167a44;
+  font-size: 0.68rem;
+}
+
+.onboarding-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+
+  .badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+  }
+
+  .btn {
+    font-size: 0.72rem;
+    padding: 3px 10px;
+  }
+}
+
+.custom-control-label::before,
+.custom-control-label::after {
+  top: 0.1rem;
+}
+
+.pagination-footer {
+  padding: 14px 20px;
+  border-top: 1px solid #eef1f5;
+  display: flex;
+  justify-content: flex-end;
+}
+
+// ===================== Audit modal =====================
+.audit-modal-header {
+  background: linear-gradient(135deg, #0d3b66 0%, #1a6fb5 100%);
+  color: #fff;
+
+  .close {
+    color: #fff;
+    opacity: 0.8;
+    text-shadow: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 6px;
+    bottom: 6px;
+    width: 2px;
+    background: #e3ebf5;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 28px;
+  padding-bottom: 18px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #1a6fb5;
+  border: 3px solid #d7e8fb;
+}
+
+.timeline-content {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px 14px;
+}

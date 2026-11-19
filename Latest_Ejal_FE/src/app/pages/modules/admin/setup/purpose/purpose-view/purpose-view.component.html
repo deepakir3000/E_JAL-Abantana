@@ -1,0 +1,88 @@
+<!-- state view details -->
+<div class="card">
+    <!-- card details -->
+    <div class="card-header">
+        <div class="card-title">Purpose Details
+            <!-- <span *ngIf="isLookUpBackAllowed" class="back-button" title="Go Back">
+        <i class="fa fa-reply "></i>
+        <span>Back</span>
+      </span> -->
+        </div>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search industry by industry name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row justify-content-end mr-0 mr-0">
+                    <!-- state details modification controls -->
+                    <div class="btn-group btn-controls">
+                        <!-- add state details -->
+                        <button type="button" class="btn btn-primary" (click)="goToPage()">
+                            <i class="fa fa-plus"></i>Create</button>
+                        <!-- edit state details -->
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()">
+                            <i class="fa fa-edit"></i>Edit</button>
+                        <!-- delete state details -->
+                        <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash" ></i>Delete</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- state details list -->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th class="text-center">Sl.No</th>
+                        <th class="text-center">Purpose</th>
+                        <th class="text-center">Status</th>
+
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody>
+                    <tr *ngFor="let data of purpose | paginate: {id:'totalPurposeList', itemsPerPage: purposePageSize, currentPage: purposePageNo, totalItems: purposeTotalElements}; let i = index" [ngClass]="{'selected': data.purpose_name === selectedName}" (click)="selectTableData(data)">
+                        <td class="text-center">
+                            {{((purposePageNo -1) * purposePageSize) + i+1}}
+                        </td>
+                        <td class="text-center">
+                            {{data.purpose_name}}
+                        </td>
+                        <td class="text-center">
+                            Active
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+                        Total Records:
+                        <b>{{purposeTotalElements}}</b>
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalPurposeList" autoHide="true" (pageChange)="setPageDetails(purposePageNo, $event)" maxSize="3">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

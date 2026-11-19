@@ -1,0 +1,109 @@
+<div class="ack-wrapper">
+  <div class="ack-container">
+
+    <div class="top-divider"></div>
+
+    <div class="ack-letterhead-row">
+      <div class="letterhead-left">
+        <img src="assets/icon/odisha_logo_blue.png" class="letterhead-logo" alt="Government of Odisha Emblem">
+        <div class="letterhead-text">
+          <h5 class="dept-name">Department of Water Resources,</h5>
+          <h6 class="govt-name">Government of Odisha</h6>
+           <!-- <img src="assets/images/WaterLogin/Govt. of Odisha.png" class="letterhead-logo" alt="Government of Odisha Emblem"> -->
+        </div>
+      </div>
+
+      <div class="ack-form-heading">
+        <h6 class="form-no">FORM – 1</h6>
+        <h6 class="form-rule">(See Rule 4)</h6>
+      </div>
+    </div>
+
+    <div class="ack-header">
+      <span class="place-text"><strong>Place:</strong> {{ place }}</span>
+      <h1 class="ack-title">FORM OF ACKNOWLEDGEMENT</h1>
+      <span class="date-text"><strong>Date:</strong> {{ date }}</span>
+    </div>
+
+    <div class="bottom-divider"></div>
+
+    <table class="ack-table">
+      <thead>
+        <tr>
+          <th class="col-sl">Sl. No.</th>
+          <th class="col-detail">Details </th>
+          <th class="col-value">Data </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let row of rows">
+          <td class="col-sl">{{ row.slNo }}</td>
+          <td class="col-detail">{{ row.detail }}</td>
+          <td class="col-value" [class.italic-cell]="row.isItalic">
+
+            <ng-container *ngIf="row.isMultiLine">
+              <p *ngFor="let line of row.lines; let i = index" [class.bold-line]="i === 0">
+                {{ line }}
+              </p>
+            </ng-container>
+
+            <ng-container *ngIf="!row.isMultiLine && row.subLabel">
+              <p>{{ row.subLabel }} {{ row.value }}</p>
+            </ng-container>
+
+            <ng-container *ngIf="!row.isMultiLine && !row.subLabel">
+              <p [class.bold-line]="!row.isItalic">{{ row.value }}</p>
+            </ng-container>
+
+            <p *ngIf="row.subValue" class="sub-note">{{ row.subValue }}</p>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="col-sl">6</td>
+          <td class="col-detail">Last Date of the given time limit</td>
+          <td class="col-value">
+            <p class="bold-line">{{ lastDateOfTimeLimit }}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="ack-footer">
+      <div class="footer-left">
+        <p><strong>Place:</strong> {{ place }}</p>
+        <p><strong>Date:</strong> {{ date }}</p>
+      </div>
+      <div class="footer-right">
+        <p>Signature of the Receiving Officer</p>
+        <p>Name and Designation with seal</p>
+      </div>
+    </div>
+
+    <div class="ack-note">
+      <p>
+        <strong>Note:</strong> In case of not receiving all the documents with the application,
+        the last date of the given time limit shall not be specified.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="action-btn-wrapper">
+    <button type="button" class="action-btn back-btn" (click)="onBack()">
+      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      Back
+    </button>
+    <button type="button" class="action-btn print-btn" (click)="onPrint()">
+      <i class="fa fa-print" aria-hidden="true"></i>
+      Print
+    </button>
+    <!-- <button type="button" class="action-btn print-btn" (click)="onDownload()">
+      <i class="fa fa-print" aria-hidden="true"></i>
+      Download
+    </button> -->
+  </div>
+
+</div>

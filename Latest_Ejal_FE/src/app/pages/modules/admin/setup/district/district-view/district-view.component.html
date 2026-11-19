@@ -1,0 +1,103 @@
+<!-- district view details -->
+<div class="card">
+    <!-- card details -->
+    <div class="card-header">
+        <div class="card-title">District Details
+            <span *ngIf="isLookUpBackAllowed" class="back-button" title="Go Back" (click)="goBackToPage()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search district by district name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row justify-content-end mr-0 mr-0">
+                    <!-- district details modification controls -->
+                    <div class="btn-group btn-controls">
+                        <!-- add district details -->
+                        <button type="button" class="btn btn-primary" (click)="openCreateDistrictDetailsPage()"><i
+                                class="fa fa-plus"></i>Create</button>
+                        <!-- edit district details -->
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()"><i
+                                class="fa fa-edit"></i>Edit</button>
+                        <!-- delete district details -->
+                        <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i>Delete</button> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="form-group row pl-3">
+                    Show
+                    <div class="col-sm-3">
+                        <select class="form-control" id="dh" [(ngModel)]="selectedPageSize">
+                            <option *ngFor="let option of pageSize" [value]="option">{{option}}</option>
+                        </select>
+                    </div>
+                    entries
+                </div>
+            </div>
+        </div>
+        <!-- circle details list -->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th class="text-center">Sl.No</th>
+                        <th class="text-center">State</th>
+                        <th class="text-center">District</th>
+                        <th class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody>
+                    <!-- <tr *ngFor="let data of district"
+                        [ngClass]="{'selected': data.checked}" (click)="selectDistrictDetails(data)"> -->
+                    <!-- <tr *ngFor="let data of district | paginate: {id:'totalDistrictList', itemsPerPage: districtPageSize, currentPage: districtPageNo, totalItems: districtTotalElements}; let i=index"
+                        [ngClass]="{'selected': data.checked}" (click)="selectDistrictDetails(data)">
+                        <td class="text-center">{{((districtPageNo -1) * districtPageSize) + i+1}}</td>
+                        <td class="text-center">{{data.stateName}}</td>
+                        <td class="text-center">{{data.districtName}}</td>
+                        <td class="text-center">{{data.status}}</td>
+                    </tr> -->
+                    <tr *ngFor="let data of district | paginate: {id:'totalDistrictList', itemsPerPage: districtPageSize, currentPage: districtPageNo, totalItems: districtTotalElements}; let i = index" [ngClass]="{'selected': data.district_name === selectedName}" (click)="selectTableData(data)">
+                        <td class="text-center">{{((districtPageNo -1) * districtPageSize) + i+1}}</td>
+                        <td class="text-center">Odisha</td>
+                        <td class="text-center">{{data.district_name}}</td>
+                        <td class="text-center">Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+                        Total Records: <b>{{districtTotalElements}}</b>
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalDistrictList" autoHide="true" (pageChange)="setPageDetails(districtPageNo, $event)" maxSize="3"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

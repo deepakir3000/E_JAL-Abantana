@@ -1,0 +1,448 @@
+[2026-10-06T17:34:06.169] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/419 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.170] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.170] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.172] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/418 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.172] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.172] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.174] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/417 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.174] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.174] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.187] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/416 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.188] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.188] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.189] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/414 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.189] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.189] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.191] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/413 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.191] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.191] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.200] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.201] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.204] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.205] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.209] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.209] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.219] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.220] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.220] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.220] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.223] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.223] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.245] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/392 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.246] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.246] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.246] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/391 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.247] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.247] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.250] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/390 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.250] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.250] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.278] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/389 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:06.278] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:06.279] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:06.280] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.280] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.284] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.285] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.285] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.286] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:06.293] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-10-06T17:34:06.294] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
+[2026-10-06T17:34:11.243] [INFO] server.js - Tue Oct 06 2026 17:34:11 GMT+0530 (India Standard Time) : GET /dowr/api/workflow/nextStep?applicationId=419&skipRules=true at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:11.243] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:11.244] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:11.263] [INFO] FormActionController.js - Inside nextStep at nextStep (..\controllers\formaction\FormActionController.js:217:9)
+[2026-10-06T17:34:11.263] [INFO] FormActionService.js - Inside FormActionServiceImpl nextStep at nextStep (..\services\formaction\FormActionService.js:1308:9)
+[2026-10-06T17:34:11.656] [DEBUG] FormActionService.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: {
+    id: 2244,
+    obj_id: 419,
+    wf_id: 7,
+    wf_step_id: '27',
+    wf_step_transition_id: '97',
+    from_id: '9',
+    to_id: '10',
+    created_on: 2026-10-06T11:45:19.170Z,
+    steps: {
+      id: 28,
+      step_name: 'DIRECTOR_APPROVAL',
+      isDate: false,
+      trans: [Array]
+    }
+  }
+} at nextStep (..\services\formaction\FormActionService.js:1463:9)
+[2026-10-06T17:34:11.657] [INFO] FormActionController.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: {
+    id: 2244,
+    obj_id: 419,
+    wf_id: 7,
+    wf_step_id: '27',
+    wf_step_transition_id: '97',
+    from_id: '9',
+    to_id: '10',
+    created_on: 2026-10-06T11:45:19.170Z,
+    steps: {
+      id: 28,
+      step_name: 'DIRECTOR_APPROVAL',
+      isDate: false,
+      trans: [Array]
+    }
+  }
+} at nextStep (..\controllers\formaction\FormActionController.js:228:9)
+[2026-10-06T17:34:11.664] [INFO] server.js - Tue Oct 06 2026 17:34:11 GMT+0530 (India Standard Time) : GET /dowr/api/getAllEE?type=EE&id=0 at <anonymous> (..\server.js:101:9)
+[2026-10-06T17:34:11.664] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
+[2026-10-06T17:34:11.665] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-10-06T17:34:13.961] [INFO] UacController.js - Inside getAllEE at getAllEE (..\controllers\uac\UacController.js:555:7)
+[2026-10-06T17:34:13.962] [INFO] UacServiceImpl.js - Inside UacServiceImpl getAllEE at getAllEE (..\services\uac\UacServiceImpl.js:626:7)
+[2026-10-06T17:34:13.975] [DEBUG] UacServiceImpl.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: [
+    {
+      id: '13',
+      user_name: 'EE_Angul',
+      display_name: 'Executive Engineer',
+      mobile: '8917693695',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '14',
+      user_name: 'EE_Samal',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '15',
+      user_name: 'EE_Rengali',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '16',
+      user_name: 'EE_Balasore',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '17',
+      user_name: 'EE_Baripada',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '18',
+      user_name: 'EE_Rairangpur',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '19',
+      user_name: 'EE_Baragarh',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '20',
+      user_name: 'EE_Sambalpur(Burla)',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '21',
+      user_name: 'EE_Main_Dam(Burla)',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '22',
+      user_name: 'EE_Sundargarh',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '23',
+      user_name: 'EE_Bhadrak',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '24',
+      user_name: 'EE_Salapada',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '25',
+      user_name: 'EE_Balangir',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '26',
+      user_name: 'EE_Boudh',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '27',
+      user_name: 'EE_Bhawanipatna',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '28',
+      user_name: 'EE_Nuapada',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '29',
+      user_name: 'EE_MahanadiS',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '30',
+      user_name: 'EE_MahanadiN',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '31',
+      user_name: 'EE_Jagatsinghpur',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '32',
+      user_name: 'EE_Khurda',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '33',
+      user_name: 'EE_Bhubaneswar',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '34',
+      user_name: 'EE_Puri',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '35',
+      user_name: 'EE_Jajpur',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '36',
+      user_name: 'EE_Kendrapada',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '37',
+      user_name: 'EE_Jaraka',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '38',
+      user_name: 'EE_Dhenkanal',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '39',
+      user_name: 'EE_Adava',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '40',
+      user_name: 'EE_Bareniput',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '41',
+      user_name: 'EE_Boriguma',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '42',
+      user_name: 'EE_Kusumkhunti',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '43',
+      user_name: 'EE_Balimela',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '44',
+      user_name: 'EE_Chitrakonda',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '45',
+      user_name: 'EE_Berhampur',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '46',
+      user_name: 'EE_Bhanjanagar',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '47',
+      user_name: 'EE_Amrit',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '48',
+      user_name: 'EE_Sambalpur',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '49',
+      user_name: 'EE_Burla',
+      display_name: 'Executive Engineer',
+      mobile: '8249421788',
+      email: 'jyoti.jrps@gmail.com',
+      status: 1,
+      role_id: 6
+    },
+    {
+      id: '66',
+      user_name: 'EE_Kandhamal',
+      display_name: 'Executive Engineer',
+      mobile: '8740003967',
+      email: 'kidphulbani@gmail.com',
+      status: 1,
+      role_id: 6
+    }
+  ]
+} at getAllEE (..\services\uac\UacServiceImpl.js:691:7)

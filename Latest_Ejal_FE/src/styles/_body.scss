@@ -1,0 +1,25 @@
+.body-wrapper {
+    position: relative;
+    font-family: $font2;
+    margin-left: 0;
+    padding: $body-padding-layout;
+    @include transition(all, 0.5s, linear);
+    font-size: 16px;
+    overflow-x: hidden;
+    min-height: 100vh;
+    
+    // background-color: #e9f8fd;
+
+    &.sticky {
+        padding-top: $head-height + 1.5rem;
+    }
+
+    &.compress {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    &.extend {
+        margin-left: $body-margin-layout;
+    }
+}

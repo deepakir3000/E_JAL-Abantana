@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Payment Status
+                <span class="back-button" title="Go Back">
+                    <i class="fa fa-reply "></i>
+                    <span>Back</span>
+                </span>
+            </div>
+        </div>
+        <!-- <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 offset-sm-3">
+                        <div class="form-group row required">
+                            <label for="stateId" class="col-sm-4 col-form-label">Application Id</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div align="center">
+                    <button type="button"  class="btn btn-primary">Update</button>
+                </div>
+        </div> -->
+        <!-- <div class="text-center">
+            <button class="btn btn-success" (click)="getScroll();" >get scroll</button>
+        </div> -->
+        <div class="container mt-2">
+            <input
+            type="text"
+            class="form-control mb-3"
+            placeholder="Search by Application ID, Name, etc..."
+            (input)="logSearchTerm($event)"
+          />
+        </div>
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead class="text-center">
+                    <tr>
+                        <th>Sl.No</th>
+                        <th>Application ID </th>
+                        <th>Name</th>
+                        <th>Industry Type</th>
+                        <th>Trs ID</th>
+                        <th>Dept Ref ID</th>
+                        <th>Challan Ref No.</th>
+                        <th>Challan No.</th>
+                        <th>Challan Generated Date</th>
+                        <th>Bank Name</th>
+                        <th>Bank Transaction ID</th>
+                        <th>Status</th>
+                        <th>Transaction Date</th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr *ngFor="let data of filteredTransactionData; let i = index">
+                        <td>{{(i+1)}}</td>
+                        <td>{{data.appid}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.industry_name}}</td>
+                        <td>{{data.trsid}}</td>
+                        <td>{{data.deptrefid}}</td>
+                        <td>{{data.ref_no}}</td>
+                        <!-- Bold if challan_no_Proces is not generated -->
+                        <td>
+                            <ng-container *ngIf="data.challan_no_proces; else notGeneratedChallan">
+                                {{ data.challan_no_proces }}
+                            </ng-container>
+                            <ng-template #notGeneratedChallan><strong>Not generated</strong></ng-template>
+                        </td>
+
+                        <!-- Bold if date_Proces is not generated -->
+                        <td>
+                            <ng-container *ngIf="data.date_proces; else notGeneratedDate">
+                                {{ data.date_proces | date: 'dd-MM-yyyy' }}
+                            </ng-container>
+                            <ng-template #notGeneratedDate><strong>Not generated</strong></ng-template>
+                        </td>
+                        <td>{{data.bankname}}</td>
+                        <td>{{data.banktransactionid}}</td>
+                        <td>{{data.status}}</td>
+                        <td>{{data.dt_time | date: 'dd-MM-yyyy'}}</td>
+                        <!-- <td>Active</td>
+                        <td *ngIf="!data.status === 1">Inactive</td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

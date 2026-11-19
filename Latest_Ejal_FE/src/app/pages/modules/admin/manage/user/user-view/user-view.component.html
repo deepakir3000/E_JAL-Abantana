@@ -1,0 +1,118 @@
+<!-- user view details -->
+<div class="card">
+    <!-- card details -->
+    <div class="card-header">
+        <div class="card-title">View User Details</div>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <div class="row">
+            <!-- user search details -->
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search User">
+                    </div>
+                </div>
+            </div>
+
+            <!-- user details modification controls -->
+            <div class="col-sm-6">
+                <div class="row justify-content-end ml-0 mr-0">
+                    <div class="btn-group btn-controls">
+                        <!-- add user details -->
+                        <button type="button" class="btn btn-primary" (click)="gotoPage()">
+                            <i class="fa fa-plus"></i> Create
+                        </button>
+                        <!-- edit user details -->
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()">
+                            <i class="fa fa-edit"></i> Edit
+                        </button>
+                        <!-- Approval button -->
+                        <!-- <button type="button" class="btn btn-primary">
+                            <i class="fa fa-unlock"></i> Unblock
+                            <span class="badge btn-badge badge-danger"></span>
+                        </button> -->
+                        <!-- delete user details -->
+                        <!-- <button type="button" class="btn btn-danger">
+                            <i class="fa fa-trash"></i> Delete
+                        </button> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- <div class="row pl-3">
+            <div class="col-xl-6">
+                <div class="form-group row pl-3">
+                    Show
+                    <div class="col-sm-3">
+                       <select class="form-control" id="dh" [(ngModel)]="selectedPageSize" (change)="changePageSize()">
+                            <option *ngFor="let option of paginationLength" [value]="option">{{option}}
+                            </option>
+                        </select>
+                    </div>
+                    entries
+                </div>
+            </div>
+        </div> -->
+        <!-- user details list -->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th>Sl.No</th>
+                        <!-- <th>UserID</th> -->
+                        <th>User Name</th>
+                        <th>Full Name</th>
+                        <!-- <th>Location</th> -->
+                        <th>Mobile No</th>
+                        <th>Email ID</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody class="text-center">
+                    <tr *ngFor="let data of userList | paginate: {id:'totalUserList', itemsPerPage: UserPageSize, currentPage: UserPageNo, totalItems: UserTotalElements }; let i = index" [ngClass]="{'selected': data.user_name === selectedName}" (click)="selectTableData(data)">
+                        <td>{{((UserPageNo -1) * UserPageSize) + i+1}}</td>
+                        <!-- <td class="text-center">
+                            {{data.id}}
+                        </td> -->
+                        <td>{{data.user_name}}</td>
+                        <td>{{data.display_name}}</td>
+                        <!-- <td>{{data.locName}}</td> -->
+                        <td>{{data.mobile}}</td>
+                        <td>{{data.email}}</td>
+                        <td>Active</td>
+                        <td *ngIf="data.status !== 1">Inctive</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <!-- <div class="col-12">
+                <div class="bg-white text-center">
+                    <pagination-controls id="totalUserList" autoHide="true" (pageChange)="setPageDetails(uPageNo, $event, searchUserText)"
+                        maxSize="3"></pagination-controls>
+                </div>
+            </div> -->
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+                        Total Records: <b>{{UserTotalElements}}</b>
+                    </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalUserList" autoHide="true" (pageChange)="setPageDetails(UserPageNo, $event)" maxSize="3"></pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

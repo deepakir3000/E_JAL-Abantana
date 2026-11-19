@@ -1,0 +1,63 @@
+<div class="container pay-status-container">
+    <div class="row">
+        <div class="col-12 thnk">
+            <h4 *ngIf="paymentStatus === 'S'">Thank You.</h4>
+            <h4 *ngIf="paymentStatus === 'F' || paymentStatus === 'P'">SORRY....!!!!</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 pymnt">
+            <h4 *ngIf="paymentStatus === 'S'" class="text-success">Payment Successfull</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 pymnt">
+            <h4 *ngIf="paymentStatus === 'F' || paymentStatus === 'P'" class="text-danger">Payment Failed..!!</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="success-box" [ngClass]="{'table-success': paymentStatus === 'S', 'danger-table': paymentStatus === 'F' || paymentStatus === 'P'}">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <td class="tab-head" colspan="2">Payment Reciept Details</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Application No</td>
+                                <td>{{appId}}</td>
+                            </tr>
+                            <tr>
+                                <td>Bank Name</td>
+                                <td>{{bankName}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction No</td>
+                                <td>{{bankTransactionId}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction Reference No</td>
+                                <td>{{refNo}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction Amount</td>
+                                <td>{{amount}}</td>
+                            </tr>
+                            <tr>
+                                <td>Transaction Time</td>
+                                <td>{{dtTime}}</td>
+                            </tr>
+                            <tr>
+                                <td>Payment Status</td>
+                                <td>{{bnkTranMsg}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

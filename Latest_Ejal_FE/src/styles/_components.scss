@@ -1,0 +1,93 @@
+.row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+// FOR TABLE
+
+/* table.table {
+    thead {
+        font-family: $font1;
+        font-size: 0.8rem;
+        text-align: center;
+        letter-spacing: 2px;
+        // background-image: linear-gradient(to bottom left, #051322, #15457c); //#71B0E2, #005AFF
+        // background-color: #15457c;
+        // color: #FFF;
+    }
+    tbody {
+        font-size: 0.8rem;
+    }
+    &.table-hover {
+        tbody {
+            tr {
+                &:hover {
+                    background-color: #DCEDFF;
+                }
+                &.selected {
+                    background-color: #4593ec !important;
+                    color: #FFF !important;
+                    td {
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+    &.table-bordered {
+        td,
+        th {
+            border: 1px solid #CECECE;
+        }
+    }
+    td,
+    th {
+        vertical-align: middle;
+        padding: 0.5rem;
+    }
+} */
+
+.card {
+    border-radius: 15px;
+    .card-header {
+        background-image: linear-gradient(to right, #0c4bcc, #197bdc 60%); //#71B0E2, #005AFF
+        // background-color: #15457c;
+        color: #FFF;
+        min-height: 50px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: $font1;
+            margin-bottom: 0;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+.back-button {
+    background-color: #004390;
+    color: #FFF;
+    position: absolute;
+    right: 0;
+    width: 100px;
+    text-align: center;
+    height: 36px;
+    padding: 0.35rem;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    border-radius: 1rem 0rem 0 1rem;
+    top: 7px;
+    cursor: pointer;
+    @include transition(all, 0.4s, ease-in-out);
+    i {
+        padding-right: 0.5rem
+    }
+    &:hover {
+        box-shadow: 0 0 0 0 #FFF;
+        @include scale(1.2);
+        right: 10px;
+    }
+}

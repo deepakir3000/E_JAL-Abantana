@@ -1,0 +1,75 @@
+@mixin submenu-cont($cont-width, $bg-color, $top-position) {
+    position: $hor-submenu-position;
+    width: $cont-width;
+    top: $top-position;
+    left: -99999rem;
+    list-style: none;
+    padding-left: 0;
+    text-align: left;
+    background-color: $bg-color // #6495ED;
+}
+
+@mixin hor-link($color, $bg-color) {
+    color: $color;
+    background-color: $bg-color;
+    text-decoration: none;
+    display: $hor-menu-link-display-type-1;
+}
+
+@mixin hor-link-icon($layout) {
+    width: $layout;
+    min-height: $layout;
+    font-size: $layout;
+}
+
+@mixin hor-link-txt($type, $sz, $wt) {
+    display: $type;
+    font-size: $sz;
+    font-weight: $wt;
+    letter-spacing: 1px;
+}
+
+@mixin hor-sublink-icon($layout) {
+    position: absolute;
+    top: 25%;
+    width: $layout;
+    font-size: $layout;
+}
+
+@mixin hor-sublink-txt($icon-wd, $sz, $wt) {
+    display: inline-block;
+    max-width: $hor-submenu-container-width - ($icon-wd + 4px);
+    margin-left: $icon-wd + 4px;
+    font-size: $sz;
+    font-weight: $wt;
+    letter-spacing: 0.5px;
+}
+
+@mixin ver-ul-nav($pl) {
+    list-style: none;
+    padding-left: $pl;
+    margin-bottom: 0;
+}
+
+@mixin ver-link($color, $bg-color, $p) {
+    display: block;
+    text-decoration: none;
+    color: $color;
+    background-color: $bg-color;
+    padding: $p;
+    outline: 0;
+}
+
+@mixin ver-link-icon ($pad, $sz-layout) {
+    padding-right: $pad;
+    width: $sz-layout;
+    height: $sz-layout;
+    font-size: $sz-layout;
+}
+
+@mixin ver-link-txt ($pad, $sz, $wt) {
+    font-weight: $wt;
+    font-size: $sz;
+    letter-spacing: 0.5px;
+    padding-left: $pad;
+}

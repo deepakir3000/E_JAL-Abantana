@@ -1,0 +1,84 @@
+<!-- state view details -->
+<div class="card">
+    <!-- card details -->
+    <div class="card-header">
+        <div class="card-title">Industry Type Details
+            <!-- <span *ngIf="isLookUpBackAllowed" class="back-button" title="Go Back">
+        <i class="fa fa-reply "></i>
+        <span>Back</span>
+      </span> -->
+        </div>
+    </div>
+    <!-- card body -->
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row  ml-0 mr-0 outside">
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-search"></i>
+                        </div>
+                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control" placeholder="Search industry by industry name">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row justify-content-end mr-0 mr-0">
+                    <!-- state details modification controls -->
+                    <div class="btn-group btn-controls">
+                        <!-- add state details -->
+                        <button type="button" class="btn btn-primary" (click)="goToPage()">
+              <i class="fa fa-plus"></i>Create</button>
+                        <!-- edit state details -->
+                        <button type="button" class="btn btn-warning" (click)="goToEditPage()">
+              <i class="fa fa-edit"></i>Edit</button>
+                        <!-- delete state details -->
+                        <!-- <button type="button" class="btn btn-danger"><i class="fa fa-trash" ></i>Delete</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Used to add State -->
+        <!-- state details list -->
+        <div class="table-responsive">
+            <table class="table  table-bordered">
+                <!-- table headers -->
+                <thead>
+                    <tr>
+                        <th class="text-center">Sl.No</th>
+                        <th class="text-center">Industry Type</th>
+                        <th class="text-center">Status</th>
+
+                    </tr>
+                </thead>
+                <!-- table body -->
+                <tbody>
+                    <tr *ngFor="let data of industryDetails | paginate: {id:'totalIndustryList', itemsPerPage: industryPageSize, currentPage: industryPageNo, totalItems: industryTotalElements }; let i = index" [ngClass]="{'selected': data.industry_name === selectedName}"
+                        (click)="selectTableData(data)">
+                        <td class="text-center">{{((industryPageNo - 1) * industryPageSize) + i+1}}</td>
+                        <td class="text-center">{{data.industry_name}}</td>
+                        <td>Active</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- pagination controls -->
+        <div class="row">
+            <div class="col-6">
+                <div class="bg-white text-left">
+                    <span>
+            Total Records:
+            <b>{{industryTotalElements}}</b>
+          </span>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="bg-white text-right">
+                    <pagination-controls id="totalIndustryList" autoHide="true" (pageChange)="setPageDetails(industryPageNo, $event)" maxSize="3">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

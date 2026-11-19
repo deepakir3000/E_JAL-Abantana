@@ -1,0 +1,332 @@
+<div class="pg-info-container">
+    <div class="card pt-4 pb-2 py-2 top-search-card">
+        <div class="row">
+            <div class="col-3 form-group d-flex">
+                <input type="text" class="form-control" placeholder="Search By Establishment Name"
+                    (keyup)="getDataByKeyInput($event)"> <i class="fa fa-search custom-search-icon"
+                    style="cursor: pointer;" aria-hidden="true" (click)="getSearchData()"></i>
+            </div>
+            <div class="col-3 form-group d-flex">
+                <input type="text" class="form-control" placeholder="Search By Application Numer"
+                    (change)="getAppDataInput($event)"> <i class="fa fa-search custom-search-icon"
+                    style="cursor: pointer;" aria-hidden="true" (click)="getappData()"></i>
+            </div>
+            <div class="col-6" *ngIf="roleID === '4' || roleID === '2' || roleID === '5'">
+                <div class="row top-filter-container">
+                    <div class="col-6">
+                        <div class="row">
+                            <h4 class="mb-0 search-head">River Basin</h4>
+                        </div>
+                        <div class="row">
+                            <select class="form-control" (change)="getDataByBasinAndEE($event, 'Basin')">
+                                <option value="">Select Any One</option>
+                                <option *ngFor="let data of basinList" [value]="data.id">{{data.basin_name}}</option>
+                            </select>
+                        </div>
+                        <!-- <h4 class="mb-0 search-head">River</h4>
+                        <div class="row change-font" *ngIf="!isDivisionClicked">{{selectedDistrictText}}<i class="fa fa-chevron-down pl-2"></i></div>
+                        <div class="row change-font" *ngIf="isDivisionClicked" class="filter-value-container">
+                            <ul>
+                                <li class="text-capitalize" *ngFor="let option of divisionList; let i=index;" (click)="changeDivision(i)">
+                                    {{option.divisionName}}</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <h4 class="mb-0 search-head">Division</h4>
+                        </div>
+                        <div class="row">
+                            <select class="form-control" (change)="getDataByBasinAndEE($event, 'EE')">
+                                <option value="">Select Any One</option>
+                                <option *ngFor="let data of executiveEngineerList" [value]="data.user_name">
+                                    {{data.user_name}}</option>
+                            </select>
+                        </div>
+                        <!-- <h4 class="mb-0 search-head">Division</h4>
+                        <div class="row change-font" *ngIf="!isCircleClicked">{{selectedBlockText}}<i class="fa fa-chevron-down pl-2"></i></div>
+                        <div class="row change-font" *ngIf="isCircleClicked" class="filter-value-container">
+                            <ul>
+                                <li class="text-capitalize" *ngFor="let option of blockList; let i=index;" (click)="changeCircle(i)">
+                                    {{option.blockName}}</li>
+                            </ul>
+                        </div> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card content-card">
+        <div class="row content-top">
+            <div class="col-8 py-2">
+            </div>
+            <div class="col-4 py-2">
+                <!-- <div class="row text-right form-group mb-0">
+                    <label class="col-4 mt-2">Sort by</label>
+                    <div class="col-8">
+                        <select class="form-control">
+                            <option>Select Any One <i class="fa fa-chevron-down" aria-hidden="true"></i></option>
+                        </select>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-sm table-striped table-bordered table-hover custom-th">
+                    <thead>
+                        <tr>
+                            <th>Sl.No.</th>
+                            <th>Application No.</th>
+                            <th>Name of Industry/Establishment</th>
+                            <th>Industry Type</th>
+                            <th>Service Name</th>
+                            <th>Requested On</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            <!-- <th>Order Details</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="text-center"
+                            *ngFor="let item of applicationData | paginate: {id:'totalApplicationList', itemsPerPage: applicationPageSize, currentPage: applicationPageNo, totalItems: applicationTotalElements}; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{item.id}}</td>
+                            <td class="text-capitalize text-wrap">{{item.ce_name}}</td>
+                            <td class="text-uppercase">{{item.app_type}}</td>
+                            <td>{{item.purpose_name}}
+                            </td>
+                            <td>{{item.created_on | date: 'dd-MMM-yyy'}}</td>
+                            <td
+                                [ngClass]="{'text-danger': item.status_name === 'REJECTED', 'text-success': item.status_name === 'COMPLETED', 'text-primary': item.status_name === 'PENDING'}">
+                                {{item.status_name}}</td>
+                            <td class="text-nowrap">
+                                <button class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-view" type="button"
+                                    (click)="openViewForm(item.id)"> <i class="fa fa-eye"
+                                        aria-hidden="true"></i>View</button>
+                                <button *ngIf="loginType === 'true'"
+                                    class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-status" type="button"
+                                    (click)="openStatusModal(statusModal, item.id)"> <i class="fa fa-tasks"
+                                        aria-hidden="true"></i> Status</button>
+                                <button *ngIf="loginType === 'true' && roleID !== '2'" [disabled]="!item.isAction"
+                                    class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-action" type="button"
+                                    (click)="openApprovalForm(item)"> <i class="fa fa-reply fa-flip-horizontal"
+                                        aria-hidden="true"></i> Take Action</button>
+                                <button *ngIf="roleID === '2'" [disabled]="!item.isAction"
+                                    class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-action" type="button"
+                                    (click)="openActionModal(actionModal, item)"> <i
+                                        class="fa fa-reply fa-flip-horizontal" aria-hidden="true"></i>
+                                    {{item.status_id === 5 ? 'Completed' : 'Take Action'}}</button>
+                                <!-- <button class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-view" type="button" [disabled]="item.status_id !== 3" (click)="openViewFormacknowledgement(item.id)"> <i class="fa fa-eye"
+                                        aria-hidden="true"></i>Acknowledgement</button> -->
+                                <button class="btn btn-sm btn-primary rounded-0 ml-1 mr-1 btn-view" type="button"
+                                    [disabled]="item.status_id !== 3 || !item.acknowledge_date"
+                                    (click)="openViewFormacknowledgement(item.id)">
+                                    <i class="fa fa-eye" aria-hidden="true"></i>Acknowledgement
+                                </button>
+                            </td>
+                            <!-- <td></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="bg-white text-right">
+                    <pagination-controls class="custom-pagination" id="totalApplicationList" autoHide="true"
+                        (pageChange)="setPageDetails(applicationPageNo, $event, searchTxt)" maxSize="3">
+                    </pagination-controls>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #actionModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Choose Action</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="row indInfo">
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">
+                                Application No:
+                            </div>
+                            <div class="col-7">
+                                {{applicationDt.id}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row">
+                            <div class="col-5">
+                                Industry Name:
+                            </div>
+                            <div class="col-7">
+                                {{applicationDt.app_type}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <h6 class="step-stick-title"> </h6> -->
+                <!--         <div class="row mt-4">
+                    <div class="col-md-5">
+                        Select Action
+                    </div>
+                    <div class="col-md-7">
+                        <select class="form-control" (change)="setApproverSts($event)">
+                        <option value="P">Second Query Raised</option>
+                        <option value="F">Forward to Chief Engineer</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="row justify-content-end mt-4">
+                    <div class="col-md-12">
+                        {{appSts1 ? 'Please enter Description' : 'Please select the details for rejection'}}
+                    </div>
+                    <div class="col-md-10 mt-3">
+                        <textarea class="form-control" name="appSts1AppDtls" id="appSts1AppDtls" rows="4" *ngIf="appSts1"></textarea>
+                        <select class="form-control" name="appSts1RejSts" id="appSts1RejSts" *ngIf="!appSts1">
+                        <option>-- Select any one reason for rejection --</option>
+                    </select>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-7">
+                        Please select a status to proceed further
+                    </div>
+                    <div class="col-md-5">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="app2StatusY" name="app2Status" class="custom-control-input"
+                                value="Y" [(ngModel)]="appSts2Check">
+                            <label class="custom-control-label" for="app2StatusY">Allocation Approved</label>
+                        </div>
+                        <div *ngIf="!isGovernment" class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="app2StatusN" name="app2Status" class="custom-control-input"
+                                value="N" [(ngModel)]="appSts2Check">
+                            <label class="custom-control-label" for="app2StatusN">Allocation Refused</label>
+                        </div>
+                        <div *ngIf="isGovernment" class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="app2StatusG" name="app2Status" class="custom-control-input"
+                                value="G" [(ngModel)]="appSts2Check">
+                            <label class="custom-control-label" for="app2StatusG">Recommended For Allocation</label>
+                        </div>
+                        <div *ngIf="isGovernment" class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="app2StatusN" name="app2Status" class="custom-control-input"
+                                value="N" [(ngModel)]="appSts2Check">
+                            <label class="custom-control-label" for="app2StatusN">Reported For Rejection</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group row">
+                        <!-- <div class="row"> -->
+                        <label class="required-label col-5">Upload Document</label>
+                        <!-- <div class=""> -->
+                        <div class="input-group file-upload col-7">
+                            <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                                class="file-upload-btn form-control" title="Choose File To Upload.." />
+                            <input type="text" autocomplete="off" aria-autocomplete="none"
+                                class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                            <span class="input-group-append">
+                                <button class="btn btn-primary btn-danger" type="button">
+                                    <i class="fa fa-upload"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <!-- </div> -->
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="row justify-content-end mt-2" *ngIf="!appSts1">
+                    <div class="col-md-12">
+                        Please enter Description
+                    </div>
+                    <div class="col-md-10 mt-3">
+                        <textarea class="form-control" name="appSts2RejSts" [(ngModel)]="desc" id="appSts1AppDtls"
+                            rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                    <button type="button" (click)="submitApplicationDetails()" class="btn btn-primary">Submit the
+                        Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #statusModal>
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">Application Status</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+            <tabset>
+                <tab *ngFor="let item of statusDetails; let i = index" id="tab1" [active]="item.currentStatus">
+                    <ng-template tabHeading>
+                        <span class="badge">{{item.roleName}}&nbsp;
+                            <i *ngIf="item.workFlowStepName === 'REJECT'" style="font-size: 19px; color: red;"
+                                class="fa fa-times-circle ml-2">
+                            </i>
+                            <i *ngIf="item.workFlowStepName !== 'REJECT'" style="font-size: 19px; color: green;"
+                                class="fa fa-check-circle"></i>
+                        </span>
+                    </ng-template>
+                    <!-- <div class="card">
+                        <div class="card-body"> -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered st-tbl">
+                            <thead>
+                                <tr>
+                                    <th>Application No</th>
+                                    <th>Action Taken</th>
+                                    <th>Date of action</th>
+                                    <th>Sent From</th>
+                                    <th>Sent To</th>
+                                    <th *ngIf="item.type !== 'NA'"> WAC Date</th>
+                                    <th>Remarks</th>
+                                    <th>Download</th>
+                                </tr>
+                                <tr>
+                                    <td>{{item.obj_id}}</td>
+                                    <td
+                                        *ngIf="item.workFlowStepName !== 'RAISE_QUERY' && item.workFlowStepName !== 'FORWARD_TO_DIRECTOR' && item.workFlowStepName !== 'APPROVE'">
+                                        {{item.workFlowStepName}}<span></span></td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'RAISE_QUERY'">
+                                        {{getQueryData(i)}}</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'FORWARD_TO_DIRECTOR'">
+                                        Forwarded to director</td>
+                                    <td class="text-uppercase" *ngIf="item.workFlowStepName === 'APPROVE'">Approved</td>
+                                    <!-- <td *ngIf="count === 2">2ND QUERY RAISED</td> -->
+                                    <td>{{item.created_on | date: 'dd-MMM-yyy, hh:mm aaa'}}</td>
+                                    <td>{{item.roleName}}</td>
+                                    <td>{{item.roleToName}}</td>
+                                    <td *ngIf="item.type !== 'NA'">{{item.wac_date}}</td>
+                                    <td>
+                                        <p style="width: 263px; word-wrap: break-word;">{{item.remarks}}</p>
+                                    </td>
+                                    <td>
+                                        <a [href]="downloadFile(item.id)" target="_ "><img
+                                                style="height: 30px; fill: white;"
+                                                src="./../../../../../assets/icon/file-pdf-solid.svg"></a>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+</ng-template>

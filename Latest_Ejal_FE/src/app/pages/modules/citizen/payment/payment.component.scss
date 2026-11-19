@@ -1,0 +1,40 @@
+.payment-container {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px 1px #A5A5A5;
+    padding: 1.5rem .75rem;
+    p {
+        color: #000000;
+        font-family: "Helvetica Neue", sans-serif;
+        font-size: 15px;
+        line-height: 2;
+        margin: 0 0 24px;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+    .col-change {
+        background-color: #bdbdbd;
+    }
+    .custom-btn {
+        border: none;
+        height: 36px;
+        width: 200px;
+        border-radius: 20px;
+        background-color: #0f297e;
+        color: #fff;
+        font-family: poppins;
+        font-weight: 600;
+        margin-top: 42px;
+        cursor: pointer;
+    }
+}
+
+::ng-deep .modal-dialog {
+    width: 25vw;
+    margin-right: auto;
+    margin-left: 35%;
+    margin-top: 15%;
+    margin-bottom: auto;
+}
+::ng-deep .modal-content{
+    width: 25vw;
+}

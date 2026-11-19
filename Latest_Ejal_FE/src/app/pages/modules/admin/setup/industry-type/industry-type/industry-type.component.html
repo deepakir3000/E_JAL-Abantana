@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title">{{industryModType}} Industry Type
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="industryForm" (ngSubmit)="submitIndustryDetails(industryForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Industry Type Name </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="industryName">
+                            <small class="text-error ml-3" *ngIf="industryForm.controls.industryName.touched && industryForm.controls.industryName.invalid">
+                                <span class="text-danger"
+                                    *ngIf="industryForm.controls.industryName.errors?.required">Required</span>
+                                    <span class="text-danger" *ngIf="industryForm.controls.industryName.errors?.pattern">not
+                                        a valid entry </span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control">
+                                <option value="">Select Any One</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning">Reset</button>
+                <button type="submit" class="btn btn-primary" [disabled]="industryForm.invalid || industryForm.pristine">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

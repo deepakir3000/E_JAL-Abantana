@@ -1,0 +1,29 @@
+.pay-status-container {
+    .thnk {
+        text-align: center;
+    }
+    .pymnt {
+        text-align: center;
+    }
+    .success-box {
+        height: 379px;
+        width: 600px;
+        margin-top: 5px;
+        margin-left: 22%;
+        .fa {
+            font-size: 70px;
+            color: #158b15;
+            margin-top: 34%;
+            margin-left: 43%;
+        }
+        &.danger-table {
+            background-color: #efafaf;
+        }
+        .tab-head {
+            text-align: center;
+            font-size: 19px;
+            font-family: inherit;
+            font-weight: 600;
+        }
+    }
+}

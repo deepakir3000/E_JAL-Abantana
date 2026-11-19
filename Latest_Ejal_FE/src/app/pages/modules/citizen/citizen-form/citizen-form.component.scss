@@ -1,0 +1,91 @@
+.frm-container {
+    background-color: #fff;
+    box-shadow: 0px 2px 5px 1px;
+    fieldset {
+        border: 1px solid #cccccc;
+        display: block;
+        margin-left: 2px;
+        margin-right: 2px;
+        padding-top: 0.35em;
+        padding-bottom: 0.625em;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+    }
+    .legend-text {
+        font-family: poppins;
+        font-size: 16px;
+        color: #2551c7;
+        width: max-content;
+    }
+    label {
+        font-size: 13px;
+        font-family: poppins;
+        color: #292929;
+        ;
+    }
+    .customBtn {
+        border: 1px solid #000000ba;
+        background-color: #4772ff;
+        color: #fff;
+    }
+}
+
+//stepper
+.main {
+    margin-top: -19px;
+    background-color: #FFFF;
+    .wrapper-progressBar {
+        width: 100%;
+        .progressBar {
+            margin-top: -12px;
+            li {
+                list-style-type: none;
+                float: left;
+                width: 25%;
+                position: relative;
+                text-align: center;
+                font-family: poppins;
+                font-size: 13px;
+                &.active {
+                    color: dodgerblue;
+                }
+                &.active:before {
+                    border-color: dodgerblue;
+                    background-color: dodgerblue
+                }
+                &.active+li:after {
+                    background-color: dodgerblue;
+                }
+            }
+            li:before {
+                content: " ";
+                line-height: 20px;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                border: 1px solid #ddd;
+                display: block;
+                text-align: center;
+                margin: 0 auto 10px;
+                background-color: white
+            }
+            li:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background-color: #ddd;
+                top: 15px;
+                left: -50%;
+                z-index: -1;
+            }
+            li:first-child:after {
+                content: none;
+            }
+        }
+    }
+}
+
+.mt-1-5 {
+    margin-top: 1.5rem !important;
+}

@@ -1,0 +1,41 @@
+.edit-container {
+    .edit-box {
+        height: 433px;
+        background-color: #ffffff;
+        box-shadow: 0px 1px 6px #4d4d8c;
+        margin-left: 20vw;
+        margin-top: 60px;
+        border: 1px solid gray;
+        .btn-info {
+            margin-top: 17px;
+        }
+        img {
+            margin-left: 54%;
+            height: 60px;
+            fill: #4d4d8c;
+            margin-top: 11px;
+        }
+        h4 {
+            font-family: poppins;
+            text-align: center;
+            color: #4d4d8c;
+        }
+        label {
+            font-family: poppins;
+            font-size: 15px;
+            color: #2b2a86;
+        }
+        .custom-btn {
+            border: none;
+            height: 36px;
+            width: 200px;
+            border-radius: 20px;
+            background-color: #0f297e;
+            color: #fff;
+            font-family: poppins;
+            font-weight: 600;
+            margin-top: 42px;
+            cursor: pointer;
+        }
+    }
+}

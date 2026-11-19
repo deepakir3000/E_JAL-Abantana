@@ -1,0 +1,18 @@
+
+{
+    "script":"server/server.js",
+    "watch":true,
+    "ignore_watch":["server/WaterMgmt","logs"],
+    "watch_options":{
+        "followSymlinks":false
+    },
+    "env":{
+        "NODE_ENV":"development",
+        "PORT":"3001",
+        "HOST":"https://waterallocationod.nic.in"
+    },
+    
+    "name":"Jform_BackEnd",
+    "instances":"1",
+    "exec_mode":"fork"
+}

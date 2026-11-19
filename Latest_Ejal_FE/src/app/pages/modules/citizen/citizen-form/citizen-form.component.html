@@ -1,0 +1,24 @@
+<div class="row main mt-1-5 mb-3">
+    <div class="col-xs-12 col-md-8 offset-md-2 block">
+        <div class="step-container">
+            <div class="step-item I1" [routerLink]="[ '/pages/citizen/proposal/p1' ]" routerLinkActive="step-current">
+                <!-- [ngClass]="{'step-prog': stepCounter >= 1, 'step-current': currentStep === 1}" (click)="showSelectedStepDtls(1)" -->
+                <div class="step-icon text-center"><i class="fa fa-book fa-2x mt-2" aria-hidden="true"></i></div>
+                <div class="step-content">Instruction</div>
+            </div>
+            <div class="step-item I2" [routerLink]="[ '/pages/citizen/proposal/p2' ]" routerLinkActive="step-current">
+                <div class="step-icon text-center"><i class="fa fa-file-text fa-2x mt-2" aria-hidden="true"></i></div>
+                <div class="step-content">Apply In J-Form</div>
+            </div>
+            <div class="step-item I3" routerLinkActive="step-current">
+                <div class="step-icon text-center"><i class="fa fa-cc-mastercard fa-2x mt-2" aria-hidden="true"></i></div>
+                <div class="step-content">Payment</div>
+            </div>
+            <div class="step-item I4" routerLinkActive="step-current">
+                <div class="step-icon text-center"><i class="fa fa-hourglass-half fa-2x mt-2" aria-hidden="true"></i></div>
+                <div class="step-content"> Status</div>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>

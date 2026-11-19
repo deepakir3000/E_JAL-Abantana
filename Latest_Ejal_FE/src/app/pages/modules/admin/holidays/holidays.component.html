@@ -1,0 +1,122 @@
+<div class="container">
+    <div class="container" id="contentToConvert">
+        <div class="border">
+            <div class="text-center ">
+                <h3> <u>Create Holidays</u> </h3>
+            </div>
+          
+            <div class="p-4">
+                <form #HolidayForm="ngForm" [formGroup]="holidayForm" (ngSubmit)="onSubmit()" novalidate>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Select Date:</label>
+                                <div class="input-group ">
+                                    <input type="date" class="form-control date" id="inlineFormInputGroupUsername" name="hol_date" placeholder="" formControlName="hol_date" required>
+                                    <!-- <div *ngIf="submitted && f.hol_date.errors" class="invalid-feedback">
+                                        <div *ngIf="f.hol_date.errors.required">Date is required</div> -->
+                                    <!-- </div> -->
+                                </div>
+                                <!-- <input type="date" class="form-control date" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"> -->
+                                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="week_days">Select Week Day</label>
+                                <div class="input-group ">
+                                    <select class="form-control selectpicker" id="select-days" formControlName="week_day" required>
+                                        <option value="" selected>Select Week Days</option>
+                                        <option value="Monday">Monday</option>
+                                        <option value="Tuesday">Tuesday</option>
+                                        <option value="Wednesday">Wednesday</option>
+                                        <option value="Thursday">Thursday</option>
+                                        <option value="Friday">Friday</option>
+                                        <option value="Saturday">Saturday</option>
+                                        <option value="Sunday">Sunday</option>
+                                </select>
+                                    <!-- <div *ngIf="submitted && f.week_day.errors" class="invalid-feedback">
+                                        <div *ngIf="f.week_day.errors.required">Week days is required</div> -->
+                                    <!-- </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Holiday Detail:</label>
+                                <span [(hidden)]="!editflag">
+                                    <input type="text" class="form-control"  placeholder="Enter Holiday Details" formControlName="name"  required>
+                                    <small style="color: red;">*Please enter alphabets only.</small>
+                                </span>
+                                <span [(hidden)]="editflag">
+                                <select (change)="extra()" class="form-control selectpicker" id="select-hname" formControlName="name"  required>
+                                        <option value="" selected>Select Holiday Name</option>
+                                        <option [value]="items.holiday_name" *ngFor="let items of holidayNameList">{{items.holiday_name}}</option>
+                                         <option  value="Other" >Other</option>
+                                        </select>
+                                    </span>
+                                <!-- <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required">Holiday Name is required</div> -->
+                                <!-- </div> -->
+                            </div>
+                        </div>
+                        <div class="btn-right">
+                            <button type="submit" class="btn btn-outline-primary" [disabled]="holidayForm.pristine || holidayForm.invalid">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <caption>List of Holidays</caption>
+                    <thead>
+                        <!-- <tr> -->
+                        <th scope="col" style="width: 10% !important;">Sl. No.</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Week Days</th>
+                        <th scope="col">Holiday Details</th>
+                        <th scope="col" class="text-center"> Actions </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of holidayList let i = index">
+                            <td scope="row" style="width: 10% !important;">{{i+1}}</td>
+                            <td scope="row">{{item.hol_date | date:'dd/MM/yyyy'}} </td>
+                            <td scope="row"><span [(hidden)]="item.editflag">{{item.week_day}}</span>
+                                <span [(hidden)]="!item.editflag">
+                                <select class="form-control selectpicker" id="select-days" [(ngModel)]="item.week_day">
+                            <option value="" selected>Select Week Days</option>
+                            <option value="Monday">Monday</option>
+                            <option value="Tuesday">Tuesday</option>
+                            <option value="Wednesday">Wednesday</option>
+                            <option value="Thursday">Thursday</option>
+                            <option value="Friday">Friday</option>
+                            <option value="Saturday">Saturday</option>
+                            <option value="Sunday">Sunday</option>
+                            </select>
+                        </span>
+                            </td>
+                            <td scope="row">
+                                <span [(hidden)]="item.editflag">{{item.name}}</span>
+                                <span [(hidden)]="!item.editflag">
+                                    <select class="form-control selectpicker" id="select-days" [(ngModel)]="item.name">
+                                    <option value="" selected>Select Holiday Name</option>
+                                    <option [ngValue]="y.holiday_name" *ngFor="let y of holidayNameList">{{y.holiday_name}}</option>
+                                    </select>
+                                </span>
+                            </td>
+                            <td scope="row" class="text-center wid_21">
+                                <button class="btn btn-success mr-2 " [(hidden)]="!item.editflag" (click)="updateData(item,i)"><i class="fa fa-save "></i></button>
+                                <button class="btn btn-success mr-2 " [(hidden)]="item.editflag" (click)="editData(item,i)"><i class="fa fa-edit "></i></button>
+                                <button class="btn btn-danger" (click)="deleteData(item.id)"><i class="fa fa-trash "></i></button> </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        
+        </div>
+
+    </div>
+</div>

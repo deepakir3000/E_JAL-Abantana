@@ -1,0 +1,76 @@
+<div class="profile-outer-container">
+	<header>
+		<div class="title">
+			<span class="img-fluid">
+				<img class="logo" src="assets/icon/odisha_logo.png" alt="Logo" />
+			</span>
+			<span class="lg-title">User Profile</span>
+			<span class="back-button" title="Go Back" (click)="goBackToPage()">
+				<i class="fa fa-reply "></i>
+				<span>Back</span>
+			</span>
+		</div>
+	</header>
+	<div class="profile-card">
+		<div class="text-center" *ngIf="isEdit">
+			<div class="float-right">
+				<button class="btn btn-primary" (click)="toggleEdit()"><i
+						class="fa fa-edit"></i></button>
+			</div>
+			<div class="image-container text-center">
+				<img src="assets/images/image_placeholder.png"
+					class="img-fluid rounded-circle profile-image">
+			</div>
+			<div class="title">
+				<span class="name">{{userProfileDetails.userName}}</span> <br />
+				<span class="role">{{userProfileDetails.roleName}}</span>
+			</div>
+			<div class="details">
+				<span>{{userProfileDetails.mobileNo}}</span><br />
+				<span>{{userProfileDetails.emailId}}</span>
+			</div>
+			<div class="org-title">
+				{{userProfileDetails.orgName}}
+			</div>
+		</div>
+		<div *ngIf="!isEdit">
+			<form [formGroup]="userProfileForm" (ngSubmit)="submitUserDetails(userProfileForm.value)">
+				<div class="float-right">
+					<button class="btn btn-primary" (click)="toggleEdit()"><i
+							class="fa fa-eye"></i></button>
+				</div>
+				<div class="image-container text-center">
+					<img src="assets/images/image_placeholder.png"
+						class="img-fluid rounded-circle profile-image">
+					<div class="image-edit-container">
+						<i class="fa fa-edit"></i>
+					</div>
+				</div>
+				<div class="input-group row px-4 pt-1">
+					<div class="input-group-prepend icon-box">
+						<i class="input-group-text pt-2 fa fa-user customized-icon"></i>
+					</div>
+					<input type="text" placeholder="User Name" autocomplete="off"
+						class="col-12 form-control" formControlName="userName" id="userName">
+				</div>
+				<div class="input-group row px-4 pt-1">
+					<div class="input-group-prepend icon-box">
+						<i class="input-group-text pt-2 fa fa-phone customized-icon"></i>
+					</div>
+					<input type="text" placeholder="Mobile Number" autocomplete="off"
+						class="col-12 form-control" formControlName="mobileNo" id="mobileNo">
+				</div>
+				<div class="input-group row px-4 pt-1">
+					<div class="input-group-prepend icon-box">
+						<i class="input-group-text pt-2 fa fa-envelope customized-icon"></i>
+					</div>
+					<input type="text" placeholder="Email ID" autocomplete="off"
+						class="col-12 form-control" formControlName="emailId" id="emailId">
+				</div>
+				<div class="text-center px-4 pt-1">
+					<button class="btn btn-primary" type="submit"> Save</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

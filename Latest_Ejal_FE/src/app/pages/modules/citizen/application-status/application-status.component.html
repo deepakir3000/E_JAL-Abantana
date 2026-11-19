@@ -1,0 +1,97 @@
+<div class="pg-info-container mt-lg-5">
+    <div class="step-container">
+        <div class="step-item I1" [ngClass]="{'step-prog': stepCounter >= 1, 'step-current': currentStep === 1}" (click)="showSelectedStepDtls(1)">
+            <div class="step-icon text-center"><i class="fa fa-check fa-3x text-success" aria-hidden="true"></i></div>
+            <div class="step-content"> Applicant </div>
+        </div>
+        <div class="step-item I2" [ngClass]="{'step-prog': stepCounter >= 2, 'step-current': currentStep === 2}" (click)="showSelectedStepDtls(2)">
+            <div class="step-icon text-center"><i class="fa fa-square fa-2x mt-2 text-info" aria-hidden="true"></i></div>
+            <div class="step-content">Director</div>
+        </div>
+        <div class="step-item I3" [ngClass]="{'step-prog': stepCounter >= 3, 'step-current': currentStep === 3}" (click)="showSelectedStepDtls(3)">
+            <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div>
+            <div class="step-content"> Approver-2 </div>
+        </div>
+        <div class="step-item I4" [ngClass]="{'step-prog': stepCounter >= 4, 'step-current': currentStep === 4}" (click)="showSelectedStepDtls(4)">
+            <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div>
+            <div class="step-content"> Approver-3 </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <h4 class="text-success">Status</h4>
+        </div>
+    </div> -->
+    <div class="card" [ngSwitch]="currentStep">
+        <div class="card-body step-sticky-header" *ngSwitchCase="1">
+            <h6 class="step-stick-title">Proposal No: 874596857458</h6>
+            <div class="row">
+                <div class="col-6">
+                    <ul>
+                        <li *ngFor="let item of proposalDtls; let i=index">
+                            <h6>{{item.ques}}<span class="pull-right {{item.text}}"><i class="fa {{item.icon}}" aria-hidden="true"></i> {{item.ans}}</span></h6>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-6">
+                    <div class="row mb-1" *ngFor="let item of proposalStatusDtls; let i=index">
+                        <div class="col-8 ml-big">
+                            <a [ngClass]="{'disabled': !item.hasError}" routerLink="/pages/citizen/edit-form">
+                                <span class="{{item.text}}">
+                                {{item.status}}
+                            </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body step-sticky-header" *ngSwitchCase="2">
+            <h6 class="step-stick-title">Application No: 874596857458</h6>
+            <div class="row mt-3">
+                <div class="col-6 head">
+                    <div class="row">
+                        <div class="col-5">
+                            <label class="text-success">Reviewer :</label>
+                        </div>
+                        <div class="col-7">
+                            <label>Director</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 head">
+                    <div class="row">
+                        <div class="col-5">
+                            <label class="text-success">Status :</label>
+                        </div>
+                        <div class="col-7">
+                            <i class="fa fa-exclamation text-warning"></i>&nbsp;<label>Pending (Not Reviewed)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-success custom-table-content">
+                            <thead>
+                                <tr>
+                                    <td>Serial No.</td>
+                                    <td>Issue Column</td>
+                                    <td>Remarks</td>
+                                    <td>Application Status</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                                <td>NA</td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+<div class="lookup-menu-container">
+        <div class="menu-div" *ngFor="let menu of extraMenus">
+                <a class="look-menu" [routerLink]="menu.routerLink">
+                        <div class="look-menu-icon"><i class="fa fa-cogs"></i></div>
+                        <div class="look-menu-title">{{menu.title}}</div>
+                </a>
+        </div>
+</div>

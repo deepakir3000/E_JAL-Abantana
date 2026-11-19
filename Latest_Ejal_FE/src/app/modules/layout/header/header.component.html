@@ -1,0 +1,298 @@
+<div class="container-fluid main-container px-0">
+    <div class="row top-bg">
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-3 od-logo">
+                    <img src="assets/icon/odisha_logo_blue.png">
+                </div>
+                <div class="col-9 wtr-logo">
+                    <img src="assets/images/WaterLogin/Govt. of Odisha.png">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-7 offset-sm-1 right-menu" *ngIf="!isAdminLoggedin && !isApproverLoggedIn">
+            <div class="row">
+                <div class="col-sm-6 px-0">
+                    <div class="row welcom-menu">
+                        <div class="col-2">
+                            <img class="profile-img" src="assets/images/profile.svg">
+                        </div>
+                        <div class="col-10" style="text-align: center;">
+                            <div class="row mt-4">
+                                Welcome To
+                            </div>
+                            <div class="row mt-0 text-capitalize">
+                                Online Water Allocation System
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 px-0">
+                    <div class="row">
+                        <div class="col-sm-3 menu-1" (click)="goToEditPage()">
+                            <div class="row justify-content-center">
+                                <img src="assets/images/WaterLogin/Edit Profile icon.png">
+                            </div>
+                            <div class="row mt-2 justify-content-center">
+                                <label>Edit Profile</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 menu-2" (click)="goToEditChanePass()">
+                            <div class="row justify-content-center">
+                                <img src="assets/images/WaterLogin/Change password icon.png">
+                            </div>
+                            <div class="row justify-content-center">
+                                <label>Change Password</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 menu-3" (click)="openNotification()">
+                            <div class="row justify-content-center">
+                                <img src="assets/images/WaterLogin/Notification.png">
+                                <span class="badge-danger">4</span>
+                            </div>
+                            <div class="row mt-2 justify-content-center">
+                                <label>Notification</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-3 menu-4" (click)="signOut()">
+                            <div class="row justify-content-center">
+                                <img src="assets/images/WaterLogin/Logout icon.png">
+                            </div>
+                            <div class="row mt-2 justify-content-center">
+                                <label>Logout</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 right-menu" *ngIf="isAdminLoggedin || isApproverLoggedIn">
+            <div class="row menu-parent">
+                <div class="menu-item" [ngClass]="{'active-menu': item.isActive}" *ngFor="let item of selectedMenu">
+                    <div>
+                        <label>
+                            <a href="" [routerLink]="item.link_text">
+                                {{item.resource_name}}
+                            </a> <i class="fa fa-chevron-down" *ngIf="item.has_sub_menu" aria-hidden="true"></i>
+                        </label>
+                        <ul class="menu-dropdown" *ngIf="item.has_sub_menu && item.id==='3'">
+                            <li *ngFor="let item of setUpSubMenu">
+                                <a href="javascript:void(0)" [routerLink]="item.link_text">
+                                    {{item.resource_name}}
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-dropdown" *ngIf="item.has_sub_menu && item.id==='4'">
+                            <li *ngFor="let item of manageUpSubMenu">
+                                <a href="javascript:void(0)" [routerLink]="item.link_text">
+                                    {{item.resource_name}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu-item" *ngIf="isAdminLoggedin || isApproverLoggedIn">
+                    <div>
+                        <label>
+                            <a href="javascript:void(0);" (click)="openFeedBackViewModal(viewFeedbackModal)">
+                                View Feedback
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="signout" (click)="signOut()">
+                    <img src="assets/images/WaterLogin/Logout icon.png" class="profile-img" alt="logout">
+                    <br>
+                    <span>Logout</span>
+                </div>
+                <div class="profile float-right">
+                    <img src="assets/icon/profile.png" class="profile-img" alt="">
+                    <br>
+                    <span>Profile</span>
+                </div>
+                <div class="right-button float-right">
+                    <img src="assets/icon/dots.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="notificationDrop" *ngIf="showNotification">
+        <div class="card cutsom-card mb-1" *ngFor="let item of notification">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3 img-box">
+                        <img src="./../../../../assets/images/profile.svg">
+                    </div>
+                    <div class="col-9">
+                        <div class="row">
+                            <label class="text-warning">{{item.heading}}</label>
+                        </div>
+                        <div class="row">
+                            <p>{{item.content}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row menu" *ngIf="!isAdminLoggedin && !isApproverLoggedIn">
+        <div class="col-4 left-margin">
+            <div class="row">
+                <div class="col-3" [ngClass]="{'active': isActive1}" (click)="goToPage()">Application</div>
+                <div class="col-3" [ngClass]="{'active': isActive2}" (click)="goToPage2()">Status</div>
+                <div class="col-3" (click)="openFeedBackModal(faqModal)">FAQ</div>
+                <div class="col-3" (click)="openFeedBackModal(feedBackModal)">Feedback</div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #feedBackModal>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">Feedback</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row mt-2" *ngFor="let data of feedbackQuestions; let i = index">
+            <div class="col-sm-9 text-">
+                <label class="text-capitalize"><b>{{i+1}}.</b> {{textTransform(data.feedback__questions)}}</label>
+            </div>
+            <div class="col-sm-3">
+                <input type="radio" name="no{{i+1}}" (change)="setAnsData(data.id,'Yes')">&nbsp;<label for="no{{i+1}}" >Yes</label>&nbsp;&nbsp;
+                <input type="radio" name="no{{i+1}}" (change)="setAnsData(data.id,'No')">&nbsp;<label for="no{{i+1}}">No</label>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-12" style="text-align: center">
+                <button type="button" class="custom-btn" [disabled]="!submitOkay" (click)="postFeedback()">Submit</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #faqModal>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">FAQ(Frequently Asked Questions)</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body  ">
+        <div class="row">
+            <h6>1. Who can apply in this portal(https://waterallocationod.nic.in)</h6>
+            <p>Ans: Following 19 nos of commercial and other establishment can apply for allocation in this portal.
+                Application for new case, reduction, enhancement, phasing, re-phasing & regularization of allocation can
+                be availed.</p>
+            <ol>
+                <li>Diary Farm</li>
+                <li>Paultry Farm</li>
+                <li>Hatchery</li>
+                <li>Country Liquor</li>
+                <li>Construction Of Road</li>
+                <li>Construction Of Building</li>
+                <li>Fishery</li>
+                <li>Port</li>
+                <li>Railway</li>
+                <li>Airport</li>
+                <li>Hospital</li>
+                <li>Garage</li>
+                <li>Institutions (IIT, NIGER, Engineering College, University etc.)</li>
+                <li>Offices (Government, Private)</li>
+                <li>PHD</li>
+                <li>RWS&S</li>
+                <li>IDCO (SPV)</li>
+                <li>Marketing Mall</li>
+                <li>Show Room</li>
+            </ol>
+        </div>
+        <div class="row">
+            <h6>2. If i am not coming in the above 19 categories, where can i apply ?</h6>
+            <p>
+                Ans: Other category of cases can be applied through GO-SWIFT portal(https://investodisha.gov.in)
+                developed by industries Dept.
+            </p>
+        </div>
+        <div class="row">
+            <h6>3. Which documents shall be uploaded in the portal for surface water allocation ?</h6>
+            <p>
+                Ans: The following documents to be uploaded
+            </p>
+            <p>(1) Mandatory Documents:</p>
+            <ul>
+                <li>Intake location on colored topo shet indicating Lat; & Long;</li>
+                <li>Industry location on colored topo shet indicating Lat; & Long;</li>
+                <li>Assessment certificate from competent authority.</li>
+                <li>Note on calculation of quantity indented.</li>
+            </ul>
+            <p>(2) Other Documents:</p>
+            <ul>
+                <li>MOU signed with Government / single window approval receipt.</li>
+                <li>Recommandation letter</li>
+                <li>Layout of drawal mechanism</li>
+                <li>Recycling proposal</li>
+                <li>Waste water generation proposal</li>
+                <li>Quntity of effluent / method of disposal</li>
+                <li>Lean period water management plan</li>
+                <li>Brief note on activities of the organization</li>
+            </ul>
+            <div class="row">
+                <h6>4. Whcich document shall be uploaded in the portal for ground water allocation ?</h6>
+                <p>Ans: In addition to the above documents at Sl no.3 NOC from CGWA to be uploaded.</p>
+            </div>
+            <div class="row">
+                <h6>Wheather security deposit & Processinf fee shall be paid online at one go or made separately ?</h6>
+                <p>Ans: Portal has been designed to calculate processing fee & security deposit as per the quantity
+                    indented and will direct to pay both amount in one go.</p>
+            </div>
+            <div class="row">
+                <h6>How many queries can be raised by the department?</h6>
+                <p>Ans: Maximum 2 number of queries can be raised tor insufficient documents/information, noncompliance
+                    of which shall lead to rejection of application.</p>
+            </div>
+            <div class="row">
+                <h6>If any difficulty in system arises during filling up the application, which office is to be
+                    contacted ?</h6>
+                <p>Ans: For any system difficulty arises in filling up the application, NIC Bhubaneswar State Center may
+                    be contacted.</p>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #viewFeedbackModal>
+    <div class="modal-header custom_header">
+        <h4 class="modal-title pull-left">View Feedback</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body  ">
+        <div class="row">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" [(ngModel)]="nameToSearch" placeholder="Search by name" aria-label="User's name" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2" (click)="getAllFeedbackDetails()"><em class="fa fa-search"></em></span>
+                </div>
+            </div>
+        </div>
+        <div class="table-responseive">
+            <table class="table table-bordered">
+                <thead>
+                    <th>Questions</th>
+                    <th>Answer</th>
+                    <th>User's Name</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of feedbackDetails | paginate: { itemsPerPage: 5, currentPage: p }">
+                        <td>{{item.questions}}</td>
+                        <td>{{item.answer}}</td>
+                        <td>{{item.display_name}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row mt-1">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+    </div>
+</ng-template>

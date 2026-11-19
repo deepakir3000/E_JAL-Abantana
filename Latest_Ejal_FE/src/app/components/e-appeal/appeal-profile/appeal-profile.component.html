@@ -1,0 +1,114 @@
+<div class="profile-card card" style="margin: 0rem 4rem;">
+
+  <!-- Gradient card header -->
+  <div class="card-header-gradient">
+    <div class="d-flex align-items-center">
+      <!-- <div class="avatar-circle me-3">
+        <span class="avatar-initials">{{ userName?.charAt(0)?.toUpperCase() }}</span>
+      </div> -->
+      <!-- <div>
+        <h4 class="mb-0 fw-bold text-white">{{ profileForm.get('name').value || userName }}</h4>
+        <span class="role-badge-light">{{ roleName }}</span>
+      </div> -->
+    
+     <div *ngIf = "isNewUser || currentRole === 'admin'">
+        <h4 class="mb-0 fw-bold text-white">UPDATE PROFILE</h4>
+        <span class="role-badge-light">{{ roleName }}</span>
+      </div>
+
+     <div *ngIf = "!isNewUser && currentRole !== 'admin'">
+        <h4 class="mb-0 fw-bold text-white">PROFILE</h4>
+        <span class="role-badge-light">{{ roleName }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Read-only section -->
+  <div class="card-body pb-0">
+    <p class="section-label">Account Information</p>
+    <div class="row">
+      <div class="col-md-6 mb-3">
+        <div class="info-block">
+          <div class="info-label">Username</div>
+          <div class="info-value">{{ userName }}</div>
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <div class="info-block">
+          <div class="info-label">Role</div>
+          <div class="info-value">
+            <span class="role-badge">{{ roleName }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="mx-3">
+
+  <!-- Editable section -->
+  <div class="card-body pt-0">
+    <p class="section-label">Personal Details</p>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()" novalidate>
+      <div class="row">
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Full Name <span class="text-danger">*</span></label>
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="submitted && profileForm.get('name').invalid"
+            placeholder="Enter full name"
+            formControlName="name"
+          />
+          <div class="invalid-feedback">Full name is required.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">HRMS ID</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter HRMS ID"
+            formControlName="hrms_id"
+          />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Mobile</label>
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="submitted && profileForm.get('mobile').invalid"
+            placeholder="10-digit mobile number"
+            formControlName="mobile"
+            maxlength="10"
+          />
+          <div class="invalid-feedback">Enter a valid 10-digit mobile number.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            [class.is-invalid]="submitted && profileForm.get('email').invalid"
+            placeholder="Enter email address"
+            formControlName="email"
+          />
+          <div class="invalid-feedback">Enter a valid email address.</div>
+        </div>
+
+      </div>
+
+      <div *ngIf = "isNewUser || currentRole === 'admin'" class="d-flex justify-content-end mt-2">
+        <button type="submit" class="btn btn-update px-5">
+          Update Profile
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

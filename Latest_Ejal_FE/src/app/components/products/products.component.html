@@ -1,0 +1,492 @@
+<div class="pl-0 pr-0">
+	<div class="row mt-0 ml-0 mr-0">
+		<div class="button-container">
+			<button type="button" (click)="goBack()" class="btn btn-primary go-back">
+				<i class="fa fa-chevron-left"></i>
+				<span class="back-text">Go Back</span>
+			</button>
+		</div>
+		<div class="col-sm-12 px-0 midContainer">
+			<div *ngIf="slideNo === 1" [ngClass]="{'slide-right': isRight, 'slide-left': isLeft}" class="row">
+				<div class="texture">
+					<div class="product-header">Agriculture & Horticulture Products</div>
+					<hr />
+					<div class="row product-container">
+						<div class="col-5 px-0">
+							<div class="individual-product">
+								<div class="float-right product-sub-head">GROUND NUT
+								</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/ground_nuts.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											Termed commonly as 'Peanuts'. It
+											is the favourite munchies of Man
+											and Ape alike.
+											Grown
+											plentily
+											in
+											eastern and western part of
+											Odisha. It is a nut with
+											multiple applications which
+											enable it
+											to be
+											eaten raw, cooked, as flour, as
+											butter, as oil, and many more.
+											Districts where the product
+											is
+											cultivate are Bolangir, Cuttack,
+											Jajpur, Dhenkanal, Kendrapada,
+											Mayurbhanj, Puri, Kalahandi,
+											Sunderagrh etc.
+										</p>
+
+									</div>
+								</div>
+							</div>
+							<div class="individual-product">
+								<div class="float-right product-sub-head">PHULA BADI
+								</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/badi.png"
+										height="120px" width="120px">
+									<div class="product-desc">
+										<p class="pr-4">
+											The flower shaped crunchy
+											delicacy is an essential element
+											of Odia curries
+											and has high demand in Odisha
+											market. The soft and crispy item
+											that is
+											specially packaged to avoid
+											damage is produced by over 200
+											women groups in
+											Keonjhar District of Odisha.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-1 px-0 text-center">
+							<hr />
+						</div>
+						<div class="col-6 px-0">
+							<div class="individual-product">
+								<div class="float-left product-sub-head">KALAJEERA RICE
+								</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/kalajeera.jpg"
+										height="100px" width="80px">
+									<div class="product-desc">
+										<p class="pr-4">
+											Kalajeera is Ethinic and
+											traditional variety of ancient
+											long grain white rice on
+											aminiature
+											scale - like baby Basmati, a
+											black coloured small and oval
+											grain variety. It is cultivated
+											in the lowlands by the tribal
+											farmers of koraput district.
+										</p>
+
+									</div>
+								</div>
+							</div>
+							<div class="individual-product">
+								<div class="float-left product-sub-head">SPICES</div>
+								<div class="inner-container">
+									<div class="product-desc">
+										<img class="prduct-image float-right" src="assets/images/products/turmeric.png"
+											height="160px" width="180px">
+										<p>
+											<b>Turmeric</b> is one of the
+											spices which gives a great
+											colour and texture
+											to any kind of
+											Indian Cuisine and works as a
+											skincare. It is cultivated in an
+											organic
+											manner in
+											the southern parts of Odisha
+											called Haldi.
+										</p>
+									</div>
+								</div>
+								<div class="inner-container">
+									<div class="product-desc">
+										<img class="prduct-image float-left" src="assets/images/products/ginger.png"
+											height="160px" width="140px">
+										<p class="text-right">
+											<b>Ginger</b> is an organic
+											product cultivated in an organic
+											environment
+											which not only acts as an
+											element iconic Indian Masala but
+											also has its
+											share in medicinal elements too.
+										</p>
+										<p><i>Both Ginger and Turmeric provide a
+												sustainable income to
+												the tribal
+												farmers.</i></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="slideNo === 2" [ngClass]="{'slide-right': isRight, 'slide-left': isLeft}" class="row">
+				<div class="texture">
+					<div class="product-header">Non Timber Forest Products</div>
+					<hr />
+					<div class="row product-container">
+						<div class="col-5 px-0">
+							<div class="individual-product">
+								<div class="float-right product-sub-head">ROCK BEE HONEY
+								</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/honey.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											As its name suggests the honey
+											is derived from the wild rock
+											bees that
+											create colonies under
+											inaccessible rock cliffs and
+											huge tree trunks. ORMAS
+											has trained the primary honey
+											collectors in the forest areas:
+											on collection
+											of honey and processing of same
+											using low cost and simple
+											techniques to
+											retain its natural and medical
+											values. It is found in the
+											forest and hills
+											of Mayurbhanj, Nuapada and other
+											forest based districts of
+											Odisha.
+										</p>
+
+									</div>
+								</div>
+							</div>
+							<div class="individual-product">
+								<div class="float-right product-sub-head">LEAF CUP
+									PLATES</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/leafplates.png"
+										height="180px" width="150px">
+									<div class="product-desc">
+										<p class="pr-4">
+											Nature's true gift in the shape
+											of Siali leaves which gives us a
+											truly
+											eco-friendly disposable plate is
+											found in the forest belts of
+											Odisha. They
+											are collected, stiched and dried
+											under the sun, machine pressed
+											with
+											cardboard and lminated and are
+											ready for sale. ORMAS has
+											pioneered this
+											product nationwise over the past
+											15 years.
+										</p>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-1 px-0 text-center">
+							<hr />
+						</div>
+						<div class="col-6 px-0">
+							<div class="individual-product">
+								<div class="float-left product-sub-head">BROOM</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/hill_broom.png"
+										height="180px" width="180px">
+									<div class="product-desc">
+										<p>
+											<b>Hill Broom</b> grass grows on
+											hilly forest slopes of parts of
+											Southern
+											Odisha. It also serves as a
+											major source of livelihood to
+											the tribal poor of
+											this region. The raw grass is
+											properly harvested, collected,
+											dried and
+											stored. Trained by ORMAS, the
+											tribals bind it in proper length
+											and size and
+											cap it with a user friendly
+											plastic handle to make it
+											acceptable in urban
+											market, as a qualitative
+											product.
+										</p>
+									</div>
+								</div>
+								<div class="inner-container pt-4">
+									<div class="product-desc">
+										<p>
+											<b>Thorn Broom</b> is used
+											widely in outdoor cleaning
+											purposes. This variant
+											of broom is derived out of raw
+											materials grown in western part
+											of Odisha.
+											The combination and stiffness of
+											this broom makes it highly
+											effective on
+											rough surfaces.
+										</p>
+									</div>
+								</div>
+								<div class="inner-container pt-4">
+									<img class="prduct-image float-left" src="assets/images/products/stick_broom.png"
+										height="180px" width="180px">
+									<div class="product-desc">
+										<p class="text-right">
+											<b>Coco Broom(Stick Broom)</b>
+											is the most raw and unfinished
+											form of broom.
+											It is made up of coconut tree
+											leaves and raw coconut sticks,
+											specifically
+											designed to clean rough surfaces
+											like roads and spaces between
+											stones. The
+											sturdiness of the brooms helps
+											it find usage in the industrial
+											sector as
+											well as household usage.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="slideNo === 3" [ngClass]="{'slide-right': isRight, 'slide-left': isLeft}" class="row">
+				<div class="texture">
+					<div class="product-header">Handicrafts</div>
+					<hr />
+					<div class="row product-container">
+						<div class="col-5 px-0">
+							<div class="individual-product">
+								<div class="float-right product-sub-head">SABAI CRAFTS
+								</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/sabai.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											Sabai also known as Natural
+											Plastics is a weaving wonder
+											strainght from the
+											heart of rural Odisha, is indeed
+											just a form of dried grass which
+											is boiled
+											and sun dried until it turns
+											ochre, following which the
+											craftsmen plait and
+											weave the strands to create
+											master pieces. Women bags, table
+											mats, floor
+											mats and many other decorative
+											and utility items are made and
+											marketed.
+										</p>
+									</div>
+								</div>
+								<div class="float-right product-sub-head">TRIBAL
+									JEWELLERY</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/tribal-1.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											Crafted from anything like Clay,
+											Wood, Metal, Beads, Bones, Shell
+											and Stones in tribal abods od
+											Odisha
+											,each item captures the rawness
+											of tribal
+											forms ans the unpretentious
+											rustic elegance
+											of thier tribes. Each of the
+											jewellery has a
+											story to tell and each piece
+											pul-state the
+											energy of that story.
+
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-1 px-0 text-center">
+							<hr />
+						</div>
+						<div class="col-6 px-0">
+							<div class="individual-product">
+								<div class="float-left product-sub-head">APPLIQUE</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/applique.png"
+										height="180px" width="250px">
+									<div class="product-desc">
+										<p>
+											It is indeed one the most
+											oldest and finest of the crafts
+											of the state which uses
+											different patches of fabric.
+											Beautiful and forms of floral
+											and animal deisgn to prepare
+											wall hangings, Mordern
+											hosusehold products ans apperals
+											by peicing cloth together
+											different patterns are made
+											by applying different colors.
+											Colorful ans vivid shapes and
+											forms of fabric patched together
+											or on another surfaces create
+											the most attractive and vibrant
+											textile products. its a
+											tradition
+											in ancient town to Pipili
+											odisha.
+
+										</p>
+									</div>
+								</div>
+								<div class="float-left product-sub-head">HORN CRAFT</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/horncraft.png"
+										height="180px" width="200px">
+									<div class="product-desc">
+										<p>
+											Yet another wonder from rural Odisha, carved out of dead animal horns, this
+											art ages back to centuries with transition in products now reaching out to
+											pen-stands, combs, ornaments, flower vases and others. The products are
+											carved out of the solid part of horns after soaking it in water and then
+											heating it to a specific temperature; it is smoothened with a sharp steel
+											blade and further pulished with charcoal ass and smeared with oil to give it
+											sheen.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div *ngIf="slideNo === 4" [ngClass]="{'slide-right': isRight, 'slide-left': isLeft}" class="row">
+				<div class="texture">
+					<div class="product-header">Handlooms</div>
+					<hr />
+					<div class="row product-container">
+						<div class="col-5 px-0">
+							<div class="individual-product">
+								<div class="float-right product-sub-head">MANIABANDHA</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/maniabandhi.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											Made by the members of a migratory Buddhist
+											Community, these sarees have become a partsof Odisha's
+											culture since time immemmorial at maniabandh, the dwelling
+											place of this community weaving is an age old tradition,
+											passed on by one generation to another ehile finding a respectable
+											position in the national as well as overseas market.
+										</p>
+									</div>
+								</div>
+								<div class="float-right product-sub-head">KOTPAD SAREES</div>
+								<div class="inner-container">
+									<img class="prduct-image float-left" src="assets/images/products/kotpad.png"
+										height="150px">
+									<div class="product-desc text-right">
+										<p>
+											Kotpad a small town in odisha is the
+											home to an age old unique innovation
+											hammesingh natural resources, like the roots
+											and the bark of forest tree aul into eco friendly
+											and skin loving handlooms. The tree parts are used
+											2-3 times in a seriese to dye the fabric as per necessary
+											color depth and then woven into Saree, Dupatta and stoles.
+
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-1 px-0 text-center">
+							<hr />
+						</div>
+						<div class="col-6 px-0">
+							<div class="individual-product">
+								<div class="float-left product-sub-head">BOMKAI</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/bomkai.png"
+										height="180px" width="180px">
+									<div class="product-desc">
+										<p>
+											Produced in Subarnapur District of Odisha
+											this is the ace handloom product of Odisha.
+											it is the sheer contrast element of "Tie&Dye"
+											and attractive colors that make these sarees a
+											hot moving commodity in india and beyond, Introduction
+											of the jaquard technology with CAD(Computer aded design)
+											with ORMAS support has helped weaver to produce market
+											oriented designs in less time. This variety of handloom is
+											not only known for its heritage and traditon of excellent
+											craftsmanship but alos provides livelihood to millions of
+											weavers
+										</p>
+									</div>
+								</div>
+								<div class="float-left product-sub-head">KANTHA STITCH SAREE</div>
+								<div class="inner-container">
+									<img class="prduct-image float-right" src="assets/images/products/kanthastitch.png"
+										height="180px" width="200px">
+									<div class="product-desc">
+										<p>
+											A wornder product made by randomly stitching
+											one piece of clothe on another to create eclusite
+											motifs of animals, birds, flowers and other themes from
+											everyday life creatin a wavy rumpled and used effect is what
+											give the craft it product value.
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="row slider-button-container">
+			<div class="col-12 px-0">
+				<div class="sliderButton-1">
+					<button class="btn btn-defaul btn-lg" (click)="prevSlide()"><i
+							class="fa fa-chevron-left"></i></button>
+				</div>
+				<div class="sliderButton-2">
+					<button class="btn btn-default btn-lg" (click)="nextSlide()"><i
+							class="fa fa-chevron-right"></i></button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

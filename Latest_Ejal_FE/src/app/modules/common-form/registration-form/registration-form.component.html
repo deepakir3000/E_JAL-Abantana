@@ -1,0 +1,1979 @@
+<!-- <div class="row main">
+    <div class="col-xs-12 col-md-8 offset-md-2 block">
+        <div class="wrapper-progressBar">
+            <ul class="progressBar">
+                <li class="active">Instruction</li>
+                <li class="active">Proposal</li>
+                <li class="">Payment</li>
+                <li>Status</li>
+            </ul>
+        </div>
+    </div>
+</div> -->
+<div class="container frm-container pt-lg-5" style="padding-top: 1rem !important;">
+    <div class="row" *ngIf="pathType === 'view-form' || pathType === 'View'">
+
+    </div>
+    <div class="row mb-5 mr-3" *ngIf="isView && pathType === 'View'">
+        <div class="col-12">
+            <span class="DwnBtn" title="Go Back" (click)="pdfDwn()">
+                <i class="fa fa-download "></i>
+                <span>Download</span>
+            </span>
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                <i class="fa fa-reply "></i>
+                <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="row" *ngIf="isView && pathType !== 'View'isEdit">
+        <div *ngIf="!isEdit" class="col-5" style="margin-left: 30%;">
+            <fieldset>
+                <legend class="legend-text">
+                    Application Type
+                </legend>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="radio" name="connection" class="mr-1" id="newCon" [checked]="!isUpdate"
+                            (change)="setValueApp($event)" />
+                        <label class="head-lbl" for="newCon">New Connection</label>
+                    </div>
+                    <div class="col-6">
+                        <input type="radio" name="connection" class="mr-1" id="existCon"
+                            (change)="setValueApp($event)" />
+                        <label class="head-lbl" for="existCon">Existing Connection</label>
+                    </div>
+                </div>
+                <div class="row mt-2" *ngIf="isUpdate">
+                    <div class="col-4">
+                        <label class="head-lbl">Select Establishment</label>
+                    </div>
+                    <div class="col-12">
+                        <ng-select [items]="data" bindLabel="industry_name" bindValue="serial_no"
+                            (change)="showDetails($event)" placeholder="--Select One--">
+                        </ng-select>
+                        <!-- <select class="form-control" (change)="showDetails($event)">
+                            <option value="">-Select One-</option>
+                            <option *ngFor="let item of data">{{item.indName}}</option>
+                        </select> -->
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div id="contentToConvert">
+        <form [formGroup]="citizenForm" (ngSubmit)="postFormData(citizenForm.value)">
+            <div class="row" *ngIf="hasSelected">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Current Allocation Details
+                        </legend>
+                        <div class="table-responsive">
+                            <table *ngIf="multipleRecord" class="table table-bordered custom-th">
+                                <thead>
+                                    <tr>
+                                        <th>Sl no.</th>
+                                        <th>Allocated Quantity(In Cusec)</th>
+                                        <!-- <th>Basin</th> -->
+                                        <th>River</th>
+                                        <th>Dam</th>
+                                        <th>Select Application</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of exstData2 ; let i = index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.op_quantity}}</td>
+                                        <!-- <td>Mahanadi</td> -->
+                                        <td>{{item.river_id === 0 ? '' : item.river_name}}</td>
+                                        <td>{{item.dam_id === 0 ? '' : item.dam_name}}</td>
+                                        <td><input type="radio" name="oneApp" (change)="setAppVale(item)"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table *ngIf="singleRecord" class="table table-bordered custom-th">
+                                <thead>
+                                    <th>Sl no.</th>
+                                    <th>Allocated Quantity(In Cusec)</th>
+                                    <!-- <th>Basin</th> -->
+                                    <th>River</th>
+                                    <th>Dam</th>
+                                </thead>
+                                <tbody>
+                                    <td>1</td>
+                                    <td>{{allocatedQuantity}}</td>
+                                    <!-- <td>Mahanadi</td> -->
+                                    <td>{{allocatedRiver === 0 ? '' : allocatedRiver}}</td>
+                                    <td>{{allocatedDam === 0 ? '' : allocatedDam}}</td>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- <div class="row" *ngIf="showPaymentDeatils">
+                        <label>Payment Details</label>
+                    </div>
+                    <div class="table-responsive" *ngIf="showPaymentDeatils">
+                        <table class="table table-bordered custom-th">
+                            <thead>
+                                <th>Price Per Cusec.</th>
+                                <th>Required Water(In Cusec)</th>
+                                <th>Amount</th>
+                                <th>Application Amount</th>
+                                <th>Total Amount</th>
+                                <th>Status</th>
+                            </thead>
+                            <tbody>
+                                <td>1500000/-</td>
+                                <td>1.5</td>
+                                <td>1.5x1500000/-</td>
+                                <td>1000.00/-</td>
+                                <td>2,251,000/-</td>
+                                <td class="text-success">Paid</td>
+                            </tbody>
+                        </table>
+                    </div> -->
+                        <div class="row" *ngIf="showPhasing">
+                            <label style="font-size: 16px; color: #3956c7;">Previous Phasing Details</label>
+                        </div>
+                        <div class="table-responsive" *ngIf="showPhasing">
+                            <table class="table table-bordered custom-th">
+                                <thead>
+                                    <tr>
+                                        <th>Phasewise requirement</th>
+                                        <th>From</th>
+                                        <th>To</th>
+                                        <th>Quantity (In Cusec)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of phasingDetails; let i= index">
+                                        <td>{{romanize(i+1)}}</td>
+                                        <td>{{item.from_date | date: 'dd-MM-yyy'}}</td>
+                                        <td>{{item.to_date | date: 'dd-MM-yyy'}}</td>
+                                        <td>{{item.unit / 2500}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-2">
+                                <label class="required-label">Applying for</label>
+                            </div>
+                            <div class="col-10">
+                                <select class="form-control" formControlName="applyFor"
+                                    (change)="selectTypeOfaction($event, null)">
+                                    <option value="">Choose One</option>
+                                    <option *ngIf="phasingDetails === ''" value="Phasing">Phasing</option>
+                                    <option *ngIf="phasingDetails !== ''" value="Rephasing">Rephasing</option>
+                                    <option value="Reduction">Reduction</option>
+                                    <option *ngIf="phasingDetails === ''" value="Reduction with Phasing">Reduction with
+                                        Phasing</option>
+                                    <option *ngIf="phasingDetails !== ''" value="Reduction with Rephasing">Reduction
+                                        with Rephasing</option>
+                                    <option value="Enhancement">Enhancement</option>
+                                    <option *ngIf="phasingDetails === ''" value="Enhancement with Phasing">Enhancement
+                                        with Phasing</option>
+                                    <option *ngIf="phasingDetails !== ''" value="Enhancement with Rephasing">Enhancement
+                                        with Rephasing</option>
+                                    <option value="Regularisation">Regularisation</option>
+                                    <option value="Renewal">Renewal</option>
+                                    <!-- <option value="Add new allocation from other source">Add new allocation from other source</option> -->
+                                </select>
+                            </div>
+                            <small class="text-error ml-3"
+                                *ngIf="citizenForm.controls.applyFor.touched && citizenForm.controls.applyFor.invalid">
+                                <span class="text-danger"
+                                    *ngIf="citizenForm.controls.applyFor.errors?.required">Required</span>
+                                <span class="text-danger" *ngIf="citizenForm.controls.applyFor.errors?.invalidEmail">not
+                                    a
+                                    valid quantity</span>
+                            </small>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <div class="form-group row">
+                                    <label class="required-label">Current allocation quantity</label>
+                                    <input type="text" class="form-control" aria-autocomplete="none"
+                                        formControlName="currentAllocQnty" />
+                                </div>
+                                <small class="text-error ml-3"
+                                    *ngIf="citizenForm.controls.currentAllocQnty.touched && citizenForm.controls.currentAllocQnty.invalid">
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.currentAllocQnty.errors?.required">Required</span>
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.currentAllocQnty.errors?.invalidEmail">not a valid
+                                        quantity</span>
+                                </small>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group row">
+                                    <label class="required-label">Paid Security amount</label>
+                                    <input type="text" class="form-control" formControlName="paidAmount" />
+                                </div>
+                                <small class="text-error ml-3"
+                                    *ngIf="citizenForm.controls.paidAmount.touched && citizenForm.controls.paidAmount.invalid">
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.paidAmount.errors?.required">Required</span>
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.paidAmount.errors?.invalidEmail">not a valid
+                                        quantity</span>
+                                </small>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Document of Allocation & Payment Details</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'payDocProof')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.payDocProofDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('payDocProof', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4" *ngIf="showPaymentDeatils">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Upload current allocation documents</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'currAllocDoc')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.currAllocDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('currAllocDoc', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-6">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label class="required-label">Upload recommendation from IPCOL/SLSWCA
+                                        document</label>
+                                    <div class="">
+                                        <div class="input-group file-upload">
+                                            <input type="file" accept="application/pdf, image/*" (change)="fileChange($event, 'recFromIPCOLDoc')" class="file-upload-btn form-control" [disabled]="pathType === 'view-form' || pathType === 'View'" title="Choose File To Upload.." />
+                                            <input type="text" aria-autocomplete="none" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [disabled]="pathType === 'view-form' || pathType === 'View'" [value]="citizenForm.controls.recFromIPCOLDocFileName.value">
+                                            <span class="input-group-append">
+                                                <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                    class="btn btn-primary btn-danger" type="button">
+                                                    <i class="fa fa-upload"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button" class="btn btn-sm btn-danger download-btn"><a
+                                            [href]="fileDownload('recFromIPCOLDoc', ApplicationId)" target="_ "><i
+                                                class="fa fa-download"></i></a></button>
+                                </div>
+                            </div>
+                        </div> -->
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Applicant Details
+                        </legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row" *ngIf="pathType === 'view-form' || pathType === 'View'">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <label class="required-label">Application Id</label>
+                                        </div>
+                                        <div class="row">
+                                            <input type="text" [readonly]="true" [value]="idDate" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <label class="required-label">Type</label>
+                                        </div>
+                                        <div class="row">
+                                            <select class="form-control" formControlName="appType">
+                                                <option>DOWR</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Name Of The Establishment</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="ceName" [readonly]="indName" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.ceName.touched && citizenForm.controls.ceName.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.ceName.errors?.required">Required</span>
+                                        <!--  <span class="text-danger"
+                                        *ngIf="citizenForm.controls.ceName.errors?.invalidField">not a valid
+                                        name</span> -->
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.ceName.errors?.invalidCeName">not a
+                                            valid
+                                            name</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.ceName.errors?.pattern">not
+                                            a valid entry </span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Contact Person's Name</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="name" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.name.touched && citizenForm.controls.name.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.name.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.name.errors?.invalidField">not
+                                            a valid name</span>
+                                        <span class="text-danger" *ngIf="citizenForm.controls.name.errors?.pattern">not
+                                            a
+                                            valid
+                                            name</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Contact Person's Phone No.</label>
+                                        <input type="email" class="form-control" formControlName="ce_phone" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.ce_phone.touched && citizenForm.controls.ce_phone.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.ce_phone.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.ce_phone.errors?.pattern">not
+                                            a valid Phone No</span>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row" *ngIf="pathType === 'view-form' || pathType === 'View'">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <label class="required-label">Application Date</label>
+                                        </div>
+                                        <div class="row">
+                                            <input type="text" [readonly]="true" [value]="appDate" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Contact Person's E-mail</label>
+                                        <input type="email" class="form-control" formControlName="email" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.email.touched && citizenForm.controls.email.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.email.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.email.errors?.invalidEmail">not a valid
+                                            email</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Purpose</label>
+                                        <div class="row">
+                                            <div class="col-3 px-0" *ngFor="let item of purpose; let i = index"
+                                                [ngClass]="{ 'pl-1': i === 2 }">
+                                                <input type="radio" formControlName="purpose" [value]="item.id"
+                                                    (change)="addOtherPurpose(item.id)" />
+                                                <!-- [checked]="i===0" -->
+                                                <label for="" class="text-uppercase pl-1">{{item.purpose_name}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="otherPurpose">
+                                    <div class="col-12">
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="purOthers" placeholder="Enter your purpose">
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="bothPurpose">
+                                    <div class="col-sm-6">
+                                        <label class="required-label">Industrial(%)</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="industryPercent" [readonly]="true"
+                                            placeholder="Enter your percentage">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="required-label">Bulk Water(%)</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="bulkPrecent" (keyup)="setIndustrialsWater($event)"
+                                            placeholder="Enter your percentage for bulk water">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Application For</label>
+                                        <div class="row">
+                                            <div class="col-4 px-0" *ngFor="let item of application; let i = index"
+                                                [ngClass]="{ 'pl-3': i === 1 }">
+                                                <input type="radio" name="appFor" formControlName="appFor"
+                                                    [value]="item.id" (change)="checkType(item.id)" />
+                                                <!-- [checked]="i===0"  -->
+                                                <label for=""
+                                                    class="text-capitalize pl-1">{{item.application_type}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="hasAllocation">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Allocation order of operational water from
+                                            DOWR</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'allocationOrder')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.allocationOrderDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('allocationOrder', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'allocationOrder')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="allocationOrder" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('allocationOrder', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0" *ngIf="loginType">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError1 }"
+                                                    (click)="toggle(1)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError1 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError1">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Establishment Details
+                        </legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Establishment Type</label>
+                                        <select class="form-control" formControlName="indType"
+                                            (change)="otherIndustry($event)">
+                                            <option value="">--Select One--</option>
+                                            <option *ngFor="let item of industry" [value]="item.id">{{
+                                                item.industry_name }}
+                                            </option>
+                                            <!-- <option value="2">Medium</option>
+                                            <option value="3">Large</option> -->
+                                        </select>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.indType.touched && citizenForm.controls.indType.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.indType.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.indType.errors?.invalidField">Please select
+                                            value</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row" *ngIf="isOtherIndustry">
+                                    <div class="col-12">
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="indOters" placeholder="Enter Establishment Type">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Address</label>
+                                        <textarea class="form-control" rows="5" cols="6"
+                                            formControlName="address"></textarea>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.address.touched && citizenForm.controls.address.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.address.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.address.errors?.invalidField">Please select
+                                            value</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.address.errors?.pattern">not
+                                            a valid entry </span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Pincode</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="pinCode" placeholder="Enter Pincode" maxlength="6"
+                                            (keypress)="decimalFilter($event)" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.pinCode.touched && citizenForm.controls.pinCode.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.pinCode.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.pinCode.errors?.invalidPinNumber">Not a valid
+                                            pin</span>
+                                    </small>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">District</label>
+                                        <select class="form-control" formControlName="distId"
+                                            (change)="getBlockByDistId($event)">
+                                            <option value="">--Select One--</option>
+                                            <option *ngFor="let item of district" [value]="item.id">{{
+                                                item.district_name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.distId.touched && citizenForm.controls.distId.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.distId.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.distId.errors?.invalidField">Please select
+                                            value</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Block</label>
+                                        <select class="form-control" formControlName="blockId">
+                                            <option value="">--Select One--</option>
+                                            <option *ngFor="let item of block" [value]="item.id">{{item.block_name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.blockId.touched && citizenForm.controls.blockId.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.blockId.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.blockId.errors?.invalidField">Please select
+                                            value</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">PAN No.<i style="cursor: pointer;"
+                                                title="Provide the establishment PAN no."></i></label>
+                                        <input type="password" aria-autocomplete="none"
+                                            class="form-control text-uppercase" formControlName="panNo"
+                                            placeholder="xxxxxxxxxx" autocomplete="new-password" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.panNo.touched && citizenForm.controls.panNo.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.panNo.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.panNo.errors?.invalidPanNumber">Not a valid PAN
+                                            no</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError2 }"
+                                                    (click)="toggle(2)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError2 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError2">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Capacity
+                        </legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <!-- <div class="col-sm-12">
+                                    <div class="row"> -->
+                                    <div class="col-sm-9">
+                                        <label class="required-label">Present Capacity</label>
+                                        <input type="text" class="form-control" aria-autocomplete="none"
+                                            placeholder="Ex:- 1000" formControlName="presentCap"
+                                            (keypress)="decimalFilter($event)" appPreventPaste min="0" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.presentCap.touched && citizenForm.controls.presentCap.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.presentCap.errors?.required">Required</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.presentCap.errors?.invalidNumber">This field
+                                                requires number</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.presentCap.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="required-label">Unit</label>
+                                        <input type="text" aria-autocomplete="none" class="form-control"
+                                            formControlName="presentUnit" placeholder="Ex:-MTPA" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.presentUnit.touched && citizenForm.controls.presentUnit.invalid">
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.presentUnit.errors?.required">Required</span> -->
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.presentUnit.errors?.invalidNumber">This field
+                                            requires number</span> -->
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.presentUnit.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <!-- </div>
+                                </div> -->
+                                    <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.presentCap.touched && citizenForm.controls.presentCap.invalid">
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.presentCap.errors?.required">Required</span>
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.presentCap.errors?.invalidNumber">This field
+                                        requires number</span>
+                                </small> -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-9">
+                                        <label>Future Expansion Plan</label>
+                                        <input type="text" class="form-control" aria-autocomplete="none"
+                                            placeholder="Ex:- 1000" formControlName="futureCap"
+                                            (keypress)="decimalFilter($event)" appPreventPaste min="0" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.futureCap.touched && citizenForm.controls.futureCap.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureCap.errors?.required">Required</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureCap.errors?.invalidNumber">This field
+                                                requires number</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureCap.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label class="required-label">Unit</label>
+                                        <input type="text" class="form-control" aria-autocomplete="none"
+                                            formControlName="futureUnit" placeholder="Ex:-MTPA" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.futureUnit.touched && citizenForm.controls.futureUnit.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureUnit.errors?.required">Required</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureUnit.errors?.invalidNumber">This field
+                                                requires number</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.futureUnit.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <!-- <div class="col-sm-12">
+                                    <label>Future Expansion Plan</label>
+                                    <input type="text" class="form-control" placeholder="Unit In Cusec" formControlName="futureCap" />
+                                </div> -->
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.futureCap.touched && citizenForm.controls.futureCap.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.futureCap.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.futureCap.errors?.invalidNumber">This field
+                                            requires
+                                            number</span>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError3 }"
+                                                    (click)="toggle(3)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError3 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError3">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Location
+                        </legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Intake Location</label>
+                                        <!-- <input *ngIf="pageDetails === 'undefined'" type="file" class="form-control custom-fc" (change)="fileChange($event, 'intake')" />
+                                    <input *ngIf="pageDetails !== 'undefined'" type="text" formControlName="intake" class="form-control custom-fc" /> -->
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'intake')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [value]="citizenForm.controls.intakeFileDocName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('intake', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a>
+                                        </button>
+                                        <div class="row">
+                                            <label>(Attach coloured location map on toposheet identifying intake
+                                                location.)</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <label class="required-label">Intake Latitude<br>(Ex: 79deg 58min 56sec
+                                            N)</label>
+                                        <input type="text" class="form-control custom-fc" formControlName="latitude" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.latitude.touched && citizenForm.controls.latitude.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.latitude.errors?.required">Required</span>
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.latitude.errors?.invalidNumber">This field
+                                            requires number</span> -->
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.latitude.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="required-label">Intake Longitude<br>(Ex: 79deg 58min 56sec
+                                            E)</label>
+                                        <input type="text" class="form-control custom-fc" formControlName="longitude" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.longitude.touched && citizenForm.controls.longitude.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.longitude.errors?.required">Required</span>
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.longitude.errors?.invalidNumber">This field
+                                            requires number</span> -->
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.longitude.errors?.pattern">not a valid entry
+                                            </span>
+                                        </small>
+                                    </div>
+                                </div>
+                                <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.intake.touched && citizenForm.controls.intake.invalid">
+                                <span class="text-danger" *ngIf="citizenForm.controls.intake.errors?.required">Required</span>
+                                <span class="text-danger" *ngIf="citizenForm.controls.intake.errors?.invalidFile">Choose a file less than 4MB</span>
+                            </small> -->
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label>Recommendation Letter</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'recomendation')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [value]="citizenForm.controls.recomendationDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('recomendation', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'recomendation')" />
+                                    <input *ngIf="pageDetails !== 'undefined'" type="text" formControlName="recomendation" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('recomendation', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Establishment Location</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'industry')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.industryDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('industry', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <div class="row">
+                                            <label>(Attach coloured location map on toposheet identifying Establishment
+                                                location.)</label>
+                                        </div>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'industry')" />
+                                    <input *ngIf="pageDetails !== 'undefined'" type="text" formControlName="industry" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('industry', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6">
+                                        <label class="required-label">Establishment Latitude<br>(Ex: 79deg 58min 56sec
+                                            N)</label>
+                                        <input type="text" class="form-control custom-fc"
+                                            formControlName="industryLatitude" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.industryLatitude.touched && citizenForm.controls.industryLatitude.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.industryLatitude.errors?.required">Required</span>
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.industryLatitude.errors?.invalidNumber">This
+                                            field
+                                            requires number</span> -->
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.industryLatitude.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label class="required-label">Establishment Longitude<br>(Ex: 79deg 58min 56sec
+                                            E)</label>
+                                        <input type="text" class="form-control custom-fc"
+                                            formControlName="industryLongtitude" />
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.industryLongtitude.touched && citizenForm.controls.industryLongtitude.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.industryLongtitude.errors?.required">Required</span>
+                                            <!-- <span class="text-danger"
+                                            *ngIf="citizenForm.controls.industryLongtitude.errors?.invalidNumber">This
+                                            field
+                                            requires number</span> -->
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.industryLongtitude.errors?.pattern">not
+                                                a valid entry </span>
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label>Whether MOU has been signed with Govt./Single window approval
+                                            received</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'mou')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.mouDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('mou', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'mou')" />
+                                    <input *ngIf="pageDetails !== 'undefined'" type="text" formControlName="mou" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('mou', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row inst" *ngIf="!isView && pathType !== 'View'">
+                            <label class="text-danger fs-12">*N.B: Documents should be image(.jpeg .jpg .png) and size
+                                should be max <b>4MB</b></label>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError4 }"
+                                                    (click)="toggle(4)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError4 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError4">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Requisition of water
+                        </legend>
+                        <div class="row" *ngIf="isOperational">
+                            <div class="col-12">
+                                <u style="color: #2551c7;">
+                                    <h5 style="color: #2551c7; text-align: center;">Requisition of operational water
+                                    </h5>
+                                </u>
+                            </div>
+                        </div>
+                        <div class="row mt-3" *ngIf="isOperational">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Water Source for operation</label>
+                                        <select class="form-control" formControlName="quanIntended"
+                                            (change)="validate3($event)">
+                                            <option value="">--Select One--</option>
+                                            <option *ngFor="let item of operational" value="{{ item.id }}">
+                                                {{ item.operational_source }}</option>
+                                            <!-- <option value="2">Surface</option> -->
+                                        </select>
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.quanIntended.touched && citizenForm.controls.quanIntended.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.quanIntended.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.quanIntended.errors?.invalidField">Please select
+                                            value</span>
+                                    </small>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Assessment Certificate from competent
+                                            authority/concerned
+                                            department in support of quantum of water </label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'certificate')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.certificateDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('certificate', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'certificate')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="certificate" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('certificate', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Note of calculation on quantity of water
+                                            required</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'quantity')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.quantityDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('quantity', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'quantity')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="quantity" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('quantity', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Joint Inspection Report</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'jointReport')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.jointReportDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('jointReport', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'quantity')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="quantity" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('quantity', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- *ngIf="applyingForVal === 'Enhancement' || applyingForVal === 'Reduction' || isNew" -->
+                                <div *ngIf="applyingForVal === 'Enhancement' || applyingForVal === 'Reduction' ||applyingForVal === 'Reduction with Phasing' || applyingForVal === 'Reduction with Rephasing' ||applyingForVal === 'Enhancement with Phasing' || applyingForVal === 'Enhancement with Rephasing' || isNew"
+                                    class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Quantity indented for operation (In Cusec)<i
+                                                class="fa fa-eye"
+                                                *ngIf="applyingForVal === 'Enhancement' || applyingForVal === 'Reduction' ||applyingForVal === 'Reduction with Phasing' || applyingForVal === 'Reduction with Rephasing' ||applyingForVal === 'Enhancement with Phasing' || applyingForVal === 'Enhancement with Rephasing'"
+                                                title="Please enter the indented revised quantity"></i></label>
+                                        <input type="text" class="form-control" formControlName="opQuant" placeholder=""
+                                            (change)="storedValue()" (keypress)="decimalFilter($event)"
+                                            (paste)="preventPaste($event)" />
+                                    </div>
+                                    <small class="text-error ml-3"
+                                        *ngIf="citizenForm.controls.opQuant.touched && citizenForm.controls.opQuant.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.opQuant.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.opQuant.errors?.invalidNumber">
+                                            This field requires number
+                                        </span>
+                                        <span class="text-danger" *ngIf="citizenForm.controls.opQuant.errors?.min">
+                                            This value must be greater than {{allocatedQuantity}}
+                                        </span>
+                                        <span class="text-danger" *ngIf="citizenForm.controls.opQuant.errors?.max">
+                                            This value must be less than {{allocatedQuantity}}
+                                        </span>
+                                        <span class="text-danger" *ngIf="citizenForm.controls.opQuant.errors?.pattern">
+                                            Not a valid entry
+                                        </span>
+                                    </small>
+                                </div>
+                                <div class="form-group row" *ngIf="!isGround2">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">River/Lake/Mines pit/Pond/Rain water
+                                            harvesting</label>
+                                        <select class="form-control custom-fc" formControlName="riverId"
+                                            (ngModelChange)="getDamByRiverId($event)">
+                                            <option value="0">-Select One-</option>
+                                            <option *ngFor="let item of river" value="{{item.id}}">{{item.river_name +'
+                                                ( '+item.basin_name+' ) '}}
+                                            </option>
+                                        </select>
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.riverId.touched && citizenForm.controls.riverId.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.riverId.errors?.required">Required</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.riverId.errors?.invalidField">Please select
+                                                value</span>
+                                        </small>
+                                        <!-- <input type="text" class="form-control custom-fc" /> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="!isGround2">
+                                    <div class="col-sm-12">
+                                        <label>Dam/Canal/Barrage</label>
+                                        <select class="form-control custom-fc" formControlName="damId">
+                                            <option value="0">-Select One-</option>
+                                            <option *ngFor="let item of dam" value="{{item.id}}">{{item.dam_name}}
+                                            </option>
+                                        </select>
+                                        <small class="text-error ml-3"
+                                            *ngIf="citizenForm.controls.damId.touched && citizenForm.controls.damId.invalid">
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.damId.errors?.required">Required</span>
+                                            <span class="text-danger"
+                                                *ngIf="citizenForm.controls.damId.errors?.invalidField">Please select
+                                                value</span>
+                                        </small>
+                                        <!-- <input type="text" class="form-control custom-fc" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-2" *ngIf="isConstructional">
+                            <div class="col-12">
+                                <u style="color: #2551c7;">
+                                    <h5 style="color: #2551c7; text-align: center;">Requisition of constructional water
+                                    </h5>
+                                </u>
+                            </div>
+                        </div>
+                        <div class="row mt-3" *ngIf="isConstructional">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Water Source for construction</label>
+                                        <select class="form-control" formControlName="surfaceId"
+                                            (change)="validate2($event)">
+                                            <option value="">--Select One--</option>
+                                            <option *ngFor="let item of operational" value="{{ item.id }}">
+                                                {{ item.operational_source }}</option>
+                                            <!-- <option value="2">Surface</option> -->
+                                        </select>
+                                    </div>
+                                    <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.quanIntended.touched && citizenForm.controls.quanIntended.invalid">
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.quanIntended.errors?.required">Required</span>
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.quanIntended.errors?.invalidField">Please select
+                                        value</span>
+                                </small> -->
+                                </div>
+                                <div class="form-group row" *ngIf="!isGround">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">River/Lake/Mines pit/Pond/Rain water
+                                            harvesting</label>
+                                        <select class="form-control custom-fc" formControlName="sourceRiverId">
+                                            <option value="0">-Select One-</option>
+                                            <option *ngFor="let item of river" value="{{item.id}}">{{item.river_name}}
+                                            </option>
+                                        </select>
+                                        <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.riverId.touched && citizenForm.controls.riverId.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.riverId.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.riverId.errors?.invalidField">Please select
+                                            value</span>
+                                    </small> -->
+                                        <!-- <input type="text" class="form-control custom-fc" /> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row" *ngIf="!isGround">
+                                    <div class="col-sm-12">
+                                        <label>Dam/Canal/Barrage</label>
+                                        <select class="form-control custom-fc" formControlName="sourceDamId">
+                                            <option value="0">-Select One-</option>
+                                            <option *ngFor="let item of dam" value="{{item.id}}">{{item.dam_name}}
+                                            </option>
+                                        </select>
+                                        <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.damId.touched && citizenForm.controls.damId.invalid">
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.damId.errors?.required">Required</span>
+                                        <span class="text-danger"
+                                            *ngIf="citizenForm.controls.damId.errors?.invalidField">Please select
+                                            value</span>
+                                    </small> -->
+                                        <!-- <input type="text" class="form-control custom-fc" /> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Quantity indented for construction</label>
+                                        <input type="text" class="form-control" formControlName="opQuantSur"
+                                            placeholder="Unit in Cusec" />
+                                    </div>
+                                    <!-- <small class="text-error ml-3" *ngIf="citizenForm.controls.opQuant.touched && citizenForm.controls.opQuant.invalid">
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.opQuant.errors?.required">Required</span>
+                                    <span class="text-danger"
+                                        *ngIf="citizenForm.controls.opQuant.errors?.invalidNumber">This field requires
+                                        number</span>
+                                </small> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row"
+                            style="padding-left: 0.8rem !important;padding-right: 2.2rem !important;" *ngIf="hasCGWA">
+                            <div class="col-sm-6">
+                                <label class="required-label">Provide NOC from CGWA for ground water</label>
+
+                                <div class="">
+                                    <div class="input-group file-upload">
+                                        <input type="file" accept="application/pdf, image/*"
+                                            (change)="fileChange($event, 'cgwaCertificate')"
+                                            class="file-upload-btn form-control"
+                                            [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                            title="Choose File To Upload.." />
+                                        <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                            class="form-control file-upload-file" placeholder="Choose  document"
+                                            [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                            [value]="citizenForm.controls.cgwaCertificateDocFileName.value">
+                                        <span class="input-group-append">
+                                            <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                class="btn btn-primary btn-danger" type="button">
+                                                <i class="fa fa-upload"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                        class="btn btn-sm btn-danger download-btn"><a
+                                            [href]="fileDownload('cgwaCertificate', ApplicationId)" target="_ "><i
+                                                class="fa fa-download"></i></a></button>
+                                    <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                </div>
+                                <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'quantity')" />
+                            <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="quantity" class="form-control custom-fc" />
+                            <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('quantity', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                            </div>
+                        </div>
+                        <div class="row inst" *ngIf="!isView && pathType !== 'View'">
+                            <label class="text-danger fs-12">*N.B: Documents should be image(.jpeg .jpg .png) and size
+                                should
+                                be max <b>4MB</b></label>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError5 }"
+                                                    (click)="toggle(5)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError5 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError5">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="!isConstructional && applyingForVal === 'Enhancement with Phasing' || applyingForVal === 'Enhancement with Rephasing' || applyingForVal === 'Reduction with Phasing' || applyingForVal === 'Reduction with Rephasing' || applyingForVal === '' || applyingForVal === 'Phasing' || applyingForVal === 'Rephasing'"
+                class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Phase wise requirement
+                        </legend>
+                        <div class="row form-group">
+                            <div class="col-sm-6">
+                                <label>No. of Phases</label>
+                                <input type="text" class="form-control"
+                                    [disabled]="pathType === 'view-form' || pathType === 'View'" [value]="totalPhases"
+                                    placeholder="Phases" (keyup)="getPhase($event)" (paste)="preventPaste($event)"
+                                    (input)="allowOnlyDigits($event)">
+                            </div>
+                            <div class="col-sm-6">
+                                <label [ngClass]="{'required-label': noOfPhase !== 0}">Document for Phasing</label>
+                                <div class="">
+                                    <div class="input-group file-upload">
+                                        <input type="file" accept="application/pdf, image/*"
+                                            (change)="fileChange($event, 'cgwa')" class="file-upload-btn form-control"
+                                            [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                            title="Document for phasing should be accompanied by phase wise assessment certificate by IPCOL/Concerned government department" />
+                                        <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                            class="form-control file-upload-file" placeholder="Choose  document"
+                                            [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                            [value]="citizenForm.controls.cgwaFileDocName.value">
+                                        <span class="input-group-append">
+                                            <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                class="btn btn-primary btn-danger" type="button">
+                                                <i class="fa fa-upload"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                </div>
+                              <button
+  *ngIf="pathType === 'view-form' || pathType === 'View'"
+  type="button"
+  class="btn btn-sm btn-danger download-btn">
+
+ <a
+    [href]="fileDownload('cgwa', phaseDocPath)"
+    target="_blank">
+    <i class="fa fa-download"></i>
+</a>
+</button>
+
+                                <!-- <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                    class="btn btn-sm btn-danger download-btn">
+
+                                    <a [href]="fileDownload('cgwa', ApplicationId)" target="_blank" download>
+                                        <i class="fa fa-download"></i>
+                                    </a>
+
+                                </button> -->
+                                <div class="row">
+                                    <label>(Attach a note justifying the volume of water required.)</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row custom-table">
+                            <div class="col-sm-3 custom-thead">
+                                Phase Wise Requirement
+                            </div>
+                            <div class="col-sm-2 custom-thead">
+                                From
+                            </div>
+                            <div class="col-sm-2 custom-thead">
+                                To
+                            </div>
+                            <div class="col-sm-3 custom-thead">
+                                Quantity(Unit In Cusec)
+                            </div>
+                            <div class="col-sm-2 custom-thead">
+                                Remove Phase
+                            </div>
+                        </div>
+                        <div class="row mt-3" formArrayName="phaseReq"
+                            *ngFor="let pahses of phaseReq.controls; let i = index">
+                            <ng-container [formGroupName]="i">
+                                <div class="col-sm-3 roman">
+                                    {{ romanize(i + 1) }}
+
+                                </div>
+                                <div class="col-sm-2">
+
+                                    <input type="text" *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                        [isDisabled]="i > 0" formControlName="from_date" placeholder="Select Date"
+                                        class="form-control" [minDate]="minDate" bsDatepicker
+                                        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }">
+                                    <!-- <input type="text" *ngIf="pathType === 'View' && isView" [ngClass]="{'readonly': isView && pathType === 'View'}" class="form-control" formControlName="from_date" /> -->
+                                    <input type="text" *ngIf="pathType === 'View' && isView" class="form-control"
+                                        [value]="pahses.get('from_date')?.value ? (pahses.get('from_date')?.value | date:'dd-MM-yyyy') : ''"
+                                        readonly />
+                                </div>
+                                <div class="col-sm-2">
+
+                                    <input type="text" *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                        class="form-control" [isDisabled]="i+1 === noOfPhase" formControlName="to_date"
+                                        placeholder="Select Date" class="form-control"
+                                        [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }"
+                                        (bsValueChange)="handleDateChange($event, i)"
+                                        (change)="handleDateChange($event, i)" bsDatepicker [minDate]="resDate">
+                                    <!-- <input type="date" *ngIf="pathType === 'edit-form' || pathType === 'Create'" class="form-control" formControlName="to_date" (change)="validateDate($event,i)" />-->
+                                    <!-- <input type="text" *ngIf="pathType === 'View' && isView"
+                                        [ngClass]="{'readonly': isView && pathType === 'View'}" class="form-control"
+                                        formControlName="to_date" /> -->
+
+                                    <input type="text" *ngIf="pathType === 'View' && isView" class="form-control"
+                                        [value]="pahses.get('to_date')?.value ? (pahses.get('to_date')?.value | date:'dd-MM-yyyy') : ''"
+                                        readonly />
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <!-- {{isNew}} == {{isView}} -->
+                                    <!-- <div>{{i+1 === noOfPhase ? ((citizenForm.controls.opQuant.value === null || citizenForm.controls.opQuant.value === '') ? allocatedQuantity : citizenForm.controls.opQuant.value) : ''}} -- {{i+1}} - {{noOfPhase}} - {{citizenForm.controls.opQuant.value}}
+                                    - {{allocatedQuantity}} </div> -->
+                                    <input *ngIf="!isView" type="text"
+                                        [value]="i+1 === noOfPhase ? citizenForm.controls.opQuant.value : ''"
+                                        class="form-control"
+                                        [ngClass]="{'readonly': (isView && pathType === 'View') || pahses.controls.disable.value}"
+                                        formControlName="unit" />
+                                    <!-- *ngIf="(applyingForVal === 'Reduction' || applyingForVal === 'Reduction with Phasing' || applyingForVal === 'Reduction with Rephasing' || applyingForVal === 'Enhancement' ||  applyingForVal === 'Enhancement with Phasing' || applyingForVal === 'Enhancement with Rephasing' || applyingForVal === 'Regularisation' || applyingForVal === 'Renewal'  ) && !isView" -->
+                                    <!-- <input *ngIf="citizenForm.controls.opQuant.value === null" type="text" [value]="i+1 === noOfPhase ? allocatedQuantity: ''" class="form-control" [ngClass]="{'readonly': (isView && pathType === 'View') || pahses.controls.disable.value}" formControlName="unit"
+                                /> -->
+                                    <input type="text" *ngIf="isView" class="form-control"
+                                        [ngClass]="{'readonly': (isView && pathType === 'View') || pahses.controls.disable.value}"
+                                        formControlName="unit" (keypress)="decimalFilter($event)" />
+                                    <small class="text-error ml-3"
+                                        *ngIf="pahses.controls.unit.touched && pahses.controls.unit.invalid">
+                                        <!-- <span class="text-danger" *ngIf="pahses.controls.unit.errors?.required">Required</span> -->
+                                        <span class="text-danger" *ngIf="pahses.controls.unit.errors?.invalid">not a
+                                            valid
+                                            quantity</span>
+                                    </small>
+                                </div>
+                                <div class="col-sm-1">
+                                    <i style="cursor: pointer;" class="fa fa-eye"
+                                        title="Phase wise quantity should be cumulative in nature and quantity of the last phase should be equal to quantity indented for operational purpose"></i>
+                                </div>
+                                <div class="col-sm-2 pl-5">
+                                    <!-- <button type="button" [disabled]="!isView" class="btn btn-success btn-sm add-btn mr-1 br1" (click)="addPhase(i + 1)">
+                                    <i class="fa fa-plus-circle"></i>
+                                </button> -->
+                                    <button type="button" [disabled]="i === 0" class="btn btn-danger btn-sm add-btn br1"
+                                        (click)="removePhase(i)">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError6 }"
+                                                    (click)="toggle(6)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError6 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError6">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Water management plan
+                        </legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Layout of drawal mechanism</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'layout')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.layoutDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('layout', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'layout')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="layout" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('layout', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">a) Whether any recycling is proposed, b) Waste
+                                            water
+                                            generated, c) Quantity of effluent, d)Method of disposal&nbsp;
+                                            <i style="cursor:pointer;" class="fa fa-eye"
+                                                title="All 4 documents should be combined and uploaded as one document"></i>
+                                        </label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'disposal')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.disposalDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('disposal', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <div class="row">
+                                            <label>(Attach a note on disposal of waste water and its effect on
+                                                environment.)</label>
+                                        </div>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'disposal')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="disposal" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('disposal', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Scheme of drawal of water</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'scheme')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.schemeDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('scheme', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'scheme')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="scheme" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('scheme', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Lean peroid water management</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'waterMgmt')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.waterMgmtDocFileName.value">
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('waterMgmt', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'waterMgmt')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="waterMgmt" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('waterMgmt', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-12">
+                                        <label class="required-label">Provide documents about Organization/Establishment
+                                            details</label>
+                                        <div class="">
+                                            <div class="input-group file-upload">
+                                                <input type="file" accept="application/pdf, image/*"
+                                                    (change)="fileChange($event, 'indDetails')"
+                                                    class="file-upload-btn form-control"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    title="Choose File To Upload.." />
+                                                <input type="text" aria-autocomplete="none" aria-autocomplete="none"
+                                                    class="form-control file-upload-file" placeholder="Choose  document"
+                                                    [disabled]="pathType === 'view-form' || pathType === 'View'"
+                                                    [value]="citizenForm.controls.indDetailsDocFileName.value">
+                                                <!-- [value]="citizenForm.controls.layoutDocFileName.value" -->
+                                                <span class="input-group-append">
+                                                    <button *ngIf="pathType === 'edit-form' || pathType === 'Create'"
+                                                        class="btn btn-primary btn-danger" type="button">
+                                                        <i class="fa fa-upload"></i>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                            <!-- <small class="form-text text-muted">License Document Must Be of Greater than 12 kb(Only pdf and image(jpeg,jpg) file).</small> -->
+                                        </div>
+                                        <button *ngIf="pathType === 'view-form' || pathType === 'View'" type="button"
+                                            class="btn btn-sm btn-danger download-btn"><a
+                                                [href]="fileDownload('indDetails', ApplicationId)" target="_ "><i
+                                                    class="fa fa-download"></i></a></button>
+                                        <!-- <input type="file" *ngIf="pageDetails === 'undefined'" class="form-control custom-fc" (change)="fileChange($event, 'layout')" />
+                                    <input type="text" *ngIf="pageDetails !== 'undefined'" formControlName="layout" class="form-control custom-fc" />
+                                    <button *ngIf="pageDetails !== 'undefined'" type="button" class="btn btn-sm btn-danger download-btn"><a [href]="fileDownload('layout', ApplicationId)" target="_ "><i class="fa fa-download"></i></a></button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row inst" *ngIf="!isView && pathType !== 'View'">
+                            <label class="text-danger fs-12">*N.B: Documents should be image(.jpeg .jpg .png) and size
+                                should
+                                be max <b>4MB</b></label>
+                        </div>
+                    </fieldset>
+                    <div class="row mt-2" *ngIf="loginType">
+                        <div class="col-7 ml-10">
+                            <fieldset class="pt-0 pb-0">
+                                <legend class="legend-text">Status</legend>
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="row">
+                                            <div class="col-4 px-0">
+                                                <label class="text-success">Correct</label>
+                                            </div>
+                                            <div class="col-4 pl-0">
+                                                <div class="toggle" [ngClass]="{ active: hasError7 }"
+                                                    (click)="toggle(7)">
+                                                    <button class="toggle-button" [ngClass]="{ shift: hasError7 }">
+                                                        <!-- <i *ngIf="!hasError" class="fa fa-check"></i>
+                                                    <i *ngIf="hasError" class="fa fa-times"></i> -->
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="col-4 pl-1">
+                                                <label class="text-danger">Incorrect</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-7" *ngIf="hasError7">
+                                        <div class="row">
+                                            <label>Description</label>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <textarea class="form-control" cols="6" rows="2"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2" *ngIf="pathType === 'view-form' || pathType === 'View'">
+                <div class="col-12">
+                    <fieldset>
+                        <legend class="legend-text">
+                            Payment Details
+                        </legend>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-success"
+                                style="font-size: 11px; font-family: sans-serif; text-align: center;">
+                                <thead>
+                                    <th>Application ID</th>
+                                    <th>Transaction ID</th>
+                                    <!-- <th>Transaction Head(Secu)</th> -->
+                                    <th>Security Amount</th>
+                                    <!-- <th>Transaction Head(Process)</th> -->
+                                    <th>Processing Fee</th>
+                                    <!-- <th>Bank Transaction ID</th> -->
+                                    <th>Transaction Date</th>
+                                    <th>Reference No</th>
+                                    <!-- <th>Dept Reference ID</th> -->
+                                    <th>Chalan No(Process)</th>
+                                    <th>Chalan Date</th>
+                                    <th>Chalan No(Security)</th>
+                                    <th>Chalan Date</th>
+                                    <th>Status</th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of paymentData">
+                                        <td>{{item.app_id}}</td>
+                                        <td>{{item.trsid}}</td>
+                                        <!-- <td>{{item.trs_head_secu}}</td> -->
+                                        <td>{{item.amount_secu}}</td>
+                                        <!-- <td>{{item.trs_head_process}}</td> -->
+                                        <td>{{item.amount_process}}</td>
+                                        <!-- <td>{{item.bank_transaction_id}}</td> -->
+                                        <td>{{transformDate(item.bank_trs_dt)}}</td>
+                                        <td>{{item.ref_no}}</td>
+                                        <!-- <td>{{item.dept_ref_id}}</td> -->
+                                        <td>{{item.chalan_no_process}}</td>
+                                        <td>{{transformDate(item.chalan_dt_process)}}</td>
+                                        <td>{{item.chalan_no_secu === null ? 'NA' : item.chalan_no_secu}}</td>
+                                        <td>{{item.chalan_dt_secu === null ? 'NA' : transformDate(item.chalan_dt_secu)}}
+                                        </td>
+                                        <td>{{item.status === 'S' ? 'Successful' : 'Failed'}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="row justify-content-center pt-3 pb-2" *ngIf="isView && pathType !== 'View'">
+                <button type="submit" class="btn btn-md customBtn">Draft Submit</button>
+                <!-- [disabled]="citizenForm.invalid" -->
+            </div>
+            <div class="row justify-content-center pt-2 pb-2" *ngIf="!isView && pathType !== 'View'">
+                <Label class="text-success">N.B: This form will be finally submitted After making the
+                    payment</Label>
+            </div>
+        </form>
+    </div>
+</div>

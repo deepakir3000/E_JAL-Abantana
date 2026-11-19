@@ -1,0 +1,110 @@
+<div class="card">
+    <div class="card-header">
+        <div class="card-title text-capitalize">{{pathType}} Resource
+            <span class="back-button" title="Go Back" (click)="backButton()">
+                  <i class="fa fa-reply "></i>
+                  <span>Back</span>
+            </span>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="resourceForm" (ngSubmit)="createResourceDetails(resourceForm.value)">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="resourceName">
+                            <small class="text-error ml-3" *ngIf="resourceForm.controls.resourceName.touched && resourceForm.controls.resourceName.invalid">
+                                <span class="text-danger" *ngIf="resourceForm.controls.resourceName.errors?.required">Required</span>
+                                <span class="text-danger" *ngIf="resourceForm.controls.resourceName.errors?.pattern">not a valid entry</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Path</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="linkText">
+                            <small class="text-error ml-3" *ngIf="resourceForm.controls.linkText.touched && resourceForm.controls.linkText.invalid">
+                                <span class="text-danger" *ngIf="resourceForm.controls.linkText.errors?.required">Required</span>
+                                <span class="text-danger" *ngIf="resourceForm.controls.linkText.errors?.pattern">not a valid entry</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Description</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="resourceDescription">
+                            <small class="text-error ml-3" *ngIf="resourceForm.controls.resourceDescription.touched && resourceForm.controls.resourceDescription.invalid">
+                                <span class="text-danger" *ngIf="resourceForm.controls.resourceDescription.errors?.required">Required</span>
+                                <span class="text-danger" *ngIf="resourceForm.controls.resourceDescription.errors?.pattern">not a valid entry</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group row required">
+                        <label for="stateId" class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" formControlName="status">
+                                    <option value="">Select Any One</option>
+                                    <option value="1">Active</option>
+                                    <option value="2">Inactive</option>
+                                </select>
+                                <small class="text-error ml-3" *ngIf="resourceForm.controls.status.touched && resourceForm.controls.status.invalid">
+                                    <span class="text-danger" *ngIf="resourceForm.controls.status.errors?.required">Required</span>
+                                </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-12">
+                    <div class="form-group row required">
+                        <div class=" col-sm-6">
+                            <label class="col-form-label pull-right">Is Submenu</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="checkbox" class="custom-check mt-1" (change)="isSubmenuChanged($event)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" *ngIf='isSubmenu'>
+                <div class="col-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Parent Menu</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" formControlName="sub_menu">
+                                <option value="">Select Parent Menu</option>
+                                <option *ngFor="let resource of parentResource" value="{{resource.id}}">{{resource.resource_name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group row required">
+                        <label class="col-sm-4 col-form-label">Sub-Menu Sequence</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" formControlName="seq_order">
+                            <small class="text-error ml-3" *ngIf="resourceForm.controls.seq_order.touched && resourceForm.controls.seq_order.invalid">
+                                <span class="text-danger" *ngIf="resourceForm.controls.seq_order.errors?.pattern">not a valid entry</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div align="center">
+                <button type="button" class="btn btn-warning" (click)="roleFormReset()">Reset</button>
+                <button type="submit" [disabled]="!resourceForm.valid" class="btn btn-primary" [disabled]="resourceForm.invalid || resourceForm.pristine">Submit</button>
+                <button type="button" *ngIf="pathType === 'edit'" class="btn btn-md btn-info" (click)="enableEdit()">Edit</button>
+            </div>
+        </form>
+    </div>
+</div>

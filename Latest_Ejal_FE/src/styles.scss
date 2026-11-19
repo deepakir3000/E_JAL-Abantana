@@ -1,0 +1,350 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/*  Bootstrap Classes  */
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+// body::-webkit-scrollbar {
+//     display: none;
+// }
+// Theme Color Changes
+$theme-colors: ("primary": #0d47a1, "secondary": #9933CC, "success": #007E33, "info": #0099CC, "warning": #FF8800, "danger": #CC0000, "light": $light, "dark": $dark);
+// For Grid Adjustment
+$grid-breakpoints: (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px);
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker';
+
+/*  Font Awesome Icon Link */
+
+$fa-font-path: "../node_modules/font-awesome/fonts";
+@import "../node_modules/font-awesome/scss/font-awesome";
+
+/* Ngx Toastr */
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '../node_modules/ngx-toastr/toastr-bs4-alert';
+@import './styles/ormas-style';
+$colors-list: #aad7f3 #82c7f3 #56b6f3 #469dd4;
+.mt-xxl {
+    padding-top: 7rem;
+    padding-bottom: 2rem;
+}
+
+.step-container {
+    display: flex;
+    .step-item {
+        position: relative;
+        flex: 0 0 26%;
+        min-height: 60px;
+        padding: 0 0 0 2rem;
+        cursor: pointer;
+        &:first-child {
+            padding-left: 1rem;
+        }
+        &:last-child {
+            &::after {
+                content: "";
+                position: absolute;
+                height: 0;
+                width: 0;
+                top: 0;
+                right: 0;
+                border-radius: 0;
+            }
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            height: 60px;
+            width: 30px;
+            top: 0;
+            right: -25px;
+            border-radius: 0 2rem 2rem 0;
+            z-index: 1;
+            box-shadow: 1px 0px 0px 0px #FFF;
+        }
+        @each $current-color in $colors-list {
+            $i: index($colors-list, $current-color);
+            &.I#{$i} {
+                background-color: $current-color;
+                &::after {
+                    background-color: $current-color;
+                }
+            }
+        }
+        &.step-current {
+            background-color: #03baf9;
+            background-image: linear-gradient(135deg, #59dff5, #03baf9);
+            &::after {
+                background-color: #0dbbf7 !important;
+            }
+        }
+        &.step-prog {
+            background-color: #59dff5;
+            &::after {
+                background-color: #59dff5;
+            }
+        }
+        .step-icon {
+            position: absolute;
+            top: 5px;
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+        }
+        .step-content {
+            text-transform: capitalize;
+            position: relative;
+            font-size: 1rem;
+            top: 15px;
+            left: 75px;
+            letter-spacing: 1px;
+            font-family: serif;
+        }
+    }
+}
+
+.step-sticky-header {
+    position: relative;
+    border: 1px solid #cecece;
+    margin: 2rem 3rem;
+    padding: 1rem 4rem;
+    .step-stick-title {
+        position: absolute;
+        top: -20px;
+        background-color: #FFF;
+        padding: .25rem .75rem;
+        margin: 0;
+        border: 1px solid #c3c3c3;
+    }
+}
+
+.form-control {
+    border-radius: 0 !important;
+    font-size: 13px;
+}
+
+.download-btn {
+    margin-top: -61px;
+    margin-left: 100%;
+    border-radius: 0!important;
+    a {
+        color: white;
+    }
+}
+.overlay {
+    position: fixed!important;
+}
+.custom-btn {
+    border: none;
+    height: 36px;
+    width: 200px;
+    border-radius: 20px;
+    background-color: #0f297e;
+    color: #fff;
+    font-family: poppins;
+    font-weight: 600;
+    margin-top: 18px; 
+    cursor: pointer;
+}
+
+.change-font {
+    font-size: 14px;
+}
+
+.customModalSize {
+    max-width: 1059px !important;
+    // margin-left: -122px !important;
+}
+
+.textbox-error {
+    border-color: #CC0000;
+}
+
+.readonly {
+    // border-width: 0px;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: #EBEEF1;
+}
+
+// .text-error {
+//     width: 100%;
+//     padding-top: 5px;
+//     padding-bottom: 5px;
+//     padding-left: 10px;
+//     background-color: #f5b2b2;
+// }
+.active-tr {
+    background-color: #5074ad;
+    color: #ffff;
+}
+
+.custom-check {
+    height: 20px;
+    width: 30px;
+}
+
+input[type=radio] {
+    height: 18px;
+    width: 18px;
+}
+
+.st-tbl {
+    th {
+        text-align: center;
+        font-family: open sans;
+        font-size: 14px;
+    }
+    td {
+        font-size: 13px;
+        font-family: open sans;
+    }
+}
+
+.selected {
+    background-color: #1947a1;
+    color: white;
+}
+
+.btn-view {
+    // box-shadow: 1px 1px 5px 1px #a2aeb3;
+    background: linear-gradient(#6879e2, #7450a8);
+    font-family: poppins;
+    border-radius: 4px !important;
+}
+
+.btn-status {
+    // box-shadow: 1px 1px 5px 1px #a2aeb3;
+    background: linear-gradient(#ea937e, #b95578);
+    font-family: poppins;
+    border-radius: 4px !important;
+}
+
+.btn-action {
+    // box-shadow: 1px 1px 5px 1px #a2aeb3;
+    background: linear-gradient(#d6b164, #b37146);
+    font-family: poppins;
+    border-radius: 4px !important;
+}
+
+.indInfo {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+}
+
+.custom-th {
+    th {
+        font-size: 15px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-family: serif;
+        text-align: center;
+        color: #ffffff;
+        background: linear-gradient(#0065a5, #1a79b5);
+    }
+    td {
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 15px;
+    }
+}
+
+.filter-value-container {
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    height: 108px;
+    background-color: whitesmoke;
+    border-radius: 7px;
+    margin-top: 3px;
+    box-shadow: 0px 1px 12px #b3b1b1;
+    line-height: 28px;
+    overflow-y: scroll;
+    li {
+        cursor: pointer;
+        list-style: none;
+        font-size: 14px;
+        margin-left: -32px;
+        text-transform: uppercase;
+    }
+}
+
+// .active{
+//     background-color: #355AEE;
+//     color: white;
+//     border-bottom: solid #232C7E !important;
+// }
+// .active {
+//     background-color: #355AEE;
+//     color: white;
+//     border-bottom: solid #232C7E !important;
+// }
+.form-control {
+    padding: 0.35rem 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    color: #0F0F0F;
+    margin-top: 0rem;
+    // border-color: #F2F3F3;
+    // border-color: #F2F3F3;
+    &.readonly-1 {
+        border-width: 0;
+        cursor: default;
+        pointer-events: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        // background-color: #F9FDFD;
+        &::-webkit-input-placeholder {
+            color: #0F0F0F;
+        }
+    }
+    // &:focus {
+    //     border-color: #6391F3 !important;
+    //     -webkit-box-shadow: 0px 0px 5px 1px #6391F3;
+    //     box-shadow: 0px 0px 5px 1px #6391F3;
+    // }
+    &::-webkit-input-placeholder {
+        /* Chrome/Opera/Safari */
+        color: #0F0F0F;
+    }
+}
+
+.file-upload {
+    .file-upload-btn {
+        position: absolute;
+        width: 100%;
+        height: 35px;
+        z-index: 9;
+        opacity: 0;
+    }
+    .file-upload-file {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+    .delete-file {
+        position: absolute;
+        right: 105px;
+        top: 8px;
+        font-size: 16px;
+        opacity: .8;
+        cursor: pointer;
+        z-index: 99;
+        visibility: hidden;
+        color: #FF0000;
+    }
+    &:hover .delete-file {
+        visibility: visible;
+    }
+    .btn {
+        height: 35px;
+        border-radius: 0;
+    }
+}

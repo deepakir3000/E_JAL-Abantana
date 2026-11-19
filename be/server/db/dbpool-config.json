@@ -1,0 +1,18 @@
+{
+    "user": "sa",
+    "password": "admin123",
+    "server": "localhost",
+    "database": "jform",
+    "port": 1433,
+    "requestTimeout":300000,
+    
+    "pool": {
+        "max": 10,
+        "min": 0,
+        "idleTimeoutMillis": 30000
+    },
+    "option":{
+        "trustServerCertificate":true,
+        "enableArithAboart":true
+    }
+}
