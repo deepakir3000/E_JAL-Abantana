@@ -1,201 +1,37 @@
-[2026-10-06T17:40:06.767] [INFO] CommonServiceImpl.js - Fetching application details from database... 420 at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2095:9)
-[2026-10-06T17:40:06.784] [INFO] CommonServiceImpl.js - result.............. {
-  recordsets: [ [ [Object] ] ],
-  recordset: [
-    {
-      applicationId: 420,
-      applicantName: 'sunNic',
-      applicantPhoneNo: '8787787878',
-      applicationStatus: 6,
-      applicationReceivedDate: 2026-10-06T12:08:57.925Z,
-      lastDate: 2026-10-06T12:10:06.760Z,
-      districtId: 19,
-      blockId: 181,
-      applicantAddress: 'Odisha state centre',
-      deliveryStatus: 'REJECTED',
-      rejectedReason: 'test',
-      allocation_type_id: 2
-    }
-  ],
-  output: {},
-  rowsAffected: [ 1 ]
-} at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2159:13)
-[2026-10-06T17:40:06.785] [INFO] CommonServiceImpl.js - query of log appData------ [
-  {
-    applicationId: 420,
-    applicantName: 'sunNic',
-    applicantPhoneNo: '8787787878',
-    applicationStatus: 6,
-    applicationReceivedDate: 2026-10-06T12:08:57.925Z,
-    lastDate: 2026-10-06T12:10:06.760Z,
-    districtId: 19,
-    blockId: 181,
-    applicantAddress: 'Odisha state centre',
-    deliveryStatus: 'REJECTED',
-    rejectedReason: 'test',
-    allocation_type_id: 2
-  }
-] at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2161:9)
-[2026-10-06T17:40:07.105] [ERROR] FormActionService.js - SQL error!!! ReferenceError: api_response is not defined
-    at Object.send_to_ortpsa_update (C:\Waterallocation13july\be\server\services\common\CommonServiceImpl.js:2402:3)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async Object.actionTaken (C:\Waterallocation13july\be\server\services\formaction\FormActionService.js:1742:21)
-    at async actionTaken (C:\Waterallocation13july\be\server\controllers\formaction\FormActionController.js:237:16) at actionTaken (..\services\formaction\FormActionService.js:1750:13)
-[2026-10-06T17:40:07.105] [DEBUG] FormActionService.js - { status: 'FAILURE', message: 'api_response is not defined', data: {} } at actionTaken (..\services\formaction\FormActionService.js:1753:9)
-[2026-10-06T17:40:07.106] [INFO] FormActionController.js - { status: 'FAILURE', message: 'api_response is not defined', data: {} } at actionTaken (..\controllers\formaction\FormActionController.js:248:9)
-[2026-10-06T17:51:10.298] [DEBUG] FileUpload.js - created at checkDirectorySync (..\utils\fileupload.js:69:13)
-[2026-10-06T17:51:10.392] [DEBUG] LoginController.js - initializing login validators.. at validator (..\controllers\login\LoginController.js:14:21)
-[2026-10-06T17:51:10.392] [DEBUG] LoginController.js - initializing createUser validators.. at validator (..\controllers\login\LoginController.js:23:21)
-[2026-10-06T17:51:10.393] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
-[2026-10-06T17:51:10.393] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
-[2026-10-06T17:51:10.393] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:46:21)
-[2026-10-06T17:51:10.401] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.401] [DEBUG] UacController.js - initializing createRole validators.. at validator (..\controllers\uac\UacController.js:52:11)
-[2026-10-06T17:51:10.401] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.401] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:61:11)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - initializing createResource validators.. at validator (..\controllers\uac\UacController.js:91:11)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:102:11)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.402] [DEBUG] UacController.js - initializing createUser validators.. at validator (..\controllers\uac\UacController.js:29:11)
-[2026-10-06T17:51:10.403] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.403] [DEBUG] UacController.js - initializing editUser validators.. at validator (..\controllers\uac\UacController.js:72:11)
-[2026-10-06T17:51:10.403] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.404] [DEBUG] UacController.js - initializing resourceMapping validators.. at validator (..\controllers\uac\UacController.js:115:11)
-[2026-10-06T17:51:10.404] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:51:10.404] [DEBUG] UacController.js - initializing forgetPassword validators.. at validator (..\controllers\uac\UacController.js:122:11)
-[2026-10-06T17:51:10.415] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.415] [DEBUG] mdmController.js - initializing createState validators.. at validator (..\controllers\mdm\mdmController.js:20:17)
-[2026-10-06T17:51:10.415] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - initializing updateState validators.. at validator (..\controllers\mdm\mdmController.js:27:17)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:34:17)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:42:17)
-[2026-10-06T17:51:10.416] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:49:17)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - initializing updateBlock validators.. at validator (..\controllers\mdm\mdmController.js:57:17)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - initializing createIndustry validators.. at validator (..\controllers\mdm\mdmController.js:64:17)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.417] [DEBUG] mdmController.js - initializing updateIndustry validators.. at validator (..\controllers\mdm\mdmController.js:71:17)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - initializing createPurpose validators.. at validator (..\controllers\mdm\mdmController.js:78:17)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - initializing updatePurpose validators.. at validator (..\controllers\mdm\mdmController.js:85:17)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - initializing createApplicationType validators.. at validator (..\controllers\mdm\mdmController.js:92:17)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.418] [DEBUG] mdmController.js - initializing updateApplicationType validators.. at validator (..\controllers\mdm\mdmController.js:99:17)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - initializing createOperationalSource validators.. at validator (..\controllers\mdm\mdmController.js:106:17)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - initializing updateoperationalSource validators.. at validator (..\controllers\mdm\mdmController.js:113:17)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:120:17)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.419] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:128:17)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - initializing createBasin validators.. at validator (..\controllers\mdm\mdmController.js:136:17)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - initializing updateBasin validators.. at validator (..\controllers\mdm\mdmController.js:144:17)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.420] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:152:17)
-[2026-10-06T17:51:10.421] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.421] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:160:17)
-[2026-10-06T17:51:10.421] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:51:10.421] [DEBUG] mdmController.js - initializing actionForIndustries validators.. at validator (..\controllers\mdm\mdmController.js:166:17)
-[2026-10-06T17:51:10.432] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
-[2026-10-06T17:51:10.432] [DEBUG] FormActionController.js - initializing createForm validators.. at validator (..\controllers\formaction\FormActionController.js:14:21)
-[2026-10-06T17:51:10.433] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
-[2026-10-06T17:51:10.433] [DEBUG] FormActionController.js - initializing createForm validators.. at validator (..\controllers\formaction\FormActionController.js:14:21)
-[2026-10-06T17:51:10.437] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
-[2026-10-06T17:51:10.437] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:50:21)
-[2026-10-06T17:51:10.438] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
-[2026-10-06T17:51:10.438] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:66:21)
-[2026-10-06T17:51:10.837] [DEBUG] AppealLoginController.js - initializing appeal login validators.. at validator (..\controllers\appeal\AppealLoginController.js:15:13)
-[2026-10-06T17:51:10.841] [INFO] server.js - App started up at port : 3001 at <anonymous> (..\server.js:166:9)
-[2026-10-06T23:59:59.017] [INFO] emailCronJobs.js - Cron job started. at execution (..\batchjobs\emailCronJobs.js:140:7)
-[2026-10-06T23:59:59.018] [INFO] emailCronJobs.js - running jobHandler... at jobHandler (..\batchjobs\emailCronJobs.js:184:9)
-[2026-10-06T23:59:59.070] [ERROR] emailCronJobs.js - RequestError: The style 101 is not supported for conversions from datetimeoffset to datetime.
-    at handleError (C:\Waterallocation13july\be\node_modules\mssql\lib\tedious\request.js:366:15)
-    at Connection.emit (events.js:375:28)
-    at Parser.<anonymous> (C:\Waterallocation13july\be\node_modules\tedious\lib\connection.js:800:12)
-    at Parser.emit (events.js:375:28)
-    at Parser.<anonymous> (C:\Waterallocation13july\be\node_modules\tedious\lib\token\token-stream-parser.js:33:14)
-    at Parser.emit (events.js:375:28)
-    at addChunk (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:297:12)
-    at readableAddChunk (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:279:11)
-    at Parser.Readable.push (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:240:10)
-    at Parser.Transform.push (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_transform.js:139:32)
-    at doneParsing (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:114:14)
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:48:5
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:21:19
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:213:7
-    at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-    at Parser.readUInt32LE (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:210:10)
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:20:90
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:371:9
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:363:7
-    at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-    at Parser.readBuffer (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:360:10)
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:370:12
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:157:7
-    at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-    at Parser.readUInt8 (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:154:10)
-    at Parser.readBVarChar (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:369:10)
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:19:22
-    at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:371:9 {
-  code: 'EREQUEST',
-  originalError: Error: The style 101 is not supported for conversions from datetimeoffset to datetime.
-      at handleError (C:\Waterallocation13july\be\node_modules\mssql\lib\tedious\request.js:364:19)
-      at Connection.emit (events.js:375:28)
-      at Parser.<anonymous> (C:\Waterallocation13july\be\node_modules\tedious\lib\connection.js:800:12)
-      at Parser.emit (events.js:375:28)
-      at Parser.<anonymous> (C:\Waterallocation13july\be\node_modules\tedious\lib\token\token-stream-parser.js:33:14)
-      at Parser.emit (events.js:375:28)
-      at addChunk (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:297:12)
-      at readableAddChunk (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:279:11)
-      at Parser.Readable.push (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_readable.js:240:10)
-      at Parser.Transform.push (C:\Waterallocation13july\be\node_modules\readable-stream\lib\_stream_transform.js:139:32)
-      at doneParsing (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:114:14)
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:48:5
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:21:19
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:213:7
-      at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-      at Parser.readUInt32LE (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:210:10)
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:20:90
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:371:9
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:363:7
-      at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-      at Parser.readBuffer (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:360:10)
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:370:12
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:157:7
-      at Parser.awaitData (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:137:7)
-      at Parser.readUInt8 (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:154:10)
-      at Parser.readBVarChar (C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:369:10)
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\infoerror-token-parser.js:19:22
-      at C:\Waterallocation13july\be\node_modules\tedious\lib\token\stream-parser.js:371:9 {
-    info: ErrorMessageToken {
-      name: 'ERROR',
-      event: 'errorMessage',
-      number: 9809,
-      state: 1,
-      class: 16,
-      message: 'The style 101 is not supported for conversions from datetimeoffset to datetime.',
-      serverName: 'DESKTOP-R0T7NSK',
-      procName: '',
-      lineNumber: 1
-    }
-  },
-  number: 9809,
-  lineNumber: 1,
-  state: 1,
-  class: 16,
-  serverName: 'DESKTOP-R0T7NSK',
-  procName: '',
-  precedingErrors: []
-} at <anonymous> (..\batchjobs\emailCronJobs.js:146:11)
-[2026-10-06T23:59:59.072] [INFO] emailCronJobs.js - Task execution failed!!! at <anonymous> (..\batchjobs\emailCronJobs.js:147:11)
+[2026-11-25T22:37:02.073] [INFO] server.js - Wed Nov 25 2026 22:37:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:38:02.073] [INFO] server.js - Wed Nov 25 2026 22:38:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:39:02.067] [INFO] server.js - Wed Nov 25 2026 22:39:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:40:02.066] [INFO] server.js - Wed Nov 25 2026 22:40:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:41:02.074] [INFO] server.js - Wed Nov 25 2026 22:41:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:42:02.080] [INFO] server.js - Wed Nov 25 2026 22:42:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:43:02.074] [INFO] server.js - Wed Nov 25 2026 22:43:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:44:02.061] [INFO] server.js - Wed Nov 25 2026 22:44:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:45:02.077] [INFO] server.js - Wed Nov 25 2026 22:45:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:46:02.078] [INFO] server.js - Wed Nov 25 2026 22:46:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:47:02.099] [INFO] server.js - Wed Nov 25 2026 22:47:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:48:02.052] [INFO] server.js - Wed Nov 25 2026 22:48:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:49:02.070] [INFO] server.js - Wed Nov 25 2026 22:49:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:50:02.090] [INFO] server.js - Wed Nov 25 2026 22:50:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:51:02.084] [INFO] server.js - Wed Nov 25 2026 22:51:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:52:02.071] [INFO] server.js - Wed Nov 25 2026 22:52:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:53:02.099] [INFO] server.js - Wed Nov 25 2026 22:53:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:54:02.070] [INFO] server.js - Wed Nov 25 2026 22:54:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:55:02.073] [INFO] server.js - Wed Nov 25 2026 22:55:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-25T22:56:02.076] [INFO] server.js - Wed Nov 25 2026 22:56:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:12:13.030] [INFO] server.js - Thu Nov 26 2026 11:12:13 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:13:02.060] [INFO] server.js - Thu Nov 26 2026 11:13:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:14:02.060] [INFO] server.js - Thu Nov 26 2026 11:14:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:15:02.059] [INFO] server.js - Thu Nov 26 2026 11:15:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:16:02.061] [INFO] server.js - Thu Nov 26 2026 11:16:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:17:02.067] [INFO] server.js - Thu Nov 26 2026 11:17:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:18:02.064] [INFO] server.js - Thu Nov 26 2026 11:18:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:19:02.052] [INFO] server.js - Thu Nov 26 2026 11:19:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:20:02.075] [INFO] server.js - Thu Nov 26 2026 11:20:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:21:02.062] [INFO] server.js - Thu Nov 26 2026 11:21:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:22:02.159] [INFO] server.js - Thu Nov 26 2026 11:22:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:23:02.064] [INFO] server.js - Thu Nov 26 2026 11:23:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:24:02.061] [INFO] server.js - Thu Nov 26 2026 11:24:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:25:02.064] [INFO] server.js - Thu Nov 26 2026 11:25:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:26:02.052] [INFO] server.js - Thu Nov 26 2026 11:26:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:27:02.064] [INFO] server.js - Thu Nov 26 2026 11:27:02 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)
+[2026-11-26T11:28:03.427] [INFO] server.js - Thu Nov 26 2026 11:28:03 GMT+0530 (India Standard Time) : GET /cews/getApprovalNotifications?role=EE&userId=EE_Angul at <anonymous> (..\server.js:101:9)

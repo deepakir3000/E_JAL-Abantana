@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-app.use('/server/WaterMgmt/media/',express.static(path.join(__dirname,'/WaterMgmt/media')));
-app.use(express.static(path.join(__dirname,'angularApp')));
+app.use('/server/WaterMgmt/media/', express.static(path.join(__dirname, '/WaterMgmt/media')));
+app.use(express.static(path.join(__dirname, 'angularApp')));
 
 
 
@@ -53,21 +53,21 @@ app.use((err, req, res, next) => {
     }
 })
 
-    // const corsOptions = {
-    //   origin: 'http://localhost:4200', // or an array/function for multiple environments
-    //   credentials: true,
-    //   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
-    //   allowedHeaders: ['Authorization', 'Content-Type', 'x-auth', 'Origin'],
-    //   exposedHeaders: ['Authorization', 'Content-Type', 'x-auth', 'Origin'],
-    //   maxAge: 1800
-    // };
+// const corsOptions = {
+//     origin: 'http://localhost:4200', // or an array/function for multiple environments
+//     credentials: true,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+//     allowedHeaders: ['Authorization', 'Content-Type', 'x-auth', 'Origin'],
+//     exposedHeaders: ['Authorization', 'Content-Type', 'x-auth', 'Origin'],
+//     maxAge: 1800
+// };
 
-    // app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(cors());  // { origin: 'https://waterallocationod.nic.in',optionsSuccessStatus: 200, credentials: true }
 app.use((req, res, next) => {
-  //if (req.header("Origin") === 'http://10.242.78.182') {
-    console.log("ORIGIN-----",req.header("Origin"));
+    //if (req.header("Origin") === 'http://10.242.78.182') {
+    console.log("ORIGIN-----", req.header("Origin"));
     // res.header("Access-Control-Allow-Origin", req.header("Origin")); //http://localhost:4200 req.header("Origin")
     res.header("Access-Control-Allow-Origin", "http://localhost:4200"); //http://localhost:4200 req.header("Origin")
     res.header("Access-Control-Allow-Credentials", "true");
@@ -82,8 +82,8 @@ app.use((req, res, next) => {
     // console.log('req.method-------',req.method);
 
     if (req.method === 'OPTIONS') {
-    return res.status(200).json({});
-}
+        return res.status(200).json({});
+    }
 
     // if (req.method === 'OPTIONS') {
     //     return res.status(404).json({});
@@ -115,20 +115,20 @@ app.use(session({
 }))
 
 /* const readServerConfiguration = async () => {
-	var connectionJson = {
-	  "uri": dbconfig.uri,
-	  "sslPem": fs.readFileSync(process.env.sslpem_filepath),
-	  "sslCert": fs.readFileSync(process.env.sslcrt_filepath),
-	  // sets how many times to try reconnecting
-	  reconnectTries: Number.MAX_VALUE,
-	  // sets the delay between every retry (milliseconds)
-	  reconnectInterval: 1000
-	}
-	return connectionJson
+    var connectionJson = {
+      "uri": dbconfig.uri,
+      "sslPem": fs.readFileSync(process.env.sslpem_filepath),
+      "sslCert": fs.readFileSync(process.env.sslcrt_filepath),
+      // sets how many times to try reconnecting
+      reconnectTries: Number.MAX_VALUE,
+      // sets the delay between every retry (milliseconds)
+      reconnectInterval: 1000
+    }
+    return connectionJson
   };
 
   const startServer = async () => {
-	const serverConfiguration = await readServerConfiguration();
+    const serverConfiguration = await readServerConfiguration();
   };
   startServer(); */
 
@@ -187,8 +187,8 @@ const scrollDate = yesterday.toISOString().split('T')[0];
 
 // Function to fetch data from API
 function fetchDataFromAPI(deptCode, scrollDate) {
-    console.log('running',deptCode, scrollDate);
-    
+    console.log('running', deptCode, scrollDate);
+
     const options = {
         hostname: 'www.odishatreasury.gov.in', // No 'https://' here
         path: `/echallanservices/v0.2/depts2sscroll/${deptCode}/${scrollDate}`, // Path starts after the domain name
@@ -198,11 +198,11 @@ function fetchDataFromAPI(deptCode, scrollDate) {
             'User-Agent': 'node.js', // Some APIs require this header
         },
     };
-console.log(options, 'options...............');
+    console.log(options, 'options...............');
 
     const req = https.request(options, (res) => {
-      console.log(res.statusCode,'res.statusCode');
-      
+        console.log(res.statusCode, 'res.statusCode');
+
         let data = '';
 
         // Collect response data
@@ -218,9 +218,9 @@ console.log(options, 'options...............');
                 if (scrollData.data != null) {
                     console.log('data present');
                     GetSCrollData.GetSCrollData(JSON.parse(scrollData.data));
-                }else{
+                } else {
                     console.log('data absent');
-                    
+
                 }
             } else {
                 console.error(`Failed to fetch data. Status Code: ${res.statusCode}`);
@@ -256,7 +256,7 @@ async function checkApplicationStatuses() {
     LOG('checkApplicationStatuses ==============================>')
     try {
         const today = new Date();
-  
+
         // Fetch the max ID for each obj_id where wf_step_transition_id = 171
         const maxIds = await WorkflowExecutionLog.findAll({
             attributes: [
@@ -269,163 +269,163 @@ async function checkApplicationStatuses() {
             group: ['obj_id'],
             raw: true
         });
-        console.log('maxIds:',maxIds);
-        
+        console.log('maxIds:', maxIds);
+
         const maxobj_IdMap = maxIds.map(entry => entry.obj_id);
-          console.log('maxobj_IdMap:',maxobj_IdMap);
+        console.log('maxobj_IdMap:', maxobj_IdMap);
         // Fetch all the max id with respect to obj_id
-  
+
         const maxIdMap = await WorkflowExecutionLog.findOne({
-          attributes: ['id'],
+            attributes: ['id'],
             where: {
-                obj_id: { [Op.in]: maxobj_IdMap },        
+                obj_id: { [Op.in]: maxobj_IdMap },
             },
             order: [['id', 'DESC']],
             raw: true
         });
-        console.log(maxIdMap,'maxIdMap');
-        
-      //   const maxIdsMap = maxIdMap.map(entry => entry.id);
-      //   console.log(maxIdsMap,'maxIdsMap');
+        console.log(maxIdMap, 'maxIdMap');
+
+        //   const maxIdsMap = maxIdMap.map(entry => entry.id);
+        //   console.log(maxIdsMap,'maxIdsMap');
         // Fetch all the latest records by maxId
         const applications = await WorkflowExecutionLog.findAll({
-            attributes: ['id', 'obj_id', 'to_id', 'created_on','raise_query'],
+            attributes: ['id', 'obj_id', 'to_id', 'created_on', 'raise_query'],
             where: {
-                id:  maxIdMap.id ,
+                id: maxIdMap.id,
                 raise_query: { [Op.in]: [1, 2] }
             },
             raw: true
         });
-        console.log('applications:',applications);
-        if(applications.length > 0){
-        for (const app of applications) {
-            const { id, obj_id, to_id, created_on, raise_query } = app;
-  
-            // Fetch holidays between created_on and today
-            const holidays = await Holidays.count({
-                where: {
-                    hol_date: {
-                        [Op.between]: [created_on, today]
-                    }
-                }
-            });
-  
-            console.log(holidays, 'count holidays');
-  
-            // Calculate total business days
-            const totalDays = Math.floor((today - new Date(created_on)) / (1000 * 60 * 60 * 24)); // Total days between dates
-            const businessDays = totalDays - holidays;
-  
-            console.log(totalDays, businessDays, 'Calculation of Days');
-  
-            const updatedStep = await WorkflowExecutionLog.findOne({
-                attributes: ['wf_step_transition_id', 'from_id', 'to_id', 'created_by'],
-                where: { id: id, obj_id: obj_id },
-                raw: true,
-            });
-  
-            // Check conditions and prevent duplicate log creation
-            if (raise_query === 1 && businessDays > 60) {
-                console.log(`Application ID ${obj_id} has exceeded the 60 days time.`);
-  
-                const existingLog = await WorkflowExecutionLog.findOne({
-                  where: {
-                      obj_id: obj_id,
-                      remarks: "Exceeded the given time period",
-                  },
-                  order: [['id', 'DESC']], // Order by `id` in descending order
-                  raw: true // Ensure raw data is returned as plain JSON
-              });
-  
-  
-          
-              console.log('Existing log for raise_query === 1:', existingLog);
-                
-                if (!existingLog) {
-                    let maxlogId = await WorkflowExecutionLog.max('id');
-                    maxlogId = isNaN(maxlogId) ? 1 : maxlogId + 1;
-  
-                    await WorkflowExecutionLog.create({
-                        id: maxlogId,
-                        obj_id: obj_id,
-                        wf_id: '11',
-                        wf_step_id: '47',
-                        wf_step_transition_id: '170',
-                        from_id: updatedStep.to_id,
-                        to_id: '9',
-                        remarks: "Exceeded the given time period",
-                        allocation_file: "null",
-                        wac_date: null,
-                        created_by: '9',
-                        created_on: new Date(),
-                        raise_query: null
-                    });
-  
-                    // Update the Application status
-                    await Application.update(
-                        {
-                            status_id: '3',
-                            work_flow_step_transiton_type_mst_id: '4',
-                            status_remarks: 'REVIEW'
-                        },
-                        { where: { id: obj_id } }
-                    );
-                }
-            } else if (raise_query === 2 && businessDays > 30) {
-                console.log(`Application ID ${obj_id} has exceeded the 30 days time. Going for rejection.`);
-  
-                // Check if a log already exists for this condition
-                const existingLog = await WorkflowExecutionLog.findOne({
+        console.log('applications:', applications);
+        if (applications.length > 0) {
+            for (const app of applications) {
+                const { id, obj_id, to_id, created_on, raise_query } = app;
+
+                // Fetch holidays between created_on and today
+                const holidays = await Holidays.count({
                     where: {
-                        obj_id: obj_id,
-                        remarks: "Application is rejected due to exceeded the given time period ",
-                    },
-                    order: [['id', 'DESC']], // Order by `id` in descending order
-                    raw: true // Ensure raw data is returned as plain JSON
+                        hol_date: {
+                            [Op.between]: [created_on, today]
+                        }
+                    }
                 });
-  
-                console.log('Existing log for raise_query === 2:', existingLog);
-                if (!existingLog) {
-                    let maxlogId = await WorkflowExecutionLog.max('id');
-                    maxlogId = isNaN(maxlogId) ? 1 : maxlogId + 1;
-  
-                    await WorkflowExecutionLog.create({
-                        id: maxlogId,
-                        obj_id: obj_id,
-                        wf_id: '11',
-                        wf_step_id: '47',
-                        wf_step_transition_id: '174',
-                        from_id: '9',
-                        to_id: updatedStep.to_id,
-                        remarks: "Application is rejected due to exceeded the given time period ",
-                        allocation_file: "null",
-                        wac_date: null,
-                        created_by: '9',
-                        created_on: new Date(),
-                        raise_query: null
-                    });
-  
-                    // Update the Application status
-                    await Application.update(
-                        {
-                            status_id: '6',
-                            work_flow_step_transiton_type_mst_id: '3',
-                            status_remarks: 'REJECT'
+
+                console.log(holidays, 'count holidays');
+
+                // Calculate total business days
+                const totalDays = Math.floor((today - new Date(created_on)) / (1000 * 60 * 60 * 24)); // Total days between dates
+                const businessDays = totalDays - holidays;
+
+                console.log(totalDays, businessDays, 'Calculation of Days');
+
+                const updatedStep = await WorkflowExecutionLog.findOne({
+                    attributes: ['wf_step_transition_id', 'from_id', 'to_id', 'created_by'],
+                    where: { id: id, obj_id: obj_id },
+                    raw: true,
+                });
+
+                // Check conditions and prevent duplicate log creation
+                if (raise_query === 1 && businessDays > 60) {
+                    console.log(`Application ID ${obj_id} has exceeded the 60 days time.`);
+
+                    const existingLog = await WorkflowExecutionLog.findOne({
+                        where: {
+                            obj_id: obj_id,
+                            remarks: "Exceeded the given time period",
                         },
-                        { where: { id: obj_id } }
-                    );
+                        order: [['id', 'DESC']], // Order by `id` in descending order
+                        raw: true // Ensure raw data is returned as plain JSON
+                    });
+
+
+
+                    console.log('Existing log for raise_query === 1:', existingLog);
+
+                    if (!existingLog) {
+                        let maxlogId = await WorkflowExecutionLog.max('id');
+                        maxlogId = isNaN(maxlogId) ? 1 : maxlogId + 1;
+
+                        await WorkflowExecutionLog.create({
+                            id: maxlogId,
+                            obj_id: obj_id,
+                            wf_id: '11',
+                            wf_step_id: '47',
+                            wf_step_transition_id: '170',
+                            from_id: updatedStep.to_id,
+                            to_id: '9',
+                            remarks: "Exceeded the given time period",
+                            allocation_file: "null",
+                            wac_date: null,
+                            created_by: '9',
+                            created_on: new Date(),
+                            raise_query: null
+                        });
+
+                        // Update the Application status
+                        await Application.update(
+                            {
+                                status_id: '3',
+                                work_flow_step_transiton_type_mst_id: '4',
+                                status_remarks: 'REVIEW'
+                            },
+                            { where: { id: obj_id } }
+                        );
+                    }
+                } else if (raise_query === 2 && businessDays > 30) {
+                    console.log(`Application ID ${obj_id} has exceeded the 30 days time. Going for rejection.`);
+
+                    // Check if a log already exists for this condition
+                    const existingLog = await WorkflowExecutionLog.findOne({
+                        where: {
+                            obj_id: obj_id,
+                            remarks: "Application is rejected due to exceeded the given time period ",
+                        },
+                        order: [['id', 'DESC']], // Order by `id` in descending order
+                        raw: true // Ensure raw data is returned as plain JSON
+                    });
+
+                    console.log('Existing log for raise_query === 2:', existingLog);
+                    if (!existingLog) {
+                        let maxlogId = await WorkflowExecutionLog.max('id');
+                        maxlogId = isNaN(maxlogId) ? 1 : maxlogId + 1;
+
+                        await WorkflowExecutionLog.create({
+                            id: maxlogId,
+                            obj_id: obj_id,
+                            wf_id: '11',
+                            wf_step_id: '47',
+                            wf_step_transition_id: '174',
+                            from_id: '9',
+                            to_id: updatedStep.to_id,
+                            remarks: "Application is rejected due to exceeded the given time period ",
+                            allocation_file: "null",
+                            wac_date: null,
+                            created_by: '9',
+                            created_on: new Date(),
+                            raise_query: null
+                        });
+
+                        // Update the Application status
+                        await Application.update(
+                            {
+                                status_id: '6',
+                                work_flow_step_transiton_type_mst_id: '3',
+                                status_remarks: 'REJECT'
+                            },
+                            { where: { id: obj_id } }
+                        );
+                    }
+                } else {
+                    console.log(`Application ID ${obj_id} is within the allowed time frame.`);
                 }
-            } else {
-                console.log(`Application ID ${obj_id} is within the allowed time frame.`);
             }
+        } else {
+            console.log(`Application ID is forwarded within the allowed time frame.`);
         }
-      }else{
-          console.log(`Application ID is forwarded within the allowed time frame.`);
-      }
     } catch (error) {
         console.error('Error while checking application statuses:', error);
     }
-  }
+}
 
 
 console.log('Cron job for checking application statuses has been set up.');
@@ -440,8 +440,8 @@ cron.schedule('06 00 * * *', async () => {
 
 //---------------------------------cron for raise-query----------------------------
 
-app.get('/',(req,res) => {
-  res.sendFile(path.join(__dirname,'angularApp/index.html'))
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'angularApp/index.html'))
 });
 
 app.use('/dowr/api', router);

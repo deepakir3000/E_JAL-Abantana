@@ -1,448 +1,306 @@
-[2026-10-06T17:34:06.169] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/419 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.170] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.170] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.172] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/418 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.172] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.172] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.174] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/417 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.174] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.174] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.187] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/416 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.188] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.188] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.189] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/414 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.189] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.189] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.191] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/413 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.191] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.191] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.200] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.201] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.204] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.205] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.209] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.209] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.219] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.220] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.220] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.220] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.223] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.223] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.245] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/392 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.246] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.246] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.246] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/391 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.247] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.247] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.250] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/390 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.250] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.250] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.278] [INFO] server.js - Tue Oct 06 2026 17:34:06 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/389 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:06.278] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:06.279] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:06.280] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.280] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.284] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.285] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.285] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.286] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:06.293] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
-[2026-10-06T17:34:06.294] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2616:9)
-[2026-10-06T17:34:11.243] [INFO] server.js - Tue Oct 06 2026 17:34:11 GMT+0530 (India Standard Time) : GET /dowr/api/workflow/nextStep?applicationId=419&skipRules=true at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:11.243] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:11.244] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:11.263] [INFO] FormActionController.js - Inside nextStep at nextStep (..\controllers\formaction\FormActionController.js:217:9)
-[2026-10-06T17:34:11.263] [INFO] FormActionService.js - Inside FormActionServiceImpl nextStep at nextStep (..\services\formaction\FormActionService.js:1308:9)
-[2026-10-06T17:34:11.656] [DEBUG] FormActionService.js - {
+[2026-11-25T16:02:31.651] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:02:31.652] [DEBUG] FormActionController.js - initializing createForm validators.. at validator (..\controllers\formaction\FormActionController.js:14:21)
+[2026-11-25T16:02:31.656] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:02:31.657] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:50:21)
+[2026-11-25T16:02:31.658] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:02:31.659] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:66:21)
+[2026-11-25T16:02:33.703] [DEBUG] AppealLoginController.js - initializing appeal login validators.. at validator (..\controllers\appeal\AppealLoginController.js:15:13)
+[2026-11-25T16:02:33.720] [INFO] server.js - App started up at port : 3001 at <anonymous> (..\server.js:166:9)
+[2026-11-25T16:02:37.106] [INFO] server.js - Wed Nov 25 2026 16:02:37 GMT+0530 (India Standard Time) : GET /dowr/api/users/captcha at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:02:37.112] [INFO] LoginController.js - Inside getCaptcha. at getCaptcha (..\controllers\login\LoginController.js:232:9)
+[2026-11-25T16:02:37.113] [INFO] LoginServiceImpl.js - Inside getCaptcha at getCaptcha (..\services\login\LoginServiceImpl.js:449:7)
+[2026-11-25T16:03:01.381] [INFO] server.js - Wed Nov 25 2026 16:03:01 GMT+0530 (India Standard Time) : POST /dowr/api/users/login at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:03:01.393] [INFO] LoginController.js - Inside login. at login (..\controllers\login\LoginController.js:62:9)
+[2026-11-25T16:03:01.399] [INFO] LoginServiceImpl.js - Inside login at login (..\services\login\LoginServiceImpl.js:59:7)
+[2026-11-25T16:03:02.387] [DEBUG] LoginServiceImpl.js - {
+  status: 'FAILURE',
+  message: 'Username or password is wrong..',
+  data: {},
+  status1: false
+} at login (..\services\login\LoginServiceImpl.js:111:7)
+[2026-11-25T16:03:02.388] [DEBUG] LoginController.js - {
+  status: 'FAILURE',
+  message: 'Username or password is wrong..',
+  data: {},
+  status1: false
+} at login (..\controllers\login\LoginController.js:93:21)
+[2026-11-25T16:03:02.402] [INFO] server.js - Wed Nov 25 2026 16:03:02 GMT+0530 (India Standard Time) : GET /dowr/api/users/captcha at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:03:02.405] [INFO] LoginController.js - Inside getCaptcha. at getCaptcha (..\controllers\login\LoginController.js:232:9)
+[2026-11-25T16:03:02.407] [INFO] LoginServiceImpl.js - Inside getCaptcha at getCaptcha (..\services\login\LoginServiceImpl.js:449:7)
+[2026-11-25T16:03:05.601] [INFO] server.js - Wed Nov 25 2026 16:03:05 GMT+0530 (India Standard Time) : GET /dowr/api/users/captcha at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:03:05.604] [INFO] LoginController.js - Inside getCaptcha. at getCaptcha (..\controllers\login\LoginController.js:232:9)
+[2026-11-25T16:03:05.608] [INFO] LoginServiceImpl.js - Inside getCaptcha at getCaptcha (..\services\login\LoginServiceImpl.js:449:7)
+[2026-11-25T16:03:25.239] [INFO] server.js - Wed Nov 25 2026 16:03:25 GMT+0530 (India Standard Time) : POST /dowr/api/users/login at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:03:25.242] [INFO] LoginController.js - Inside login. at login (..\controllers\login\LoginController.js:62:9)
+[2026-11-25T16:03:25.247] [INFO] LoginServiceImpl.js - Inside login at login (..\services\login\LoginServiceImpl.js:59:7)
+[2026-11-25T16:03:25.715] [INFO] LoginServiceImpl.js - 65 : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at login (..\services\login\LoginServiceImpl.js:85:13)
+[2026-11-25T16:03:25.740] [DEBUG] LoginServiceImpl.js - user_tokens {
+  dataValues: {
+    created_on: Literal { val: 'CURRENT_TIMESTAMP' },
+    id: undefined,
+    user_id: '65',
+    jwt_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE'
+  },
+  _previousDataValues: {
+    user_id: '65',
+    jwt_token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE',
+    id: undefined,
+    created_on: Literal { val: 'CURRENT_TIMESTAMP' }
+  },
+  _changed: { user_id: false, jwt_token: false, id: false, created_on: false },
+  _modelOptions: {
+    timestamps: false,
+    validate: {},
+    freezeTableName: true,
+    underscored: true,
+    paranoid: false,
+    rejectOnEmpty: false,
+    whereCollection: null,
+    schema: null,
+    schemaDelimiter: '',
+    defaultScope: {},
+    scopes: {},
+    indexes: [],
+    name: { plural: 'user_tokens', singular: 'user_token' },
+    omitNull: false,
+    sequelize: Sequelize {
+      options: [Object],
+      config: [Object],
+      dialect: [MssqlDialect],
+      queryInterface: [QueryInterface],
+      models: [Object],
+      modelManager: [ModelManager],
+      connectionManager: [ConnectionManager],
+      importCache: {}
+    },
+    tableName: 'user_tokens',
+    hooks: {}
+  },
+  _options: {
+    isNewRecord: true,
+    _schema: null,
+    _schemaDelimiter: '',
+    attributes: undefined,
+    include: undefined,
+    raw: undefined,
+    silent: undefined
+  },
+  isNewRecord: false
+} at login (..\services\login\LoginServiceImpl.js:90:13)
+[2026-11-25T16:03:25.754] [DEBUG] LoginServiceImpl.js - {
   status: 'SUCCESS',
-  message: 'SUCCESS',
-  data: {
-    id: 2244,
-    obj_id: 419,
-    wf_id: 7,
-    wf_step_id: '27',
-    wf_step_transition_id: '97',
-    from_id: '9',
-    to_id: '10',
-    created_on: 2026-10-06T11:45:19.170Z,
-    steps: {
-      id: 28,
-      step_name: 'DIRECTOR_APPROVAL',
-      isDate: false,
-      trans: [Array]
-    }
-  }
-} at nextStep (..\services\formaction\FormActionService.js:1463:9)
-[2026-10-06T17:34:11.657] [INFO] FormActionController.js - {
+  message: 'Logged in successfully.',
+  data: {},
+  status1: false,
+  user: mst_users {
+    dataValues: {
+      id: '65',
+      user_name: 'test@gmail.com',
+      user_password: '037b0cb723d01b9fdc1d339bb43df884b710e7e10e07bb803f8348709db1736848002b558df2a8b4441b9afe4153b89c9cf658128da9ebf2e0c948ebfeffff5c',
+      display_name: 'Shaswat ',
+      mobile: '7205424103',
+      email: 'shaswatmohanty.45@gmail.com',
+      otp_secret: null,
+      otp_validity: null,
+      profile_image_url: null,
+      first_login: false,
+      role_id: 3,
+      status: 1,
+      created_by: '65',
+      created_on: 2020-03-30T15:29:19.010Z,
+      updated_by: '65',
+      updated_on: 2026-06-19T17:10:57.500Z
+    },
+    _previousDataValues: {
+      id: '65',
+      user_name: 'test@gmail.com',
+      user_password: 'b0d6f48839621ca2ccd7f37ce7d3c692ae0e72a7098b903f024e2264822afafab519304ae9fe38fee03956221839f94cc4349734ba2af00c804092f2aeaf3abe',
+      display_name: 'Shaswat ',
+      mobile: '7205424103',
+      email: 'shaswatmohanty.45@gmail.com',
+      otp_secret: null,
+      otp_validity: null,
+      profile_image_url: null,
+      first_login: false,
+      role_id: 3,
+      status: 1,
+      created_by: '65',
+      created_on: 2020-03-30T15:29:19.010Z,
+      updated_by: '65',
+      updated_on: 2026-06-19T17:10:57.500Z
+    },
+    _changed: { user_password: true },
+    _modelOptions: {
+      timestamps: false,
+      validate: {},
+      freezeTableName: true,
+      underscored: true,
+      paranoid: false,
+      rejectOnEmpty: false,
+      whereCollection: [Object],
+      schema: null,
+      schemaDelimiter: '',
+      defaultScope: {},
+      scopes: {},
+      indexes: [],
+      name: [Object],
+      omitNull: false,
+      sequelize: [Sequelize],
+      tableName: 'mst_users',
+      hooks: [Object]
+    },
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      raw: true,
+      attributes: [Array]
+    },
+    isNewRecord: false
+  },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE'
+} at login (..\services\login\LoginServiceImpl.js:111:7)
+[2026-11-25T16:03:25.757] [DEBUG] LoginController.js - {
   status: 'SUCCESS',
-  message: 'SUCCESS',
-  data: {
-    id: 2244,
-    obj_id: 419,
-    wf_id: 7,
-    wf_step_id: '27',
-    wf_step_transition_id: '97',
-    from_id: '9',
-    to_id: '10',
-    created_on: 2026-10-06T11:45:19.170Z,
-    steps: {
-      id: 28,
-      step_name: 'DIRECTOR_APPROVAL',
-      isDate: false,
-      trans: [Array]
-    }
-  }
-} at nextStep (..\controllers\formaction\FormActionController.js:228:9)
-[2026-10-06T17:34:11.664] [INFO] server.js - Tue Oct 06 2026 17:34:11 GMT+0530 (India Standard Time) : GET /dowr/api/getAllEE?type=EE&id=0 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:11.664] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:11.665] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:13.961] [INFO] UacController.js - Inside getAllEE at getAllEE (..\controllers\uac\UacController.js:555:7)
-[2026-10-06T17:34:13.962] [INFO] UacServiceImpl.js - Inside UacServiceImpl getAllEE at getAllEE (..\services\uac\UacServiceImpl.js:626:7)
-[2026-10-06T17:34:13.975] [DEBUG] UacServiceImpl.js - {
-  status: 'SUCCESS',
-  message: 'SUCCESS',
-  data: [
-    {
-      id: '13',
-      user_name: 'EE_Angul',
-      display_name: 'Executive Engineer',
-      mobile: '8917693695',
-      email: 'jyoti.jrps@gmail.com',
+  message: 'Logged in successfully.',
+  data: {},
+  status1: false,
+  user: mst_users {
+    dataValues: {
+      id: '65',
+      user_name: 'test@gmail.com',
+      user_password: '037b0cb723d01b9fdc1d339bb43df884b710e7e10e07bb803f8348709db1736848002b558df2a8b4441b9afe4153b89c9cf658128da9ebf2e0c948ebfeffff5c',
+      display_name: 'Shaswat ',
+      mobile: '7205424103',
+      email: 'shaswatmohanty.45@gmail.com',
+      otp_secret: null,
+      otp_validity: null,
+      profile_image_url: null,
+      first_login: false,
+      role_id: 3,
       status: 1,
-      role_id: 6
+      created_by: '65',
+      created_on: 2020-03-30T15:29:19.010Z,
+      updated_by: '65',
+      updated_on: 2026-06-19T17:10:57.500Z
     },
-    {
-      id: '14',
-      user_name: 'EE_Samal',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
+    _previousDataValues: {
+      id: '65',
+      user_name: 'test@gmail.com',
+      user_password: 'b0d6f48839621ca2ccd7f37ce7d3c692ae0e72a7098b903f024e2264822afafab519304ae9fe38fee03956221839f94cc4349734ba2af00c804092f2aeaf3abe',
+      display_name: 'Shaswat ',
+      mobile: '7205424103',
+      email: 'shaswatmohanty.45@gmail.com',
+      otp_secret: null,
+      otp_validity: null,
+      profile_image_url: null,
+      first_login: false,
+      role_id: 3,
       status: 1,
-      role_id: 6
+      created_by: '65',
+      created_on: 2020-03-30T15:29:19.010Z,
+      updated_by: '65',
+      updated_on: 2026-06-19T17:10:57.500Z
     },
-    {
-      id: '15',
-      user_name: 'EE_Rengali',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
+    _changed: { user_password: true },
+    _modelOptions: {
+      timestamps: false,
+      validate: {},
+      freezeTableName: true,
+      underscored: true,
+      paranoid: false,
+      rejectOnEmpty: false,
+      whereCollection: [Object],
+      schema: null,
+      schemaDelimiter: '',
+      defaultScope: {},
+      scopes: {},
+      indexes: [],
+      name: [Object],
+      omitNull: false,
+      sequelize: [Sequelize],
+      tableName: 'mst_users',
+      hooks: [Object]
     },
-    {
-      id: '16',
-      user_name: 'EE_Balasore',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
+    _options: {
+      isNewRecord: false,
+      _schema: null,
+      _schemaDelimiter: '',
+      raw: true,
+      attributes: [Array]
     },
-    {
-      id: '17',
-      user_name: 'EE_Baripada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '18',
-      user_name: 'EE_Rairangpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '19',
-      user_name: 'EE_Baragarh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '20',
-      user_name: 'EE_Sambalpur(Burla)',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '21',
-      user_name: 'EE_Main_Dam(Burla)',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '22',
-      user_name: 'EE_Sundargarh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '23',
-      user_name: 'EE_Bhadrak',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '24',
-      user_name: 'EE_Salapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '25',
-      user_name: 'EE_Balangir',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '26',
-      user_name: 'EE_Boudh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '27',
-      user_name: 'EE_Bhawanipatna',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '28',
-      user_name: 'EE_Nuapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '29',
-      user_name: 'EE_MahanadiS',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '30',
-      user_name: 'EE_MahanadiN',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '31',
-      user_name: 'EE_Jagatsinghpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '32',
-      user_name: 'EE_Khurda',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '33',
-      user_name: 'EE_Bhubaneswar',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '34',
-      user_name: 'EE_Puri',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '35',
-      user_name: 'EE_Jajpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '36',
-      user_name: 'EE_Kendrapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '37',
-      user_name: 'EE_Jaraka',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '38',
-      user_name: 'EE_Dhenkanal',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '39',
-      user_name: 'EE_Adava',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '40',
-      user_name: 'EE_Bareniput',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '41',
-      user_name: 'EE_Boriguma',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '42',
-      user_name: 'EE_Kusumkhunti',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '43',
-      user_name: 'EE_Balimela',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '44',
-      user_name: 'EE_Chitrakonda',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '45',
-      user_name: 'EE_Berhampur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '46',
-      user_name: 'EE_Bhanjanagar',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '47',
-      user_name: 'EE_Amrit',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '48',
-      user_name: 'EE_Sambalpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '49',
-      user_name: 'EE_Burla',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '66',
-      user_name: 'EE_Kandhamal',
-      display_name: 'Executive Engineer',
-      mobile: '8740003967',
-      email: 'kidphulbani@gmail.com',
-      status: 1,
-      role_id: 6
-    }
-  ]
-} at getAllEE (..\services\uac\UacServiceImpl.js:691:7)
+    isNewRecord: false
+  },
+  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE'
+} at login (..\controllers\login\LoginController.js:93:21)
+[2026-11-25T16:03:28.340] [INFO] server.js - Wed Nov 25 2026 16:03:28 GMT+0530 (India Standard Time) : GET /dowr/api/users/captcha at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:03:28.380] [INFO] LoginController.js - Inside getCaptcha. at getCaptcha (..\controllers\login\LoginController.js:232:9)
+[2026-11-25T16:03:28.399] [INFO] LoginServiceImpl.js - Inside getCaptcha at getCaptcha (..\services\login\LoginServiceImpl.js:449:7)
+[2026-11-25T16:03:46.274] [DEBUG] FileUpload.js - created at checkDirectorySync (..\utils\fileupload.js:69:13)
+[2026-11-25T16:03:46.479] [DEBUG] LoginController.js - initializing login validators.. at validator (..\controllers\login\LoginController.js:14:21)
+[2026-11-25T16:03:46.481] [DEBUG] LoginController.js - initializing createUser validators.. at validator (..\controllers\login\LoginController.js:23:21)
+[2026-11-25T16:03:46.482] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
+[2026-11-25T16:03:46.483] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
+[2026-11-25T16:03:46.484] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:46:21)
+[2026-11-25T16:03:46.508] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.514] [DEBUG] UacController.js - initializing createRole validators.. at validator (..\controllers\uac\UacController.js:52:11)
+[2026-11-25T16:03:46.516] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.517] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:61:11)
+[2026-11-25T16:03:46.517] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.518] [DEBUG] UacController.js - initializing createResource validators.. at validator (..\controllers\uac\UacController.js:91:11)
+[2026-11-25T16:03:46.519] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.521] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:102:11)
+[2026-11-25T16:03:46.524] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.524] [DEBUG] UacController.js - initializing createUser validators.. at validator (..\controllers\uac\UacController.js:29:11)
+[2026-11-25T16:03:46.526] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.526] [DEBUG] UacController.js - initializing editUser validators.. at validator (..\controllers\uac\UacController.js:72:11)
+[2026-11-25T16:03:46.529] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.530] [DEBUG] UacController.js - initializing resourceMapping validators.. at validator (..\controllers\uac\UacController.js:115:11)
+[2026-11-25T16:03:46.532] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
+[2026-11-25T16:03:46.532] [DEBUG] UacController.js - initializing forgetPassword validators.. at validator (..\controllers\uac\UacController.js:122:11)
+[2026-11-25T16:03:46.577] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.579] [DEBUG] mdmController.js - initializing createState validators.. at validator (..\controllers\mdm\mdmController.js:20:17)
+[2026-11-25T16:03:46.580] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.580] [DEBUG] mdmController.js - initializing updateState validators.. at validator (..\controllers\mdm\mdmController.js:27:17)
+[2026-11-25T16:03:46.581] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.582] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:34:17)
+[2026-11-25T16:03:46.583] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.583] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:42:17)
+[2026-11-25T16:03:46.585] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.585] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:49:17)
+[2026-11-25T16:03:46.586] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.586] [DEBUG] mdmController.js - initializing updateBlock validators.. at validator (..\controllers\mdm\mdmController.js:57:17)
+[2026-11-25T16:03:46.587] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.587] [DEBUG] mdmController.js - initializing createIndustry validators.. at validator (..\controllers\mdm\mdmController.js:64:17)
+[2026-11-25T16:03:46.588] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.588] [DEBUG] mdmController.js - initializing updateIndustry validators.. at validator (..\controllers\mdm\mdmController.js:71:17)
+[2026-11-25T16:03:46.590] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.591] [DEBUG] mdmController.js - initializing createPurpose validators.. at validator (..\controllers\mdm\mdmController.js:78:17)
+[2026-11-25T16:03:46.592] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.592] [DEBUG] mdmController.js - initializing updatePurpose validators.. at validator (..\controllers\mdm\mdmController.js:85:17)
+[2026-11-25T16:03:46.592] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.593] [DEBUG] mdmController.js - initializing createApplicationType validators.. at validator (..\controllers\mdm\mdmController.js:92:17)
+[2026-11-25T16:03:46.593] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.594] [DEBUG] mdmController.js - initializing updateApplicationType validators.. at validator (..\controllers\mdm\mdmController.js:99:17)
+[2026-11-25T16:03:46.596] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.596] [DEBUG] mdmController.js - initializing createOperationalSource validators.. at validator (..\controllers\mdm\mdmController.js:106:17)
+[2026-11-25T16:03:46.598] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.599] [DEBUG] mdmController.js - initializing updateoperationalSource validators.. at validator (..\controllers\mdm\mdmController.js:113:17)
+[2026-11-25T16:03:46.600] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.600] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:120:17)
+[2026-11-25T16:03:46.601] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.602] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:128:17)
+[2026-11-25T16:03:46.603] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.603] [DEBUG] mdmController.js - initializing createBasin validators.. at validator (..\controllers\mdm\mdmController.js:136:17)
+[2026-11-25T16:03:46.604] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.604] [DEBUG] mdmController.js - initializing updateBasin validators.. at validator (..\controllers\mdm\mdmController.js:144:17)
+[2026-11-25T16:03:46.605] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.605] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:152:17)
+[2026-11-25T16:03:46.606] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.606] [DEBUG] mdmController.js - initializing createRiver validators.. at validator (..\controllers\mdm\mdmController.js:160:17)
+[2026-11-25T16:03:46.607] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+[2026-11-25T16:03:46.608] [DEBUG] mdmController.js - initializing actionForIndustries validators.. at validator (..\controllers\mdm\mdmController.js:166:17)
+[2026-11-25T16:03:46.658] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:03:46.658] [DEBUG] FormActionController.js - initializing createForm validators.. at validator (..\controllers\formaction\FormActionController.js:14:21)
+[2026-11-25T16:03:46.660] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:03:46.660] [DEBUG] FormActionController.js - initializing createForm validators.. at validator (..\controllers\formaction\FormActionController.js:14:21)

@@ -11,14 +11,14 @@ export class AppConstants {
         if (environment.production && environment.name !== 'DEVSTAG') {
             // PRODUCTION SERVER PATH
             const SERVER_LOC = (window.location.href).split('#')[0].split('/')[2]; // JSON.parse(sessionStorage.getItem('apiServerLocationDtls'));
-           
-            return 'http://localhost:3001/dowr/';
-            // return 'https://waterallocation.odisha.gov.in/dowr/';
+
+            // return 'http://localhost:3001/dowr/';
+            return 'https://waterallocation.odisha.gov.in/dowr/';
         } else {
             // DEVELOPMENT SERVER PATH
-            
-            return 'http://localhost:3001/dowr/';
-            // return 'https://waterallocation.odisha.gov.in/dowr/';
+
+            // return 'http://localhost:3001/dowr/';
+            return 'https://waterallocation.odisha.gov.in/dowr/';
         }
     }
 

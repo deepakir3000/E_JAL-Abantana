@@ -7,16 +7,24 @@
     <div class="row">
         <div class="col-12">
             <p>
-                I, the undersigned require water for the purpose noted above and agree to pay the required special water rate/license fee for it at the rate specified for the purpose. I understand that water will be supplied at such times and in such quantity as the
-                Ececutive Engineer may be order direct and that any sum due from me shall be recoverable as arrears of land revenue. I also know that no suit for compensation lies either aginst the state <b>Government</b> or its officers
-                in connection with my applicaton for supply of water and any order passed thereon. The water so taken for use will not be in any way detrimental to the interest in general public and their riparian rights and to the environment I agree
-                to abide by the conditions that may be imposed by the, <b>Government</b> in <b>Water Resource Department</b> regarding drawal and use of water from Government source/irrigation works.
+                I, the undersigned require water for the purpose noted above and agree to pay the required special water
+                rate/license fee for it at the rate specified for the purpose. I understand that water will be supplied
+                at such times and in such quantity as the
+                Ececutive Engineer may be order direct and that any sum due from me shall be recoverable as arrears of
+                land revenue. I also know that no suit for compensation lies either aginst the state <b>Government</b>
+                or its officers
+                in connection with my applicaton for supply of water and any order passed thereon. The water so taken
+                for use will not be in any way detrimental to the interest in general public and their riparian rights
+                and to the environment I agree
+                to abide by the conditions that may be imposed by the, <b>Government</b> in <b>Water Resource
+                    Department</b> regarding drawal and use of water from Government source/irrigation works.
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
-            <input type="checkbox" (change)="disableBtn($event)">&nbsp;<label>Accept the above declaration and pay</label>
+            <input type="checkbox" (change)="disableBtn($event)">&nbsp;<label>Accept the above declaration and
+                pay</label>
         </div>
     </div>
     <div class="row">
@@ -33,7 +41,8 @@
                 </tr>
                 <tr>
                     <td class="col-change">Total Security Deposit.</td>
-                    <td>{{((type === 'Reduction' || type === 'Reduction with Phasing' || type === 'Reduction with Rephasing') ? 0 : (finalQuantity > 0 ? finalQuantity : quantity))}} x150000.00</td>
+                    <td>{{((type === 'Reduction' || type === 'Reduction with Phasing' || type === 'Reduction with
+                        Rephasing') ? 0 : (finalQuantity > 0 ? finalQuantity : quantity))}} x150000.00</td>
                 </tr>
                 <tr *ngIf="appType === 'existCon'">
                     <td class="col-change" *ngIf="appType === 'existCon'">Previous Pending Amount.</td>
@@ -51,7 +60,7 @@
         </table>
         <div class="row">
             <div class="col-12" style="text-align: center;">
-                <button type="button"  (click)="openFeedBackModal(paymentModal)" class="custom-btn">Pay Now</button>
+                <button type="button" (click)="openFeedBackModal(paymentModal)" class="custom-btn">Pay Now</button>
             </div>
         </div>
         <!-- <div class="col-12" style="text-align: center;">
@@ -65,10 +74,7 @@
     </div>
 </div>
 <div class="">
-    <input
-    type="checkbox"
-    [(ngModel)]="checkbox1"
-  />
+    <input type="checkbox" [(ngModel)]="checkbox1" />
 </div>
 <ng-template #paymentModal>
     <div class=" custom_header">
@@ -78,17 +84,18 @@
         </button>
     </div>
     <!-- <form id="payForm" method="post" (ngSubmit)="onSubmit()" > -->
-        <!-- <form id="payForm" method="post" (ngSubmit)="onSubmit()" action="https://www.odishatreasury.gov.in/echallan/dept-intg"> -->
-        <!-- <form id="payForm" method="post" (ngSubmit)="onSubmit()" action="https://odishatreasury.gov.in/echallan/dept-intg">     -->
-            <form id="payForm" (ngSubmit)="onSubmit()" method="post" action="https://uat.odishatreasury.gov.in/echallan/dept-intg">
+    <!-- <form id="payForm" method="post" (ngSubmit)="onSubmit()" action="https://www.odishatreasury.gov.in/echallan/dept-intg"> -->
+    <form id="payForm" method="post" (ngSubmit)="onSubmit()" action="https://odishatreasury.gov.in/echallan/dept-intg">
+        <!-- <form id="payForm" (ngSubmit)="onSubmit()" method="post"
+        action="https://uat.odishatreasury.gov.in/echallan/dept-intg"> -->
         <div class="p-3">
             <div class="mt-3" style="display: none;">
                 <label for="msg" class="form-label">Amount:</label>
-                <input type="text" autocomplete="off" name="msg"  value="{{treasuryData.msg}}" >
+                <input type="text" autocomplete="off" name="msg" value="{{treasuryData.msg}}">
             </div>
             <div class="mt-3" style="display: none;">
                 <label for="deptcode" class="form-label">Application Number:</label>
-                <input type="text" name="deptCode" autocomplete="off" value="{{treasuryData.deptCode}}"  >
+                <input type="text" name="deptCode" autocomplete="off" value="{{treasuryData.deptCode}}">
             </div>
             <div class="text-center">
                 <p>Click on Pay to proceed</p>
@@ -122,5 +129,5 @@
         </div>
         <input type="submit" value="Submit" >
         </form> -->
-    
+
 </ng-template>

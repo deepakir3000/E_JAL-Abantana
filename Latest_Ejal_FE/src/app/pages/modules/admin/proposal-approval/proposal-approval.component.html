@@ -7,23 +7,37 @@
             <div class="step-icon text-center"><i class="fa fa-check fa-3x text-success" aria-hidden="true"></i></div>
             <div class="step-content"> Applicant </div>
         </div> -->
-        <div style="min-width: 100%;" class="step-item I2" *ngIf="roleID === '4'" [ngClass]="{'step-prog': stepCounter >= 2, 'step-current': currentStep === 2}" (click)="showSelectedStepDtls(2)">
+        <div style="min-width: 100%;" class="step-item I2" *ngIf="roleID === '4'"
+            [ngClass]="{'step-prog': stepCounter >= 2, 'step-current': currentStep === 2}"
+            (click)="showSelectedStepDtls(2)">
             <!-- <div class="step-icon text-center"><i class="fa fa-square fa-2x mt-2 text-info" aria-hidden="true"></i></div> -->
             <div class="step-content">Special Secretary</div>
         </div>
-        <div style="min-width: 100%;" class="step-item I3" *ngIf="roleID === '5'" [ngClass]="{'step-prog': stepCounter >= 3, 'step-current': currentStep === 3}" (click)="showSelectedStepDtls(3)">
+        <div style="min-width: 100%;" class="step-item I3" *ngIf="roleID === '5'"
+            [ngClass]="{'step-prog': stepCounter >= 3, 'step-current': currentStep === 3}"
+            (click)="showSelectedStepDtls(3)">
             <!-- <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div> -->
             <div class="step-content">Director Allocation</div>
         </div>
-        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '6'" [ngClass]="{'step-prog': stepCounter >= 4, 'step-current': currentStep === 4}" (click)="showSelectedStepDtls(4)">
-            <!-- <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div> -->
+        <!-- <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '6'" [ngClass]="{'step-prog': stepCounter >= 4, 'step-current': currentStep === 4}" (click)="showSelectedStepDtls(4)">
+            <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div>
             <div class="step-content">Executive Engineer</div>
+        </div> -->
+        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '9'"
+            [ngClass]="{'step-prog': stepCounter >= 4, 'step-current': currentStep === 4}"
+            (click)="showSelectedStepDtls(4)">
+            <!-- <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div> -->
+            <div class="step-content">Chief Engineer Ground Water</div>
         </div>
-        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '7'" [ngClass]="{'step-prog': stepCounter >= 5, 'step-current': currentStep === 5}" (click)="showSelectedStepDtls(5)">
+        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '7'"
+            [ngClass]="{'step-prog': stepCounter >= 5, 'step-current': currentStep === 5}"
+            (click)="showSelectedStepDtls(5)">
             <!-- <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div> -->
             <div class="step-content">Cheif Engineer</div>
         </div>
-        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '8'" [ngClass]="{'step-prog': stepCounter >= 6, 'step-current': currentStep === 6}" (click)="showSelectedStepDtls(6)">
+        <div style="min-width: 100%;" class="step-item I4" *ngIf="roleID === '8'"
+            [ngClass]="{'step-prog': stepCounter >= 6, 'step-current': currentStep === 6}"
+            (click)="showSelectedStepDtls(6)">
             <!-- <div class="step-icon text-center"><i class="fa fa-times fa-3x text-warning" aria-hidden="true"></i></div> -->
             <div class="step-content">Government</div>
         </div>
@@ -51,9 +65,11 @@
                 <div *ngIf="nextStepData !== undefined" class="col-md-7">
                     <select class="form-control" [(ngModel)]="statusDt">
                         <option value="0">--Select One--</option>
-                        <option *ngIf="nextStepData.raiseQueryCount === 1 || nextStepData.raiseQueryCount === 2" disabled>1st QUERY RAISED</option>
+                        <option *ngIf="nextStepData.raiseQueryCount === 1 || nextStepData.raiseQueryCount === 2"
+                            disabled>1st QUERY RAISED</option>
                         <option *ngIf="nextStepData.raiseQueryCount === 2" disabled>2nd QUERY RAISED</option>
-                        <option *ngFor="let data of nextStepData.steps.trans" [value]="data.id">{{data.transition_desc}}</option>
+                        <option *ngFor="let data of nextStepData.steps.trans" [value]="data.id">{{data.transition_desc}}
+                        </option>
                     </select>
                 </div>
             </div>
@@ -63,13 +79,15 @@
                     <label class="required-label col-5">Upload Document</label>
                     <!-- <div class=""> -->
                     <div class="input-group file-upload col-7 pt-1">
-                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)" class="file-upload-btn form-control" title="Choose File To Upload.." />
-                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                            class="file-upload-btn form-control" title="Choose File To Upload.." />
+                        <input type="text" autocomplete="off" aria-autocomplete="none"
+                            class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
                         <span class="input-group-append">
-                                    <button class="btn btn-primary btn-danger" type="button">
-                                        <i class="fa fa-upload"></i>
-                                    </button>
-                                </span>
+                            <button class="btn btn-primary btn-danger" type="button">
+                                <i class="fa fa-upload"></i>
+                            </button>
+                        </span>
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -80,11 +98,13 @@
                     Remarks :
                 </div>
                 <div class="col-md-10 mt-3">
-                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2RejSts" id="appSts1AppDtls" [(ngModel)]="desc" rows="4"></textarea>
+                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2RejSts" id="appSts1AppDtls"
+                        [(ngModel)]="desc" rows="4"></textarea>
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()" class="btn btn-primary">Submit </button>
+                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()"
+                    class="btn btn-primary">Submit </button>
             </div>
         </div>
         <div class="card-body step-sticky-header" *ngSwitchCase="3">
@@ -95,20 +115,30 @@
                 </div>
                 <div class="col-md-5">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="Y" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
-                        <label class="custom-control-label" for="app2StatusY" *ngIf="(step1 === 'DIRECTOR_APPROVAL' && applicationType !== 'OPERATIONAL' && applicationType !== 'BOTH') || (step1 !== 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH'))">Recommended For Allocation</label>
-                        <label class="custom-control-label" for="app2StatusY" *ngIf="step1 === 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH')">Forward</label>
+                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="Y" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
+                        <label class="custom-control-label" for="app2StatusY"
+                            *ngIf="(step1 === 'DIRECTOR_APPROVAL' && applicationType !== 'OPERATIONAL' && applicationType !== 'BOTH') || (step1 !== 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH'))">Recommended
+                            For Allocation</label>
+                        <label class="custom-control-label" for="app2StatusY"
+                            *ngIf="step1 === 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH')">Forward</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="N" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
-                        <label class="custom-control-label" for="app2StatusN" *ngIf="(step1 === 'DIRECTOR_APPROVAL' && applicationType !== 'OPERATIONAL' && applicationType !== 'BOTH') || (step1 !== 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH'))">Reported For Rejection</label>
-                        <label class="custom-control-label" for="app2StatusN" *ngIf="step1 === 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH')">Reject</label>
+                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="N" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
+                        <label class="custom-control-label" for="app2StatusN"
+                            *ngIf="(step1 === 'DIRECTOR_APPROVAL' && applicationType !== 'OPERATIONAL' && applicationType !== 'BOTH') || (step1 !== 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH'))">Reported
+                            For Rejection</label>
+                        <label class="custom-control-label" for="app2StatusN"
+                            *ngIf="step1 === 'DIRECTOR_APPROVAL' && (applicationType === 'OPERATIONAL' || applicationType === 'BOTH')">Reject</label>
                     </div>
                 </div>
             </div>
-            <div *ngIf="isExicutiveEngineer" class="row mt-4">
+            <div *ngIf="isExicutiveEngineer && type !== 'CEGW'" class="row mt-4">
                 <div class="col-md-7">
-                    Please select to proceed further
+                    forwarded to
                 </div>
                 <div class="col-md-5">
                     <select class="form-control" [(ngModel)]="actionValue" name="appSts2RejSts" id="appSts2RejSts">
@@ -117,12 +147,28 @@
                     </select>
                 </div>
             </div>
+
+            <div *ngIf="type === 'CEGW' && appSts2" class="row mt-4">
+                <div class="col-md-7">
+                    Forwarded to
+                </div>
+                <div class="col-md-5">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" id="forwardToCegw" name="forwardToCegw" class="custom-control-input"
+                            [checked]="true" disabled>
+                        <label class="custom-control-label font-weight-bold" for="forwardToCegw">Chief Engineer Ground
+                            Water</label>
+                    </div>
+                </div>
+            </div>
             <div *ngIf="step" class="row mt-2">
                 <div class="col-md-7">
                     WAC Date
                 </div>
                 <div class="col-md-5">
-                    <input type="text" class="form-control" [(ngModel)]="actionDate" placeholder="Select Date" class="form-control" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker [minDate]="date">
+                    <input type="text" class="form-control" [(ngModel)]="actionDate" placeholder="Select Date"
+                        class="form-control" [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }" bsDatepicker
+                        [minDate]="date">
                 </div>
             </div>
             <div class="">
@@ -131,13 +177,15 @@
                     <label class="required-label col-5">Upload Document</label>
                     <!-- <div class=""> -->
                     <div class="input-group file-upload col-7 pt-1">
-                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)" class="file-upload-btn form-control" title="Choose File To Upload.." />
-                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                            class="file-upload-btn form-control" title="Choose File To Upload.." />
+                        <input type="text" autocomplete="off" aria-autocomplete="none"
+                            class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
                         <span class="input-group-append">
-                                    <button class="btn btn-primary btn-danger" type="button">
-                                        <i class="fa fa-upload"></i>
-                                    </button>
-                                </span>
+                            <button class="btn btn-primary btn-danger" type="button">
+                                <i class="fa fa-upload"></i>
+                            </button>
+                        </span>
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -148,7 +196,8 @@
                     Remarks :
                 </div>
                 <div class="col-md-10 mt-3">
-                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2AppDtls" id="appSts2AppDtls" rows="4" [(ngModel)]="desc"></textarea>
+                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2AppDtls" id="appSts2AppDtls"
+                        rows="4" [(ngModel)]="desc"></textarea>
                     <!-- *ngIf="appSts2" -->
                     <!-- <select class="form-control" [disabled]="roleID === '2'" name="appSts2RejSts" id="appSts2RejSts" *ngIf="!appSts2">
                         <option>-- Select any one reason for rejection --</option>
@@ -156,7 +205,8 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()" class="btn btn-primary">Submit</button>
+                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()"
+                    class="btn btn-primary">Submit</button>
             </div>
         </div>
         <div class="card-body step-sticky-header" *ngSwitchCase="4">
@@ -167,11 +217,15 @@
                 </div>
                 <div class="col-md-5">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="Y" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
+                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="Y" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
                         <label class="custom-control-label" for="app2StatusY">Allocate</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="N" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
+                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="N" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
                         <label class="custom-control-label" for="app2StatusN">Reject</label>
                     </div>
                 </div>
@@ -182,13 +236,15 @@
                     <label class="required-label col-5">Upload Document</label>
                     <!-- <div class=""> -->
                     <div class="input-group file-upload col-7 pt-1">
-                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)" class="file-upload-btn form-control" title="Choose File To Upload.." />
-                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                            class="file-upload-btn form-control" title="Choose File To Upload.." />
+                        <input type="text" autocomplete="off" aria-autocomplete="none"
+                            class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
                         <span class="input-group-append">
-                                    <button class="btn btn-primary btn-danger" type="button">
-                                        <i class="fa fa-upload"></i>
-                                    </button>
-                                </span>
+                            <button class="btn btn-primary btn-danger" type="button">
+                                <i class="fa fa-upload"></i>
+                            </button>
+                        </span>
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -199,14 +255,16 @@
                     Remarks :
                 </div>
                 <div class="col-md-10 mt-3">
-                    <textarea class="form-control" [disabled]="roleID === '2'" [(ngModel)]="desc" name="appSts3AppDtls" id="appSts3AppDtls" rows="4"></textarea>
+                    <textarea class="form-control" [disabled]="roleID === '2'" [(ngModel)]="desc" name="appSts3AppDtls"
+                        id="appSts3AppDtls" rows="4"></textarea>
                     <!-- <select class="form-control" [disabled]="roleID === '2'" name="appSts3RejSts" id="appSts3RejSts" *ngIf="!appSts3">
                         <option>-- Select any one reason for rejection --</option>
                     </select> -->
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <button type="button" class="btn btn-primary" (click)="submitApplicationDetails()" [disabled]="roleID === '2'">Submit</button>
+                <button type="button" class="btn btn-primary" (click)="submitApplicationDetails()"
+                    [disabled]="roleID === '2'">Submit</button>
             </div>
         </div>
         <div class="card-body step-sticky-header" *ngSwitchCase="5">
@@ -218,13 +276,15 @@
                     <label class="required-label col-5">Upload Document</label>
                     <!-- <div class=""> -->
                     <div class="input-group file-upload col-7 pt-1">
-                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)" class="file-upload-btn form-control" title="Choose File To Upload.." />
-                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                            class="file-upload-btn form-control" title="Choose File To Upload.." />
+                        <input type="text" autocomplete="off" aria-autocomplete="none"
+                            class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
                         <span class="input-group-append">
-                                    <button class="btn btn-primary btn-danger" type="button">
-                                        <i class="fa fa-upload"></i>
-                                    </button>
-                                </span>
+                            <button class="btn btn-primary btn-danger" type="button">
+                                <i class="fa fa-upload"></i>
+                            </button>
+                        </span>
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -235,7 +295,8 @@
                     Remarks :
                 </div>
                 <div class="col-md-10 mt-3">
-                    <textarea class="form-control" name="appSts2RejSts" id="appSts1AppDtls" [(ngModel)]="desc" rows="4"></textarea>
+                    <textarea class="form-control" name="appSts2RejSts" id="appSts1AppDtls" [(ngModel)]="desc"
+                        rows="4"></textarea>
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
@@ -251,11 +312,15 @@
                 </div>
                 <div class="col-md-5">
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="Y" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
+                        <input type="radio" id="app2StatusY" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="Y" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
                         <label class="custom-control-label" for="app2StatusY">Allocation Approved</label>
                     </div>
                     <div class="custom-control custom-radio custom-control-inline">
-                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status" class="custom-control-input" value="N" [(ngModel)]="appSts2Check" (change)="setApproverSts2()">
+                        <input type="radio" id="app2StatusN" [disabled]="roleID === '2'" name="app2Status"
+                            class="custom-control-input" value="N" [(ngModel)]="appSts2Check"
+                            (change)="setApproverSts2()">
                         <label class="custom-control-label" for="app2StatusN">Allocation Refused</label>
                     </div>
                 </div>
@@ -266,13 +331,15 @@
                     <label class="required-label col-5">Upload Document</label>
                     <!-- <div class=""> -->
                     <div class="input-group file-upload col-7 pt-1">
-                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)" class="file-upload-btn form-control" title="Choose File To Upload.." />
-                        <input type="text" autocomplete="off" aria-autocomplete="none" class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
+                        <input type="file" accept="application/pdf, image/*" (change)="fileChange($event)"
+                            class="file-upload-btn form-control" title="Choose File To Upload.." />
+                        <input type="text" autocomplete="off" aria-autocomplete="none"
+                            class="form-control file-upload-file" placeholder="Choose  document" [value]="fileName">
                         <span class="input-group-append">
-                                    <button class="btn btn-primary btn-danger" type="button">
-                                        <i class="fa fa-upload"></i>
-                                    </button>
-                                </span>
+                            <button class="btn btn-primary btn-danger" type="button">
+                                <i class="fa fa-upload"></i>
+                            </button>
+                        </span>
                     </div>
                     <!-- </div> -->
                     <!-- </div> -->
@@ -283,7 +350,8 @@
                     Remarks :
                 </div>
                 <div class="col-md-10 mt-3">
-                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2AppDtls" id="appSts2AppDtls" rows="4" [(ngModel)]="desc"></textarea>
+                    <textarea class="form-control" [disabled]="roleID === '2'" name="appSts2AppDtls" id="appSts2AppDtls"
+                        rows="4" [(ngModel)]="desc"></textarea>
                     <!-- *ngIf="appSts2" -->
                     <!-- <select class="form-control" [disabled]="roleID === '2'" name="appSts2RejSts" id="appSts2RejSts" *ngIf="!appSts2">
                         <option>-- Select any one reason for rejection --</option>
@@ -291,7 +359,8 @@
                 </div>
             </div>
             <div class="row justify-content-center mt-5">
-                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()" class="btn btn-primary">Submit</button>
+                <button type="button" [disabled]="roleID === '2'" (click)="submitApplicationDetails()"
+                    class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>

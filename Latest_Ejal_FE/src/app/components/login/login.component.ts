@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('captcha', { static: true }) captcha: ElementRef;
   // @ViewChild('frgtCaptcha', { static: true }) frgtCaptcha: ElementRef;
   @ViewChild('regCaptcha', { static: true }) regCaptcha: ElementRef;
-  @ViewChild('phCaptcha', {static: true}) phCaptcha: ElementRef;
-  @ViewChild('otpCaptcha', {static: true}) otpCaptcha: ElementRef;
+  @ViewChild('phCaptcha', { static: true }) phCaptcha: ElementRef;
+  @ViewChild('otpCaptcha', { static: true }) otpCaptcha: ElementRef;
 
   public isChecked = false;
   public isRegister = false;
@@ -52,28 +52,28 @@ export class LoginComponent implements OnInit {
   public disableReSendReq = true;
   private resendTimerID: any;
   public captchaImg: any;
-  captchaImg1 : any;
+  captchaImg1: any;
   public elem;
   public noOfTimes = 2;
   public captchaValue;
   modalRef: BsModalRef;
   currentDate: number = Date.now();
-  captchaSvg:any;
+  captchaSvg: any;
   cValue: any;
   appNum: any;
   appStatus: any;
   median: any;
-  dashBoardData : any[]=[];
+  dashBoardData: any[] = [];
   startDate: any;
   endDate: any;
-  investmentType: any='';
-  district: any='';
-  riskCategory: any='';
+  investmentType: any = '';
+  district: any = '';
+  riskCategory: any = '';
   districtList: any;
-  showDetails: boolean = false;  
+  showDetails: boolean = false;
   // secretKey = '5f2b71a6d4c8e9a5bb9c4e6a88c7956a3e5b2d7f1c9f3a7f5d4e6c8f1b9a7e6d';
   secretKey = '5f2b71a6d4c8e9a5bb9c4e6a88c7956a3e5b2d7f1c9f3a7f5d4e6c8f1b9a7e6d';
-  public dateDuration : any;
+  public dateDuration: any;
 
   constructor(
     private formFB: FormBuilder,
@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
     // this.getToken();
     this.getCaptcha();
     // console.log(this.currentDate,'asjhdajdhash');
-    
+
   }
 
   ngAfterViewInit(): void {
@@ -138,9 +138,9 @@ export class LoginComponent implements OnInit {
       userName: ['', Validators.compose([Validators.required])],
       mobileNo: ['', Validators.compose([Validators.required, Validators.pattern('^((\\+91-?)|0)?[0-9]{10}$')])],
       otp: ['', Validators.compose([Validators.required])],
-      password: [{value:'' , disabled: true}, Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(.{6,})')])],
+      password: [{ value: '', disabled: true }, Validators.compose([Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(.{6,})')])],
       // captcha: ['', Validators.compose([Validators.required])],
-      cnfPass: [{value:'' , disabled: true}, Validators.compose([Validators.required])]
+      cnfPass: [{ value: '', disabled: true }, Validators.compose([Validators.required])]
     }, {
       validator: this.matchingPasswords('password', 'cnfPass')
     });
@@ -165,11 +165,11 @@ export class LoginComponent implements OnInit {
     this.captchaValue = event.target.value;
     // console.log(this.captchaValue);
   }
-  
+
   public getCaptchaApp() {
     this.login.getCaptchaImage().subscribe(response => {
-      this.captchaImg = response; 
-        this.captchaSvg=this.sanitizer.bypassSecurityTrustHtml(this.captchaImg);
+      this.captchaImg = response;
+      this.captchaSvg = this.sanitizer.bypassSecurityTrustHtml(this.captchaImg);
     });
   }
 
@@ -178,26 +178,26 @@ export class LoginComponent implements OnInit {
     // console.log(this.cValue, 'cvalue', this.appNum);
   }
 
-  public getApplicationStatus(){
+  public getApplicationStatus() {
     let data = {
       capValue1: this.cValue,
       appNum: this.appNum
     };
     // console.log(data);
-    
-    this.login.getApplicationSatus(data).subscribe((res:any) =>{
+
+    this.login.getApplicationSatus(data).subscribe((res: any) => {
       console.log(res);
       if (res.Status == false) {
         console.log('mismatch');
         this.toastr.dangerToastr('Invalid Captcha')
-        this.appStatus ='not found';
-      }else{
+        this.appStatus = 'not found';
+      } else {
         console.log('get status', res.status_name);
         this.appStatus = res.status_name;
       }
 
     })
-}
+  }
 
   /* Encription Methods */
   private encSaltedPassword(data: string, noOfTimes: number, salt: string) {
@@ -212,7 +212,7 @@ export class LoginComponent implements OnInit {
     while (noOfTimes > 0) {
       // console.log('BEFORE ENCODING: ' + password);
       password = this.sha512Hash(password);
-      console.log('AFTER ENCODING: ' , password);
+      console.log('AFTER ENCODING: ', password);
       noOfTimes--;
     }
     return password;
@@ -228,7 +228,7 @@ export class LoginComponent implements OnInit {
 
   // decryptToken(encryptedText: string): string {
   //   console.log(encryptedText);
-    
+
   //   try {
   //     // Split the encrypted text into IV and ciphertext parts
   //     const textParts = encryptedText.split(':');
@@ -270,12 +270,12 @@ export class LoginComponent implements OnInit {
       captchaId: this.captchaValue
     };
     // console.log(LOGIN_DATA,'LOGIN_DATA');
-    
+
     this.spinner.show();
     this.login.getLoginDetails(LOGIN_DATA).subscribe(successResponse => {
       console.log(successResponse, 'successResponse');
-      
-      console.log('Login Response',successResponse['status']);
+
+      console.log('Login Response', successResponse['status']);
       console.log('Show data login', successResponse['token']);
       const token = successResponse['token']; // The token is in the format IV:EncryptedData
       // const decryptedToken = this.decryptToken(token);
@@ -289,84 +289,84 @@ export class LoginComponent implements OnInit {
       //   this.router.navigateByUrl('pages/citizen/change-password');
       //   this.spinner.hide();
       // } else {        
-        if (successResponse['status'] === 'SUCCESS') {
+      if (successResponse['status'] === 'SUCCESS') {
+        localStorage.setItem('role_id', successResponse['user'].role_id);
+        if (successResponse['user'].role_id === 3) {
+          localStorage.setItem('isAdmin', 'false');
+          localStorage.setItem('isApprover', 'false');
+          localStorage.setItem('access_token', successResponse['token']);
+          sessionStorage.setItem('access_token', successResponse['token']);
+          localStorage.setItem('user_Name', successResponse['user'].display_name);
+          localStorage.setItem('user_email', successResponse['user'].email);
+          localStorage.setItem('name', successResponse['user'].user_name);
+          localStorage.setItem('mobile', successResponse['user'].mobile);
+          localStorage.setItem('id', successResponse['user'].id);
           localStorage.setItem('role_id', successResponse['user'].role_id);
-          if (successResponse['user'].role_id === 3) {
-            localStorage.setItem('isAdmin', 'false');
-            localStorage.setItem('isApprover', 'false');
-            localStorage.setItem('access_token', successResponse['token']);
-            sessionStorage.setItem('access_token', successResponse['token']);
-            localStorage.setItem('user_Name', successResponse['user'].display_name);
-            localStorage.setItem('user_email', successResponse['user'].email);
-            localStorage.setItem('name', successResponse['user'].user_name);
-            localStorage.setItem('mobile', successResponse['user'].mobile);
-            localStorage.setItem('id', successResponse['user'].id);
-            localStorage.setItem('role_id', successResponse['user'].role_id);
-            // localStorage.setItem('isFirstLogin', successResponse['user'].first_login);
-            console.log(successResponse['status1'], 'successResponse1235489654');
-            if (successResponse['user'].first_login || successResponse['user'].first_login === 'true') {
-              this.router.navigateByUrl('/changepassword');
+          // localStorage.setItem('isFirstLogin', successResponse['user'].first_login);
+          console.log(successResponse['status1'], 'successResponse1235489654');
+          if (successResponse['user'].first_login || successResponse['user'].first_login === 'true') {
+            this.router.navigateByUrl('/changepassword');
+          } else {
+            if (successResponse['status1'] == false) {
+              alert('your password is too old, please change password');
+              this.router.navigateByUrl('pages/citizen/change-password');
+              this.spinner.hide();
             } else {
-              if (successResponse['status1'] == false) {
-                alert('your password is too old, please change password');
-        this.router.navigateByUrl('pages/citizen/change-password');
-        this.spinner.hide();
-            }else{
               this.router.navigateByUrl('/pages/citizen/proposal');
             }
-            }
-            // this.router.navigateByUrl('/pages/citizen/proposal');
-            this.spinner.hide();
-            // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
-          } else if (successResponse['user'].role_id === 2 || successResponse['user'].role_id === 4 || successResponse['user'].role_id === 5 || successResponse['user'].role_id === 6 || successResponse['user'].role_id === 7 || successResponse['user'].role_id === 8) {
-            localStorage.setItem('isApprover', 'true');
-            localStorage.setItem('isAdmin', 'false');
-            localStorage.setItem('access_token', successResponse['token']);
-            sessionStorage.setItem('access_token', successResponse['token']);
-            // this.toastr.successToastr('Welcome'+successResponse["user"].display_name)
-            if (successResponse["status1"] == false) {
-              alert("your password is too old, please change password");
-              this.router.navigateByUrl("/changepassword");
-              this.spinner.hide();
-            }else {
-              this.router.navigateByUrl('/pages/approver');
-              this.spinner.hide();
-            }
-            // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
-          } else if (successResponse['user'].role_id === 1) {
-            localStorage.setItem('isAdmin', 'true');
-            localStorage.setItem('isApprover', 'false');
-            localStorage.setItem('access_token', successResponse['token']);
-            sessionStorage.setItem('access_token', successResponse['token']);
-            console.log('access_token', successResponse['token']);
-            
-            // this.toastr.successToastr(successResponse["message"]);
-            if (successResponse["status1"] == false) {
-              alert("your password is too old, please change password");
-              this.router.navigateByUrl("pages/approver/change-password");
-              this.spinner.hide();
-            }else {              
-              this.router.navigateByUrl('/pages/admin');
-              this.spinner.hide();
-            }
-            // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
-          } else {
-            this.spinner.hide();
-            this.toastr.dangerToastr('Invalid user or password');
-            this.getCaptcha();
           }
-        } else if (successResponse['status'] === 'FAILURE') {
+          // this.router.navigateByUrl('/pages/citizen/proposal');
           this.spinner.hide();
-          this.getCaptcha();
+          // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
+        } else if (successResponse['user'].role_id === 2 || successResponse['user'].role_id === 4 || successResponse['user'].role_id === 5 || successResponse['user'].role_id === 6 || successResponse['user'].role_id === 7 || successResponse['user'].role_id === 8 || successResponse['user'].role_id === 9) {
+          localStorage.setItem('isApprover', 'true');
+          localStorage.setItem('isAdmin', 'false');
+          localStorage.setItem('access_token', successResponse['token']);
+          sessionStorage.setItem('access_token', successResponse['token']);
+          // this.toastr.successToastr('Welcome'+successResponse["user"].display_name)
+          if (successResponse["status1"] == false) {
+            alert("your password is too old, please change password");
+            this.router.navigateByUrl("/changepassword");
+            this.spinner.hide();
+          } else {
+            this.router.navigateByUrl('/pages/approver');
+            this.spinner.hide();
+          }
+          // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
+        } else if (successResponse['user'].role_id === 1) {
+          localStorage.setItem('isAdmin', 'true');
+          localStorage.setItem('isApprover', 'false');
+          localStorage.setItem('access_token', successResponse['token']);
+          sessionStorage.setItem('access_token', successResponse['token']);
+          console.log('access_token', successResponse['token']);
+
+          // this.toastr.successToastr(successResponse["message"]);
+          if (successResponse["status1"] == false) {
+            alert("your password is too old, please change password");
+            this.router.navigateByUrl("pages/approver/change-password");
+            this.spinner.hide();
+          } else {
+            this.router.navigateByUrl('/pages/admin');
+            this.spinner.hide();
+          }
+          // this.toastr.successToastr('Welcome ' + successResponse['user'].display_name);
+        } else {
+          this.spinner.hide();
           this.toastr.dangerToastr('Invalid user or password');
+          this.getCaptcha();
         }
+      } else if (successResponse['status'] === 'FAILURE') {
+        this.spinner.hide();
+        this.getCaptcha();
+        this.toastr.dangerToastr('Invalid user or password');
+      }
       // }
     }, errorResponse => {
       this.spinner.hide();
       this.getCaptcha();
       // this.getToken();
-      console.log(errorResponse,'errorResponse');
-      
+      console.log(errorResponse, 'errorResponse');
+
       this.toastr.dangerToastr(errorResponse.statusText + ', Please enter valid captcha');
       // this.loginForm.reset();
     });
@@ -429,40 +429,40 @@ export class LoginComponent implements OnInit {
     // Get the OTP value from the form control cnfPass
     const enablePwd = this.forgotPassForm.get('password');
     const enableCPwd = this.forgotPassForm.get('cnfPass');
-    
-    
+
+
     const otp = this.forgotPassForm.get('otp').value;
     const user_name = this.forgotPassForm.get('userName').value;
     // Optional: Add validation to ensure OTP is a valid value (e.g., 4 digits)
     if (otp && otp.length === 4) {
-        console.log('verify', otp);
+      console.log('verify', otp);
 
-        // Create an object with the OTP
-        const otpData = {
-            otp: otp,
-            user_name: user_name
-        };
-        console.log(otpData,'otpdata');
-        
-        // Send the object to the verifyOtp API
-        this.login.verifyOtp(otpData).subscribe(
-            (successResponse) => {
-                console.log(successResponse, 'otp verify');
-                if (successResponse['status'] == 'SUCCESS') {
-                  enablePwd.enable();
-                  enableCPwd.enable();
-                  this.toastr.successToastr('OTP verified successfully');
-                }
-            },
-            (errorResponse) => {
-                console.error('OTP verification failed', errorResponse);
-                this.toastr.dangerToastr(errorResponse.error['message']);
-            }
-        );
+      // Create an object with the OTP
+      const otpData = {
+        otp: otp,
+        user_name: user_name
+      };
+      console.log(otpData, 'otpdata');
+
+      // Send the object to the verifyOtp API
+      this.login.verifyOtp(otpData).subscribe(
+        (successResponse) => {
+          console.log(successResponse, 'otp verify');
+          if (successResponse['status'] == 'SUCCESS') {
+            enablePwd.enable();
+            enableCPwd.enable();
+            this.toastr.successToastr('OTP verified successfully');
+          }
+        },
+        (errorResponse) => {
+          console.error('OTP verification failed', errorResponse);
+          this.toastr.dangerToastr(errorResponse.error['message']);
+        }
+      );
     } else {
-        this.toastr.dangerToastr('Please enter a valid 4-digit OTP');
+      this.toastr.dangerToastr('Please enter a valid 4-digit OTP');
     }
-}
+  }
 
 
   public reSendOtp(data): void {
@@ -492,8 +492,8 @@ export class LoginComponent implements OnInit {
 
   public getCaptchaOtp() {
     this.login.getCaptchaImage().subscribe(response => {
-      this.captchaImg = response; 
-        this.captchaSvg=this.sanitizer.bypassSecurityTrustHtml(this.captchaImg);
+      this.captchaImg = response;
+      this.captchaSvg = this.sanitizer.bypassSecurityTrustHtml(this.captchaImg);
     });
   }
   public otpverifyCaptcha(event) {
@@ -507,7 +507,7 @@ export class LoginComponent implements OnInit {
       userName: data.userName
     };
 
-    console.log(userId,'Send OTP called');
+    console.log(userId, 'Send OTP called');
     this.spinner.show();
     const DATA = {
       captchaEntry: this.captchaValue,
@@ -592,30 +592,30 @@ export class LoginComponent implements OnInit {
     this.getCaptchaApp();
     this.getServiceDashoad();
     this.getDistrictList();
-    this.showDetails=false;
-}
+    this.showDetails = false;
+  }
 
-  public getServiceDashoad (){
+  public getServiceDashoad() {
     this.startDate = '';
-    this.endDate ='';
-    this.investmentType='';
-    this.district='';
-    this.dashBoardData =[];
-    let dateDuration = {startDate: this.startDate, endDate: this.endDate};
+    this.endDate = '';
+    this.investmentType = '';
+    this.district = '';
+    this.dashBoardData = [];
+    let dateDuration = { startDate: this.startDate, endDate: this.endDate };
     this.login.landingDashboard(dateDuration).subscribe(response => {
       console.log(response[0], 'response');
       this.dashBoardData.push(response[0]);
     })
   }
 
-  public submitDetails(){
-    this.showDetails = true; 
-    console.log(this.startDate, this.endDate,this.investmentType,'investment', this.district.id,'district', this.riskCategory, 'datepicker info');
-    this.dateDuration = {startDate: this.startDate, endDate: this.endDate,investment: this.investmentType, district: this.district.id};
+  public submitDetails() {
+    this.showDetails = true;
+    console.log(this.startDate, this.endDate, this.investmentType, 'investment', this.district.id, 'district', this.riskCategory, 'datepicker info');
+    this.dateDuration = { startDate: this.startDate, endDate: this.endDate, investment: this.investmentType, district: this.district.id };
     if (this.dateDuration) {
-      
+
       this.login.landingDashboard(this.dateDuration).subscribe(response => {
-        this.dashBoardData =[];
+        this.dashBoardData = [];
         console.log(response[0], 'response');
         this.dashBoardData.push(response[0]);
 
@@ -629,14 +629,14 @@ export class LoginComponent implements OnInit {
         //   }
         // });
       })
-    } else{
+    } else {
       this.toastr.dangerToastr('Please give valid input');
     }
   }
-  
 
-  public getDistrictList(){
-    this.login.getDistrictList().subscribe(res=>{
+
+  public getDistrictList() {
+    this.login.getDistrictList().subscribe(res => {
       this.districtList = res;
       console.log(this.districtList);
     })
@@ -655,11 +655,11 @@ export class LoginComponent implements OnInit {
     if (startDate && endDate && investment && district) {
       // Create the URL tree with parameters
       const urlTree = this.router.createUrlTree(['/table-data'], {
-        queryParams: { 
-          startDate: startDate, 
-          endDate: endDate, 
-          investment: investment, 
-          district: district 
+        queryParams: {
+          startDate: startDate,
+          endDate: endDate,
+          investment: investment,
+          district: district
         }
       });
       // Serialize the URL tree to a string

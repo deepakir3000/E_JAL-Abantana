@@ -1,586 +1,435 @@
-[2026-10-06T17:34:13.977] [INFO] UacController.js - {
-  status: 'SUCCESS',
+[2026-11-25T16:03:46.665] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:03:46.665] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:50:21)
+[2026-11-25T16:03:46.667] [DEBUG] FormActionController.js - inside validator.. at validator (..\controllers\formaction\FormActionController.js:9:9)
+[2026-11-25T16:03:46.668] [DEBUG] FormActionController.js - initializing updateState validators.. at validator (..\controllers\formaction\FormActionController.js:66:21)
+[2026-11-25T16:03:47.571] [DEBUG] AppealLoginController.js - initializing appeal login validators.. at validator (..\controllers\appeal\AppealLoginController.js:15:13)
+[2026-11-25T16:03:47.579] [INFO] server.js - App started up at port : 3001 at <anonymous> (..\server.js:166:9)
+[2026-11-25T16:04:09.796] [INFO] server.js - Wed Nov 25 2026 16:04:09 GMT+0530 (India Standard Time) : GET /dowr/api/getAllApplication/null?isActiveDataRequired=false&isPaginationRequired=true&isAscending=false&pageNumber=1&pageSize=3&order=id at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:09.849] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:09.862] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:10.786] [INFO] FormActionController.js - Inside getAllApplication at getAllApplication (..\controllers\formaction\FormActionController.js:142:9)
+[2026-11-25T16:04:10.791] [INFO] FormActionService.js - Inside UacServiceImpl getAllApplication at getAllApplication (..\services\formaction\FormActionService.js:716:9)
+[2026-11-25T16:04:10.891] [INFO] FormActionService.js - rowsVal values  3 at getAllApplication (..\services\formaction\FormActionService.js:924:13)
+[2026-11-25T16:04:10.923] [INFO] FormActionService.js - result values  { id: 2271, obj_id: 431, wf_step_transition_id: '76', to_id: '9' } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+[2026-11-25T16:04:10.953] [INFO] FormActionService.js - result values  { id: 2270, obj_id: 429, wf_step_transition_id: '331', to_id: null } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+[2026-11-25T16:04:10.956] [DEBUG] FormActionService.js - {
   message: 'SUCCESS',
   data: [
     {
-      id: '13',
-      user_name: 'EE_Angul',
-      display_name: 'Executive Engineer',
-      mobile: '8917693695',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
+      id: 431,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Anmol Reddy',
+      email: 'anmol@gmail.com',
+      ce_name: 'Anmol Private Limited',
+      created_on: 2026-11-23T06:18:29.475Z,
+      work_flow_step_transiton_type_mst_id: 6,
+      mob: '8787878787',
+      transition_type: 'FORM_SUBMIT',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     },
     {
-      id: '14',
-      user_name: 'EE_Samal',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
+      id: 430,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Anil Gupta',
+      email: 'testnewone@gmail.com',
+      ce_name: 'New Test One pvt ltd',
+      created_on: 2026-11-21T09:21:26.857Z,
+      work_flow_step_transiton_type_mst_id: 6,
+      mob: '8987896675',
+      transition_type: 'FORM_SUBMIT',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     },
     {
-      id: '15',
-      user_name: 'EE_Rengali',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '16',
-      user_name: 'EE_Balasore',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '17',
-      user_name: 'EE_Baripada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '18',
-      user_name: 'EE_Rairangpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '19',
-      user_name: 'EE_Baragarh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '20',
-      user_name: 'EE_Sambalpur(Burla)',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '21',
-      user_name: 'EE_Main_Dam(Burla)',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '22',
-      user_name: 'EE_Sundargarh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '23',
-      user_name: 'EE_Bhadrak',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '24',
-      user_name: 'EE_Salapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '25',
-      user_name: 'EE_Balangir',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '26',
-      user_name: 'EE_Boudh',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '27',
-      user_name: 'EE_Bhawanipatna',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '28',
-      user_name: 'EE_Nuapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '29',
-      user_name: 'EE_MahanadiS',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '30',
-      user_name: 'EE_MahanadiN',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '31',
-      user_name: 'EE_Jagatsinghpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '32',
-      user_name: 'EE_Khurda',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '33',
-      user_name: 'EE_Bhubaneswar',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '34',
-      user_name: 'EE_Puri',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '35',
-      user_name: 'EE_Jajpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '36',
-      user_name: 'EE_Kendrapada',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '37',
-      user_name: 'EE_Jaraka',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '38',
-      user_name: 'EE_Dhenkanal',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '39',
-      user_name: 'EE_Adava',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '40',
-      user_name: 'EE_Bareniput',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '41',
-      user_name: 'EE_Boriguma',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '42',
-      user_name: 'EE_Kusumkhunti',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '43',
-      user_name: 'EE_Balimela',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '44',
-      user_name: 'EE_Chitrakonda',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '45',
-      user_name: 'EE_Berhampur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '46',
-      user_name: 'EE_Bhanjanagar',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '47',
-      user_name: 'EE_Amrit',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '48',
-      user_name: 'EE_Sambalpur',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '49',
-      user_name: 'EE_Burla',
-      display_name: 'Executive Engineer',
-      mobile: '8249421788',
-      email: 'jyoti.jrps@gmail.com',
-      status: 1,
-      role_id: 6
-    },
-    {
-      id: '66',
-      user_name: 'EE_Kandhamal',
-      display_name: 'Executive Engineer',
-      mobile: '8740003967',
-      email: 'kidphulbani@gmail.com',
-      status: 1,
-      role_id: 6
-    }
-  ]
-} at getAllEE (..\controllers\uac\UacController.js:568:7)
-[2026-10-06T17:34:44.240] [INFO] server.js - Tue Oct 06 2026 17:34:44 GMT+0530 (India Standard Time) : POST /dowr/api/workflow/actionTaken at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:44.241] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:44.241] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:44.270] [DEBUG] FileUpload.js - file application,pdf ext pdf at getFilename (..\utils\fileupload.js:38:21)
-[2026-10-06T17:34:44.294] [INFO] FormActionController.js - Inside actionTaken at actionTaken (..\controllers\formaction\FormActionController.js:234:9)
-[2026-10-06T17:34:44.296] [INFO] FormActionService.js - Inside FormActionServiceImpl actionTaken at actionTaken (..\services\formaction\FormActionService.js:1470:9)
-[2026-10-06T17:34:44.335] [INFO] CommonServiceImpl.js - Fetching application details from database... 419 at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2095:9)
-[2026-10-06T17:34:44.351] [INFO] CommonServiceImpl.js - result.............. {
-  recordsets: [ [ [Object] ] ],
-  recordset: [
-    {
-      applicationId: 419,
-      applicantName: 'starkNic',
-      applicantPhoneNo: '8787487487',
-      applicationStatus: 6,
-      applicationReceivedDate: 2026-10-06T11:41:21.541Z,
-      lastDate: 2026-10-06T12:04:44.327Z,
-      districtId: 11,
-      blockId: 89,
-      applicantAddress: 'Odisha state centre',
-      deliveryStatus: 'REJECTED',
-      rejectedReason: 'tertts',
-      allocation_type_id: 2
+      id: 429,
+      app_type: 'DOWR',
+      industries_id: 2672,
+      app_for: '',
+      name: 'Rameswar Jena',
+      email: 'ramkocement@gmail.com',
+      ce_name: 'Ramko Cement',
+      created_on: 2026-11-20T17:26:50.089Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8799665787',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 5,
+      status_name: 'COMPLETED',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     }
   ],
-  output: {},
-  rowsAffected: [ 1 ]
-} at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2159:13)
-[2026-10-06T17:34:44.351] [INFO] CommonServiceImpl.js - query of log appData------ [
-  {
-    applicationId: 419,
-    applicantName: 'starkNic',
-    applicantPhoneNo: '8787487487',
-    applicationStatus: 6,
-    applicationReceivedDate: 2026-10-06T11:41:21.541Z,
-    lastDate: 2026-10-06T12:04:44.327Z,
-    districtId: 11,
-    blockId: 89,
-    applicantAddress: 'Odisha state centre',
-    deliveryStatus: 'REJECTED',
-    rejectedReason: 'tertts',
-    allocation_type_id: 2
-  }
-] at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2161:9)
-[2026-10-06T17:34:44.638] [ERROR] FormActionService.js - SQL error!!! ReferenceError: api_response is not defined
-    at Object.send_to_ortpsa_update (C:\Waterallocation13july\be\server\services\common\CommonServiceImpl.js:2402:3)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async Object.actionTaken (C:\Waterallocation13july\be\server\services\formaction\FormActionService.js:1742:21)
-    at async actionTaken (C:\Waterallocation13july\be\server\controllers\formaction\FormActionController.js:237:16) at actionTaken (..\services\formaction\FormActionService.js:1750:13)
-[2026-10-06T17:34:44.638] [DEBUG] FormActionService.js - { status: 'FAILURE', message: 'api_response is not defined', data: {} } at actionTaken (..\services\formaction\FormActionService.js:1753:9)
-[2026-10-06T17:34:44.639] [INFO] FormActionController.js - { status: 'FAILURE', message: 'api_response is not defined', data: {} } at actionTaken (..\controllers\formaction\FormActionController.js:248:9)
-[2026-10-06T17:34:56.123] [INFO] server.js - Tue Oct 06 2026 17:34:56 GMT+0530 (India Standard Time) : GET /dowr/api/getUIResource at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:56.123] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:56.124] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:56.129] [INFO] server.js - Tue Oct 06 2026 17:34:56 GMT+0530 (India Standard Time) : GET /dowr/api/workflow/nextStep?applicationId=419&skipRules=true at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:34:56.129] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:34:56.130] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:34:56.156] [INFO] UacController.js - Inside getUIResource at getUIResource (..\controllers\uac\UacController.js:531:7)
-[2026-10-06T17:34:56.156] [INFO] UacServiceImpl.js - Inside UacServiceImpl getUIResource at getUIResource (..\services\uac\UacServiceImpl.js:581:7)
-[2026-10-06T17:34:56.161] [INFO] FormActionController.js - Inside nextStep at nextStep (..\controllers\formaction\FormActionController.js:217:9)
-[2026-10-06T17:34:56.161] [INFO] FormActionService.js - Inside FormActionServiceImpl nextStep at nextStep (..\services\formaction\FormActionService.js:1308:9)
-[2026-10-06T17:34:56.174] [DEBUG] UacServiceImpl.js - {
+  totalPages: 21,
+  totalElements: 62
+} at getAllApplication (..\services\formaction\FormActionService.js:965:9)
+[2026-11-25T16:04:10.960] [INFO] FormActionController.js - {
   message: 'SUCCESS',
   data: [
     {
-      id: '17',
-      resource_name: 'Dashboard',
-      link_text: 'approver/myView',
-      icon: null,
-      resource_description: 'for approver my view',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
+      id: 431,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Anmol Reddy',
+      email: 'anmol@gmail.com',
+      ce_name: 'Anmol Private Limited',
+      created_on: 2026-11-23T06:18:29.475Z,
+      work_flow_step_transiton_type_mst_id: 6,
+      mob: '8787878787',
+      transition_type: 'FORM_SUBMIT',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     },
     {
-      id: '18',
-      resource_name: 'Application',
-      link_text: 'approver/proposal',
-      icon: null,
-      resource_description: 'forn approver peoposal',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
+      id: 430,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Anil Gupta',
+      email: 'testnewone@gmail.com',
+      ce_name: 'New Test One pvt ltd',
+      created_on: 2026-11-21T09:21:26.857Z,
+      work_flow_step_transiton_type_mst_id: 6,
+      mob: '8987896675',
+      transition_type: 'FORM_SUBMIT',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     },
     {
-      id: '19',
-      resource_name: 'MIS(Reports)',
-      link_text: 'approver/mis-report',
-      icon: null,
-      resource_description: 'for approver mis',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '24',
-      resource_name: 'Establishment Mapping',
-      link_text: '/pages/approver/industry-mapping',
-      icon: null,
-      resource_description: 'for industry mapping',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '32',
-      resource_name: 'Change Password',
-      link_text: 'approver/change-password',
-      icon: null,
-      resource_description: 'approver change password',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
+      id: 429,
+      app_type: 'DOWR',
+      industries_id: 2672,
+      app_for: '',
+      name: 'Rameswar Jena',
+      email: 'ramkocement@gmail.com',
+      ce_name: 'Ramko Cement',
+      created_on: 2026-11-20T17:26:50.089Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8799665787',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 5,
+      status_name: 'COMPLETED',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     }
-  ]
-} at getUIResource (..\services\uac\UacServiceImpl.js:620:7)
-[2026-10-06T17:34:56.176] [INFO] UacController.js - {
+  ],
+  totalPages: 21,
+  totalElements: 62
+} at getAllApplication (..\controllers\formaction\FormActionController.js:177:9)
+[2026-11-25T16:04:11.001] [INFO] server.js - Wed Nov 25 2026 16:04:10 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/431 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:11.015] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:11.032] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:11.040] [INFO] server.js - Wed Nov 25 2026 16:04:11 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/430 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:11.044] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:11.046] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:11.059] [INFO] server.js - Wed Nov 25 2026 16:04:11 GMT+0530 (India Standard Time) : GET /dowr/api/getacknowledgementDetails/429 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:11.061] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:11.063] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:11.230] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-11-25T16:04:11.249] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2627:9)
+[2026-11-25T16:04:11.296] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-11-25T16:04:11.319] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2627:9)
+[2026-11-25T16:04:11.391] [INFO] FormActionController.js - Inside getacknowledgementDetails at getacknowledgementDetails (..\controllers\formaction\FormActionController.js:367:9)
+[2026-11-25T16:04:11.419] [INFO] FormActionService.js - Inside FormActionServiceImpl getacknowledgementDetails at getacknowledgementDetails (..\services\formaction\FormActionService.js:2627:9)
+[2026-11-25T16:04:14.036] [INFO] server.js - Wed Nov 25 2026 16:04:14 GMT+0530 (India Standard Time) : GET /dowr/api/getApplicationDataForTrack/431 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:14.043] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:14.047] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:14.063] [INFO] FormActionController.js - Inside getApplicationDataForTrack at getApplicationDataForTrack (..\controllers\formaction\FormActionController.js:199:9)
+[2026-11-25T16:04:14.064] [INFO] FormActionService.js - Inside FormActionServiceImpl getApplicationDataForTrack at getApplicationDataForTrack (..\services\formaction\FormActionService.js:1194:9)
+[2026-11-25T16:04:14.129] [DEBUG] FormActionService.js - {
+  status: 'SUCCESS',
   message: 'SUCCESS',
   data: [
     {
-      id: '17',
-      resource_name: 'Dashboard',
-      link_text: 'approver/myView',
-      icon: null,
-      resource_description: 'for approver my view',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '18',
-      resource_name: 'Application',
-      link_text: 'approver/proposal',
-      icon: null,
-      resource_description: 'forn approver peoposal',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '19',
-      resource_name: 'MIS(Reports)',
-      link_text: 'approver/mis-report',
-      icon: null,
-      resource_description: 'for approver mis',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '24',
-      resource_name: 'Establishment Mapping',
-      link_text: '/pages/approver/industry-mapping',
-      icon: null,
-      resource_description: 'for industry mapping',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    },
-    {
-      id: '32',
-      resource_name: 'Change Password',
-      link_text: 'approver/change-password',
-      icon: null,
-      resource_description: 'approver change password',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
+      id: 2271,
+      obj_id: 431,
+      wf_id: 6,
+      allocation_file: null,
+      remarks: 'OK',
+      wf_step_id: '22',
+      wf_step_transition_id: '76',
+      from_id: '65',
+      to_id: '9',
+      created_on: 2026-11-23T06:23:16.530Z,
+      wac_date: null,
+      workFlowName: 'SECRETARY_VERIFICATION',
+      workFlowStepName: 'form Submitted successfully',
+      userName: 'test@gmail.com',
+      roleId: 3,
+      roleName: 'CITIZEN',
+      userToName: 'asdowr',
+      roleToId: 4,
+      roleToName: 'ADDITIONAL_SECRETARY',
+      currentStatus: true
     }
   ]
-} at getUIResource (..\controllers\uac\UacController.js:549:7)
-[2026-10-06T17:34:56.186] [DEBUG] FormActionService.js - {
+} at getApplicationDataForTrack (..\services\formaction\FormActionService.js:1302:9)
+[2026-11-25T16:04:14.131] [INFO] FormActionController.js - {
   status: 'SUCCESS',
   message: 'SUCCESS',
-  data: {
-    id: 2245,
-    obj_id: 419,
-    wf_id: 7,
-    wf_step_id: '28',
-    wf_step_transition_id: '99',
-    from_id: '10',
-    to_id: '35',
-    created_on: 2026-10-06T12:04:44.327Z,
-    steps: {
-      id: 29,
-      step_name: 'WATER_AVAILABILITY',
-      isDate: true,
-      trans: []
+  data: [
+    {
+      id: 2271,
+      obj_id: 431,
+      wf_id: 6,
+      allocation_file: null,
+      remarks: 'OK',
+      wf_step_id: '22',
+      wf_step_transition_id: '76',
+      from_id: '65',
+      to_id: '9',
+      created_on: 2026-11-23T06:23:16.530Z,
+      wac_date: null,
+      workFlowName: 'SECRETARY_VERIFICATION',
+      workFlowStepName: 'form Submitted successfully',
+      userName: 'test@gmail.com',
+      roleId: 3,
+      roleName: 'CITIZEN',
+      userToName: 'asdowr',
+      roleToId: 4,
+      roleToName: 'ADDITIONAL_SECRETARY',
+      currentStatus: true
     }
-  }
-} at nextStep (..\services\formaction\FormActionService.js:1463:9)
-[2026-10-06T17:34:56.187] [INFO] FormActionController.js - {
-  status: 'SUCCESS',
+  ]
+} at getApplicationDataForTrack (..\controllers\formaction\FormActionController.js:211:9)
+[2026-11-25T16:04:18.226] [INFO] server.js - Wed Nov 25 2026 16:04:18 GMT+0530 (India Standard Time) : GET /dowr/api/getApplicationDataForTrack/430 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:18.228] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:18.230] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:18.257] [INFO] FormActionController.js - Inside getApplicationDataForTrack at getApplicationDataForTrack (..\controllers\formaction\FormActionController.js:199:9)
+[2026-11-25T16:04:18.258] [INFO] FormActionService.js - Inside FormActionServiceImpl getApplicationDataForTrack at getApplicationDataForTrack (..\services\formaction\FormActionService.js:1194:9)
+[2026-11-25T16:04:18.273] [ERROR] FormActionService.js - Application id is invalid.. at getApplicationDataForTrack (..\services\formaction\FormActionService.js:1214:17)
+[2026-11-25T16:04:18.274] [DEBUG] FormActionService.js - { status: 'INVALID', message: 'SUCCESS', data: [] } at getApplicationDataForTrack (..\services\formaction\FormActionService.js:1302:9)
+[2026-11-25T16:04:18.275] [INFO] FormActionController.js - { status: 'NOT_INITIALIZED', message: 'No Data found.', data: [] } at getApplicationDataForTrack (..\controllers\formaction\FormActionController.js:211:9)
+[2026-11-25T16:04:30.963] [INFO] server.js - Wed Nov 25 2026 16:04:30 GMT+0530 (India Standard Time) : GET /dowr/api/getAllApplication/null?isActiveDataRequired=false&isPaginationRequired=true&isAscending=false&pageNumber=2&pageSize=3&order=id at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:04:30.964] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:04:30.967] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:04:31.463] [INFO] FormActionController.js - Inside getAllApplication at getAllApplication (..\controllers\formaction\FormActionController.js:142:9)
+[2026-11-25T16:04:31.468] [INFO] FormActionService.js - Inside UacServiceImpl getAllApplication at getAllApplication (..\services\formaction\FormActionService.js:716:9)
+[2026-11-25T16:04:31.508] [INFO] FormActionService.js - rowsVal values  3 at getAllApplication (..\services\formaction\FormActionService.js:924:13)
+[2026-11-25T16:04:31.523] [INFO] FormActionService.js - result values  { id: 2255, obj_id: 428, wf_step_transition_id: '112', to_id: '9' } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+[2026-11-25T16:04:31.539] [INFO] FormActionService.js - result values  { id: 2261, obj_id: 427, wf_step_transition_id: '144', to_id: null } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+[2026-11-25T16:04:31.553] [INFO] FormActionService.js - result values  { id: 2262, obj_id: 426, wf_step_transition_id: '118', to_id: '12' } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+[2026-11-25T16:04:31.553] [DEBUG] FormActionService.js - {
   message: 'SUCCESS',
-  data: {
-    id: 2245,
-    obj_id: 419,
-    wf_id: 7,
-    wf_step_id: '28',
-    wf_step_transition_id: '99',
-    from_id: '10',
-    to_id: '35',
-    created_on: 2026-10-06T12:04:44.327Z,
-    steps: {
-      id: 29,
-      step_name: 'WATER_AVAILABILITY',
-      isDate: true,
-      trans: []
+  data: [
+    {
+      id: 428,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Yamini Subudhi',
+      email: 'steelfour@gmail.com',
+      ce_name: 'Steel Four pvt ltd',
+      created_on: 2026-11-20T17:14:20.809Z,
+      work_flow_step_transiton_type_mst_id: 7,
+      mob: '8977689765',
+      transition_type: 'RE_APPLY',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 2500,
+      paid_amount: 150000,
+      isAction: false
+    },
+    {
+      id: 427,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Rohit Biswal',
+      email: 'steel3@gmail.com',
+      ce_name: 'Steel Three pvt ltd',
+      created_on: 2026-11-20T17:05:48.564Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8765654678',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 5,
+      status_name: 'COMPLETED',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 250,
+      paid_amount: 15000,
+      isAction: false
+    },
+    {
+      id: 426,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Ummesh Kumar',
+      email: 'heavencafe@gmail.com',
+      ce_name: 'Heaven Cafe',
+      created_on: 2026-11-20T11:26:45.266Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8767876678',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
     }
-  }
-} at nextStep (..\controllers\formaction\FormActionController.js:228:9)
-[2026-10-06T17:35:04.669] [INFO] server.js - Tue Oct 06 2026 17:35:04 GMT+0530 (India Standard Time) : POST /dowr/api/getAllBasins at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:35:04.670] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:35:04.671] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:35:04.672] [INFO] server.js - Tue Oct 06 2026 17:35:04 GMT+0530 (India Standard Time) : GET /dowr/api/getAllApplication/null?isActiveDataRequired=false&isPaginationRequired=true&isAscending=false&pageNumber=1&pageSize=10&order=id at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:35:04.673] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:35:04.673] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:35:04.685] [INFO] server.js - Tue Oct 06 2026 17:35:04 GMT+0530 (India Standard Time) : GET /dowr/api/getAllEE?type=null&id=0 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:35:04.686] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMTAiLCJyb2xlX2lkIjo1LCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MTYxLCJleHAiOjE3OTEzMTY5NjF9.hh1bWlpzk_ySg9pRTbFlQaEUCMTdpDQQa070OWHH0_Q at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:35:04.687] [DEBUG] authenticate.js - decoded :{"user_id":"10","role_id":5,"access":"auth","iat":1791288161,"exp":1791316961} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:35:04.748] [INFO] mdmController.js - Inside getAllBasins at getAllBasins (..\controllers\mdm\mdmController.js:673:9)
-[2026-10-06T17:35:04.748] [INFO] mdmServiceImpl.js - Inside MdmServiceImpl getAllBasins at getAllBasins (..\services\mdm\mdmService.js:1410:9)
-[2026-10-06T17:35:04.758] [INFO] FormActionController.js - Inside getAllApplication at getAllApplication (..\controllers\formaction\FormActionController.js:142:9)
-[2026-10-06T17:35:04.758] [INFO] FormActionService.js - Inside UacServiceImpl getAllApplication at getAllApplication (..\services\formaction\FormActionService.js:716:9)
-[2026-10-06T17:35:04.772] [INFO] UacController.js - Inside getAllEE at getAllEE (..\controllers\uac\UacController.js:555:7)
-[2026-10-06T17:35:04.772] [INFO] UacServiceImpl.js - Inside UacServiceImpl getAllEE at getAllEE (..\services\uac\UacServiceImpl.js:626:7)
-[2026-10-06T17:35:04.778] [INFO] FormActionService.js - rowsVal values  10 at getAllApplication (..\services\formaction\FormActionService.js:924:13)
-[2026-10-06T17:35:04.787] [INFO] FormActionService.js - result values  { id: 2245, obj_id: 419, wf_step_transition_id: '99', to_id: '35' } at getAllApplication (..\services\formaction\FormActionService.js:943:29)
+  ],
+  totalPages: 21,
+  totalElements: 62
+} at getAllApplication (..\services\formaction\FormActionService.js:965:9)
+[2026-11-25T16:04:31.556] [INFO] FormActionController.js - {
+  message: 'SUCCESS',
+  data: [
+    {
+      id: 428,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Yamini Subudhi',
+      email: 'steelfour@gmail.com',
+      ce_name: 'Steel Four pvt ltd',
+      created_on: 2026-11-20T17:14:20.809Z,
+      work_flow_step_transiton_type_mst_id: 7,
+      mob: '8977689765',
+      transition_type: 'RE_APPLY',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 2500,
+      paid_amount: 150000,
+      isAction: false
+    },
+    {
+      id: 427,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Rohit Biswal',
+      email: 'steel3@gmail.com',
+      ce_name: 'Steel Three pvt ltd',
+      created_on: 2026-11-20T17:05:48.564Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8765654678',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 5,
+      status_name: 'COMPLETED',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 250,
+      paid_amount: 15000,
+      isAction: false
+    },
+    {
+      id: 426,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Ummesh Kumar',
+      email: 'heavencafe@gmail.com',
+      ce_name: 'Heaven Cafe',
+      created_on: 2026-11-20T11:26:45.266Z,
+      work_flow_step_transiton_type_mst_id: 1,
+      mob: '8767876678',
+      transition_type: 'APPROVE',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 3,
+      status_name: 'PENDING',
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 0,
+      paid_amount: 0,
+      isAction: false
+    }
+  ],
+  totalPages: 21,
+  totalElements: 62
+} at getAllApplication (..\controllers\formaction\FormActionController.js:177:9)

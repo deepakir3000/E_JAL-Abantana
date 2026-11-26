@@ -71,7 +71,7 @@ export class ProposalApprovalComponent implements OnInit {
         this.getNextStepData();
         this.roleID = localStorage.getItem('role_id');
         console.log('*************', this.roleID);
-        const CUR_ID = Number(this.roleID) === 4 ? 2 : (Number(this.roleID) === 5 ? 3 : (Number(this.roleID) === 6 ? 4 : (Number(this.roleID) === 7 ? 5 : Number(this.roleID) === 8 ? 6 : 0)));
+        const CUR_ID = Number(this.roleID) === 4 ? 2 : (Number(this.roleID) === 5 ? 3 : (Number(this.roleID) === 6 || Number(this.roleID) === 9 ? 4 : (Number(this.roleID) === 7 ? 5 : Number(this.roleID) === 8 ? 6 : 0)));
         this.showSelectedStepDtls(CUR_ID);
     }
     setApproverSts(event) {
@@ -111,7 +111,7 @@ export class ProposalApprovalComponent implements OnInit {
     }
     public getNextStepData() {
         console.log("step 1 hitted");
-        
+
         this.service.getNextStepActionDetails(this.applicationId).subscribe(successResponse => {
             if (successResponse !== null) {
                 this.nextStepData = successResponse['data'];
@@ -125,32 +125,47 @@ export class ProposalApprovalComponent implements OnInit {
                 console.log('NEXT STEP DATA------------------->', this.nextStepData['steps']);
                 console.log(this.tranFID, this.tranRID, this.tranAID);
                 if (this.tranAID.length !== 0) {
-                    if (this.tranAID[0].wf_step_to_id === '$CZ_ID' || this.tranAID[0].wf_step_to_id === '$EE_ID' || this.tranAID[0].wf_step_to_id === '$CE_ID') {
+                    if (this.tranAID[0].wf_step_to_id === '$CZ_ID' || this.tranAID[0].wf_step_to_id === '$EE_ID' || this.tranAID[0].wf_step_to_id === '$CE_ID' || this.tranAID[0].wf_step_to_id === '$CEGW_ID') {
                         console.log('Comming');
                         if (this.tranAID[0].wf_step_to_id === '$EE_ID') {
                             this.type = 'EE';
+                            this.isExicutiveEngineer = true;
+                            this.getEEDetails();
                             console.log(this.type, '**************');
                         } else if (this.tranAID[0].wf_step_to_id === '$CE_ID') {
                             this.type = 'CE';
+                            this.isExicutiveEngineer = true;
+                            this.getEEDetails();
+                            console.log(this.type, '**************');
+                        } else if (this.tranAID[0].wf_step_to_id === '$CEGW_ID') {
+                            this.type = 'CEGW';
+                            this.isExicutiveEngineer = false;
                             console.log(this.type, '**************');
                         }
-                        this.isExicutiveEngineer = true;
-                        this.getEEDetails();
                     } else {
                         this.isExicutiveEngineer = false;
                     }
                 } else if (this.tranFID.length !== 0) {
-                    if (this.tranFID[0].wf_step_to_id === '$CZ_ID' || this.tranFID[0].wf_step_to_id === '$EE_ID' || this.tranFID[0].wf_step_to_id === '$CE_ID') {
+                    if (this.tranFID[0].wf_step_to_id === '$CZ_ID' ||
+                        this.tranFID[0].wf_step_to_id === '$EE_ID' ||
+                        this.tranFID[0].wf_step_to_id === '$CE_ID' ||
+                        this.tranFID[0].wf_step_to_id === '$CEGW_ID') {
                         console.log('Comming2');
                         if (this.tranFID[0].wf_step_to_id === '$EE_ID') {
                             this.type = 'EE';
+                            this.isExicutiveEngineer = true;
+                            this.getEEDetails();
                             console.log(this.type, '**************');
                         } else if (this.tranFID[0].wf_step_to_id === '$CE_ID') {
                             this.type = 'CE';
+                            this.isExicutiveEngineer = true;
+                            this.getEEDetails();
+                            console.log(this.type, '**************');
+                        } else if (this.tranFID[0].wf_step_to_id === '$CEGW_ID') {
+                            this.type = 'CEGW';
+                            this.isExicutiveEngineer = false;
                             console.log(this.type, '**************');
                         }
-                        this.isExicutiveEngineer = true;
-                        this.getEEDetails();
                     } else {
                         this.isExicutiveEngineer = false;
                     }
@@ -200,7 +215,7 @@ export class ProposalApprovalComponent implements OnInit {
     // }
     public submitApplicationDetails() {
         const FORM_DATA = new FormData();
-        console.log(this.statusDt, this.nextStepData,'dksjlkfjsdlfjsfd');
+        console.log(this.statusDt, this.nextStepData, 'dksjlkfjsdlfjsfd');
         console.log(this.nextStepData.steps.trans.filter(ele => ele.id === Number(this.statusDt)), 'hsdgaksdadshd');
         // console.log(typeof this.nextStepData.steps.trans.filter(ele => ele.id === Number(this.statusDt))[0].wf_step_to_id);
         if (this.roleID === '4') {
@@ -230,12 +245,12 @@ export class ProposalApprovalComponent implements OnInit {
         FORM_DATA.append('trId', this.SUBMIT_DETAILS.trId);
         FORM_DATA.append('toId', this.SUBMIT_DETAILS.toId === 'null' ? null : this.SUBMIT_DETAILS.toId);
         FORM_DATA.append('remarks', this.SUBMIT_DETAILS.remarks);
-        const FILE = this.file !== null ?  this.file : null;
+        const FILE = this.file !== null ? this.file : null;
         if (this.file !== null) {
             FORM_DATA.append("allocation_order", FILE, FILE.fileName);
-          } else {
+        } else {
             FORM_DATA.append("allocation_order", FILE);
-          }
+        }
         FORM_DATA.append('wacDate', this.actionDate === '' ? null : this.commonService.transformDate(this.actionDate));
         console.log('DATA:----', this.SUBMIT_DETAILS, this.commonService.transformDate(this.actionDate));
         Swal.fire({

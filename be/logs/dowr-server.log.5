@@ -1,378 +1,410 @@
-[2026-10-06T17:38:18.150] [INFO] FormActionController.js - {
-  status: 'SUCCESS',
-  message: 'Form Submitted Successfully.....',
-  data: Application {
-    dataValues: {
-      id: 420,
-      app_type: 'DOWR',
-      name: 'sunNic',
-      email: 'sun@gmail.com',
-      mob: '8787787878',
-      ce_name: 'sun Nic',
-      purpose_id: 1,
-      application_type_id: 8,
-      allocation_type_id: 2,
-      others: undefined,
-      status_id: 4,
-      work_flow_step_transiton_type_mst_id: 6,
-      status_remarks: 'form submitted by citizen',
-      created_by: '65',
-      created_on: 2026-10-06T12:08:18.091Z,
-      updated_by: '65',
-      updated_on: 2026-10-06T12:08:18.091Z,
-      industries_id: null,
-      app_for: '',
-      cur_alocation_qt: '0',
-      cur_alocation_qt_cusec: 0,
-      paid_amount: '',
-      cur_aloc_order: null,
-      renewal_recom: null,
-      payment_doc: null,
-      type: 'NEW',
-      industrial_percent: '0',
-      bulk_percent: '0',
-      PurposeId: 1,
-      AllocationTypeId: 2,
-      WorkFlowStepTransitonTypeMstId: 6,
-      StatusId: 4
-    },
-    _previousDataValues: {
-      id: 420,
-      app_type: 'DOWR',
-      name: 'sunNic',
-      email: 'sun@gmail.com',
-      mob: '8787787878',
-      ce_name: 'sun Nic',
-      purpose_id: 1,
-      application_type_id: 8,
-      allocation_type_id: 2,
-      others: undefined,
-      status_id: 4,
-      work_flow_step_transiton_type_mst_id: 6,
-      status_remarks: 'form submitted by citizen',
-      created_by: '65',
-      created_on: 2026-10-06T12:08:18.091Z,
-      updated_by: '65',
-      updated_on: 2026-10-06T12:08:18.091Z,
-      industries_id: null,
-      app_for: '',
-      cur_alocation_qt: '0',
-      cur_alocation_qt_cusec: 0,
-      paid_amount: '',
-      cur_aloc_order: null,
-      renewal_recom: null,
-      payment_doc: null,
-      type: 'NEW',
-      industrial_percent: '0',
-      bulk_percent: '0',
-      app_code: undefined,
-      PurposeId: 1,
-      AllocationTypeId: 2,
-      ApplicationTypeMstId: undefined,
-      WorkFlowStepTransitonTypeMstId: 6,
-      StatusId: 4
-    },
-    _changed: {
-      id: false,
-      app_type: false,
-      name: false,
-      email: false,
-      mob: false,
-      ce_name: false,
-      purpose_id: false,
-      application_type_id: false,
-      allocation_type_id: false,
-      others: false,
-      status_id: false,
-      work_flow_step_transiton_type_mst_id: false,
-      status_remarks: false,
-      created_by: false,
-      created_on: false,
-      updated_by: false,
-      updated_on: false,
-      industries_id: false,
-      app_for: false,
-      cur_alocation_qt: false,
-      cur_alocation_qt_cusec: false,
-      paid_amount: false,
-      cur_aloc_order: false,
-      renewal_recom: false,
-      payment_doc: false,
-      type: false,
-      industrial_percent: false,
-      bulk_percent: false,
-      app_code: false,
-      PurposeId: false,
-      AllocationTypeId: false,
-      ApplicationTypeMstId: false,
-      WorkFlowStepTransitonTypeMstId: false,
-      StatusId: false
-    },
-    _modelOptions: {
-      timestamps: false,
-      validate: {},
-      freezeTableName: true,
-      underscored: true,
-      paranoid: false,
-      rejectOnEmpty: false,
-      whereCollection: [Object],
-      schema: null,
-      schemaDelimiter: '',
-      defaultScope: {},
-      scopes: {},
-      indexes: [],
-      name: [Object],
-      omitNull: false,
-      sequelize: [Sequelize],
-      tableName: 'application_details',
-      hooks: {}
-    },
-    _options: {
-      isNewRecord: true,
-      _schema: null,
-      _schemaDelimiter: '',
-      attributes: undefined,
-      include: undefined,
-      raw: undefined,
-      silent: undefined
-    },
-    isNewRecord: false,
-    null: 420
-  }
-} at formSubmit (..\controllers\formaction\FormActionController.js:100:9)
-[2026-10-06T17:38:22.179] [INFO] server.js - Tue Oct 06 2026 17:38:22 GMT+0530 (India Standard Time) : POST /dowr/api/setBankPaymentDetails at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:22.180] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:38:22.180] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1791288353,"exp":1791317153} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:38:22.187] [INFO] CommonController.js - Inside setBankPaymentDetails at Common controller {
-  IndustryName: 'sun Nic',
-  Industry_Code: null,
-  Contact: '8787787878',
-  Address: 'Odisha state centre',
-  Pin: 751001,
-  EmailID: 'sun@gmail.com',
-  District: 'KHORDHA',
-  PaymentTowards: '1',
-  Trs_Head_Proces: '0700-80-800-0097-02240-000',
-  Trs_Head_Secu: '8443-00-116-1677-91333-000',
-  Application_Typ: '',
-  Amount_Proces: 1000,
-  Amount_Secu: 78000,
-  applicationid: '420',
-  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM'
-} at setBankPaymentDetails (..\controllers\common\CommonController.js:92:9)
-[2026-10-06T17:38:22.188] [INFO] CommonServiceImpl.js - Inside common service create Bank payment Response at setBankPaymentDetails (..\services\common\CommonServiceImpl.js:1528:9)
-[2026-10-06T17:38:22.188] [INFO] CommonServiceImpl.js - Bank Payment Response Details ===>  {
-  IndustryName: 'sun Nic',
-  Industry_Code: null,
-  Contact: '8787787878',
-  Address: 'Odisha state centre',
-  Pin: 751001,
-  EmailID: 'sun@gmail.com',
-  District: 'KHORDHA',
-  PaymentTowards: '1',
-  Trs_Head_Proces: '0700-80-800-0097-02240-000',
-  Trs_Head_Secu: '8443-00-116-1677-91333-000',
-  Application_Typ: '',
-  Amount_Proces: 1000,
-  Amount_Secu: 78000,
-  applicationid: '420',
-  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM'
-} at setBankPaymentDetails (..\services\common\CommonServiceImpl.js:1535:11)
-[2026-10-06T17:38:22.200] [DEBUG] CommonServiceImpl.js - {
+[2026-11-25T16:05:09.819] [DEBUG] CommonServiceImpl.js - {
   status: 'SUCCESS',
   message: ' DATA INSERTED SUCCESSFULLY.',
   data: {}
-} at setBankPaymentDetails (..\services\common\CommonServiceImpl.js:1601:9)
-[2026-10-06T17:38:22.205] [INFO] server.js - Tue Oct 06 2026 17:38:22 GMT+0530 (India Standard Time) : POST /dowr/api/sendTreasuryData at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:22.205] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:38:22.206] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1791288353,"exp":1791317153} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:38:22.209] [INFO] CommonController.js - Inside sendTreasuryData at Common controller {
-  IndustryName: 'sun Nic',
+} at setBankPaymentDetails (..\services\common\CommonServiceImpl.js:1613:9)
+[2026-11-25T16:05:09.847] [INFO] server.js - Wed Nov 25 2026 16:05:09 GMT+0530 (India Standard Time) : POST /dowr/api/sendTreasuryData at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:09.849] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:09.851] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:09.891] [INFO] CommonController.js - Inside sendTreasuryData at Common controller {
+  IndustryName: 'Sagarkumar',
   Industry_Code: null,
-  Contact: '8787787878',
-  Address: 'Odisha state centre',
+  Contact: '8787878454',
+  Address: 'Bhubaneshwar , Odisha',
   Pin: 751001,
-  EmailID: 'sun@gmail.com',
-  District: 'KHORDHA',
-  PaymentTowards: '1',
+  EmailID: 'test@gmail.com',
+  District: 'ANUGUL',
+  PaymentTowards: 1,
   Trs_Head_Proces: '0700-80-800-0097-02240-000',
   Trs_Head_Secu: '8443-00-116-1677-91333-000',
   Application_Typ: '',
   Amount_Proces: 1000,
-  Amount_Secu: 78000,
-  applicationid: '420',
-  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM'
+  Amount_Secu: 0,
+  applicationid: '414',
+  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE'
 } at sendTreasuryData (..\controllers\common\CommonController.js:205:9)
-[2026-10-06T17:38:22.209] [INFO] CommonServiceImpl.js - Inside sendTreasuryData {
-  IndustryName: 'sun Nic',
+[2026-11-25T16:05:09.896] [INFO] CommonServiceImpl.js - Inside sendTreasuryData {
+  IndustryName: 'Sagarkumar',
   Industry_Code: null,
-  Contact: '8787787878',
-  Address: 'Odisha state centre',
+  Contact: '8787878454',
+  Address: 'Bhubaneshwar , Odisha',
   Pin: 751001,
-  EmailID: 'sun@gmail.com',
-  District: 'KHORDHA',
-  PaymentTowards: '1',
+  EmailID: 'test@gmail.com',
+  District: 'ANUGUL',
+  PaymentTowards: 1,
   Trs_Head_Proces: '0700-80-800-0097-02240-000',
   Trs_Head_Secu: '8443-00-116-1677-91333-000',
   Application_Typ: '',
   Amount_Proces: 1000,
-  Amount_Secu: 78000,
-  applicationid: '420',
-  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM'
-} at <anonymous> (..\services\common\CommonServiceImpl.js:1451:11)
-[2026-10-06T17:38:57.203] [INFO] server.js - Tue Oct 06 2026 17:38:57 GMT+0530 (India Standard Time) : POST /dowr/api/treasuryRecieve at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:57.792] [INFO] server.js - Tue Oct 06 2026 17:38:57 GMT+0530 (India Standard Time) : GET /dowr/api/GettransactionDetails/2026100110 at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:57.846] [INFO] server.js - Tue Oct 06 2026 17:38:57 GMT+0530 (India Standard Time) : GET /dowr/api/changeApplicationStatus/420?type=new at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:57.847] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:38:57.848] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1791288353,"exp":1791317153} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:38:57.893] [INFO] FormActionController.js - Inside changeApplicationStatus at changeApplicationStatus (..\controllers\formaction\FormActionController.js:124:9)
-[2026-10-06T17:38:57.894] [INFO] FormActionService.js - Inside FormActionService changeApplicationStatus at changeApplicationStatus (..\services\formaction\FormActionService.js:571:9)
-[2026-10-06T17:38:57.937] [INFO] CommonServiceImpl.js - Fetching application details from database... 420 at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2095:9)
-[2026-10-06T17:38:57.955] [INFO] CommonServiceImpl.js - result.............. {
-  recordsets: [ [ [Object] ] ],
-  recordset: [
-    {
-      applicationId: 420,
-      applicantName: 'sunNic',
-      applicantPhoneNo: '8787787878',
-      applicationStatus: 3,
-      applicationReceivedDate: 2026-10-06T12:08:57.925Z,
-      lastDate: 2026-10-06T12:08:57.925Z,
-      districtId: 19,
-      blockId: 181,
-      applicantAddress: 'Odisha state centre',
-      deliveryStatus: 'PENDING',
-      rejectedReason: null,
-      allocation_type_id: 2
-    }
-  ],
-  output: {},
-  rowsAffected: [ 1 ]
-} at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2159:13)
-[2026-10-06T17:38:57.956] [INFO] CommonServiceImpl.js - query of log appData------ [
-  {
-    applicationId: 420,
-    applicantName: 'sunNic',
-    applicantPhoneNo: '8787787878',
-    applicationStatus: 3,
-    applicationReceivedDate: 2026-10-06T12:08:57.925Z,
-    lastDate: 2026-10-06T12:08:57.925Z,
-    districtId: 19,
-    blockId: 181,
-    applicantAddress: 'Odisha state centre',
-    deliveryStatus: 'PENDING',
-    rejectedReason: null,
-    allocation_type_id: 2
-  }
-] at apiForOrtpsa (..\services\common\CommonServiceImpl.js:2161:9)
-[2026-10-06T17:38:57.957] [INFO] CommonServiceImpl.js - Fetching application send_to_ortpsa_insert... {
+  Amount_Secu: 0,
+  applicationid: '414',
+  jtoken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE'
+} at <anonymous> (..\services\common\CommonServiceImpl.js:1463:13)
+[2026-11-25T16:05:24.611] [INFO] server.js - Wed Nov 25 2026 16:05:24 GMT+0530 (India Standard Time) : GET /dowr/api/getApplicationDataById/414 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:24.620] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:24.626] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:24.635] [INFO] server.js - Wed Nov 25 2026 16:05:24 GMT+0530 (India Standard Time) : GET /dowr/api/getApplicationData?type=New at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:24.640] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:24.653] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:25.271] [INFO] FormActionController.js - Inside getApplicationDataById at getApplicationDataById (..\controllers\formaction\FormActionController.js:183:9)
+[2026-11-25T16:05:25.272] [INFO] FormActionService.js - Inside FormActionServiceImpl getApplicationDataById at getApplicationDataById (..\services\formaction\FormActionService.js:971:9)
+[2026-11-25T16:05:25.282] [INFO] FormActionController.js - Inside getApplicationData at getApplicationData (..\controllers\formaction\FormActionController.js:106:9)
+[2026-11-25T16:05:25.283] [INFO] FormActionService.js - Inside FormActionService getApplicationData at getApplicationData (..\services\formaction\FormActionService.js:482:9)
+[2026-11-25T16:05:25.372] [DEBUG] FormActionService.js - {
   status: 'SUCCESS',
-  message: '',
-  data: [
-    {
-      apiKey: 'c66b6e4906b6b68c',
-      applicationId: '000420',
-      departmentId: '15',
-      serviceId: '049',
-      districtId: '19',
-      blockId: 181,
-      grampanchayatId: 0,
-      tahasilId: 0,
-      officeId: '01638',
-      applicationStatus: 1,
-      applicantName: 'sunNic',
-      applicantAddress: 'Odisha state centre',
-      applicantPhoneNo: '8787787878',
-      applicationReceivedDate: '2026-10-06T12:08:57.925Z',
-      lastDate: '2026-10-06T12:08:57.925Z',
-      acknowledgementNumber: '190163815049000420',
-      deliveryStatus: 'PENDING',
-      deliveryDate: 'N/A',
-      rejectedReason: 'N/A',
-      applyMode: 'Online',
-      designatedOfficerName: 'Nagendra Nath Moharana',
-      designatedOfficerId: 2259,
-      description: 'N/A'
+  message: 'SUCCESS',
+  data: {
+    purpose: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    application: [ [Object], [Object], [Object] ],
+    industries: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    district: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    operational: [ [Object], [Object] ],
+    river: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 49 more items
+    ]
+  }
+} at getApplicationData (..\services\formaction\FormActionService.js:565:9)
+[2026-11-25T16:05:25.381] [INFO] FormActionController.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: {
+    purpose: [ [Object], [Object], [Object], [Object], [Object], [Object] ],
+    application: [ [Object], [Object], [Object] ],
+    industries: [
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      [Object], [Object]
+    ],
+    district: [
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object],
+      [Object], [Object], [Object]
+    ],
+    operational: [ [Object], [Object] ],
+    river: [
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object], [Object], [Object],
+      [Object], [Object], [Object], [Object],
+      ... 49 more items
+    ]
+  }
+} at getApplicationData (..\controllers\formaction\FormActionController.js:118:9)
+[2026-11-25T16:05:25.391] [DEBUG] FormActionService.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: {
+    applicationDetails: {
+      id: 414,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Sagarkumar',
+      email: 'test@gmail.com',
+      ce_name: 'Sagarkumar',
+      created_on: 2026-08-25T08:57:01.365Z,
+      work_flow_step_transiton_type_mst_id: 7,
+      mob: '8787878454',
+      transition_type: 'RE_APPLY',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 4,
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 12500,
+      paid_amount: 750000,
+      industrial_percent: 0,
+      bulk_percent: 0
+    },
+    industriesDetails: {
+      id: 514,
+      pan_no: 'U2FsdGVkX18wxKlxUc1LPfYw+W0q5TteGJXqYlQzwGc=',
+      others: 'null',
+      address: 'Bhubaneshwar , Odisha',
+      pin_code: 751001,
+      industry_id: 38,
+      industry_name: 'Air Port',
+      district_id: 1,
+      district_name: 'ANUGUL',
+      block_id: 15,
+      block_name: 'ANUGUL'
+    },
+    capacities: {
+      id: 398,
+      present_capacity_in_kld: 1000,
+      future_capacity_in_kld: 1000,
+      present_capacity_unit: 'MTPA',
+      future_capacity_unit: 'MTPA'
+    },
+    locationDetails: {
+      id: 397,
+      intake_loc: '1787648218465_25_watco kjr.pdf',
+      industry_loc: '1787648218474_25_watco kjr.pdf',
+      recomend_letter: '1787648220819_25_watco kjr.pdf',
+      mou_signed: '1787648220902_25_watco kjr.pdf',
+      intake_latitude: '79deg 58min 56sec N',
+      intake_longitude: '79deg 58min 56sec N',
+      industry_latitude: '79deg 58min 56sec N',
+      industry_longitude: '79deg 58min 56sec N'
+    },
+    waterReq: {
+      id: 404,
+      dam_id: 0,
+      river_id: 0,
+      op_quantity: 12500,
+      certificate: '1787648220909_25_watco kjr.pdf',
+      cal_of_quantity: '1787648220920_25_watco kjr.pdf',
+      operational_source_id: 1,
+      operational_source: 'GROUND',
+      op_quantity_sur: 0,
+      cgwa_certificate: '1787648221142_25_watco kjr.pdf',
+      joint_report: '1787648220960_25_watco kjr.pdf',
+      source_id: 0,
+      source_dam_id: 0,
+      source_river_id: 0
+    },
+    phaseReq: [],
+    watermgmt: {
+      id: 392,
+      layout_drawal: '1787648221149_25_watco kjr.pdf',
+      disposal_method: '1787648221160_25_watco kjr.pdf',
+      drawal_water: '1787648221172_25_watco kjr.pdf',
+      water_mgmt: '1787648221189_25_watco kjr.pdf',
+      allocation_order: null,
+      industry_details: '1787648221210_25_watco kjr.pdf'
     }
-  ]
-} at send_to_ortpsa_insert (..\services\common\CommonServiceImpl.js:2252:8)
-[2026-10-06T17:38:58.205] [INFO] server.js - Tue Oct 06 2026 17:38:58 GMT+0530 (India Standard Time) : GET /dowr/api/getUIResource at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:38:58.205] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:38:58.206] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1791288353,"exp":1791317153} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:38:58.221] [INFO] UacController.js - Inside getUIResource at getUIResource (..\controllers\uac\UacController.js:531:7)
-[2026-10-06T17:38:58.221] [INFO] UacServiceImpl.js - Inside UacServiceImpl getUIResource at getUIResource (..\services\uac\UacServiceImpl.js:581:7)
-[2026-10-06T17:38:58.235] [DEBUG] UacServiceImpl.js - {
+  }
+} at getApplicationDataById (..\services\formaction\FormActionService.js:1188:9)
+[2026-11-25T16:05:25.399] [INFO] FormActionController.js - {
+  status: 'SUCCESS',
+  message: 'SUCCESS',
+  data: {
+    applicationDetails: {
+      id: 414,
+      app_type: 'DOWR',
+      industries_id: null,
+      app_for: '',
+      name: 'Sagarkumar',
+      email: 'test@gmail.com',
+      ce_name: 'Sagarkumar',
+      created_on: 2026-08-25T08:57:01.365Z,
+      work_flow_step_transiton_type_mst_id: 7,
+      mob: '8787878454',
+      transition_type: 'RE_APPLY',
+      purpose_id: 1,
+      purpose_name: 'DRINKING',
+      allocation_type_id: 2,
+      application_type: 'OPERATIONAL',
+      status_id: 4,
+      cur_aloc_order: null,
+      renewal_recom: null,
+      payment_doc: null,
+      cur_alocation_qt: 12500,
+      paid_amount: 750000,
+      industrial_percent: 0,
+      bulk_percent: 0
+    },
+    industriesDetails: {
+      id: 514,
+      pan_no: 'U2FsdGVkX18wxKlxUc1LPfYw+W0q5TteGJXqYlQzwGc=',
+      others: 'null',
+      address: 'Bhubaneshwar , Odisha',
+      pin_code: 751001,
+      industry_id: 38,
+      industry_name: 'Air Port',
+      district_id: 1,
+      district_name: 'ANUGUL',
+      block_id: 15,
+      block_name: 'ANUGUL'
+    },
+    capacities: {
+      id: 398,
+      present_capacity_in_kld: 1000,
+      future_capacity_in_kld: 1000,
+      present_capacity_unit: 'MTPA',
+      future_capacity_unit: 'MTPA'
+    },
+    locationDetails: {
+      id: 397,
+      intake_loc: '1787648218465_25_watco kjr.pdf',
+      industry_loc: '1787648218474_25_watco kjr.pdf',
+      recomend_letter: '1787648220819_25_watco kjr.pdf',
+      mou_signed: '1787648220902_25_watco kjr.pdf',
+      intake_latitude: '79deg 58min 56sec N',
+      intake_longitude: '79deg 58min 56sec N',
+      industry_latitude: '79deg 58min 56sec N',
+      industry_longitude: '79deg 58min 56sec N'
+    },
+    waterReq: {
+      id: 404,
+      dam_id: 0,
+      river_id: 0,
+      op_quantity: 12500,
+      certificate: '1787648220909_25_watco kjr.pdf',
+      cal_of_quantity: '1787648220920_25_watco kjr.pdf',
+      operational_source_id: 1,
+      operational_source: 'GROUND',
+      op_quantity_sur: 0,
+      cgwa_certificate: '1787648221142_25_watco kjr.pdf',
+      joint_report: '1787648220960_25_watco kjr.pdf',
+      source_id: 0,
+      source_dam_id: 0,
+      source_river_id: 0
+    },
+    phaseReq: [],
+    watermgmt: {
+      id: 392,
+      layout_drawal: '1787648221149_25_watco kjr.pdf',
+      disposal_method: '1787648221160_25_watco kjr.pdf',
+      drawal_water: '1787648221172_25_watco kjr.pdf',
+      water_mgmt: '1787648221189_25_watco kjr.pdf',
+      allocation_order: null,
+      industry_details: '1787648221210_25_watco kjr.pdf'
+    }
+  }
+} at getApplicationDataById (..\controllers\formaction\FormActionController.js:193:9)
+[2026-11-25T16:05:25.453] [INFO] server.js - Wed Nov 25 2026 16:05:25 GMT+0530 (India Standard Time) : GET /dowr/api/getAllBlocksByDistrict/1 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:25.454] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:25.456] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:25.463] [INFO] server.js - Wed Nov 25 2026 16:05:25 GMT+0530 (India Standard Time) : GET /dowr/api/getAllBlocksByDistrict/1 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:25.468] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:25.470] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:25.485] [INFO] server.js - Wed Nov 25 2026 16:05:25 GMT+0530 (India Standard Time) : GET /dowr/api/getAllDamsByRiver/0 at <anonymous> (..\server.js:101:9)
+[2026-11-25T16:05:25.488] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzk1NjAyODA1LCJleHAiOjE3OTU2MzE2MDV9.GmIsrGwnLTnsCECVQXKyqkVog-Jnycs061L2M618bEE at authenticate (..\middleware\authenticate.js:22:7)
+[2026-11-25T16:05:25.490] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1795602805,"exp":1795631605} at authenticate (..\middleware\authenticate.js:25:9)
+[2026-11-25T16:05:25.545] [INFO] mdmController.js - Inside getAllBlocksByDistrict at getAllBlocksByDistrict (..\controllers\mdm\mdmController.js:546:9)
+[2026-11-25T16:05:25.549] [INFO] mdmServiceImpl.js - Inside MdmServiceImpl getAllBlocksByDistrict at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1100:9)
+[2026-11-25T16:05:25.550] [INFO] mdmServiceImpl.js - Inside getAllBlocksByDistrict req ====>  1 at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1102:9)
+[2026-11-25T16:05:25.564] [INFO] mdmController.js - Inside getAllBlocksByDistrict at getAllBlocksByDistrict (..\controllers\mdm\mdmController.js:546:9)
+[2026-11-25T16:05:25.565] [INFO] mdmServiceImpl.js - Inside MdmServiceImpl getAllBlocksByDistrict at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1100:9)
+[2026-11-25T16:05:25.566] [INFO] mdmServiceImpl.js - Inside getAllBlocksByDistrict req ====>  1 at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1102:9)
+[2026-11-25T16:05:25.574] [INFO] mdmController.js - Inside getAllDamsByRiver at getAllDamsByRiver (..\controllers\mdm\mdmController.js:739:9)
+[2026-11-25T16:05:25.578] [INFO] mdmServiceImpl.js - Inside MdmServiceImpl getAllDamsByRiver at getAllDamsByRiver (..\services\mdm\mdmService.js:1695:9)
+[2026-11-25T16:05:25.580] [INFO] mdmServiceImpl.js - Inside getAllDamsByRiver req ====>  0 at getAllDamsByRiver (..\services\mdm\mdmService.js:1697:9)
+[2026-11-25T16:05:25.594] [INFO] mdmServiceImpl.js - FIND ALL DISTRICT RESULT =====>  [
+  { id: 15, block_name: 'ANUGUL' },
+  { id: 16, block_name: 'ATHMALLIK' },
+  { id: 17, block_name: 'BANARPAL' },
+  { id: 18, block_name: 'CHHENDIPADA' },
+  { id: 19, block_name: 'KANIHA' },
+  { id: 20, block_name: 'KISHORENAGAR' },
+  { id: 21, block_name: 'PALALAHADA' },
+  { id: 315, block_name: 'SUBHI' },
+  { id: 22, block_name: 'TALACHER' }
+] at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1117:13)
+[2026-11-25T16:05:25.598] [DEBUG] mdmController.js - INSIDE VALIDATE RESULT at validateResult (..\controllers\mdm\mdmController.js:179:9)
+[2026-11-25T16:05:25.599] [INFO] mdmController.js - {
   message: 'SUCCESS',
   data: [
-    {
-      id: '1',
-      resource_name: 'My View',
-      link_text: 'pages/admin/myView',
-      icon: null,
-      resource_description: 'For admin Dash Board',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    }
+    { id: 15, block_name: 'ANUGUL' },
+    { id: 16, block_name: 'ATHMALLIK' },
+    { id: 17, block_name: 'BANARPAL' },
+    { id: 18, block_name: 'CHHENDIPADA' },
+    { id: 19, block_name: 'KANIHA' },
+    { id: 20, block_name: 'KISHORENAGAR' },
+    { id: 21, block_name: 'PALALAHADA' },
+    { id: 315, block_name: 'SUBHI' },
+    { id: 22, block_name: 'TALACHER' }
   ]
-} at getUIResource (..\services\uac\UacServiceImpl.js:620:7)
-[2026-10-06T17:38:58.235] [INFO] UacController.js - {
+} at validateResult (..\controllers\mdm\mdmController.js:189:13)
+[2026-11-25T16:05:25.612] [INFO] mdmServiceImpl.js - FIND ALL DISTRICT RESULT =====>  [
+  { id: 15, block_name: 'ANUGUL' },
+  { id: 16, block_name: 'ATHMALLIK' },
+  { id: 17, block_name: 'BANARPAL' },
+  { id: 18, block_name: 'CHHENDIPADA' },
+  { id: 19, block_name: 'KANIHA' },
+  { id: 20, block_name: 'KISHORENAGAR' },
+  { id: 21, block_name: 'PALALAHADA' },
+  { id: 315, block_name: 'SUBHI' },
+  { id: 22, block_name: 'TALACHER' }
+] at getAllBlocksByDistrict (..\services\mdm\mdmService.js:1117:13)
+[2026-11-25T16:05:25.617] [DEBUG] mdmController.js - INSIDE VALIDATE RESULT at validateResult (..\controllers\mdm\mdmController.js:179:9)
+[2026-11-25T16:05:25.618] [INFO] mdmController.js - {
   message: 'SUCCESS',
   data: [
-    {
-      id: '1',
-      resource_name: 'My View',
-      link_text: 'pages/admin/myView',
-      icon: null,
-      resource_description: 'For admin Dash Board',
-      icon_type: null,
-      sub_menu: 0,
-      seq_order: 0,
-      has_sub_menu: false
-    }
+    { id: 15, block_name: 'ANUGUL' },
+    { id: 16, block_name: 'ATHMALLIK' },
+    { id: 17, block_name: 'BANARPAL' },
+    { id: 18, block_name: 'CHHENDIPADA' },
+    { id: 19, block_name: 'KANIHA' },
+    { id: 20, block_name: 'KISHORENAGAR' },
+    { id: 21, block_name: 'PALALAHADA' },
+    { id: 315, block_name: 'SUBHI' },
+    { id: 22, block_name: 'TALACHER' }
   ]
-} at getUIResource (..\controllers\uac\UacController.js:549:7)
-[2026-10-06T17:38:58.254] [DEBUG] FormActionService.js - { status: 'SUCCESS', message: 'SUCCESS', data: [ 1 ] } at changeApplicationStatus (..\services\formaction\FormActionService.js:710:9)
-[2026-10-06T17:38:58.255] [INFO] FormActionController.js - { status: 'SUCCESS', message: 'SUCCESS', data: [ 1 ] } at changeApplicationStatus (..\controllers\formaction\FormActionController.js:136:9)
-[2026-10-06T17:39:05.880] [INFO] server.js - Tue Oct 06 2026 17:39:05 GMT+0530 (India Standard Time) : GET /dowr/api/users/logout at <anonymous> (..\server.js:101:9)
-[2026-10-06T17:39:05.881] [DEBUG] authenticate.js - token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at authenticate (..\middleware\authenticate.js:22:7)
-[2026-10-06T17:39:05.881] [DEBUG] authenticate.js - decoded :{"user_id":"65","role_id":3,"access":"auth","iat":1791288353,"exp":1791317153} at authenticate (..\middleware\authenticate.js:25:9)
-[2026-10-06T17:39:05.888] [INFO] LoginController.js - Inside logout. at logout (..\controllers\login\LoginController.js:104:9)
-[2026-10-06T17:39:05.888] [DEBUG] LoginController.js - Logged in user id:  65 at logout (..\controllers\login\LoginController.js:105:9)
-[2026-10-06T17:39:05.888] [INFO] LoginServiceImpl.js - Inside logout at logout (..\services\login\LoginServiceImpl.js:117:7)
-[2026-10-06T17:39:05.888] [DEBUG] LoginServiceImpl.js - 65 : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjUiLCJyb2xlX2lkIjozLCJhY2Nlc3MiOiJhdXRoIiwiaWF0IjoxNzkxMjg4MzUzLCJleHAiOjE3OTEzMTcxNTN9.rtLds3y7oMlg3hPykEaXR3UU1ivXt7bXiuZyj81jpRM at logout (..\services\login\LoginServiceImpl.js:119:9)
-[2026-10-06T17:39:05.897] [DEBUG] LoginServiceImpl.js - 1 at logout (..\services\login\LoginServiceImpl.js:134:9)
-[2026-10-06T17:39:13.619] [DEBUG] FileUpload.js - created at checkDirectorySync (..\utils\fileupload.js:69:13)
-[2026-10-06T17:39:13.706] [DEBUG] LoginController.js - initializing login validators.. at validator (..\controllers\login\LoginController.js:14:21)
-[2026-10-06T17:39:13.707] [DEBUG] LoginController.js - initializing createUser validators.. at validator (..\controllers\login\LoginController.js:23:21)
-[2026-10-06T17:39:13.707] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
-[2026-10-06T17:39:13.707] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:38:21)
-[2026-10-06T17:39:13.708] [DEBUG] LoginController.js - initializing forgetPassword validators.. at validator (..\controllers\login\LoginController.js:46:21)
-[2026-10-06T17:39:13.715] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.715] [DEBUG] UacController.js - initializing createRole validators.. at validator (..\controllers\uac\UacController.js:52:11)
-[2026-10-06T17:39:13.716] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.716] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:61:11)
-[2026-10-06T17:39:13.716] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.716] [DEBUG] UacController.js - initializing createResource validators.. at validator (..\controllers\uac\UacController.js:91:11)
-[2026-10-06T17:39:13.717] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.717] [DEBUG] UacController.js - initializing editRole validators.. at validator (..\controllers\uac\UacController.js:102:11)
-[2026-10-06T17:39:13.717] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.718] [DEBUG] UacController.js - initializing createUser validators.. at validator (..\controllers\uac\UacController.js:29:11)
-[2026-10-06T17:39:13.718] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.718] [DEBUG] UacController.js - initializing editUser validators.. at validator (..\controllers\uac\UacController.js:72:11)
-[2026-10-06T17:39:13.718] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.718] [DEBUG] UacController.js - initializing resourceMapping validators.. at validator (..\controllers\uac\UacController.js:115:11)
-[2026-10-06T17:39:13.719] [DEBUG] UacController.js - inside validator.. at validator (..\controllers\uac\UacController.js:25:7)
-[2026-10-06T17:39:13.719] [DEBUG] UacController.js - initializing forgetPassword validators.. at validator (..\controllers\uac\UacController.js:122:11)
-[2026-10-06T17:39:13.730] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:39:13.730] [DEBUG] mdmController.js - initializing createState validators.. at validator (..\controllers\mdm\mdmController.js:20:17)
-[2026-10-06T17:39:13.731] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:39:13.731] [DEBUG] mdmController.js - initializing updateState validators.. at validator (..\controllers\mdm\mdmController.js:27:17)
-[2026-10-06T17:39:13.731] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:39:13.731] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:34:17)
-[2026-10-06T17:39:13.731] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:39:13.732] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:42:17)
-[2026-10-06T17:39:13.732] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
-[2026-10-06T17:39:13.732] [DEBUG] mdmController.js - initializing createDistrict validators.. at validator (..\controllers\mdm\mdmController.js:49:17)
-[2026-10-06T17:39:13.732] [DEBUG] mdmController.js - inside validator.. at validator (..\controllers\mdm\mdmController.js:16:9)
+} at validateResult (..\controllers\mdm\mdmController.js:189:13)

@@ -105,9 +105,9 @@ export class CommonService {
         return this.httpClient.get('https://waterallocation.odisha.gov.in/index.html#/payment-status', { observe: 'response' });
     }
 
-    public GettransactionDetails(data:any) {
-        console.log(data,'payment data');
-        // return this.httpClient.get('https://waterallocation.odisha.gov.in/dowr/api/GettransactionDetails/'+ data);
-         return this.httpClient.get('http://localhost:3001/dowr/api/GettransactionDetails/'+ data);
-      }
+    public GettransactionDetails(data: any) {
+        console.log(data, 'payment data');
+        return this.httpClient.get('https://waterallocation.odisha.gov.in/dowr/api/GettransactionDetails/' + data);
+        //  return this.httpClient.get('http://localhost:3001/dowr/api/GettransactionDetails/'+ data);
+    }
 }

@@ -2,7 +2,8 @@
     <div class="row head-lebel">
         <div class="col-12 px-0">
             <label style="font-size: 24px;">Status of Applications</label>
-            <button *ngIf="showMapBtn" class="btn btn-info pull-right" type="button" (click)="openBasinModal(basinQuant)">Basin Map</button>
+            <button *ngIf="showMapBtn" class="btn btn-info pull-right" type="button"
+                (click)="openBasinModal(basinQuant)">Basin Map</button>
         </div>
     </div>
     <div class="row card-containerX">
@@ -101,7 +102,8 @@
                                     <label class="info-lbl">Constructional</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-primary px-5 py-2">{{allDashBoardData.allCon}}</span>
+                                    <span
+                                        class="badge badge-pill badge-primary px-5 py-2">{{allDashBoardData.allCon}}</span>
                                 </div>
                             </div>
                             <div class="row info-label">
@@ -109,7 +111,8 @@
                                     <label class="info-lbl">Operational</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-success px-5 py-2">{{allDashBoardData.allOp}}</span>
+                                    <span
+                                        class="badge badge-pill badge-success px-5 py-2">{{allDashBoardData.allOp}}</span>
                                 </div>
                             </div>
                             <div class="row info-label">
@@ -117,7 +120,8 @@
                                     <label class="info-lbl">Both</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-warning px-5 py-2" style="color: white;">{{allDashBoardData.allBoth}}</span>
+                                    <span class="badge badge-pill badge-warning px-5 py-2"
+                                        style="color: white;">{{allDashBoardData.allBoth}}</span>
                                 </div>
                             </div>
                         </div>
@@ -134,7 +138,8 @@
                                     <label class="info-lbl">Drinking</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-primary px-5 py-2">{{allDashBoardData.purDrinking}}</span>
+                                    <span
+                                        class="badge badge-pill badge-primary px-5 py-2">{{allDashBoardData.purDrinking}}</span>
                                 </div>
                             </div>
                             <div class="row info-label">
@@ -142,7 +147,8 @@
                                     <label class="info-lbl">Commercial</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-success px-5 py-2">{{allDashBoardData.purComm}}</span>
+                                    <span
+                                        class="badge badge-pill badge-success px-5 py-2">{{allDashBoardData.purComm}}</span>
                                 </div>
                             </div>
                             <div class="row info-label">
@@ -150,7 +156,8 @@
                                     <label class="info-lbl">Industrial</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-dark px-5 py-2">{{allDashBoardData.purInd}}</span>
+                                    <span
+                                        class="badge badge-pill badge-dark px-5 py-2">{{allDashBoardData.purInd}}</span>
                                 </div>
                             </div>
                             <div class="row info-label">
@@ -158,7 +165,8 @@
                                     <label class="info-lbl">Others</label>
                                 </div>
                                 <div class="col-6">
-                                    <span class="badge badge-pill badge-warning px-5 py-2" style="color: white;">{{allDashBoardData.purOthers}}</span>
+                                    <span class="badge badge-pill badge-warning px-5 py-2"
+                                        style="color: white;">{{allDashBoardData.purOthers}}</span>
                                 </div>
                             </div>
                         </div>
@@ -298,6 +306,39 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-3 px-0">
+                    <div class="row curved-bdr-2">
+                        <div class="col-12">
+                            <label>Chief Engineer GW</label>
+                        </div>
+                    </div>
+                    <div class="row padng-row">
+                        <div class="col-6 bdr">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="data-lbl">Approved</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="data-lbl">{{allDashBoardData.cegwApp}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="data-lbl">Pending</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <label class="data-lbl">{{allDashBoardData.cegwPen}}</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -330,16 +371,18 @@
 
         <map name="image-map">
             <area target="_blank" alt="CHILIKA LAKE" title="CHILIKA LAKE"
-                coords="600,282,581,295,583,308,582,321,585,334,600,323,615,314,625,310,628,293" shape="poly" (click)="getBasinDeatilsMap(12)">
+                coords="600,282,581,295,583,308,582,321,585,334,600,323,615,314,625,310,628,293" shape="poly"
+                (click)="getBasinDeatilsMap(12)">
             <area target="_blank" alt="RUSIKULYA" title="RUSIKULYA"
                 coords="545,245,524,261,513,279,498,285,483,296,486,309,497,312,500,329,507,337,510,358,522,357,525,345,538,340,557,350,578,333,576,289,560,277"
                 shape="poly" (click)="getBasinDeatilsMap(8)">
-            <area target="_blank" alt="VANSADHARA" title="VANSADHARA" 
+            <area target="_blank" alt="VANSADHARA" title="VANSADHARA"
                 coords="461,298,478,308,487,315,497,327,497,335,507,362,506,373,506,382,509,390,506,389,498,393,487,395,479,396,470,392,459,381,453,373,448,374,438,362,438,357,439,349,420,328,413,313,421,302,446,303,450,295,451,296"
                 shape="poly" (click)="getBasinDeatilsMap(10)">
-            <area target="_blank" alt="BAHUDA" title="BAHUDA" 
-                coords="526,362,536,346,554,358,546,369,533,366,524,370,513,381,515,367" shape="poly" (click)="getBasinDeatilsMap(11)">
-            <area target="_blank" alt="NAGAVALI" title="NAGAVALI" 
+            <area target="_blank" alt="BAHUDA" title="BAHUDA"
+                coords="526,362,536,346,554,358,546,369,533,366,524,370,513,381,515,367" shape="poly"
+                (click)="getBasinDeatilsMap(11)">
+            <area target="_blank" alt="NAGAVALI" title="NAGAVALI"
                 coords="389,327,405,315,435,351,426,369,417,380,409,375,407,383,412,392,400,399,392,400,381,404,379,425,390,379,388,364,397,349"
                 shape="poly" (click)="getBasinDeatilsMap(7)">
             <area target="_blank" alt="INDRABATI" title="INDRABATI"
@@ -361,7 +404,8 @@
                 coords="717,57,732,61,739,70,748,88,753,102,780,130,777,134,770,138,729,133,720,136,707,144,709,122,713,104,710,92,703,78,710,65,711,60"
                 shape="poly" (click)="getBasinDeatilsMap(4)">
             <area target="_blank" alt="SUBARNAREKHA" title="SUBARNAREKHA"
-                coords="670,77,684,73,694,77,701,71,709,60,699,45,687,39,677,38,672,35,672,47,672,60" shape="poly" (click)="getBasinDeatilsMap(9)">
+                coords="670,77,684,73,694,77,701,71,709,60,699,45,687,39,677,38,672,35,672,47,672,60" shape="poly"
+                (click)="getBasinDeatilsMap(9)">
         </map>
     </div>
 </ng-template>

@@ -5,18 +5,18 @@ module.exports = (router) => {
     var commonApi = require('./CommonController.js');
 
     router.route('/mediaDownload/:imageCode').get(commonApi.fileDownload);
-    
+
     router.route('/landingDashboard').post(commonApi.landingDashboard);
 
-    router.route('/citizenDashboardData').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.'], 'citizenDashboardData', false), commonApi.getCitizenDashboard);
+    router.route('/citizenDashboardData').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.', 'CE_GROUNDWATER'], 'citizenDashboardData', false), commonApi.getCitizenDashboard);
 
-    router.route('/allDashboardDataBasedOnType').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.'], 'allDashboardDataBasedOnType', false), commonApi.allDashboardDataBasedOnType);
+    router.route('/allDashboardDataBasedOnType').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.', 'CE_GROUNDWATER'], 'allDashboardDataBasedOnType', false), commonApi.allDashboardDataBasedOnType);
 
     router.route('/postFeedbackData').post(authenticate, permit(['CITIZEN'], 'INSERT_FEEDBACK', true), commonApi.createFeedback);
 
-    router.route('/getFeedbackDetailsByName/:name').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.'], 'getFeedbackDetailsByName', false), commonApi.getFeedbackDetailsByName);
+    router.route('/getFeedbackDetailsByName/:name').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.', 'CE_GROUNDWATER'], 'getFeedbackDetailsByName', false), commonApi.getFeedbackDetailsByName);
 
-    router.route('/getPaymentDetailById/:appID').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.'], 'getPaymentDetailById', false), commonApi.getPaymentDetailById);
+    router.route('/getPaymentDetailById/:appID').get(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.', 'CE_GROUNDWATER'], 'getPaymentDetailById', false), commonApi.getPaymentDetailById);
 
     router.route('/setBankPaymentDetails').post(authenticate, commonApi.setBankPaymentDetails);
 
@@ -24,18 +24,18 @@ module.exports = (router) => {
 
     router.route('/sendTreasuryData').post(authenticate, commonApi.sendTreasuryData);
 
-    router.route('/treasuryRecieve').post( commonApi.treasuryRecieve);
+    router.route('/treasuryRecieve').post(commonApi.treasuryRecieve);
 
-    router.route('/getSCrollData').post( commonApi.GetSCrollData);
+    router.route('/getSCrollData').post(commonApi.GetSCrollData);
 
-    router.route('/getDistrictList').get( commonApi.getDistrict);
+    router.route('/getDistrictList').get(commonApi.getDistrict);
 
     router.route('/getTable').post(commonApi.getTabledata);
 
-    router.route('/GettransactionDetails/:data').get( commonApi.GettransactionDetails);
-    
+    router.route('/GettransactionDetails/:data').get(commonApi.GettransactionDetails);
+
     // router.route('/testPaymentDetails').post(authenticate, commonApi.testTreasuryData);
-    
+
     router.route('/createHolidayList').post(authenticate, permit(['ADDITIONAL_SECRETARY'], 'createHolidayList', false), commonApi.createHolidayList);
 
     router.route('/createHolidayName').post(authenticate, permit(['ADDITIONAL_SECRETARY'], 'createHolidayName', false), commonApi.createHolidayName);

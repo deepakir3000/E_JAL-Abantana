@@ -1362,6 +1362,8 @@ const nextStep = async (req) => {
                 let userId = null;
                 if (req.role.id === 6) {
                     userId = '$EE_ID';
+                } else if (req.role.id === 9) {
+                    userId = '$CEGW_ID';
                 } else if (req.role.id === 7) {
                     userId = '$CE_ID';
                 } else {
@@ -1466,7 +1468,7 @@ const nextStep = async (req) => {
 
 //actionTaken
 const actionTaken = async (req) => {
-    console.log(req.body,'000000')
+    console.log(req.body, '000000')
     LOG.info('Inside FormActionServiceImpl actionTaken');
     let appId = req.body.appId;
     console.log(appId, req.body, 'appId action taken ===============================================>>>>>>>>>>>>>>>>>>>>>>>>>>>')
@@ -1501,6 +1503,15 @@ const actionTaken = async (req) => {
             if (req.body.toId === '$CZ_ID') {
                 //console.log(req.body.toId,'if CZ_ID ==========================>>>>>>>>>>')
                 toId = application.created_by;
+            } else if (req.body.toId === '$CEGW_ID') {
+                let cegwUser = await User.findOne({
+                    attributes: ['id'],
+                    where: {
+                        role_id: 9
+                    },
+                    raw: true
+                });
+                toId = cegwUser ? cegwUser.id : null;
             } else {
                 toId = req.body.toId;
             }
@@ -1738,7 +1749,7 @@ const actionTaken = async (req) => {
                     //console.log('workflowsteptrans.transition_desc',workflowsteptrans.transition_desc);
                     // Update the workflow step status to 'COMPLETED' if the transition is 'COMPLETED'
                     const payload = await commonServices.apiForOrtpsa(appId);
-                    console.log(payload,"payload1");
+                    console.log(payload, "payload1");
                     await commonServices.send_to_ortpsa_update(payload);
                 }
             }

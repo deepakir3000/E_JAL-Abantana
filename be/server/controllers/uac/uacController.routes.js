@@ -19,5 +19,5 @@ module.exports = (router) => {
     router.route('/getParentResource').get(authenticate, permit(['SYSADMIN'], 'getParentResource', false), uacApi.getParentResource);
     router.route('/getUIResource').get(authenticate, uacApi.getUIResource);
     router.route('/getAllEE').get(authenticate, permit(['SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR'], 'getAllEE', false), uacApi.getAllEE);
-    router.route('/changePassword').post(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.'], 'PASSWORD_CHANGE', true), uacApi.validator('changePassword'), uacApi.changePassword);
+    router.route('/changePassword').post(authenticate, permit(['CITIZEN', 'SYSADMIN', 'PRINCIPAL_SECRETARY', 'ADDITIONAL_SECRETARY', 'DIRECTOR', 'EXECUTIVE_ENGINEER', 'CE_PLANNING', 'GOVT.', 'CE_GROUNDWATER'], 'PASSWORD_CHANGE', true), uacApi.validator('changePassword'), uacApi.changePassword);
 };

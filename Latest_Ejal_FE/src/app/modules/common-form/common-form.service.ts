@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClientService } from '@app/services/httpClient/http-client.service';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConstants } from '@app/app.constants';
 
 @Injectable({
@@ -22,18 +22,18 @@ export class CommonFormService {
     return this.httpClient.postFD(AppConstants.BASE_API_URL + 'api/formEdit', data);
   }
   public postPaymentData(data) {
-    console.log(data,'post payment data');
-    return this.httpClient.post('http://localhost:3001/dowr/api/setBankPaymentDetails',data);
+    console.log(data, 'post payment data');
+    // return this.httpClient.post('http://localhost:3001/dowr/api/setBankPaymentDetails',data);
 
-    // return this.httpClient.post('https://waterallocation.odisha.gov.in/dowr/api/setBankPaymentDetails',data);
+    return this.httpClient.post('https://waterallocation.odisha.gov.in/dowr/api/setBankPaymentDetails', data);
 
 
-  //  return this.http.post('https://industrialwaterod.nic.in/Est_Pay/JForm_Trs_Transaction', data, {responseType: 'text'});
+    //  return this.http.post('https://industrialwaterod.nic.in/Est_Pay/JForm_Trs_Transaction', data, {responseType: 'text'});
   }
   public sendPaymentResponseData(data) {
-    console.log(data,'payment data');
-    return this.httpClient.post(AppConstants.BASE_API_URL +'api/sendTreasuryData',data);
-  //  return this.http.post('https://industrialwaterod.nic.in/Est_Pay/JForm_Trs_Transaction', data, {responseType: 'text'});
+    console.log(data, 'payment data');
+    return this.httpClient.post(AppConstants.BASE_API_URL + 'api/sendTreasuryData', data);
+    //  return this.http.post('https://industrialwaterod.nic.in/Est_Pay/JForm_Trs_Transaction', data, {responseType: 'text'});
   }
   public updateFormStatus(id) {
     // console.log('inside service',data);
@@ -48,7 +48,7 @@ export class CommonFormService {
   public getBlockByDistId(id) {
     return this.httpClient.get(AppConstants.BASE_API_URL + 'api/getAllBlocksByDistrict/' + id);
   }
-  public getAllDamByRiverID(id){
+  public getAllDamByRiverID(id) {
     return this.httpClient.get(AppConstants.BASE_API_URL + 'api/getAllDamsByRiver/' + id);
   }
   public getApplicationViewdata(appId) {
@@ -63,8 +63,8 @@ export class CommonFormService {
   // public downloadFile(fileKey, appId){
   //   return AppConstants.BASE_API_URL+'api/mediaDownload/'+fileKey+'_'+appId;
   // }
-    public getacknowledgementDetails(appID) {
-    return this.httpClient.get(AppConstants.BASE_API_URL + 'api/getacknowledgementDetails/' + appID );
+  public getacknowledgementDetails(appID) {
+    return this.httpClient.get(AppConstants.BASE_API_URL + 'api/getacknowledgementDetails/' + appID);
   }
 
 }
